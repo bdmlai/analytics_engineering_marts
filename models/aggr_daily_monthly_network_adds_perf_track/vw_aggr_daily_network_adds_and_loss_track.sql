@@ -19,6 +19,7 @@ when payments between 4 and 6 then '4-6'
 when payments between 7 and 12 then '7-12'
 else '13+' end as payments_count,
 count(distinct order_id) as total_losses
-from (select * from(select *, max(payment_count) over (partition by order_id) as payments,row_number() over (partition by order_id order by as_on_date desc) as rk from fds_nplus.fact_daily_subscription_order_status) where rk=1)
+from (select * from(select *, max(payment_count) over (partition by order_id) as payments,
+row_number() over (partition by order_id order by as_on_date desc) as rk from {{ref('fact_daily_subscription_order_status')}}) where rk=1)
 where trunc(entitlement_expiry_dttm) >= '2019-09-01' and entitlement_expiry_dttm < as_on_date
 group by 1,2,3,4,5,6 order by 1,2,3,4,5,6

@@ -1,6 +1,10 @@
 
 
-with ap as ( select * from (select order_id, extract (month from org_billing_dttm) as dt_mon,
+with  __dbt__CTE__fact_daily_subscription_order_status as (
+
+
+select * from fds_nplus.fact_daily_subscription_order_status
+),ap as ( select * from (select order_id, extract (month from org_billing_dttm) as dt_mon,
 trunc(org_billing_dttm) as ori_bill_dt , trunc(scheduled_billing_dttm) as sch_bill_dt ,
 payment_status,active_status ,
 case when billing_country_cd is null then '4.NA' when billing_country_cd in ('united states', 'us' , 'usa' ) then '1.US'
@@ -18,7 +22,7 @@ case when payment_count between 0 and 1 then '0-1'
 max(case when revoked_dttm is null then 0 else 1 end ) as f_dt_ind ,
 max(case when coalesce(trunc(revoked_dttm)) is not null  then 1 else 0 end) as invol_loss_ind,
 max(case when trunc(scheduled_billing_dttm) > trunc(org_billing_dttm) then 1 else 0 end) as sf_ind
-from fds_nplus.fact_daily_subscription_order_status where trunc(initial_order_dttm) < trunc(org_billing_dttm)
+from __dbt__CTE__fact_daily_subscription_order_status where trunc(initial_order_dttm) < trunc(org_billing_dttm)
 group by 1,2,3,4,5,6,7,8,9,10,as_on_date)
 where rk = 1)
 select

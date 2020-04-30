@@ -1,6 +1,10 @@
 
 
-select trunc(entitlement_expiry_dttm) as date,
+with __dbt__CTE__fact_daily_subscription_order_status as (
+
+
+select * from fds_nplus.fact_daily_subscription_order_status
+)select trunc(entitlement_expiry_dttm) as date,
 case when billing_sku_country_cd is null then '4.NA' when billing_sku_country_cd in ('united states', 'us' , 'usa' ) then '1.US' 
 when billing_sku_country_cd in ('united kingdom', 'ireland', 'isle of man', 'jersey', 'guernsey', 'je' , 'gg' , 'im' , 'ie') 
 then '2.UK/IRE' else '3.ROW' end as country,
@@ -14,6 +18,7 @@ when payments between 4 and 6 then '4-6'
 when payments between 7 and 12 then '7-12'
 else '13+' end as payments_count,
 count(distinct order_id) as total_losses
-from (select * from(select *, max(payment_count) over (partition by order_id) as payments,row_number() over (partition by order_id order by as_on_date desc) as rk from fds_nplus.fact_daily_subscription_order_status) where rk=1)
+from (select * from(select *, max(payment_count) over (partition by order_id) as payments,
+row_number() over (partition by order_id order by as_on_date desc) as rk from __dbt__CTE__fact_daily_subscription_order_status) where rk=1)
 where trunc(entitlement_expiry_dttm) >= '2019-09-01' and entitlement_expiry_dttm < as_on_date
 group by 1,2,3,4,5,6 order by 1,2,3,4,5,6
