@@ -1,0 +1,11 @@
+name: dbt_projects
+version: 1.0
+profile: wwe_profile
+
+source-paths: ["models"]      # paths with source code to compile
+target-path: "target"         # path for compiled code
+test-paths: ["tests"]           # where to store test results
+#macro-paths: ["macros"]
+
+models:
+    dbt_projects:
