@@ -1495,3 +1495,173 @@ drop view if exists "entdwdb"."dwh_read_write"."vw_aggr_monthly_network_perf_ren
 Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 2020-04-30 14:26:10,855700 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f447a900160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f447a60b9b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f447a907160>]}
 2020-04-30 14:26:10,877181 (MainThread): Flushing usage events
+2020-05-06 09:10:23,434282 (MainThread): Running with dbt=0.15.0
+2020-05-06 09:10:23,595565 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.compile.CompileTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, parse_only=False, partial_parse=None, profile=None, profiles_dir='/home/ec2-user/.dbt', project_dir=None, record_timing_info=None, rpc_method='compile', single_threaded=False, strict=False, target='uat', test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='compile', write_json=True)
+2020-05-06 09:10:23,595918 (MainThread): Tracking: tracking
+2020-05-06 09:10:23,602531 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbaa3c10e80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbaa3c02ba8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fbaa3c02908>]}
+2020-05-06 09:10:23,739343 (MainThread): Partial parsing not enabled
+2020-05-06 09:10:23,741037 (MainThread): Parsing macros/core.sql
+2020-05-06 09:10:23,745737 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 09:10:23,776749 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 09:10:23,784526 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 09:10:23,804724 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 09:10:23,812522 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 09:10:23,814887 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 09:10:23,821767 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 09:10:23,827488 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 09:10:23,835765 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 09:10:23,843022 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 09:10:23,864559 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 09:10:23,866596 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 09:10:23,879324 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 09:10:23,888876 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 09:10:23,891094 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 09:10:23,892300 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 09:10:23,894576 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 09:10:23,897019 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 09:10:23,898396 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 09:10:23,899576 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 09:10:23,901923 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 09:10:23,903269 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 09:10:23,904982 (MainThread): Parsing macros/adapters.sql
+2020-05-06 09:10:23,917200 (MainThread): Parsing macros/relations.sql
+2020-05-06 09:10:23,918044 (MainThread): Parsing macros/catalog.sql
+2020-05-06 09:10:23,925794 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 09:10:23,927003 (MainThread): Parsing macros/adapters.sql
+2020-05-06 09:10:23,937871 (MainThread): Parsing macros/relations.sql
+2020-05-06 09:10:23,939624 (MainThread): Parsing macros/catalog.sql
+2020-05-06 09:10:23,941622 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 09:10:23,984148 (MainThread): Partial parsing not enabled
+2020-05-06 09:10:24,3840 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 09:10:24,4019 (MainThread): Opening a new connection, currently in state init
+2020-05-06 09:10:24,4115 (MainThread): Connecting to Redshift using 'database' credentials
+2020-05-06 09:10:24,105872 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 09:10:24,106045 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 09:10:24,115518 (MainThread): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 09:10:24,115691 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 09:10:24,184869 (MainThread): Found 3 models, 0 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 0 sources
+2020-05-06 09:10:24,187126 (MainThread): 
+2020-05-06 09:10:24,187328 (MainThread): 09:10:24 | Concurrency: 4 threads (target='uat')
+2020-05-06 09:10:24,187478 (MainThread): 09:10:24 | 
+2020-05-06 09:10:24,189648 (Thread-1): Began running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 09:10:24,190147 (Thread-1): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 09:10:24,190269 (Thread-1): Opening a new connection, currently in state init
+2020-05-06 09:10:24,190358 (Thread-1): Connecting to Redshift using 'database' credentials
+2020-05-06 09:10:24,212400 (Thread-1): Compiling model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 09:10:24,229837 (Thread-1): Writing injected SQL for node "model.dbt_projects.fact_daily_subscription_order_status"
+2020-05-06 09:10:24,230254 (Thread-1): finished collecting timing info
+2020-05-06 09:10:24,230936 (Thread-1): Finished running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 09:10:24,231524 (Thread-2): Began running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 09:10:24,231903 (Thread-2): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 09:10:24,232020 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 09:10:24,232120 (Thread-2): Connecting to Redshift using 'database' credentials
+2020-05-06 09:10:24,232435 (Thread-3): Began running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 09:10:24,232865 (Thread-3): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 09:10:24,232985 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 09:10:24,233073 (Thread-3): Connecting to Redshift using 'database' credentials
+2020-05-06 09:10:24,253355 (Thread-2): Compiling model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 09:10:24,258949 (Thread-3): Compiling model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 09:10:24,309329 (Thread-2): Writing injected SQL for node "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track"
+2020-05-06 09:10:24,334216 (Thread-3): Writing injected SQL for node "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track"
+2020-05-06 09:10:24,334644 (Thread-2): finished collecting timing info
+2020-05-06 09:10:24,335103 (Thread-2): finished collecting timing info
+2020-05-06 09:10:24,335763 (Thread-2): Finished running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 09:10:24,336123 (Thread-3): finished collecting timing info
+2020-05-06 09:10:24,336506 (Thread-3): finished collecting timing info
+2020-05-06 09:10:24,337074 (Thread-3): Finished running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 09:10:24,396140 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 09:10:24,396357 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 09:10:24,396619 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 09:10:24,396736 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 09:10:24,396949 (MainThread): Connection 'model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track' was left open.
+2020-05-06 09:10:24,397043 (MainThread): On model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track: Close
+2020-05-06 09:10:24,397220 (MainThread): Connection 'model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track' was left open.
+2020-05-06 09:10:24,397308 (MainThread): On model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track: Close
+2020-05-06 09:10:24,406030 (MainThread): 09:10:24 | Done.
+2020-05-06 09:10:24,406313 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fba9289b438>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fba9289b320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fba9289bf98>]}
+2020-05-06 09:10:24,425578 (MainThread): Flushing usage events
+2020-05-06 09:11:40,979718 (MainThread): Running with dbt=0.15.0
+2020-05-06 09:11:41,141364 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.compile.CompileTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, parse_only=False, partial_parse=None, profile=None, profiles_dir='/home/ec2-user/.dbt', project_dir=None, record_timing_info=None, rpc_method='compile', single_threaded=False, strict=False, target='uat', test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='compile', write_json=True)
+2020-05-06 09:11:41,141718 (MainThread): Tracking: tracking
+2020-05-06 09:11:41,148275 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff422d76cf8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff422d68ba8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff422d68908>]}
+2020-05-06 09:11:41,414359 (MainThread): Partial parsing not enabled
+2020-05-06 09:11:41,416042 (MainThread): Parsing macros/core.sql
+2020-05-06 09:11:41,420648 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 09:11:41,450964 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 09:11:41,458637 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 09:11:41,478558 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 09:11:41,486247 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 09:11:41,488552 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 09:11:41,495365 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 09:11:41,501040 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 09:11:41,509172 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 09:11:41,516263 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 09:11:41,537550 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 09:11:41,539517 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 09:11:41,552026 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 09:11:41,561504 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 09:11:41,563624 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 09:11:41,564764 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 09:11:41,567000 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 09:11:41,569400 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 09:11:41,570749 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 09:11:41,571897 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 09:11:41,574202 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 09:11:41,575530 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 09:11:41,577204 (MainThread): Parsing macros/adapters.sql
+2020-05-06 09:11:41,589321 (MainThread): Parsing macros/relations.sql
+2020-05-06 09:11:41,590171 (MainThread): Parsing macros/catalog.sql
+2020-05-06 09:11:41,597784 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 09:11:41,598924 (MainThread): Parsing macros/adapters.sql
+2020-05-06 09:11:41,609589 (MainThread): Parsing macros/relations.sql
+2020-05-06 09:11:41,611261 (MainThread): Parsing macros/catalog.sql
+2020-05-06 09:11:41,613218 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 09:11:41,654414 (MainThread): Partial parsing not enabled
+2020-05-06 09:11:41,673676 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 09:11:41,673853 (MainThread): Opening a new connection, currently in state init
+2020-05-06 09:11:41,673943 (MainThread): Connecting to Redshift using 'database' credentials
+2020-05-06 09:11:41,756174 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 09:11:41,756346 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 09:11:41,765153 (MainThread): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 09:11:41,765296 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 09:11:41,832655 (MainThread): Found 3 models, 0 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 0 sources
+2020-05-06 09:11:41,834848 (MainThread): 
+2020-05-06 09:11:41,835046 (MainThread): 09:11:41 | Concurrency: 4 threads (target='uat')
+2020-05-06 09:11:41,835181 (MainThread): 09:11:41 | 
+2020-05-06 09:11:41,837280 (Thread-1): Began running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 09:11:41,837785 (Thread-1): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 09:11:41,837904 (Thread-1): Opening a new connection, currently in state init
+2020-05-06 09:11:41,837994 (Thread-1): Connecting to Redshift using 'database' credentials
+2020-05-06 09:11:41,856352 (Thread-1): Compiling model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 09:11:41,873747 (Thread-1): Writing injected SQL for node "model.dbt_projects.fact_daily_subscription_order_status"
+2020-05-06 09:11:41,874219 (Thread-1): finished collecting timing info
+2020-05-06 09:11:41,874876 (Thread-1): Finished running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 09:11:41,875575 (Thread-2): Began running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 09:11:41,875816 (Thread-3): Began running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 09:11:41,876233 (Thread-2): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 09:11:41,876630 (Thread-3): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 09:11:41,876779 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 09:11:41,876930 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 09:11:41,877064 (Thread-2): Connecting to Redshift using 'database' credentials
+2020-05-06 09:11:41,877183 (Thread-3): Connecting to Redshift using 'database' credentials
+2020-05-06 09:11:41,897671 (Thread-3): Compiling model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 09:11:41,904044 (Thread-2): Compiling model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 09:11:41,959972 (Thread-2): Writing injected SQL for node "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track"
+2020-05-06 09:11:41,979798 (Thread-3): Writing injected SQL for node "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track"
+2020-05-06 09:11:41,980202 (Thread-2): finished collecting timing info
+2020-05-06 09:11:41,980649 (Thread-2): finished collecting timing info
+2020-05-06 09:11:41,981386 (Thread-2): Finished running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 09:11:41,981745 (Thread-3): finished collecting timing info
+2020-05-06 09:11:41,982134 (Thread-3): finished collecting timing info
+2020-05-06 09:11:41,982695 (Thread-3): Finished running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 09:11:42,41192 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 09:11:42,41403 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 09:11:42,41648 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 09:11:42,41765 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 09:11:42,41926 (MainThread): Connection 'model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track' was left open.
+2020-05-06 09:11:42,42015 (MainThread): On model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track: Close
+2020-05-06 09:11:42,42174 (MainThread): Connection 'model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track' was left open.
+2020-05-06 09:11:42,42259 (MainThread): On model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track: Close
+2020-05-06 09:11:42,50578 (MainThread): 09:11:42 | Done.
+2020-05-06 09:11:42,50851 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff422cf1710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff411a01320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff411a01f98>]}
+2020-05-06 09:11:42,73136 (MainThread): Flushing usage events
