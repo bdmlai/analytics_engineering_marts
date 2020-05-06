@@ -1665,3 +1665,1018 @@ Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 2020-05-06 09:11:42,50578 (MainThread): 09:11:42 | Done.
 2020-05-06 09:11:42,50851 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff422cf1710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff411a01320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff411a01f98>]}
 2020-05-06 09:11:42,73136 (MainThread): Flushing usage events
+2020-05-06 10:33:13,283808 (MainThread): Running with dbt=0.15.0
+2020-05-06 10:33:13,446236 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.compile.CompileTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, parse_only=False, partial_parse=None, profile=None, profiles_dir='/home/ec2-user/.dbt', project_dir=None, record_timing_info=None, rpc_method='compile', single_threaded=False, strict=False, target='uat', test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='compile', write_json=True)
+2020-05-06 10:33:13,446584 (MainThread): Tracking: tracking
+2020-05-06 10:33:13,453132 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4d19938cc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4d1992ab70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4d1992aa90>]}
+2020-05-06 10:33:13,556463 (MainThread): Partial parsing not enabled
+2020-05-06 10:33:13,558153 (MainThread): Parsing macros/core.sql
+2020-05-06 10:33:13,562702 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 10:33:13,593115 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 10:33:13,600708 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 10:33:13,620373 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 10:33:13,627833 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 10:33:13,630052 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 10:33:13,636851 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 10:33:13,642486 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 10:33:13,650616 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 10:33:13,657643 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 10:33:13,678843 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 10:33:13,680774 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 10:33:13,693179 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 10:33:13,702361 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 10:33:13,704360 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 10:33:13,705519 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 10:33:13,707736 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 10:33:13,710117 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 10:33:13,711452 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 10:33:13,712604 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 10:33:13,714882 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 10:33:13,716208 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 10:33:13,717874 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:33:13,729866 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:33:13,730654 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:33:13,738292 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:33:13,739465 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:33:13,750114 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:33:13,751748 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:33:13,753700 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:33:13,794514 (MainThread): Partial parsing not enabled
+2020-05-06 10:33:13,814206 (MainThread): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:33:13,814385 (MainThread): Opening a new connection, currently in state init
+2020-05-06 10:33:13,814475 (MainThread): Connecting to Redshift using 'database' credentials
+2020-05-06 10:33:13,892751 (MainThread): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:33:13,892954 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:33:13,899860 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:33:13,899973 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:33:13,906791 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:33:13,906903 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:33:13,914029 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:33:13,914143 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:33:13,920986 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:33:13,921113 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:33:13,931764 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_summary_dbt".
+2020-05-06 10:33:13,931885 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:33:13,944003 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_wwe".
+2020-05-06 10:33:13,944139 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_summary_dbt).
+2020-05-06 10:33:13,956723 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:33:13,956875 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_wwe).
+2020-05-06 10:33:13,967499 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:33:13,967642 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_demograph_by_gender_age_group).
+2020-05-06 10:33:13,979325 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:33:13,979437 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_engagement_measures).
+2020-05-06 10:33:13,989597 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:33:13,989728 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_revenue_views_uploader_thirdparty).
+2020-05-06 10:33:13,998558 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:33:13,998674 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:33:14,10536 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_ugc".
+2020-05-06 10:33:14,10654 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_revenue_views_uploader_self).
+2020-05-06 10:33:14,22265 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:33:14,22392 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_ugc).
+2020-05-06 10:33:14,31088 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:33:14,31203 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_demograph_by_gender_age_group).
+2020-05-06 10:33:14,40456 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:33:14,40606 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 10:33:14,50331 (MainThread): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:33:14,50457 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 10:33:14,182922 (MainThread): Found 18 models, 0 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 0 sources
+2020-05-06 10:33:14,193305 (MainThread): 
+2020-05-06 10:33:14,193556 (MainThread): 10:33:14 | Concurrency: 4 threads (target='uat')
+2020-05-06 10:33:14,193699 (MainThread): 10:33:14 | 
+2020-05-06 10:33:14,196269 (Thread-1): Began running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:33:14,196543 (Thread-4): Began running node model.dbt_projects.dim_region_country
+2020-05-06 10:33:14,196741 (Thread-2): Began running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:33:14,196952 (Thread-3): Began running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:33:14,197498 (Thread-1): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:33:14,197916 (Thread-4): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:33:14,198324 (Thread-2): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:33:14,198700 (Thread-3): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:33:14,198886 (Thread-1): Opening a new connection, currently in state init
+2020-05-06 10:33:14,199046 (Thread-4): Opening a new connection, currently in state init
+2020-05-06 10:33:14,199196 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 10:33:14,199340 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 10:33:14,199480 (Thread-1): Connecting to Redshift using 'database' credentials
+2020-05-06 10:33:14,199634 (Thread-4): Connecting to Redshift using 'database' credentials
+2020-05-06 10:33:14,199769 (Thread-2): Connecting to Redshift using 'database' credentials
+2020-05-06 10:33:14,199885 (Thread-3): Connecting to Redshift using 'database' credentials
+2020-05-06 10:33:14,222928 (Thread-4): Compiling model.dbt_projects.dim_region_country
+2020-05-06 10:33:14,228926 (Thread-2): Compiling model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:33:14,239410 (Thread-3): Compiling model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:33:14,252733 (Thread-3): Writing injected SQL for node "model.dbt_projects.rpt_yt_revenue_daily"
+2020-05-06 10:33:14,252934 (Thread-1): Compiling model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:33:14,254016 (Thread-4): Writing injected SQL for node "model.dbt_projects.dim_region_country"
+2020-05-06 10:33:14,260598 (Thread-2): Writing injected SQL for node "model.dbt_projects.rpt_yt_demographics_views_daily"
+2020-05-06 10:33:14,269594 (Thread-1): Writing injected SQL for node "model.dbt_projects.fact_daily_subscription_order_status"
+2020-05-06 10:33:14,270136 (Thread-4): finished collecting timing info
+2020-05-06 10:33:14,270531 (Thread-3): finished collecting timing info
+2020-05-06 10:33:14,271553 (Thread-4): Finished running node model.dbt_projects.dim_region_country
+2020-05-06 10:33:14,271985 (Thread-3): Finished running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:33:14,272236 (Thread-4): Began running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:33:14,272411 (Thread-2): finished collecting timing info
+2020-05-06 10:33:14,273065 (Thread-3): Began running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:33:14,273591 (Thread-4): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:33:14,274160 (Thread-2): Finished running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:33:14,274715 (Thread-3): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:33:14,274885 (Thread-1): finished collecting timing info
+2020-05-06 10:33:14,275268 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:33:14,275487 (Thread-2): Began running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:33:14,275663 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:33:14,276172 (Thread-1): Finished running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:33:14,276486 (Thread-4): Compiling model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:33:14,276866 (Thread-2): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:33:14,277028 (Thread-3): Compiling model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:33:14,277234 (Thread-1): Began running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:33:14,282596 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:33:14,285575 (Thread-4): Writing injected SQL for node "model.dbt_projects.rpt_yt_wwe_engagement_daily"
+2020-05-06 10:33:14,293777 (Thread-3): Writing injected SQL for node "model.dbt_projects.yt_amg_content_groups"
+2020-05-06 10:33:14,294198 (Thread-1): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:33:14,294379 (Thread-2): Compiling model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:33:14,294758 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.fact_daily_subscription_order_status).
+2020-05-06 10:33:14,294930 (Thread-3): finished collecting timing info
+2020-05-06 10:33:14,300634 (Thread-4): finished collecting timing info
+2020-05-06 10:33:14,301026 (Thread-1): Compiling model.dbt_projects.ugc_engage_measures
+2020-05-06 10:33:14,305539 (Thread-2): Writing injected SQL for node "model.dbt_projects.agg_yt_monetization_detail_dbt"
+2020-05-06 10:33:14,306044 (Thread-3): Finished running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:33:14,306479 (Thread-4): Finished running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:33:14,315009 (Thread-1): finished collecting timing info
+2020-05-06 10:33:14,315575 (Thread-3): Began running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:33:14,315765 (Thread-2): finished collecting timing info
+2020-05-06 10:33:14,316362 (Thread-4): Began running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:33:14,318620 (Thread-3): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:33:14,319376 (Thread-2): finished collecting timing info
+2020-05-06 10:33:14,320190 (Thread-4): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:33:14,320351 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:33:14,320761 (Thread-2): Finished running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:33:14,320934 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:33:14,321078 (Thread-3): Compiling model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:33:14,321462 (Thread-2): Began running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:33:14,317122 (Thread-1): Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+  Required var 'ugc_engage' not found in config:
+  Vars supplied to ugc_engage_measures = {}
+Traceback (most recent call last):
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/node_runners.py", line 218, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/node_runners.py", line 155, in compile_and_execute
+    ctx.node = self.compile(manifest)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/node_runners.py", line 322, in compile
+    return compile_node(self.adapter, self.config, self.node, manifest, {})
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/compilation.py", line 234, in compile_node
+    node = compiler.compile_node(node, manifest, extra_context)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/compilation.py", line 136, in compile_node
+    node)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/clients/jinja.py", line 371, in get_rendered
+    return render_template(template, ctx, node)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/clients/jinja.py", line 358, in render_template
+    return template.render(ctx)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 20, in top-level template code
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/sandbox.py", line 440, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/context/base.py", line 92, in __call__
+    return self.get_missing_var(var_name)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/context/base.py", line 72, in get_missing_var
+    raise_compiler_error(msg, self.model)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/exceptions.py", line 357, in raise_compiler_error
+    raise CompilationException(msg, node)
+dbt.exceptions.CompilationException: Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+  Required var 'ugc_engage' not found in config:
+  Vars supplied to ugc_engage_measures = {}
+2020-05-06 10:33:14,321951 (Thread-4): Compiling model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:33:14,332798 (Thread-2): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:33:14,338241 (Thread-1): Finished running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:33:14,360158 (Thread-3): Writing injected SQL for node "model.dbt_projects.ugc_revenue_views_uploader_thirdparty"
+2020-05-06 10:33:14,369512 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:33:14,385127 (Thread-1): Began running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:33:14,399331 (Thread-4): Writing injected SQL for node "model.dbt_projects.ugc_demograph_by_gender_age_group"
+2020-05-06 10:33:14,399650 (Thread-2): Compiling model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:33:14,400170 (Thread-1): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:33:14,405768 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:33:14,411199 (Thread-4): finished collecting timing info
+2020-05-06 10:33:14,411591 (Thread-1): Compiling model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:33:14,411794 (Thread-3): finished collecting timing info
+2020-05-06 10:33:14,427686 (Thread-4): Finished running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:33:14,431925 (Thread-2): Writing injected SQL for node "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track"
+2020-05-06 10:33:14,439519 (Thread-3): Finished running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:33:14,455083 (Thread-4): Began running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:33:14,484009 (Thread-1): Writing injected SQL for node "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track"
+2020-05-06 10:33:14,484369 (Thread-3): Began running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:33:14,485086 (Thread-4): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:33:14,485363 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 10:33:14,485526 (Thread-2): finished collecting timing info
+2020-05-06 10:33:14,486400 (Thread-1): finished collecting timing info
+2020-05-06 10:33:14,486762 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_demograph_by_gender_age_group).
+2020-05-06 10:33:14,486920 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 10:33:14,487132 (Thread-2): finished collecting timing info
+2020-05-06 10:33:14,487577 (Thread-1): finished collecting timing info
+2020-05-06 10:33:14,487970 (Thread-4): Compiling model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:33:14,493453 (MainThread): Connection 'model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track' was left open.
+2020-05-06 10:33:14,498790 (MainThread): On model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track: Close
+2020-05-06 10:33:14,509388 (MainThread): Connection 'model.dbt_projects.wwe_demograph_by_gender_age_group' was left open.
+2020-05-06 10:33:14,509530 (MainThread): On model.dbt_projects.wwe_demograph_by_gender_age_group: Close
+2020-05-06 10:33:14,515138 (MainThread): Connection 'model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track' was left open.
+2020-05-06 10:33:14,520460 (MainThread): On model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track: Close
+2020-05-06 10:33:14,531103 (MainThread): Connection 'model.dbt_projects.ugc_revenue_views_uploader_thirdparty' was left open.
+2020-05-06 10:33:14,531239 (MainThread): On model.dbt_projects.ugc_revenue_views_uploader_thirdparty: Close
+2020-05-06 10:33:14,536778 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4d08534ac8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4d085349e8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4d08559588>]}
+2020-05-06 10:33:14,536969 (Thread-3): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:33:14,550302 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 10:33:14,550473 (Thread-3): Connecting to Redshift using 'database' credentials
+2020-05-06 10:33:14,550847 (Thread-2): Finished running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:33:14,551125 (Thread-1): Finished running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:33:14,558049 (Thread-4): Writing injected SQL for node "model.dbt_projects.wwe_demograph_by_gender_age_group"
+2020-05-06 10:33:14,558279 (Thread-2): Began running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:33:14,559244 (Thread-2): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:33:14,559379 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 10:33:14,559491 (Thread-2): Connecting to Redshift using 'database' credentials
+2020-05-06 10:33:14,560098 (Thread-4): finished collecting timing info
+2020-05-06 10:33:14,560734 (Thread-4): Finished running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:33:14,571846 (Thread-3): Compiling model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:33:14,591815 (Thread-2): Compiling model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:33:14,640483 (Thread-3): Writing injected SQL for node "model.dbt_projects.wwe_revenue_views_uploader_self"
+2020-05-06 10:33:14,657795 (Thread-3): finished collecting timing info
+2020-05-06 10:33:14,663753 (Thread-3): Finished running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:33:14,669891 (Thread-2): Writing injected SQL for node "model.dbt_projects.wwe_engagement_measures"
+2020-05-06 10:33:14,670284 (MainThread): Flushing usage events
+2020-05-06 10:33:14,670839 (MainThread): Connection 'model.dbt_projects.wwe_revenue_views_uploader_self' was left open.
+2020-05-06 10:33:14,670984 (Thread-2): finished collecting timing info
+2020-05-06 10:33:14,671333 (MainThread): On model.dbt_projects.wwe_revenue_views_uploader_self: Close
+2020-05-06 10:33:14,671692 (MainThread): Connection 'model.dbt_projects.wwe_engagement_measures' was left open.
+2020-05-06 10:33:14,671790 (MainThread): On model.dbt_projects.wwe_engagement_measures: Close
+2020-05-06 10:33:14,672034 (MainThread): Encountered an error:
+2020-05-06 10:33:14,672445 (Thread-2): Finished running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:33:14,672754 (MainThread): Runtime Error
+  Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+    Required var 'ugc_engage' not found in config:
+    Vars supplied to ugc_engage_measures = {}
+2020-05-06 10:33:14,673469 (MainThread): Traceback (most recent call last):
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/main.py", line 80, in main
+    results, succeeded = handle_and_check(args)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/main.py", line 158, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/main.py", line 210, in run_from_args
+    results = task.run()
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 315, in run
+    result = self.execute_with_hooks(selected_uids)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 281, in execute_with_hooks
+    res = self.execute_nodes()
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 227, in execute_nodes
+    self.run_queue(pool)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 178, in run_queue
+    self._raise_set_error()
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 164, in _raise_set_error
+    raise dbt.exceptions.RuntimeException(self._raise_next_tick)
+dbt.exceptions.RuntimeException: Runtime Error
+  Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+    Required var 'ugc_engage' not found in config:
+    Vars supplied to ugc_engage_measures = {}
+
+2020-05-06 10:34:59,550887 (MainThread): Running with dbt=0.15.0
+2020-05-06 10:34:59,710008 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.compile.CompileTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, parse_only=False, partial_parse=None, profile=None, profiles_dir='/home/ec2-user/.dbt', project_dir=None, record_timing_info=None, rpc_method='compile', single_threaded=False, strict=False, target='uat', test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='compile', write_json=True)
+2020-05-06 10:34:59,710341 (MainThread): Tracking: tracking
+2020-05-06 10:34:59,716499 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f118cc03cc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f117eb214a8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f117eb4a588>]}
+2020-05-06 10:34:59,827211 (MainThread): Partial parsing not enabled
+2020-05-06 10:34:59,828854 (MainThread): Parsing macros/core.sql
+2020-05-06 10:34:59,833471 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 10:34:59,864143 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 10:34:59,871770 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 10:34:59,891778 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 10:34:59,899329 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 10:34:59,901558 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 10:34:59,908380 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 10:34:59,914085 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 10:34:59,922216 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 10:34:59,929426 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 10:34:59,950830 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 10:34:59,952757 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 10:34:59,965448 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 10:34:59,974774 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 10:34:59,976784 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 10:34:59,977962 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 10:34:59,980391 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 10:34:59,983064 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 10:34:59,984422 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 10:34:59,985607 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 10:34:59,987898 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 10:34:59,989250 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 10:34:59,990939 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:35:00,3311 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:35:00,4208 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:35:00,12101 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:35:00,13339 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:35:00,24443 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:35:00,26240 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:35:00,28255 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:35:00,70128 (MainThread): Partial parsing not enabled
+2020-05-06 10:35:00,89861 (MainThread): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:35:00,90026 (MainThread): Opening a new connection, currently in state init
+2020-05-06 10:35:00,90119 (MainThread): Connecting to Redshift using 'database' credentials
+2020-05-06 10:35:00,188563 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_ugc_engagement_daily".
+2020-05-06 10:35:00,188740 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:35:00,195615 (MainThread): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:35:00,195728 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_ugc_engagement_daily).
+2020-05-06 10:35:00,202503 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:35:00,202616 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:35:00,209601 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:35:00,209722 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:35:00,216469 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:35:00,216581 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:35:00,223380 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:35:00,223493 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:35:00,234111 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_summary_dbt".
+2020-05-06 10:35:00,234250 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:35:00,247247 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_wwe".
+2020-05-06 10:35:00,247367 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_summary_dbt).
+2020-05-06 10:35:00,259331 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:35:00,259489 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_wwe).
+2020-05-06 10:35:00,270019 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:35:00,270135 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_demograph_by_gender_age_group).
+2020-05-06 10:35:00,281754 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:35:00,281868 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_engagement_measures).
+2020-05-06 10:35:00,292031 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:35:00,292151 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_revenue_views_uploader_thirdparty).
+2020-05-06 10:35:00,301144 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:35:00,301263 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:35:00,313356 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_ugc".
+2020-05-06 10:35:00,313487 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_revenue_views_uploader_self).
+2020-05-06 10:35:00,325246 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:35:00,325371 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_ugc).
+2020-05-06 10:35:00,334362 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:35:00,334531 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_demograph_by_gender_age_group).
+2020-05-06 10:35:00,344470 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:35:00,344584 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 10:35:00,353163 (MainThread): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:35:00,353280 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 10:35:00,491293 (MainThread): Found 19 models, 0 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 0 sources
+2020-05-06 10:35:00,502134 (MainThread): 
+2020-05-06 10:35:00,502347 (MainThread): 10:35:00 | Concurrency: 4 threads (target='uat')
+2020-05-06 10:35:00,502494 (MainThread): 10:35:00 | 
+2020-05-06 10:35:00,505104 (Thread-1): Began running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:35:00,505368 (Thread-4): Began running node model.dbt_projects.dim_region_country
+2020-05-06 10:35:00,505566 (Thread-3): Began running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:35:00,505747 (Thread-2): Began running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:35:00,506232 (Thread-1): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:35:00,506646 (Thread-4): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:35:00,507031 (Thread-3): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:35:00,507401 (Thread-2): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:35:00,507558 (Thread-1): Opening a new connection, currently in state init
+2020-05-06 10:35:00,507692 (Thread-4): Opening a new connection, currently in state init
+2020-05-06 10:35:00,507820 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 10:35:00,507941 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 10:35:00,508065 (Thread-1): Connecting to Redshift using 'database' credentials
+2020-05-06 10:35:00,508184 (Thread-4): Connecting to Redshift using 'database' credentials
+2020-05-06 10:35:00,508302 (Thread-3): Connecting to Redshift using 'database' credentials
+2020-05-06 10:35:00,508416 (Thread-2): Connecting to Redshift using 'database' credentials
+2020-05-06 10:35:00,530098 (Thread-2): Compiling model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:35:00,536428 (Thread-1): Compiling model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:35:00,541755 (Thread-4): Compiling model.dbt_projects.dim_region_country
+2020-05-06 10:35:00,547062 (Thread-3): Compiling model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:35:00,568069 (Thread-4): Writing injected SQL for node "model.dbt_projects.dim_region_country"
+2020-05-06 10:35:00,572054 (Thread-2): Writing injected SQL for node "model.dbt_projects.rpt_yt_revenue_daily"
+2020-05-06 10:35:00,573713 (Thread-1): Writing injected SQL for node "model.dbt_projects.fact_daily_subscription_order_status"
+2020-05-06 10:35:00,577551 (Thread-3): Writing injected SQL for node "model.dbt_projects.rpt_yt_demographics_views_daily"
+2020-05-06 10:35:00,578290 (Thread-2): finished collecting timing info
+2020-05-06 10:35:00,579034 (Thread-2): Finished running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:35:00,579264 (Thread-2): Began running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:35:00,579633 (Thread-2): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:35:00,579862 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:35:00,580098 (Thread-1): finished collecting timing info
+2020-05-06 10:35:00,580460 (Thread-2): Compiling model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:35:00,580763 (Thread-4): finished collecting timing info
+2020-05-06 10:35:00,581453 (Thread-1): Finished running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:35:00,581638 (Thread-3): finished collecting timing info
+2020-05-06 10:35:00,587468 (Thread-4): Finished running node model.dbt_projects.dim_region_country
+2020-05-06 10:35:00,587730 (Thread-1): Began running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:35:00,590740 (Thread-2): Writing injected SQL for node "model.dbt_projects.rpt_yt_wwe_engagement_daily"
+2020-05-06 10:35:00,591297 (Thread-3): Finished running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:35:00,591725 (Thread-4): Began running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:35:00,592328 (Thread-1): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:35:00,592780 (Thread-3): Began running node model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:35:00,593535 (Thread-4): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:35:00,593708 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.fact_daily_subscription_order_status).
+2020-05-06 10:35:00,593852 (Thread-2): finished collecting timing info
+2020-05-06 10:35:00,594422 (Thread-3): Acquiring new redshift connection "model.dbt_projects.rpt_yt_ugc_engagement_daily".
+2020-05-06 10:35:00,594581 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:35:00,594733 (Thread-1): Compiling model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:35:00,595139 (Thread-2): Finished running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:35:00,595305 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:35:00,595503 (Thread-4): Compiling model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:35:00,603683 (Thread-1): Writing injected SQL for node "model.dbt_projects.yt_amg_content_groups"
+2020-05-06 10:35:00,603919 (Thread-2): Began running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:35:00,604265 (Thread-3): Compiling model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:35:00,614127 (Thread-4): Writing injected SQL for node "model.dbt_projects.agg_yt_monetization_detail_dbt"
+2020-05-06 10:35:00,614737 (Thread-2): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:35:00,623093 (Thread-3): Writing injected SQL for node "model.dbt_projects.rpt_yt_ugc_engagement_daily"
+2020-05-06 10:35:00,623306 (Thread-1): finished collecting timing info
+2020-05-06 10:35:00,623675 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:35:00,624400 (Thread-1): Finished running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:35:00,624610 (Thread-3): finished collecting timing info
+2020-05-06 10:35:00,624987 (Thread-2): Compiling model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:35:00,625120 (Thread-4): finished collecting timing info
+2020-05-06 10:35:00,625571 (Thread-1): Began running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:35:00,626020 (Thread-3): Finished running node model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:35:00,637088 (Thread-4): finished collecting timing info
+2020-05-06 10:35:00,652810 (Thread-1): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:35:00,654867 (Thread-2): Writing injected SQL for node "model.dbt_projects.ugc_revenue_views_uploader_thirdparty"
+2020-05-06 10:35:00,655113 (Thread-3): Began running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:35:00,655729 (Thread-4): Finished running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:35:00,655900 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:35:00,656557 (Thread-3): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:35:00,656793 (Thread-4): Began running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:35:00,657117 (Thread-2): finished collecting timing info
+2020-05-06 10:35:00,657502 (Thread-1): Compiling model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:35:00,657646 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_ugc_engagement_daily).
+2020-05-06 10:35:00,658014 (Thread-4): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:35:00,658461 (Thread-2): Finished running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:35:00,663865 (Thread-3): Compiling model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:35:00,674097 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:35:00,688068 (Thread-1): Writing injected SQL for node "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track"
+2020-05-06 10:35:00,688375 (Thread-2): Began running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:35:00,694127 (Thread-4): Compiling model.dbt_projects.ugc_engage_measures
+2020-05-06 10:35:00,730714 (Thread-2): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:35:00,731013 (Thread-1): finished collecting timing info
+2020-05-06 10:35:00,739124 (Thread-3): Writing injected SQL for node "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track"
+2020-05-06 10:35:00,748262 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_revenue_views_uploader_thirdparty).
+2020-05-06 10:35:00,749267 (Thread-4): finished collecting timing info
+2020-05-06 10:35:00,749735 (Thread-1): finished collecting timing info
+2020-05-06 10:35:00,750258 (Thread-2): Compiling model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:35:00,751924 (Thread-1): Finished running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:35:00,757410 (Thread-1): Began running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:35:00,757608 (Thread-3): finished collecting timing info
+2020-05-06 10:35:00,789809 (Thread-1): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:35:00,799872 (Thread-3): finished collecting timing info
+2020-05-06 10:35:00,750765 (Thread-4): Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+  Required var 'ugc_engage' not found in config:
+  Vars supplied to ugc_engage_measures = {}
+Traceback (most recent call last):
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/node_runners.py", line 218, in safe_run
+    result = self.compile_and_execute(manifest, ctx)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/node_runners.py", line 155, in compile_and_execute
+    ctx.node = self.compile(manifest)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/node_runners.py", line 322, in compile
+    return compile_node(self.adapter, self.config, self.node, manifest, {})
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/compilation.py", line 234, in compile_node
+    node = compiler.compile_node(node, manifest, extra_context)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/compilation.py", line 136, in compile_node
+    node)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/clients/jinja.py", line 371, in get_rendered
+    return render_template(template, ctx, node)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/clients/jinja.py", line 358, in render_template
+    return template.render(ctx)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 20, in top-level template code
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/jinja2/sandbox.py", line 440, in call
+    return __context.call(__obj, *args, **kwargs)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/context/base.py", line 92, in __call__
+    return self.get_missing_var(var_name)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/context/base.py", line 72, in get_missing_var
+    raise_compiler_error(msg, self.model)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/exceptions.py", line 357, in raise_compiler_error
+    raise CompilationException(msg, node)
+dbt.exceptions.CompilationException: Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+  Required var 'ugc_engage' not found in config:
+  Vars supplied to ugc_engage_measures = {}
+2020-05-06 10:35:00,803178 (Thread-2): Writing injected SQL for node "model.dbt_projects.ugc_demograph_by_gender_age_group"
+2020-05-06 10:35:00,803320 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 10:35:00,803781 (Thread-3): Finished running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:35:00,804055 (Thread-4): Finished running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:35:00,804347 (Thread-1): Compiling model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:35:00,804644 (Thread-3): Began running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:35:00,804983 (Thread-2): finished collecting timing info
+2020-05-06 10:35:00,805395 (Thread-4): Began running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:35:00,816420 (Thread-3): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:35:00,822111 (Thread-2): Finished running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:35:00,837948 (Thread-4): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:35:00,853456 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 10:35:00,872250 (Thread-1): Writing injected SQL for node "model.dbt_projects.wwe_demograph_by_gender_age_group"
+2020-05-06 10:35:00,872625 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:35:00,872818 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 10:35:00,873031 (Thread-3): Compiling model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:35:00,873331 (Thread-4): Compiling model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:35:00,873628 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 10:35:00,878974 (Thread-1): finished collecting timing info
+2020-05-06 10:35:00,920865 (MainThread): Connection 'model.dbt_projects.wwe_demograph_by_gender_age_group' was left open.
+2020-05-06 10:35:00,952138 (MainThread): On model.dbt_projects.wwe_demograph_by_gender_age_group: Close
+2020-05-06 10:35:00,953346 (Thread-3): Writing injected SQL for node "model.dbt_projects.wwe_engagement_measures"
+2020-05-06 10:35:00,970964 (Thread-4): Writing injected SQL for node "model.dbt_projects.wwe_revenue_views_uploader_self"
+2020-05-06 10:35:00,971116 (MainThread): Connection 'model.dbt_projects.wwe_revenue_views_uploader_self' was left open.
+2020-05-06 10:35:00,971619 (MainThread): On model.dbt_projects.wwe_revenue_views_uploader_self: Close
+2020-05-06 10:35:00,971901 (Thread-3): finished collecting timing info
+2020-05-06 10:35:00,972317 (MainThread): Connection 'model.dbt_projects.wwe_engagement_measures' was left open.
+2020-05-06 10:35:00,972534 (Thread-4): finished collecting timing info
+2020-05-06 10:35:00,972957 (MainThread): On model.dbt_projects.wwe_engagement_measures: Close
+2020-05-06 10:35:00,973286 (MainThread): Connection 'model.dbt_projects.ugc_demograph_by_gender_age_group' was left open.
+2020-05-06 10:35:00,973395 (MainThread): On model.dbt_projects.ugc_demograph_by_gender_age_group: Close
+2020-05-06 10:35:00,973713 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f11796b7eb8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f117969e160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f117969e1d0>]}
+2020-05-06 10:35:00,976617 (Thread-1): Finished running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:35:00,976985 (Thread-3): Finished running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:35:00,977181 (Thread-4): Finished running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:35:00,993642 (MainThread): Flushing usage events
+2020-05-06 10:35:00,994103 (MainThread): Encountered an error:
+2020-05-06 10:35:00,994253 (MainThread): Runtime Error
+  Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+    Required var 'ugc_engage' not found in config:
+    Vars supplied to ugc_engage_measures = {}
+2020-05-06 10:35:00,994859 (MainThread): Traceback (most recent call last):
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/main.py", line 80, in main
+    results, succeeded = handle_and_check(args)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/main.py", line 158, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/main.py", line 210, in run_from_args
+    results = task.run()
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 315, in run
+    result = self.execute_with_hooks(selected_uids)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 281, in execute_with_hooks
+    res = self.execute_nodes()
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 227, in execute_nodes
+    self.run_queue(pool)
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 178, in run_queue
+    self._raise_set_error()
+  File "/home/ec2-user/workspace/venv/local/lib/python3.6/dist-packages/dbt/task/runnable.py", line 164, in _raise_set_error
+    raise dbt.exceptions.RuntimeException(self._raise_next_tick)
+dbt.exceptions.RuntimeException: Runtime Error
+  Compilation Error in model ugc_engage_measures (models/fds_yt/aggregate_intermediate/ugc_engage_measures.sql)
+    Required var 'ugc_engage' not found in config:
+    Vars supplied to ugc_engage_measures = {}
+
+2020-05-06 10:39:48,800548 (MainThread): Running with dbt=0.15.0
+2020-05-06 10:39:48,960956 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.compile.CompileTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, parse_only=False, partial_parse=None, profile=None, profiles_dir='/home/ec2-user/.dbt', project_dir=None, record_timing_info=None, rpc_method='compile', single_threaded=False, strict=False, target='uat', test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='compile', write_json=True)
+2020-05-06 10:39:48,961295 (MainThread): Tracking: tracking
+2020-05-06 10:39:48,967659 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f47e6b94e48>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f47e6b85ba8>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f47e6b85908>]}
+2020-05-06 10:39:49,70729 (MainThread): Partial parsing not enabled
+2020-05-06 10:39:49,72427 (MainThread): Parsing macros/core.sql
+2020-05-06 10:39:49,77093 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 10:39:49,107517 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 10:39:49,115157 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 10:39:49,135116 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 10:39:49,142751 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 10:39:49,145061 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 10:39:49,151878 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 10:39:49,157573 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 10:39:49,165680 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 10:39:49,172756 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 10:39:49,194257 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 10:39:49,196218 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 10:39:49,208754 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 10:39:49,218092 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 10:39:49,220177 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 10:39:49,221360 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 10:39:49,223609 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 10:39:49,226054 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 10:39:49,227420 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 10:39:49,228595 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 10:39:49,230895 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 10:39:49,232235 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 10:39:49,233955 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:39:49,246081 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:39:49,246916 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:39:49,254594 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:39:49,255768 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:39:49,266455 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:39:49,268109 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:39:49,270073 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:39:49,312877 (MainThread): Partial parsing not enabled
+2020-05-06 10:39:49,332675 (MainThread): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:39:49,332849 (MainThread): Opening a new connection, currently in state init
+2020-05-06 10:39:49,332945 (MainThread): Connecting to Redshift using 'database' credentials
+2020-05-06 10:39:49,391465 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_ugc_engagement_daily".
+2020-05-06 10:39:49,391635 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:39:49,398520 (MainThread): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:39:49,398642 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_ugc_engagement_daily).
+2020-05-06 10:39:49,405539 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:39:49,405656 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:39:49,412576 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:39:49,412694 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:39:49,419497 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:39:49,419614 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:39:49,426440 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:39:49,426559 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:39:49,437335 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_summary_dbt".
+2020-05-06 10:39:49,437480 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:39:49,450415 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_wwe".
+2020-05-06 10:39:49,450536 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_summary_dbt).
+2020-05-06 10:39:49,462172 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:39:49,462307 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_wwe).
+2020-05-06 10:39:49,472815 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:39:49,472948 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_demograph_by_gender_age_group).
+2020-05-06 10:39:49,484667 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:39:49,484802 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_engagement_measures).
+2020-05-06 10:39:49,495331 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:39:49,495474 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_revenue_views_uploader_thirdparty).
+2020-05-06 10:39:49,505557 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:39:49,505675 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:39:49,517688 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_ugc".
+2020-05-06 10:39:49,517851 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_revenue_views_uploader_self).
+2020-05-06 10:39:49,529827 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:39:49,529950 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_ugc).
+2020-05-06 10:39:49,538564 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:39:49,538678 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_demograph_by_gender_age_group).
+2020-05-06 10:39:49,548348 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:39:49,548469 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 10:39:49,557041 (MainThread): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:39:49,557159 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 10:39:49,694576 (MainThread): Found 19 models, 0 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 0 sources
+2020-05-06 10:39:49,705373 (MainThread): 
+2020-05-06 10:39:49,705573 (MainThread): 10:39:49 | Concurrency: 4 threads (target='uat')
+2020-05-06 10:39:49,705703 (MainThread): 10:39:49 | 
+2020-05-06 10:39:49,708252 (Thread-2): Began running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:39:49,708782 (Thread-2): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:39:49,708940 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 10:39:49,709053 (Thread-2): Connecting to Redshift using 'database' credentials
+2020-05-06 10:39:49,709367 (Thread-4): Began running node model.dbt_projects.dim_region_country
+2020-05-06 10:39:49,709602 (Thread-1): Began running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:39:49,709800 (Thread-3): Began running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:39:49,710228 (Thread-4): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:39:49,710638 (Thread-1): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:39:49,711030 (Thread-3): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:39:49,711202 (Thread-4): Opening a new connection, currently in state init
+2020-05-06 10:39:49,711348 (Thread-1): Opening a new connection, currently in state init
+2020-05-06 10:39:49,711481 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 10:39:49,711608 (Thread-4): Connecting to Redshift using 'database' credentials
+2020-05-06 10:39:49,711730 (Thread-1): Connecting to Redshift using 'database' credentials
+2020-05-06 10:39:49,711855 (Thread-3): Connecting to Redshift using 'database' credentials
+2020-05-06 10:39:49,732611 (Thread-2): Compiling model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:39:49,743474 (Thread-1): Compiling model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:39:49,748866 (Thread-4): Compiling model.dbt_projects.dim_region_country
+2020-05-06 10:39:49,749024 (Thread-3): Compiling model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:39:49,750777 (Thread-2): Writing injected SQL for node "model.dbt_projects.fact_daily_subscription_order_status"
+2020-05-06 10:39:49,764102 (Thread-1): Writing injected SQL for node "model.dbt_projects.rpt_yt_demographics_views_daily"
+2020-05-06 10:39:49,767336 (Thread-4): Writing injected SQL for node "model.dbt_projects.dim_region_country"
+2020-05-06 10:39:49,775304 (Thread-3): Writing injected SQL for node "model.dbt_projects.rpt_yt_revenue_daily"
+2020-05-06 10:39:49,776017 (Thread-1): finished collecting timing info
+2020-05-06 10:39:49,776514 (Thread-2): finished collecting timing info
+2020-05-06 10:39:49,777011 (Thread-4): finished collecting timing info
+2020-05-06 10:39:49,777719 (Thread-1): Finished running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:39:49,778183 (Thread-2): Finished running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:39:49,778662 (Thread-4): Finished running node model.dbt_projects.dim_region_country
+2020-05-06 10:39:49,778896 (Thread-1): Began running node model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:39:49,779046 (Thread-3): finished collecting timing info
+2020-05-06 10:39:49,779465 (Thread-2): Began running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:39:49,779864 (Thread-4): Began running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:39:49,780504 (Thread-1): Acquiring new redshift connection "model.dbt_projects.rpt_yt_ugc_engagement_daily".
+2020-05-06 10:39:49,780930 (Thread-3): Finished running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:39:49,781406 (Thread-2): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:39:49,781806 (Thread-4): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:39:49,781965 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:39:49,782176 (Thread-3): Began running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:39:49,782451 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.fact_daily_subscription_order_status).
+2020-05-06 10:39:49,782693 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:39:49,782928 (Thread-1): Compiling model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:39:49,783296 (Thread-3): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:39:49,783490 (Thread-2): Compiling model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:39:49,783659 (Thread-4): Compiling model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:39:49,791946 (Thread-1): Writing injected SQL for node "model.dbt_projects.rpt_yt_ugc_engagement_daily"
+2020-05-06 10:39:49,792085 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:39:49,800060 (Thread-2): Writing injected SQL for node "model.dbt_projects.rpt_yt_wwe_engagement_daily"
+2020-05-06 10:39:49,807877 (Thread-4): Writing injected SQL for node "model.dbt_projects.yt_amg_content_groups"
+2020-05-06 10:39:49,808205 (Thread-3): Compiling model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:39:49,808684 (Thread-1): finished collecting timing info
+2020-05-06 10:39:49,809301 (Thread-2): finished collecting timing info
+2020-05-06 10:39:49,819474 (Thread-3): Writing injected SQL for node "model.dbt_projects.agg_yt_monetization_detail_dbt"
+2020-05-06 10:39:49,819672 (Thread-4): finished collecting timing info
+2020-05-06 10:39:49,820381 (Thread-1): Finished running node model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:39:49,820862 (Thread-2): Finished running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:39:49,821459 (Thread-4): Finished running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:39:49,821748 (Thread-1): Began running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:39:49,821909 (Thread-3): finished collecting timing info
+2020-05-06 10:39:49,822626 (Thread-2): Began running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:39:49,822993 (Thread-4): Began running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:39:49,823383 (Thread-1): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:39:49,823588 (Thread-3): finished collecting timing info
+2020-05-06 10:39:49,824267 (Thread-2): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:39:49,824641 (Thread-4): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:39:49,824809 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_ugc_engagement_daily).
+2020-05-06 10:39:49,825415 (Thread-3): Finished running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:39:49,825631 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:39:49,825788 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:39:49,825929 (Thread-1): Compiling model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:39:49,826110 (Thread-3): Began running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:39:49,826274 (Thread-2): Compiling model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:39:49,826477 (Thread-4): Compiling model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:39:49,837179 (Thread-3): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:39:49,878927 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:39:49,879123 (Thread-3): Compiling model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:39:49,942435 (Thread-3): Writing injected SQL for node "model.dbt_projects.ugc_revenue_views_uploader_thirdparty"
+2020-05-06 10:39:49,949290 (Thread-1): Writing injected SQL for node "model.dbt_projects.ugc_demograph_by_gender_age_group"
+2020-05-06 10:39:49,952627 (Thread-2): Writing injected SQL for node "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track"
+2020-05-06 10:39:49,968922 (Thread-1): finished collecting timing info
+2020-05-06 10:39:49,969752 (Thread-1): Finished running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:39:49,975220 (Thread-1): Began running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:39:49,975638 (Thread-1): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:39:49,980910 (Thread-2): finished collecting timing info
+2020-05-06 10:39:49,981469 (Thread-3): finished collecting timing info
+2020-05-06 10:39:49,981818 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_demograph_by_gender_age_group).
+2020-05-06 10:39:49,986179 (Thread-4): Writing injected SQL for node "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track"
+2020-05-06 10:39:49,986414 (Thread-2): finished collecting timing info
+2020-05-06 10:39:49,987046 (Thread-3): Finished running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:39:49,987218 (Thread-1): Compiling model.dbt_projects.ugc_engage_measures
+2020-05-06 10:39:49,987718 (Thread-2): Finished running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:39:49,987944 (Thread-3): Began running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:39:49,998843 (Thread-2): Began running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:39:50,4203 (Thread-4): finished collecting timing info
+2020-05-06 10:39:50,4990 (Thread-3): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:39:50,10570 (Thread-2): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:39:50,16234 (Thread-4): finished collecting timing info
+2020-05-06 10:39:50,16624 (Thread-1): Writing injected SQL for node "model.dbt_projects.ugc_engage_measures"
+2020-05-06 10:39:50,16806 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_revenue_views_uploader_thirdparty).
+2020-05-06 10:39:50,16981 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 10:39:50,17400 (Thread-4): Finished running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:39:50,17720 (Thread-3): Compiling model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:39:50,17855 (Thread-1): finished collecting timing info
+2020-05-06 10:39:50,18262 (Thread-2): Compiling model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:39:50,18482 (Thread-4): Began running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:39:50,34349 (Thread-1): Finished running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:39:50,81273 (Thread-4): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:39:50,110115 (Thread-3): Writing injected SQL for node "model.dbt_projects.wwe_demograph_by_gender_age_group"
+2020-05-06 10:39:50,121081 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 10:39:50,131574 (Thread-1): Began running node model.dbt_projects.monetize_summary_ugc
+2020-05-06 10:39:50,131962 (Thread-4): Compiling model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:39:50,132688 (Thread-2): Writing injected SQL for node "model.dbt_projects.wwe_engagement_measures"
+2020-05-06 10:39:50,133221 (Thread-1): Acquiring new redshift connection "model.dbt_projects.monetize_summary_ugc".
+2020-05-06 10:39:50,149069 (Thread-3): finished collecting timing info
+2020-05-06 10:39:50,149522 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:39:50,154987 (Thread-2): finished collecting timing info
+2020-05-06 10:39:50,165623 (Thread-3): Finished running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:39:50,181183 (Thread-1): Compiling model.dbt_projects.monetize_summary_ugc
+2020-05-06 10:39:50,183376 (Thread-4): Writing injected SQL for node "model.dbt_projects.wwe_revenue_views_uploader_self"
+2020-05-06 10:39:50,183883 (Thread-2): Finished running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:39:50,215643 (Thread-4): finished collecting timing info
+2020-05-06 10:39:50,216383 (Thread-4): Finished running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:39:50,224073 (Thread-1): Writing injected SQL for node "model.dbt_projects.monetize_summary_ugc"
+2020-05-06 10:39:50,224508 (Thread-3): Began running node model.dbt_projects.monetize_summary_wwe
+2020-05-06 10:39:50,224943 (Thread-3): Acquiring new redshift connection "model.dbt_projects.monetize_summary_wwe".
+2020-05-06 10:39:50,225167 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_demograph_by_gender_age_group).
+2020-05-06 10:39:50,225302 (Thread-1): finished collecting timing info
+2020-05-06 10:39:50,225654 (Thread-3): Compiling model.dbt_projects.monetize_summary_wwe
+2020-05-06 10:39:50,226052 (Thread-1): Finished running node model.dbt_projects.monetize_summary_ugc
+2020-05-06 10:39:50,270168 (Thread-3): Writing injected SQL for node "model.dbt_projects.monetize_summary_wwe"
+2020-05-06 10:39:50,270543 (Thread-3): finished collecting timing info
+2020-05-06 10:39:50,271206 (Thread-3): Finished running node model.dbt_projects.monetize_summary_wwe
+2020-05-06 10:39:50,271787 (Thread-2): Began running node model.dbt_projects.agg_yt_monetization_summary_dbt
+2020-05-06 10:39:50,272159 (Thread-2): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_summary_dbt".
+2020-05-06 10:39:50,272268 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_engagement_measures).
+2020-05-06 10:39:50,272366 (Thread-2): Compiling model.dbt_projects.agg_yt_monetization_summary_dbt
+2020-05-06 10:39:50,305502 (Thread-2): Writing injected SQL for node "model.dbt_projects.agg_yt_monetization_summary_dbt"
+2020-05-06 10:39:50,305855 (Thread-2): finished collecting timing info
+2020-05-06 10:39:50,306237 (Thread-2): finished collecting timing info
+2020-05-06 10:39:50,306822 (Thread-2): Finished running node model.dbt_projects.agg_yt_monetization_summary_dbt
+2020-05-06 10:39:50,326092 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 10:39:50,326285 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 10:39:50,326523 (MainThread): Connection 'model.dbt_projects.agg_yt_monetization_summary_dbt' was left open.
+2020-05-06 10:39:50,326638 (MainThread): On model.dbt_projects.agg_yt_monetization_summary_dbt: Close
+2020-05-06 10:39:50,326813 (MainThread): Connection 'model.dbt_projects.wwe_revenue_views_uploader_self' was left open.
+2020-05-06 10:39:50,326903 (MainThread): On model.dbt_projects.wwe_revenue_views_uploader_self: Close
+2020-05-06 10:39:50,327061 (MainThread): Connection 'model.dbt_projects.monetize_summary_ugc' was left open.
+2020-05-06 10:39:50,327149 (MainThread): On model.dbt_projects.monetize_summary_ugc: Close
+2020-05-06 10:39:50,327303 (MainThread): Connection 'model.dbt_projects.monetize_summary_wwe' was left open.
+2020-05-06 10:39:50,327392 (MainThread): On model.dbt_projects.monetize_summary_wwe: Close
+2020-05-06 10:39:50,344612 (MainThread): 10:39:50 | Done.
+2020-05-06 10:39:50,344935 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f47e6b13780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f47d5816748>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f47d5800c18>]}
+2020-05-06 10:39:50,370205 (MainThread): Flushing usage events
+2020-05-06 10:40:37,361927 (MainThread): Running with dbt=0.15.0
+2020-05-06 10:40:37,524043 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.compile.CompileTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, parse_only=False, partial_parse=None, profile=None, profiles_dir='/home/ec2-user/.dbt', project_dir=None, record_timing_info=None, rpc_method='compile', single_threaded=False, strict=False, target='uat', test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='compile', write_json=True)
+2020-05-06 10:40:37,524382 (MainThread): Tracking: tracking
+2020-05-06 10:40:37,530514 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6ce618ecc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6cd80a7438>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6ce617fbe0>]}
+2020-05-06 10:40:37,597885 (MainThread): Partial parsing not enabled
+2020-05-06 10:40:37,599533 (MainThread): Parsing macros/core.sql
+2020-05-06 10:40:37,604166 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 10:40:37,634928 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 10:40:37,642592 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 10:40:37,662593 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 10:40:37,670180 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 10:40:37,672430 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 10:40:37,679299 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 10:40:37,685031 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 10:40:37,693298 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 10:40:37,700590 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 10:40:37,721916 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 10:40:37,723800 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 10:40:37,736393 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 10:40:37,745739 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 10:40:37,747781 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 10:40:37,748954 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 10:40:37,751165 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 10:40:37,753568 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 10:40:37,754920 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 10:40:37,756057 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 10:40:37,758352 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 10:40:37,759671 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 10:40:37,761342 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:40:37,773575 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:40:37,774451 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:40:37,783010 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:40:37,784236 (MainThread): Parsing macros/adapters.sql
+2020-05-06 10:40:37,795722 (MainThread): Parsing macros/relations.sql
+2020-05-06 10:40:37,797373 (MainThread): Parsing macros/catalog.sql
+2020-05-06 10:40:37,799307 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-05-06 10:40:37,840414 (MainThread): Partial parsing not enabled
+2020-05-06 10:40:37,860248 (MainThread): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:40:37,860416 (MainThread): Opening a new connection, currently in state init
+2020-05-06 10:40:37,860507 (MainThread): Connecting to Redshift using 'database' credentials
+2020-05-06 10:40:37,907720 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_ugc_engagement_daily".
+2020-05-06 10:40:37,907886 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:40:37,914824 (MainThread): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:40:37,914937 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_ugc_engagement_daily).
+2020-05-06 10:40:37,921834 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:40:37,921966 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:40:37,929284 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:40:37,929408 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:40:37,936289 (MainThread): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:40:37,936408 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:40:37,943409 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:40:37,943522 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:40:37,954268 (MainThread): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_summary_dbt".
+2020-05-06 10:40:37,954392 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:40:37,967058 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_wwe".
+2020-05-06 10:40:37,967174 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_summary_dbt).
+2020-05-06 10:40:37,979077 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:40:37,979202 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_wwe).
+2020-05-06 10:40:37,989614 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:40:37,989728 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_demograph_by_gender_age_group).
+2020-05-06 10:40:38,1982 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:40:38,2143 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_engagement_measures).
+2020-05-06 10:40:38,12563 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:40:38,12674 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_revenue_views_uploader_thirdparty).
+2020-05-06 10:40:38,22734 (MainThread): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:40:38,22851 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:40:38,35046 (MainThread): Acquiring new redshift connection "model.dbt_projects.monetize_summary_ugc".
+2020-05-06 10:40:38,35184 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_revenue_views_uploader_self).
+2020-05-06 10:40:38,47096 (MainThread): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:40:38,47239 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.monetize_summary_ugc).
+2020-05-06 10:40:38,56216 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:40:38,56337 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_demograph_by_gender_age_group).
+2020-05-06 10:40:38,66107 (MainThread): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:40:38,66226 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 10:40:38,75076 (MainThread): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:40:38,75214 (MainThread): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 10:40:38,214451 (MainThread): Found 19 models, 0 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 0 sources
+2020-05-06 10:40:38,225756 (MainThread): 
+2020-05-06 10:40:38,226021 (MainThread): 10:40:38 | Concurrency: 4 threads (target='uat')
+2020-05-06 10:40:38,226172 (MainThread): 10:40:38 | 
+2020-05-06 10:40:38,228924 (Thread-2): Began running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:40:38,229190 (Thread-1): Began running node model.dbt_projects.dim_region_country
+2020-05-06 10:40:38,229387 (Thread-4): Began running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:40:38,229577 (Thread-3): Began running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:40:38,230086 (Thread-2): Acquiring new redshift connection "model.dbt_projects.fact_daily_subscription_order_status".
+2020-05-06 10:40:38,230515 (Thread-1): Acquiring new redshift connection "model.dbt_projects.dim_region_country".
+2020-05-06 10:40:38,230911 (Thread-4): Acquiring new redshift connection "model.dbt_projects.rpt_yt_demographics_views_daily".
+2020-05-06 10:40:38,231302 (Thread-3): Acquiring new redshift connection "model.dbt_projects.rpt_yt_revenue_daily".
+2020-05-06 10:40:38,231462 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 10:40:38,231615 (Thread-1): Opening a new connection, currently in state init
+2020-05-06 10:40:38,231756 (Thread-4): Opening a new connection, currently in state init
+2020-05-06 10:40:38,231888 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 10:40:38,232013 (Thread-2): Connecting to Redshift using 'database' credentials
+2020-05-06 10:40:38,232144 (Thread-1): Connecting to Redshift using 'database' credentials
+2020-05-06 10:40:38,232272 (Thread-4): Connecting to Redshift using 'database' credentials
+2020-05-06 10:40:38,232398 (Thread-3): Connecting to Redshift using 'database' credentials
+2020-05-06 10:40:38,253445 (Thread-2): Compiling model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:40:38,259849 (Thread-1): Compiling model.dbt_projects.dim_region_country
+2020-05-06 10:40:38,265166 (Thread-4): Compiling model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:40:38,270521 (Thread-3): Compiling model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:40:38,277765 (Thread-1): Writing injected SQL for node "model.dbt_projects.dim_region_country"
+2020-05-06 10:40:38,291095 (Thread-4): Writing injected SQL for node "model.dbt_projects.rpt_yt_demographics_views_daily"
+2020-05-06 10:40:38,297682 (Thread-2): Writing injected SQL for node "model.dbt_projects.fact_daily_subscription_order_status"
+2020-05-06 10:40:38,300699 (Thread-3): Writing injected SQL for node "model.dbt_projects.rpt_yt_revenue_daily"
+2020-05-06 10:40:38,301757 (Thread-4): finished collecting timing info
+2020-05-06 10:40:38,302324 (Thread-2): finished collecting timing info
+2020-05-06 10:40:38,302707 (Thread-3): finished collecting timing info
+2020-05-06 10:40:38,303402 (Thread-4): Finished running node model.dbt_projects.rpt_yt_demographics_views_daily
+2020-05-06 10:40:38,303902 (Thread-2): Finished running node model.dbt_projects.fact_daily_subscription_order_status
+2020-05-06 10:40:38,304063 (Thread-1): finished collecting timing info
+2020-05-06 10:40:38,304717 (Thread-3): Finished running node model.dbt_projects.rpt_yt_revenue_daily
+2020-05-06 10:40:38,304967 (Thread-4): Began running node model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:40:38,305209 (Thread-2): Began running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:40:38,305838 (Thread-1): Finished running node model.dbt_projects.dim_region_country
+2020-05-06 10:40:38,306255 (Thread-3): Began running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:40:38,306685 (Thread-4): Acquiring new redshift connection "model.dbt_projects.rpt_yt_ugc_engagement_daily".
+2020-05-06 10:40:38,307067 (Thread-2): Acquiring new redshift connection "model.dbt_projects.rpt_yt_wwe_engagement_daily".
+2020-05-06 10:40:38,307271 (Thread-1): Began running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:40:38,307781 (Thread-3): Acquiring new redshift connection "model.dbt_projects.yt_amg_content_groups".
+2020-05-06 10:40:38,307932 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_demographics_views_daily).
+2020-05-06 10:40:38,308166 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.fact_daily_subscription_order_status).
+2020-05-06 10:40:38,308537 (Thread-1): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_detail_dbt".
+2020-05-06 10:40:38,308673 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_revenue_daily).
+2020-05-06 10:40:38,308834 (Thread-4): Compiling model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:40:38,308983 (Thread-2): Compiling model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:40:38,309106 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.dim_region_country).
+2020-05-06 10:40:38,309244 (Thread-3): Compiling model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:40:38,322584 (Thread-2): Writing injected SQL for node "model.dbt_projects.rpt_yt_wwe_engagement_daily"
+2020-05-06 10:40:38,325542 (Thread-4): Writing injected SQL for node "model.dbt_projects.rpt_yt_ugc_engagement_daily"
+2020-05-06 10:40:38,325702 (Thread-1): Compiling model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:40:38,333814 (Thread-3): Writing injected SQL for node "model.dbt_projects.yt_amg_content_groups"
+2020-05-06 10:40:38,334409 (Thread-4): finished collecting timing info
+2020-05-06 10:40:38,334784 (Thread-2): finished collecting timing info
+2020-05-06 10:40:38,345000 (Thread-1): Writing injected SQL for node "model.dbt_projects.agg_yt_monetization_detail_dbt"
+2020-05-06 10:40:38,345694 (Thread-4): Finished running node model.dbt_projects.rpt_yt_ugc_engagement_daily
+2020-05-06 10:40:38,345868 (Thread-3): finished collecting timing info
+2020-05-06 10:40:38,346533 (Thread-2): Finished running node model.dbt_projects.rpt_yt_wwe_engagement_daily
+2020-05-06 10:40:38,346883 (Thread-4): Began running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:40:38,347367 (Thread-3): Finished running node model.dbt_projects.yt_amg_content_groups
+2020-05-06 10:40:38,347592 (Thread-2): Began running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:40:38,348214 (Thread-4): Acquiring new redshift connection "model.dbt_projects.ugc_demograph_by_gender_age_group".
+2020-05-06 10:40:38,348424 (Thread-1): finished collecting timing info
+2020-05-06 10:40:38,349061 (Thread-3): Began running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:40:38,349626 (Thread-2): Acquiring new redshift connection "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track".
+2020-05-06 10:40:38,349975 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_ugc_engagement_daily).
+2020-05-06 10:40:38,350226 (Thread-1): finished collecting timing info
+2020-05-06 10:40:38,350832 (Thread-3): Acquiring new redshift connection "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-05-06 10:40:38,350999 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.rpt_yt_wwe_engagement_daily).
+2020-05-06 10:40:38,351168 (Thread-4): Compiling model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:40:38,351561 (Thread-1): Finished running node model.dbt_projects.agg_yt_monetization_detail_dbt
+2020-05-06 10:40:38,351726 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.yt_amg_content_groups).
+2020-05-06 10:40:38,351888 (Thread-2): Compiling model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:40:38,362464 (Thread-1): Began running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:40:38,378137 (Thread-3): Compiling model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:40:38,404337 (Thread-1): Acquiring new redshift connection "model.dbt_projects.ugc_revenue_views_uploader_thirdparty".
+2020-05-06 10:40:38,411897 (Thread-4): Writing injected SQL for node "model.dbt_projects.ugc_demograph_by_gender_age_group"
+2020-05-06 10:40:38,446996 (Thread-2): Writing injected SQL for node "model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track"
+2020-05-06 10:40:38,453641 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.agg_yt_monetization_detail_dbt).
+2020-05-06 10:40:38,483025 (Thread-3): Writing injected SQL for node "model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track"
+2020-05-06 10:40:38,483515 (Thread-4): finished collecting timing info
+2020-05-06 10:40:38,484002 (Thread-1): Compiling model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:40:38,484144 (Thread-2): finished collecting timing info
+2020-05-06 10:40:38,485092 (Thread-4): Finished running node model.dbt_projects.ugc_demograph_by_gender_age_group
+2020-05-06 10:40:38,485282 (Thread-3): finished collecting timing info
+2020-05-06 10:40:38,496143 (Thread-2): finished collecting timing info
+2020-05-06 10:40:38,511737 (Thread-4): Began running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:40:38,512681 (Thread-1): Writing injected SQL for node "model.dbt_projects.ugc_revenue_views_uploader_thirdparty"
+2020-05-06 10:40:38,513057 (Thread-3): finished collecting timing info
+2020-05-06 10:40:38,513806 (Thread-2): Finished running node model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track
+2020-05-06 10:40:38,514204 (Thread-4): Acquiring new redshift connection "model.dbt_projects.ugc_engage_measures".
+2020-05-06 10:40:38,514746 (Thread-3): Finished running node model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track
+2020-05-06 10:40:38,514976 (Thread-1): finished collecting timing info
+2020-05-06 10:40:38,515408 (Thread-2): Began running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:40:38,515664 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_demograph_by_gender_age_group).
+2020-05-06 10:40:38,515881 (Thread-3): Began running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:40:38,516302 (Thread-1): Finished running node model.dbt_projects.ugc_revenue_views_uploader_thirdparty
+2020-05-06 10:40:38,516749 (Thread-2): Acquiring new redshift connection "model.dbt_projects.wwe_demograph_by_gender_age_group".
+2020-05-06 10:40:38,516911 (Thread-4): Compiling model.dbt_projects.ugc_engage_measures
+2020-05-06 10:40:38,517279 (Thread-3): Acquiring new redshift connection "model.dbt_projects.wwe_engagement_measures".
+2020-05-06 10:40:38,517497 (Thread-1): Began running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:40:38,517662 (Thread-2): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_daily_network_adds_and_loss_track).
+2020-05-06 10:40:38,528237 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.vw_aggr_monthly_network_perf_renewal_payment_track).
+2020-05-06 10:40:38,544071 (Thread-1): Acquiring new redshift connection "model.dbt_projects.wwe_revenue_views_uploader_self".
+2020-05-06 10:40:38,544327 (Thread-4): Writing injected SQL for node "model.dbt_projects.ugc_engage_measures"
+2020-05-06 10:40:38,544496 (Thread-2): Compiling model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:40:38,544660 (Thread-3): Compiling model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:40:38,544796 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_revenue_views_uploader_thirdparty).
+2020-05-06 10:40:38,555630 (Thread-4): finished collecting timing info
+2020-05-06 10:40:38,576789 (Thread-1): Compiling model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:40:38,592690 (Thread-4): Finished running node model.dbt_projects.ugc_engage_measures
+2020-05-06 10:40:38,660638 (Thread-3): Writing injected SQL for node "model.dbt_projects.wwe_engagement_measures"
+2020-05-06 10:40:38,682042 (Thread-4): Began running node model.dbt_projects.monetize_summary_ugc
+2020-05-06 10:40:38,687787 (Thread-4): Acquiring new redshift connection "model.dbt_projects.monetize_summary_ugc".
+2020-05-06 10:40:38,698349 (Thread-4): Re-using an available connection from the pool (formerly model.dbt_projects.ugc_engage_measures).
+2020-05-06 10:40:38,700400 (Thread-1): Writing injected SQL for node "model.dbt_projects.wwe_revenue_views_uploader_self"
+2020-05-06 10:40:38,707166 (Thread-2): Writing injected SQL for node "model.dbt_projects.wwe_demograph_by_gender_age_group"
+2020-05-06 10:40:38,707359 (Thread-4): Compiling model.dbt_projects.monetize_summary_ugc
+2020-05-06 10:40:38,707544 (Thread-3): finished collecting timing info
+2020-05-06 10:40:38,713830 (Thread-3): Finished running node model.dbt_projects.wwe_engagement_measures
+2020-05-06 10:40:38,719366 (Thread-1): finished collecting timing info
+2020-05-06 10:40:38,725093 (Thread-2): finished collecting timing info
+2020-05-06 10:40:38,735692 (Thread-1): Finished running node model.dbt_projects.wwe_revenue_views_uploader_self
+2020-05-06 10:40:38,749069 (Thread-4): Writing injected SQL for node "model.dbt_projects.monetize_summary_ugc"
+2020-05-06 10:40:38,749592 (Thread-2): Finished running node model.dbt_projects.wwe_demograph_by_gender_age_group
+2020-05-06 10:40:38,750640 (Thread-3): Began running node model.dbt_projects.monetize_summary_wwe
+2020-05-06 10:40:38,750859 (Thread-4): finished collecting timing info
+2020-05-06 10:40:38,751467 (Thread-3): Acquiring new redshift connection "model.dbt_projects.monetize_summary_wwe".
+2020-05-06 10:40:38,751881 (Thread-4): Finished running node model.dbt_projects.monetize_summary_ugc
+2020-05-06 10:40:38,752036 (Thread-3): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_engagement_measures).
+2020-05-06 10:40:38,752383 (Thread-3): Compiling model.dbt_projects.monetize_summary_wwe
+2020-05-06 10:40:38,796672 (Thread-3): Writing injected SQL for node "model.dbt_projects.monetize_summary_wwe"
+2020-05-06 10:40:38,797062 (Thread-3): finished collecting timing info
+2020-05-06 10:40:38,797740 (Thread-3): Finished running node model.dbt_projects.monetize_summary_wwe
+2020-05-06 10:40:38,798280 (Thread-1): Began running node model.dbt_projects.agg_yt_monetization_summary_dbt
+2020-05-06 10:40:38,798639 (Thread-1): Acquiring new redshift connection "model.dbt_projects.agg_yt_monetization_summary_dbt".
+2020-05-06 10:40:38,798748 (Thread-1): Re-using an available connection from the pool (formerly model.dbt_projects.wwe_revenue_views_uploader_self).
+2020-05-06 10:40:38,798849 (Thread-1): Compiling model.dbt_projects.agg_yt_monetization_summary_dbt
+2020-05-06 10:40:38,832564 (Thread-1): Writing injected SQL for node "model.dbt_projects.agg_yt_monetization_summary_dbt"
+2020-05-06 10:40:38,832936 (Thread-1): finished collecting timing info
+2020-05-06 10:40:38,833332 (Thread-1): finished collecting timing info
+2020-05-06 10:40:38,833943 (Thread-1): Finished running node model.dbt_projects.agg_yt_monetization_summary_dbt
+2020-05-06 10:40:38,866659 (MainThread): Connection 'model.dbt_projects.fact_daily_subscription_order_status' was left open.
+2020-05-06 10:40:38,866871 (MainThread): On model.dbt_projects.fact_daily_subscription_order_status: Close
+2020-05-06 10:40:38,867136 (MainThread): Connection 'model.dbt_projects.wwe_demograph_by_gender_age_group' was left open.
+2020-05-06 10:40:38,867253 (MainThread): On model.dbt_projects.wwe_demograph_by_gender_age_group: Close
+2020-05-06 10:40:38,867436 (MainThread): Connection 'model.dbt_projects.agg_yt_monetization_summary_dbt' was left open.
+2020-05-06 10:40:38,867526 (MainThread): On model.dbt_projects.agg_yt_monetization_summary_dbt: Close
+2020-05-06 10:40:38,867698 (MainThread): Connection 'model.dbt_projects.monetize_summary_ugc' was left open.
+2020-05-06 10:40:38,867786 (MainThread): On model.dbt_projects.monetize_summary_ugc: Close
+2020-05-06 10:40:38,867957 (MainThread): Connection 'model.dbt_projects.monetize_summary_wwe' was left open.
+2020-05-06 10:40:38,868043 (MainThread): On model.dbt_projects.monetize_summary_wwe: Close
+2020-05-06 10:40:38,885619 (MainThread): 10:40:38 | Done.
+2020-05-06 10:40:38,885890 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6cd4e5ae48>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6cd4e5a160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f6cd4e5a208>]}
+2020-05-06 10:40:38,908606 (MainThread): Flushing usage events
