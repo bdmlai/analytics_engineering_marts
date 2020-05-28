@@ -1,13 +1,4 @@
-{{
-  config({
-	"materialized": 'view',
-	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.broadcast_month IS 'Show broadcast month'"]
-	})
-}}
-
-
 --QH ratings for WWE program(yearly)
-
 /*
 *************************************************************************************************************************************************
    Date        : 06/12/2020
@@ -15,19 +6,39 @@
    TableName   : vw_aggr_nl_yearly_wwe_live_quarterhour_ratings
    Schema	   : fds_nl
    Contributor : Sudhakar Andugula
-   Description : WWE Live Quarter Hour Rating Yearly Aggregate View consist of rating details of all WWE Live - RAW, SD, NXT Programs to be rolled up from Quarter Hour Viewership Ratings Table on yearly-basis
+   Description : WWE Live Quarter Hour Rating Yearly Aggregate View consist of rating details of all WWE Live - RAW, SD, NXT Programs to be rolled up from WWE Live Quarter Hour Ratings Daily Report Table on yearly-basis
 *************************************************************************************************************************************************
 */
 
+ {{
+  config({
+	"materialized": 'view',
+	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.broadcast_year IS 'Broadcast  year';
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.src_broadcast_network_id IS 'A unique numerical identifier for an individual programming originator.';
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.src_playback_period_cd IS 'A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load.';  
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.src_demographic_group IS 'A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).'; 
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.src_program_id IS 'A unique numerical identifier for an individual program name; sourced from the Programs API, response field â€œprogramIdâ€?. '; 
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.interval_starttime IS 'calcuated interval start time if it is quarter hour , every quarter start time will be profided';
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.interval_endtime IS 'calcuated interval end time if it is quarter hour , every quarter end time will be profided';
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_audience_proj_000 IS 'Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)';
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_audience_pct IS 'Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)';
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_pct_nw_cvg_area IS 'Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a networkâ€™s coverage area.)';  
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_viewing_hours_units IS 'Derived Average Viewing Hours in minutes';
+					"]
+	})
+}}
 
-select b.cal_year as broadcast_year, src_broadcast_network_id, src_playback_period_cd, src_demographic_group, src_program_id, interval_starttime, interval_endtime,
+SELECT broadcast_year, 
+       src_broadcast_network_id,
+       src_playback_period_cd,
+       src_demographic_group,
+       src_program_id,
+       interval_starttime,
+       interval_endtime,
 --Duration Weighted Averages are taking for avg_audience_proj_000, avg_audience_pct and avg_pct_nw_cvg_area here..
-(sum(avg_audience_proj_000 * interval_duration)/sum(nvl2(avg_audience_proj_000, interval_duration, null))) as avg_audience_proj_000,
-(sum(avg_audience_pct * interval_duration)/sum(nvl2(avg_audience_pct, interval_duration, null))) as avg_audience_pct,
-(sum(avg_pct_nw_cvg_area * interval_duration)/sum(nvl2(avg_pct_nw_cvg_area, interval_duration, null))) as avg_pct_nw_cvg_area, 
+(sum(avg_audience_proj_000 * interval_duration)/nullif(sum(nvl2(avg_audience_proj_000, interval_duration, null)), 0)) as avg_audience_proj_000,
+(sum(avg_audience_pct * interval_duration)/nullif(sum(nvl2(avg_audience_pct, interval_duration, null)), 0)) as avg_audience_pct,
+(sum(avg_pct_nw_cvg_area * interval_duration)/nullif(sum(nvl2(avg_pct_nw_cvg_area, interval_duration, null)), 0)) as avg_pct_nw_cvg_area, 
 sum(avg_viewing_hours_units) as avg_viewing_hours_units
-from (select broadcast_date_id, src_broadcast_network_id, src_playback_period_cd, src_demographic_group, src_program_id, interval_starttime, interval_endtime, interval_duration, avg_viewing_hours_units, avg_audience_proj_000, avg_audience_pct, avg_pct_nw_cvg_area
-from {{ref('fact_nl_quaterhour_viewership_ratings')}}
-where (src_broadcast_network_id, src_program_id) in ((5, 296881), (5, 339681), (5, 436999), (81, 898521), (10433, 1000131))) a
-left join {{ref('dim_date')}} b on a.broadcast_date_id = b.dim_date_id
-group by 1,2,3,4,5,6,7 ;
+FROM {{ref('rpt_nl_daily_wwe_live_quarterhour_ratings')}}
+GROUP BY  1,2,3,4,5,6,7
