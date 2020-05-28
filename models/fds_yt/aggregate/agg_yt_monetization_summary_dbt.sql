@@ -1,3 +1,21 @@
+/*
+************************************************************************************ 
+    Date: 1/3/2020
+    Version: 1.2
+    TABLE NAME: 	agg_yt_monetization_summary_dbt
+    SCHEMA:       	fds_yt
+    Contributor :       Sudhakar
+    Description : 	Business critical engagement, consumption and revenue metrics for each uploaded video.
+				  It contains attributes like Channel, Country, Geographical region, Title, Series along 
+				  with a host of other dimensions which are relevant with respect to the metrics. The measures
+				  in this data source primarily revolve around number of views, minutes watched, comments, 
+				  shares, like, dislikes and other revenue and demographic details.
+*************************************************************************************
+*/
+/* Date  /  by  / Details  */
+/* 5/15/2020  / hima  / added join on channel_name along with video_id to eliminate duplicates with NULL channel name in yt_amg_content_group table for some video_id's */
+/* 5/15/2020  / hima  / added distinct on yt_amg_content_group to eliminate duplicate records */
+
 {{
   config({
     "pre-hook": "delete from dwh_read_write.agg_yt_monetization_summary_dbt where view_date between current_date - 52  and current_date - 1",
@@ -28,6 +46,7 @@ where view_date between (select max(view_date) - 32 from dwh_read_write.agg_yt_m
 group by 1,2,3,4,5) b on a.channel_name = b.channel_name and a.debut_type = b.debut_type and a.type = b.type and a.owned_class = b.owned_class
 and a.duration_group = b.duration_group
 where a.view_date in (select max(view_date)-1 as Maxdate from dwh_read_write.agg_yt_monetization_summary_dbt)"]})}}
+
 
 select country_name,country_code,channel_name, view_date, report_date, region, channel_short,region2, country_name2,
 views,hours_watched, yt_ad_revenue,ad_impressions,partner_revenue,watch_time_minutes,

@@ -35,8 +35,10 @@ left join
 (select distinct video_id, channel_name from fds_yt.youtube_video_metadata_direct
  where as_on_date=(select max(as_on_date) from fds_yt.youtube_video_metadata_direct)) m
  on r.video_id=m.video_id
-left join {{ref('yt_amg_content_groups')}} y
-on r.video_id=y.yt_id
+left join (select distinct yt_id,channel_name,amg_content_group from public.yt_amg_content_groups)  y
+/* 5/15/2020 / Hima /added join on channel_name along with video_id due to duplicates with NULL channel name in yt_amg_content_group table for some video_id's */
+on r.video_id=y.yt_id and m.channel_name=y.channel_name
+/* 5/15/2020 / Hima /added distinct on amg content groups to eliminate duplicates */
 where r.report_date between to_char(current_date - 52, 'YYYYMMDD')  and to_char(current_date - 1, 'YYYYMMDD')
 and r.uploader_type='self' 
 group by 1, 2,3,4,5,6,7
