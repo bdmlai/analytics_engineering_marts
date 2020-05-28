@@ -14,6 +14,6 @@ SELECT   broadcast_date_id,
         src_demographic_group, src_program_id, interval_starttime, 
         interval_endtime, interval_duration, avg_viewing_hours_units,
         avg_audience_proj_000, avg_audience_pct, avg_pct_nw_cvg_area
-        FROM fds_nl.fact_nl_quaterhour_viewership_ratings a
-     LEFT JOIN cdm.dim_date b ON a.broadcast_date_id = b.dim_date_id
+        FROM {{ref('fact_nl_quaterhour_viewership_ratings')}} a
+     LEFT JOIN {{ref('dim_date')}} b ON a.broadcast_date_id = b.dim_date_id
     WHERE (src_broadcast_network_id, src_program_id) IN ((5, 296881), (5, 339681), (5, 436999), (81, 898521), (10433, 1000131));

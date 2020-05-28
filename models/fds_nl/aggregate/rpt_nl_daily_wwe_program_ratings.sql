@@ -13,7 +13,7 @@ case when date_part(year, d.cal_year_mon_week_begin_date) <> date_part(year, d.c
 end as broadcast_fin_week,
 case when date_part(year, d.cal_year_mon_week_begin_date) <> date_part(year, d.cal_year_mon_week_end_date)
         then 'jan'
-	 else (select g.mth_abbr_nm from cdm.dim_date g where g.full_date = d.cal_year_mon_week_begin_date)
+	 else (select g.mth_abbr_nm from {{ref('dim_date')}} g where g.full_date = d.cal_year_mon_week_begin_date)
 end as broadcast_fin_month,
 case when date_part(year, d.cal_year_mon_week_begin_date) <> date_part(year, d.cal_year_mon_week_end_date)
         then 'q1'
@@ -44,8 +44,8 @@ sum(src_total_duration) as src_total_duration,
 (sum(avg_audience_proj_000 * src_total_duration)/nullif(sum(nvl2(avg_audience_proj_000, src_total_duration, null)), 0)) as avg_audience_proj_000,
 (sum(avg_audience_pct * src_total_duration)/nullif(sum(nvl2(avg_audience_pct, src_total_duration, null)), 0)) as avg_audience_pct,
 (sum(avg_audience_pct_nw_cvg_area * src_total_duration)/nullif(sum(nvl2(avg_audience_pct_nw_cvg_area, src_total_duration, null)), 0)) as avg_audience_pct_nw_cvg_area, sum(avg_viewing_hours_units) as avg_viewing_hours_units
-from fds_nl.fact_nl_program_viewership_ratings b
-join (select dim_nl_series_id from fds_nl.dim_nl_series where wwe_series_qualifier = 'WWE') c
+from {{ref('fact_nl_program_viewership_ratings')}} b
+join (select dim_nl_series_id from {{ref('dim_nl_series')}} where wwe_series_qualifier = 'WWE') c
 on b.dim_nl_series_id = c.dim_nl_series_id
 where src_program_id = 296881 
 group by 1,2,3,4,5,6,7,8,9
@@ -53,11 +53,11 @@ union
 select broadcast_date_id, broadcast_date, dim_nl_broadcast_network_id, src_broadcast_network_id, src_playback_period_cd, 
 src_demographic_group, src_program_id , dim_nl_daypart_id, src_daypart_cd, program_telecast_rpt_starttime, program_telecast_rpt_endtime,
 src_total_duration, avg_audience_proj_000, avg_audience_pct, avg_audience_pct_nw_cvg_area, avg_viewing_hours_units
-from fds_nl.fact_nl_program_viewership_ratings b
-join (select dim_nl_series_id from fds_nl.dim_nl_series where wwe_series_qualifier = 'WWE') c
+from {{ref('fact_nl_program_viewership_ratings')}} b
+join (select dim_nl_series_id from {{ref('dim_nl_series')}} where wwe_series_qualifier = 'WWE') c
 on b.dim_nl_series_id = c.dim_nl_series_id
 where src_program_id <> 296881
 )a
-left join cdm.dim_date d on a.broadcast_date_id = d.dim_date_id
-left join fds_nl.dim_nl_broadcast_network e on a.dim_nl_broadcast_network_id = e.dim_nl_broadcast_network_id
-left join fds_nl.dim_nl_daypart f on a.dim_nl_daypart_id = f.dim_nl_daypart_id
+left join {{ref('dim_date')}} d on a.broadcast_date_id = d.dim_date_id
+left join {{ref('dim_nl_broadcast_network')}} e on a.dim_nl_broadcast_network_id = e.dim_nl_broadcast_network_id
+left join {{ref('dim_nl_daypart')}} f on a.dim_nl_daypart_id = f.dim_nl_daypart_id
