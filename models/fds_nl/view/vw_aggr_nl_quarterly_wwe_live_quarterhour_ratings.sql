@@ -29,11 +29,7 @@
 					"]
 	})
 }}
-<<<<<<< HEAD
 SELECT broadcast_quarter_nm broadcast_quarter, 
-=======
-SELECT broadcast_quarter_nm, 
->>>>>>> f00efc65e348df7fc2d6a4c6a748ea6e1cb5d026
        broadcast_year, 
        src_broadcast_network_id,
        src_playback_period_cd,
