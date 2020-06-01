@@ -31,7 +31,7 @@
 	})
 }}
 
-SELECT broadcast_month_nm, 
+SELECT broadcast_month_nm broadcast_month, 
        broadcast_year, 
        src_broadcast_network_id,
        src_playback_period_cd,
