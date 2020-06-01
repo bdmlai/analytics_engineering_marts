@@ -3,7 +3,10 @@
     "materialized": "incremental"
   })
 }}
+<<<<<<< HEAD
+=======
 
+>>>>>>> f00efc65e348df7fc2d6a4c6a748ea6e1cb5d026
 select a.broadcast_date_id, a.broadcast_date, d.cal_year_week_num as broadcast_cal_week, d.mth_abbr_nm as broadcast_cal_month,
 substring(d.cal_year_qtr_desc, 5, 2) as broadcast_cal_quarter, d.cal_year as broadcast_cal_year,
 -- financial year data is deriving from cdm.dim_date table here..
@@ -33,7 +36,12 @@ case when date_part(year, d.cal_year_mon_week_begin_date) <> date_part(year, d.c
 end as broadcast_fin_year,
 a.src_broadcast_network_id, e.broadcast_network_name, a.src_playback_period_cd, a.src_demographic_group, a.src_program_id, a.src_daypart_cd,
 f.src_daypart_name, a.program_telecast_rpt_starttime, a.program_telecast_rpt_endtime,
+<<<<<<< HEAD
+a.src_total_duration, a.avg_audience_proj_000, a.avg_audience_pct, a.avg_audience_pct_nw_cvg_area, a.avg_viewing_hours_units,
+null,null,null,null,null  
+=======
 a.src_total_duration, a.avg_audience_proj_000, a.avg_audience_pct, a.avg_audience_pct_nw_cvg_area, a.avg_viewing_hours_units  
+>>>>>>> f00efc65e348df7fc2d6a4c6a748ea6e1cb5d026
 from
 (
 --RAW telecasts broken down are to be rolled up as one with start time as min(start time), end time as max(end time) and all the metrics except --VH are rolled up as time-duration based avg - ( metric 1 * duration 1 + metric 2* duration* 2 + metric 3 * duration 3) /(duration 1 + duration --2 + duration 3) here..
