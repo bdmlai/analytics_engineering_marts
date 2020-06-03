@@ -39,10 +39,10 @@ SELECT b.mth_abbr_nm as rpt_month_nm,
       --sum(avg_viewing_hours_units) as avg_viewing_hours_units
 FROM {{ref('fact_nl_timeperiod_viewership_ratings')}} a
 JOIN (SELECT dim_date_id, mth_abbr_nm, cal_year_qtr_desc, cal_year 
-       FROM {{ref('dim_date')}}
+       FROM {{source('cdm','dim_date')}}
        WHERE day_of_week_abbr_nm IN ('tue','thu','sat','sun')
      ) b
 ON a.rpt_startdate_id = b.dim_date_id
-LEFT JOIN  {{ref('dim_nl_broadcast_network')}} c ON a.dim_nl_broadcast_network_id = c.dim_nl_broadcast_network_id
-LEFT JOIN  {{ref('dim_nl_daypart')}}  d ON a.dim_nl_daypart_id = d.dim_nl_daypart_id
+LEFT JOIN {{source('fds_nl','dim_nl_broadcast_network')}}  c ON a.dim_nl_broadcast_network_id = c.dim_nl_broadcast_network_id
+LEFT JOIN  {{source('fds_nl','dim_nl_daypart')}}   d ON a.dim_nl_daypart_id = d.dim_nl_daypart_id
 GROUP BY 1,2,3,4,5,6

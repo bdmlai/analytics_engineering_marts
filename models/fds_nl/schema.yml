@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: fds_nl
+    tables:
+      - name: fact_nl_quaterhour_viewership_ratings
+      - name: fact_nl_commercial_viewership_ratings
+      - name: fact_nl_program_viewership_ratings
+      - name: dim_nl_series
+      - name: dim_nl_broadcast_network
+      - name: dim_nl_daypart
+
+  - name: cdm
+    tables:
+      - name: dim_date
