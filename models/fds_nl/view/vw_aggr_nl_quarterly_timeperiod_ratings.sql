@@ -36,8 +36,8 @@ SELECT  substring(b.cal_year_qtr_desc, 5, 2) as rpt_quarter_nm,
         avg(avg_audience_pct) as avg_audience_pct,
         avg(avg_pct_nw_cvg_area) as avg_pct_nw_cvg_area
         --sum(avg_viewing_hours_units) as avg_viewing_hours_units
-FROM       {{ref('fact_nl_timeperiod_viewership_ratings')}} a
-LEFT JOIN  {{ref('dim_date')}} b on a.rpt_startdate_id = b.dim_date_id
-LEFT JOIN  {{ref('dim_nl_broadcast_network')}} c on a.dim_nl_broadcast_network_id = c.dim_nl_broadcast_network_id
-LEFT JOIN  {{ref('dim_nl_daypart')}}  d on a.dim_nl_daypart_id = d.dim_nl_daypart_id
+FROM       {{source('fds_nl','fact_nl_timeperiod_viewership_ratings')}} a
+LEFT JOIN  {{source('cdm','dim_date')}}   b on a.rpt_startdate_id = b.dim_date_id
+LEFT JOIN  {{source('fds_nl','dim_nl_broadcast_network')}}   c on a.dim_nl_broadcast_network_id = c.dim_nl_broadcast_network_id
+LEFT JOIN  {{source('fds_nl','dim_nl_daypart')}}   d on a.dim_nl_daypart_id = d.dim_nl_daypart_id
 GROUP BY  1,2,3,4,5,6
