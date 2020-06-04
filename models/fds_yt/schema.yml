@@ -1,101 +1,27 @@
 version: 2
-models:
+
+models:       
   - name: agg_yt_monetization_summary_dbt
     description: business critical engagement, consumption and revenue metrics for each uploaded video. It contains attributes like Channel, Country, Geographical region, Title, Series along with a host of other dimensions which are relevant with respect to the metrics. The measures in this data source primarily revolve around number of views, minutes watched, comments, shares, like, dislikes and other revenue and demographic details.
     columns:
         - name: country_name
-          description: country name from engage and ugc engage table
+          description: The country Name associated with the metrics in the report row.
         - name: country_code
-          description: country name from engage and ugc engage table
+          description: The country associated with the metrics in the report row.
         - name: channel_name
-          description: channel name wwe,bellatwins,UpUpDownDown
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresource id property. channel name wwe,bellatwins,UpUpDownDown
         - name: view_date
           description: Video view date
         - name: report_date
-          description: Report generated  date
-        - name: region
-        - name: channel_short
-        - name: region2
-        - name: country_name2
+          description: The date where reports need to generatee
         - name: views
-          description: Number of views for each day
-        - name: hours_watched
-        - name: yt_ad_revenue
-        - name: ad_impressions
+          description: The number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
         - name: partner_revenue
           description: Revenue generated
-        - name: watch_time_minutes
         - name: likes
-          description: likes of the video
+          description: sum of likes for the video
         - name: dislikes
-        - name: subscribers_gained
-        - name: subscribers_lost
-        - name: revenue_views
-        - name: male
-        - name: female
-        - name: gender_other
-        - name: age_25_34
-        - name: age_45_54
-        - name: age_13_17
-        - name: age_35_44
-        - name: age_55_64
-        - name: age_65_ 
-        - name: age_18_24  
-        - name: debut_type
-        - name: type
-        - name: owned_class
-        - name: duration_group
-        - name: table_name
-        - name: week_name
+          description: sum of dislikes for the video
         - name: insert_timestamp
-
-version: 2
-models:
-  - name: rpt_subscritpion_order_losses (Name of the view created for TAB-1650 request)
-    description: A view to display total subscription losses of orders
-    columns:
-        - name: date
-          description: Processing Date
-        - name: country
-          description: Country of the product sku is purchased
-        - name: order_status
-          description: The status of order whether it is 'trial' or 'paid'
-        - name: cancel_type
-          description: Type of cancellation whether it is 'Voluntary' or 'Involuntary'
-        - name: payment_method
-          description: Payment method used for the payment
-        - name: payments
-          description: Total number of payments done for the orders
-        - name: ttl_losses
-          description: The total number of subscription order losses
-  - name: rpt_subscritpion_order_metrics (Name of the view created for TAB-1654 request)
-    description: A view to display various metrics of order subscriptions
-    columns:
-        - name: bill_month
-          description: Original Billing Month
-        - name: orig_bill_dt
-          description: Original Billing Date
-        - name: order_status
-          description: The status of order whether it is 'trial' or 'paid'
-        - name: country
-          description: Country where payment is billed
-        - name: payment_type
-          description: Payment method used for the payment
-        - name: Payments
-          description: The number of payments done for the orders
-        - name: cancel_type
-          description: Type of cancellation whether it is 'Voluntary' or 'Involuntary'
-        - name: up_for_renewal
-          description: The number of subscription orders up for renewal 
-        - name: hf_ind_sj
-          description: The number of inactive voluntary cancelled order subscriptions with same original and scheduled billing date
-        - name: Renewed
-          description: The number of renewed subscription orders
-        - name: invol_cancel_ttl
-          description: The number of inactive involuntary cancelled order subscriptions
-        - name: vol_cancel_ttl
-          description: The number of inactive voluntary cancelled order subscriptions
-        - name: soft_fail_enter
-          description: The number of soft fail enter (scheduled billing date > original billing date) order subscriptions
-        - name: sf_suc_ent
-          description: The number of active soft fail enter (scheduled billing date > original billing date) order subscriptions          
+          description: ETL attribute
+  

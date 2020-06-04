@@ -29,7 +29,7 @@
 					"]
 	})
 }}
-SELECT broadcast_quarter_nm, 
+SELECT broadcast_quarter_nm broadcast_quarter, 
        broadcast_year, 
        src_broadcast_network_id,
        src_playback_period_cd,

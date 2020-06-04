@@ -1,0 +1,57 @@
+version: 2
+sources:
+  - name: fds_nl
+    tables:
+      - name: fact_nl_quaterhour_viewership_ratings
+      - name: fact_nl_commercial_viewership_ratings
+      - name: fact_nl_program_viewership_ratings
+      - name: dim_nl_series
+      - name: dim_nl_broadcast_network
+      - name: dim_nl_daypart
+      - name: fact_nl_timeperiod_viewership_ratings
+      
+  - name: cdm
+    tables:
+      - name: dim_date
+      - name: dim_region_country
+      - name: dim_event
+  - name: fds_yt
+    tables:
+       - name: rpt_yt_wwe_engagement_daily
+       - name: rpt_yt_revenue_daily
+       - name: youtube_video_metadata_direct
+       - name: rpt_yt_demographics_views_daily 
+       - name: rpt_yt_ugc_engagement_daily 
+  - name: public
+    tables:
+       - name: yt_amg_content_groups
+  - name: fds_nplus
+    tables:
+       - name: aggr_daily_subscription
+       - name: aggr_nplus_daily_forcast_output
+       - name: fact_daily_subscription_order_status
+       - name: vw_fact_daily_dotcom_viewership
+  - name: fds_fbk
+    tables:
+       - name: fact_fb_consumption_parent_video
+  - name: fds_tw
+    tables:
+       - name: fact_tw_consumption_post
+  - name: fds_igm
+    tables:
+       - name: fact_ig_consumption_post
+       - name: fact_ig_consumption_story
+  - name: fds_sc
+    tables:
+       - name: fact_sc_consumption_story   
+       - name: fact_scd_consumption_frame       
+       
+       
+
+       
+       
+       
+
+
+
+
