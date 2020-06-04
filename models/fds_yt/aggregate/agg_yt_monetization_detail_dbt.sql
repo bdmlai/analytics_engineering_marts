@@ -28,9 +28,9 @@ sum(views) views, sum(likes) likes, sum(dislikes) dislikes, sum(watch_time_minut
 from 
 (select a.*,d.* 
 from  
-(select * from {{ ref('rpt_yt_wwe_engagement_daily') }} where report_date between 20190101 and cast(to_char(current_date,'YYYYMMDD') as int)) a 
+(select * from   {{source('fds_yt','rpt_yt_wwe_engagement_daily')}}  where report_date between 20190101 and cast(to_char(current_date,'YYYYMMDD') as int)) a 
 left join
-(select distinct upper(iso_alpha2_ctry_cd) as iso_alpha2_ctry_cd ,initcap(country_nm) as country_name,region_nm from {{ ref('dim_region_country') }} 
+(select distinct upper(iso_alpha2_ctry_cd) as iso_alpha2_ctry_cd ,initcap(country_nm) as country_name,region_nm from {{source('cdm','dim_region_country')}} 
 where etl_source_name='Youtube')d 
 on a.country_code=d.iso_alpha2_ctry_cd) group by 1,2,3,4,5,6,7,8,9,10) a
 left join 
@@ -39,10 +39,10 @@ left join
 region_nm as region2,
 nvl(sum(ad_impressions),0) ad_impressions, nvl(sum(estimated_partner_revenue),0) estimated_partner_revenue, nvl(sum(estimated_partner_ad_revenue),0) estimated_partner_ad_revenue
 from 
-(select a.*,d.* from (select * from {{ ref('rpt_yt_revenue_daily') }} where report_date between 20190101 and cast(to_char(current_date,'YYYYMMDD') as int)) a 
+(select a.*,d.* from (select * from   {{source('fds_yt','rpt_yt_revenue_daily')}} where report_date between 20190101 and cast(to_char(current_date,'YYYYMMDD') as int)) a 
 left join
-(select distinct upper(iso_alpha2_ctry_cd) as iso_alpha2_ctry_cd ,initcap(country_nm) as country_name,region_nm from {{ ref('dim_region_country') }}
+(select distinct upper(iso_alpha2_ctry_cd) as iso_alpha2_ctry_cd ,initcap(country_nm) as country_name,region_nm from {{source('cdm','dim_region_country')}} 
 where etl_source_name='Youtube')d on a.country_code=d.iso_alpha2_ctry_cd) group by 1,2,3,4) b
 on a.video_id=b.video_id and a.report_date=b.report_date and a.country_code=b.country_code and a.region2=b.region2
-left join (select distinct report_date_dt debut_date, video_id from {{ ref('rpt_yt_wwe_engagement_daily') }} where video_uploaded_flg=1 ) c
+left join (select distinct report_date_dt debut_date, video_id from  {{source('fds_yt','rpt_yt_wwe_engagement_daily')}} where video_uploaded_flg=1 ) c
 on a.video_id=c.video_id)) a) where (viewrank<20 or watchrank<20 or likerank<20 or dislikerank<20 or adrank<20 or revenuerank<20)

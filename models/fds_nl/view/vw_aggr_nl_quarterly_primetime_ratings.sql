@@ -35,8 +35,8 @@ SELECT substring(b.cal_year_qtr_desc, 5, 2) as rpt_quarter_nm,
        avg(avg_audience_proj_000) as avg_audience_proj_000, 
        avg(avg_audience_pct) as avg_audience_pct, 
        avg(avg_pct_nw_cvg_area) as avg_pct_nw_cvg_area
-      --sum(avg_viewing_hours_units) as avg_viewing_hours_units
-FROM  {{ref('fact_nl_timeperiod_viewership_ratings')}} a
+      --sum(avg_viewing_hours_units) as avg_viewing_hours_units  
+FROM  {{source('fds_nl','fact_nl_timeperiod_viewership_ratings')}} a
 JOIN (SELECT dim_date_id, mth_abbr_nm, cal_year_qtr_desc, cal_year 
         FROM {{source('cdm','dim_date')}}
        WHERE day_of_week_abbr_nm IN ('tue','thu','sat','sun')

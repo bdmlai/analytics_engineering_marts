@@ -17,9 +17,9 @@ sum(likes) likes,
 sum(dislikes) dislikes,
 sum(subscribers_gained) subscribers_gained, 
 sum(subscribers_lost) subscribers_lost
-from {{ ref('rpt_yt_ugc_engagement_daily')}} ue
+from {{source('fds_yt','rpt_yt_ugc_engagement_daily')}}  ue
 left join
-(select distinct upper(iso_alpha2_ctry_cd) as iso_alpha2_ctry_cd ,country_nm,region_nm from {{ref('dim_region_country')}}
+(select distinct upper(iso_alpha2_ctry_cd) as iso_alpha2_ctry_cd ,country_nm,region_nm from {{source('cdm','dim_region_country')}}
 where etl_source_name='Youtube') d
 on ue.country_code=d.iso_alpha2_ctry_cd
 where report_date_dt between current_date - 52 and current_date - 1 
