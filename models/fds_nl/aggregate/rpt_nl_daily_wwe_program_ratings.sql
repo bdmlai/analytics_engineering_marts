@@ -60,16 +60,18 @@ min(program_telecast_rpt_starttime) as program_telecast_rpt_starttime, max(progr
 sum(src_total_duration) as src_total_duration,
 (sum(avg_audience_proj_000 * src_total_duration)/nullif(sum(nvl2(avg_audience_proj_000, src_total_duration, null)), 0)) as avg_audience_proj_000,
 (sum(avg_audience_pct * src_total_duration)/nullif(sum(nvl2(avg_audience_pct, src_total_duration, null)), 0)) as avg_audience_pct,
-(sum(avg_audience_pct_nw_cvg_area * src_total_duration)/nullif(sum(nvl2(avg_audience_pct_nw_cvg_area, src_total_duration, null)), 0)) as avg_audience_pct_nw_cvg_area, sum(avg_viewing_hours_units) as avg_viewing_hours_units
+(sum(avg_audience_pct_nw_cvg_area * src_total_duration)/nullif(sum(nvl2(avg_audience_pct_nw_cvg_area, src_total_duration, null)), 0)) as avg_audience_pct_nw_cvg_area, sum(avg_viewing_hours_units) as avg_viewing_hours_units,
+current_timestamp as etl_insert_rec_dttm
 from {{source('fds_nl','fact_nl_program_viewership_ratings')}} b
-join (select  from {{source('fds_nl','dim_nl_series')}} where wwe_series_qualifier = 'WWE') c
+join (select  dim_nl_series_id from {{source('fds_nl','dim_nl_series')}} where wwe_series_qualifier = 'WWE') c
 on b.dim_nl_series_id = c.dim_nl_series_id
 where src_program_id = 296881 -- filter on program id to consider only RAW telecasts
 group by 1,2,3,4,5,6,7,8,9
 union
 select broadcast_date_id, broadcast_date, dim_nl_broadcast_network_id, src_broadcast_network_id, src_playback_period_cd, 
 src_demographic_group, src_program_id , dim_nl_daypart_id, src_daypart_cd, program_telecast_rpt_starttime, program_telecast_rpt_endtime,
-src_total_duration, avg_audience_proj_000, avg_audience_pct, avg_audience_pct_nw_cvg_area, avg_viewing_hours_units
+src_total_duration, avg_audience_proj_000, avg_audience_pct, avg_audience_pct_nw_cvg_area, avg_viewing_hours_units,
+current_timestamp as etl_insert_rec_dttm
 from {{source('fds_nl','fact_nl_program_viewership_ratings')}} b
 join (select dim_nl_series_id from {{source('fds_nl','dim_nl_series')}} where wwe_series_qualifier = 'WWE') c
 on b.dim_nl_series_id = c.dim_nl_series_id
