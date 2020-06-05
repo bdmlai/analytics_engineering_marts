@@ -1,0 +1,41 @@
+version: 2
+models:
+  - name: agg_cp_weekly_consumption_by_platform
+    description: This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
+    columns:
+        - name: platform
+          description: stores the name of cross platform
+        - name: monday_date
+          description: represents the start of the week for measurement period Monday to Sunday
+        - name: views
+          description: indicates the total views for the week for each platform
+        - name: minutes_watched
+          description: indicates the total minutes watched for the week for each platform
+        - name: prev_views
+          description: indicates the total views for previous week for each platform
+        - name: prev_mins
+          description: indicates the total minutes watched for previous week for each platform
+        - name: weekly_per_change_views
+          description: gives the week over week change in total views for each platform
+        - name: weekly_per_change_mins
+          description: gives the week over week change in total minutes watched for each platform
+          
+  - name: vw_agg_cp_weekly_consumption_by_platform
+    description: This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
+    columns:
+        - name: platform
+          description: stores the name of cross platform
+        - name: monday_date
+          description: represents the start of the week for measurement period Monday to Sunday
+        - name: views
+          description: indicates the total views for the week for each platform
+        - name: minutes_watched
+          description: indicates the total minutes watched for the week for each platform
+        - name: prev_views
+          description: indicates the total views for previous week for each platform
+        - name: prev_mins
+          description: indicates the total minutes watched for previous week for each platform
+        - name: weekly_per_change_views
+          description: gives the week over week change in total views for each platform
+        - name: weekly_per_change_mins
+          description: gives the week over week change in total minutes watched for each platform

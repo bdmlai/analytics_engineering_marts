@@ -31,6 +31,8 @@ sources:
        - name: aggr_nplus_daily_forcast_output
        - name: fact_daily_subscription_order_status
        - name: vw_fact_daily_dotcom_viewership
+       - name: compgdoc
+       
   - name: fds_fbk
     tables:
        - name: fact_fb_consumption_parent_video
@@ -44,7 +46,13 @@ sources:
   - name: fds_sc
     tables:
        - name: fact_sc_consumption_story   
-       - name: fact_scd_consumption_frame       
+       - name: fact_scd_consumption_frame  
+  - name: udl_nplus
+    tables:
+       - name: drvd_intra_hour_quarter_hour_adds
+  - name: fds_cp
+    tables:
+       - name: agg_cp_weekly_consumption_by_platform
        
        
 
