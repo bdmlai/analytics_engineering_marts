@@ -1,8 +1,10 @@
+
+
 {{
-  config(
-	materialized='incremental'
-    
-  )
+  config({
+    "pre-hook": "delete from dwh_read_write.agg_cp_weekly_consumption_by_platform where monday_date >= date_trunc('week',current_date-14)",
+    "materialized": "incremental"
+  })
 }}
 
 
