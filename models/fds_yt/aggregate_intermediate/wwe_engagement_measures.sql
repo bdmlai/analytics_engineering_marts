@@ -34,7 +34,7 @@ sum(x.subscribers_gained) subscribers_gained,
 sum(x.subscribers_lost) subscribers_lost
 from 
 (select report_date_dt,report_date,channel_name,country_code,duration,time_uploaded,video_id,views,watch_time_minutes,likes,dislikes,subscribers_gained,
-subscribers_lost,dim_source_type_id,title {{source('fds_yt','rpt_yt_wwe_engagement_daily')}} from where report_date_dt 
+subscribers_lost,dim_source_type_id,title from {{source('fds_yt','rpt_yt_wwe_engagement_daily')}} where report_date_dt 
 between current_date - 52 and current_date - 1 and dim_source_type_id in (2,3)) x
 left join (select distinct yt_id,channel_name,amg_content_group from {{source('public','yt_amg_content_groups')}}) y 
 /* 5/15/2020/ Hima / added distinct on amg content groups to eliminate duplicates */   

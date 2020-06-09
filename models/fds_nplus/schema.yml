@@ -48,3 +48,43 @@ models:
         - name: payments_count
           description: The number of soft fail enter (scheduled billing date > original billing date) order subscriptions
         - name: cancel_type
+        
+  - name: vw_aggr_nplus_ppv_week_adds_tracking
+    description: ppv aggregate view
+    columns:
+        - name: event_date
+          description: Date and timestamp of the scheduled live events as received from LES
+        - name: ppv_event_nm
+          description: Name of the PPVevent
+        - name: ppv_nm
+          description: Name of the PPV
+        - name: ghw_start_date
+          description: date of Event Date minus 6 days
+        - name: ghw_end_date
+          description: date of Event date plus 2 days
+        - name: year
+          description: Extracted year from event date
+        - name: event
+          description: concatenated text of PPV event name and year 
+        - name: full_date
+          description: full date
+        - name: daily_paid_adds_cnt
+          description: Daily count of paid subscriber adds
+        - name: daily_trial_adds_cnt
+          description: Daily count of trial subscriber adds
+        - name: daily_promo_paid_add_cnt
+          description: Daily count of total promo paid subscription add
+        - name: daily_paid_adds_cnt_new
+          description: custom filed based on order type and Daily count of paid subscriber adds
+        - name: daily_paid_adds_cnt_winback
+          description: custom filed based on order type winback and Daily count of paid subscriber adds
+        - name: bill_date
+          description: Process date
+        - name: forecast_paid_winbacks
+          description: Roll up of all paid winback subscriptions for the day
+        - name: forecast_new_paid
+          description: Roll up of all paid subscriptions who have paid for the first time
+        - name: forecast_free_trial_subs
+          description: Total trial adds for the day
+
+ 
