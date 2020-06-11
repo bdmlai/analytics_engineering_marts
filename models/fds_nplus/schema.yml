@@ -87,4 +87,64 @@ models:
         - name: forecast_free_trial_subs
           description: Total trial adds for the day
 
- 
+  - name: rpt_actuals_estimates_forecast_view
+    description: ppv forecast information 
+    columns:
+        - name: event_date
+          description: PPV event date
+        - name: event_dttm
+          description: PPV event date and time
+        - name: event_name
+          description: PPV event name
+        - name: event_type
+          description: Evenet type
+        - name: event_reporting_type
+          description: Event reporting type
+        - name: adds_days_to_event
+          description: adds day to event
+        - name: adds_day_of_week
+          description: adds day of the week
+        - name: adds_date
+          description: adds date
+        - name: adds_time_to_event
+          description: adds time to event
+        - name: adds_time
+          description: adds time
+        - name: paid_adds
+          description: paid adds
+        - name: trial_adds
+          description: trial adds
+        - name: total_adds
+          description: total adds
+        - name: current_event_reporting_type
+          description: current event reporting type
+        - name: current_event_name
+          description: current event name
+        - name: current_event_date
+          description: current event date
+        - name: current_event_dttm
+          description: current event date time
+        - name: current_adds_date
+          description: current adds date
+        - name: current_adds_days_to_event
+          description: current adds days to event
+        - name: current_adds_day_of_week
+          description: current adds day of the week
+        - name: current_adds_time
+          description: current adds time
+        - name: ghw_adds_tillnow
+          description: go home eek adds till now
+        - name: ghw_adds_estimate
+          description: go week home adds estimate
+        - name: currentday_adds_tillnow
+          description: currentday adds till now
+        - name: currentday_adds_estimate
+          description: current day adds estimate
+        - name: weekend_adds_tillnow
+          description: weekend adds till now
+        - name: weekend_adds_estimate
+          description: weekends adds estimate
+        - name: current_day_forecast
+          description: current day forecast
+        - name: weekend_forecast
+          description: weekend forecast

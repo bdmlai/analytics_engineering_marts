@@ -1,12 +1,14 @@
  {{
   config({
+	"schemas": 'fds_nplus',	
 	"materialized": 'incremental',
+	"pre-hook":"delete from fds_nplus.rpt_actuals_estimates_forecast_view"
 		})
 }}
 
 select * from (with current_ppv as 
 (select *
-from fds_nplus.compgdoc where event_date between date(convert_timezone('AMERICA/NEW_YORK', getdate()))-1 and date(convert_timezone('AMERICA/NEW_YORK', getdate()))+7),
+from {{source('fds_nplus','raw_da_weekly_ppv_hourly_comps')}} where event_date between date(convert_timezone('AMERICA/NEW_YORK', getdate()))-1 and date(convert_timezone('AMERICA/NEW_YORK', getdate()))+7),
 -- Creating a transposed table with comp events --
  current_list as 
 (select event_reporting_type, event_date, event_dttm, event_name, 'current_ppv' as event_type from current_ppv
@@ -80,7 +82,7 @@ union all
         inner join (
                 select date as adds_date, hour as adds_time, 
                 sum(paid_adds) as paid_adds, sum(trial_adds) as trial_adds, sum(paid_adds+trial_adds) as total_adds
-                from {{('udl_nplus','drvd_intra_hour_quarter_hour_adds')}} as a
+                from {{source('udl_nplus','drvd_intra_hour_quarter_hour_adds')}}  a
 		where date = date(convert_timezone('AMERICA/NEW_YORK', getdate()))
 		and adds_time <= extract(hour from dateadd('hour',-1,convert_timezone('AMERICA/NEW_YORK', getdate())))
 	      group by 1,2
@@ -162,7 +164,8 @@ on a.adds_days_to_event = b.current_adds_days_to_event),
 -- This table bring up next scheduled ppv date--
 next_event as
 (select top 1 trunc(event_dttm) as forecast_event_dt, 
-dateadd(day,-2,trunc(event_dttm)) as forecast_start_dt from cdm.dim_event where trunc(event_dttm)>=getdate() and
+dateadd(day,-2,trunc(event_dttm)) as forecast_start_dt from cdm.dim_event 
+where trunc(event_dttm)>=getdate() and
 event_type_cd = 'PPV' order by event_dttm asc),
 --To calculate daily Forecast--
 forecast1 as 
@@ -177,7 +180,7 @@ case
         when date_part(dayofweek,bill_date) = 6 then 'Saturday'
 else 'Other' end as bill_day_of_week,
 sum(paid_new_adds+paid_winbacks+trial_adds) as current_day_forecast
-from source('fds_nplus','aggr_nplus_daily_forcast_output' 
+from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}}
 where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}})
 and UPPER(payment_method)='MLBAM' and Upper(official_run_flag)='OFFICIAL' 
 and trunc(bill_date) >= (select forecast_start_dt from next_event)
@@ -227,4 +230,7 @@ from actuals_estimates as a
 left join 
 forecast_view as b
 on a.current_event_date=b.forecast_event_dt)
-select * from actuals_estimates_forecast_view)
+select a.*,'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_PPV', 'bi_dbt_user_uat' AS etl_insert_user_id,
+    SYSDATE                                   AS etl_insert_rec_dttm,
+    NULL                                                AS etl_update_user_id,
+    CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm from actuals_estimates_forecast_view a)
