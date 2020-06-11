@@ -35,10 +35,12 @@ coalesce(sum(case when age_group='AGE_65_' then views*1000000 else 0 end)/nullif
 coalesce(sum(case when age_group='AGE_18_24' then views*1000000 else 0 end)/nullif(sum(views),0),0) as AGE_18_24
 from 
 (select report_date,channel_name,country_code,duration,report_date_dt,time_uploaded,gender,age_group,views,video_id,uploader_type
-from {{ ref('rpt_yt_demographics_views_daily') }}   where report_date_dt between current_date-52 and current_date - 1 
+from {{source('fds_yt','rpt_yt_demographics_views_daily')}}   where report_date_dt between current_date-52 and current_date - 1 
 and uploader_type in ( 'self' , 'thirdParty')) d 
-left join {{ref('yt_amg_content_groups')}} y
-on d.video_id=y.yt_id
+left join (select distinct yt_id,channel_name,amg_content_group from {{source('public','yt_amg_content_groups')}}) y 
+/* 5/15/2020 / Hima /added distinct on amg content groups to eliminate duplicates */
+on d.video_id=y.yt_id and d.channel_name=y.channel_name
+/* 5/15/2020 / Hima / added join on channel_name along with video_id due to duplicates with NULL channel name in yt_amg_content_group table for some video_id's */
 where d.report_date_dt between current_date - 52 and current_date - 1 and d.uploader_type = 'self'
 group by 1,2,3,4,5,6,7
 

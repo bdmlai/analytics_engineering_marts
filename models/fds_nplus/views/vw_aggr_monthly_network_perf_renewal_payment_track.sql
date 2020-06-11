@@ -1,5 +1,6 @@
 {{
   config(
+    schemas='fds_nplus',	
 	materialized='view'
     
   )
@@ -23,7 +24,7 @@ case when payment_count between 0 and 1 then '0-1'
 max(case when revoked_dttm is null then 0 else 1 end ) as f_dt_ind ,
 max(case when coalesce(trunc(revoked_dttm)) is not null  then 1 else 0 end) as invol_loss_ind,
 max(case when trunc(scheduled_billing_dttm) > trunc(org_billing_dttm) then 1 else 0 end) as sf_ind
-from {{ref('fact_daily_subscription_order_status')}} where trunc(initial_order_dttm) < trunc(org_billing_dttm)
+from {{source('fds_nplus','fact_daily_subscription_order_status')}} where trunc(initial_order_dttm) < trunc(org_billing_dttm)
 group by 1,2,3,4,5,6,7,8,9,10,as_on_date)
 where rk = 1)
 select

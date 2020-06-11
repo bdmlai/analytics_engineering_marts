@@ -1,0 +1,27 @@
+version: 2
+
+models:       
+  - name: agg_yt_monetization_summary_dbt
+    description: business critical engagement, consumption and revenue metrics for each uploaded video. It contains attributes like Channel, Country, Geographical region, Title, Series along with a host of other dimensions which are relevant with respect to the metrics. The measures in this data source primarily revolve around number of views, minutes watched, comments, shares, like, dislikes and other revenue and demographic details.
+    columns:
+        - name: country_name
+          description: The country Name associated with the metrics in the report row.
+        - name: country_code
+          description: The country associated with the metrics in the report row.
+        - name: channel_name
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresource id property. channel name wwe,bellatwins,UpUpDownDown
+        - name: view_date
+          description: Video view date
+        - name: report_date
+          description: The date where reports need to generatee
+        - name: views
+          description: The number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: partner_revenue
+          description: Revenue generated
+        - name: likes
+          description: sum of likes for the video
+        - name: dislikes
+          description: sum of dislikes for the video
+        - name: insert_timestamp
+          description: ETL attribute
+  

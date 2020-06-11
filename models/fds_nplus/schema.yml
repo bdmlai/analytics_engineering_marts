@@ -1,0 +1,150 @@
+version: 2
+
+models:
+  - name: vw_aggr_daily_network_adds_and_loss_track
+    description: A view to display total subscription losses of orders
+    columns:
+        - name: date
+          description: Processing Date
+        - name: country
+          description: Country of the product sku is purchased
+        - name: order_status
+          description: The status of order whether it is 'trial' or 'paid'
+        - name: cancel_type
+          description: Type of cancellation whether it is 'Voluntary' or 'Involuntary'
+        - name: payment_method
+          description: Payment method used for the payment
+        - name: payments_count
+          description: Total number of payments done for the orders
+        - name: total_losses
+          description: The total number of subscription order losses
+  - name: vw_aggr_monthly_network_perf_renewal_payment_track
+    description: A view to display various metrics of order subscriptions
+    columns:
+        - name: billing_month
+          description: Original Billing Month
+        - name: original_billing_date
+          description: Original Billing Date
+        - name: order_status
+          description: The status of order whether it is 'trial' or 'paid'
+        - name: country
+          description: Country where payment is billed
+        - name: payment_type
+          description: Payment method used for the payment
+        - name: renewed_count
+          description: The number of payments done for the orders
+        - name: hard_fail_indicator
+          description: Type of cancellation whether it is 'Voluntary' or 'Involuntary'
+        - name: renewed_total
+          description: The number of subscription orders up for renewal 
+        - name: involuntary_cancels_count
+          description: The number of inactive voluntary cancelled order subscriptions with same original and scheduled billing date
+        - name: voluntary_cancels_count
+          description: The number of renewed subscription orders
+        - name: soft_fail_enter
+          description: The number of inactive involuntary cancelled order subscriptions
+        - name: soft_fail_successful_enter
+          description: The number of inactive voluntary cancelled order subscriptions
+        - name: payments_count
+          description: The number of soft fail enter (scheduled billing date > original billing date) order subscriptions
+        - name: cancel_type
+        
+  - name: vw_aggr_nplus_ppv_week_adds_tracking
+    description: ppv aggregate view
+    columns:
+        - name: event_date
+          description: Date and timestamp of the scheduled live events as received from LES
+        - name: ppv_event_nm
+          description: Name of the PPVevent
+        - name: ppv_nm
+          description: Name of the PPV
+        - name: ghw_start_date
+          description: date of Event Date minus 6 days
+        - name: ghw_end_date
+          description: date of Event date plus 2 days
+        - name: year
+          description: Extracted year from event date
+        - name: event
+          description: concatenated text of PPV event name and year 
+        - name: full_date
+          description: full date
+        - name: daily_paid_adds_cnt
+          description: Daily count of paid subscriber adds
+        - name: daily_trial_adds_cnt
+          description: Daily count of trial subscriber adds
+        - name: daily_promo_paid_add_cnt
+          description: Daily count of total promo paid subscription add
+        - name: daily_paid_adds_cnt_new
+          description: custom filed based on order type and Daily count of paid subscriber adds
+        - name: daily_paid_adds_cnt_winback
+          description: custom filed based on order type winback and Daily count of paid subscriber adds
+        - name: bill_date
+          description: Process date
+        - name: forecast_paid_winbacks
+          description: Roll up of all paid winback subscriptions for the day
+        - name: forecast_new_paid
+          description: Roll up of all paid subscriptions who have paid for the first time
+        - name: forecast_free_trial_subs
+          description: Total trial adds for the day
+
+  - name: rpt_actuals_estimates_forecast_view
+    description: ppv forecast information 
+    columns:
+        - name: event_date
+          description: PPV event date
+        - name: event_dttm
+          description: PPV event date and time
+        - name: event_name
+          description: PPV event name
+        - name: event_type
+          description: Evenet type
+        - name: event_reporting_type
+          description: Event reporting type
+        - name: adds_days_to_event
+          description: adds day to event
+        - name: adds_day_of_week
+          description: adds day of the week
+        - name: adds_date
+          description: adds date
+        - name: adds_time_to_event
+          description: adds time to event
+        - name: adds_time
+          description: adds time
+        - name: paid_adds
+          description: paid adds
+        - name: trial_adds
+          description: trial adds
+        - name: total_adds
+          description: total adds
+        - name: current_event_reporting_type
+          description: current event reporting type
+        - name: current_event_name
+          description: current event name
+        - name: current_event_date
+          description: current event date
+        - name: current_event_dttm
+          description: current event date time
+        - name: current_adds_date
+          description: current adds date
+        - name: current_adds_days_to_event
+          description: current adds days to event
+        - name: current_adds_day_of_week
+          description: current adds day of the week
+        - name: current_adds_time
+          description: current adds time
+        - name: ghw_adds_tillnow
+          description: go home eek adds till now
+        - name: ghw_adds_estimate
+          description: go week home adds estimate
+        - name: currentday_adds_tillnow
+          description: currentday adds till now
+        - name: currentday_adds_estimate
+          description: current day adds estimate
+        - name: weekend_adds_tillnow
+          description: weekend adds till now
+        - name: weekend_adds_estimate
+          description: weekends adds estimate
+        - name: current_day_forecast
+          description: current day forecast
+        - name: weekend_forecast
+          description: weekend forecast
