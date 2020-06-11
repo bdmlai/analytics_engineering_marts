@@ -1,5 +1,6 @@
 {{
   config(
+    schemas='fds_nplus',	
 	materialized='view'
     
   )

@@ -1,5 +1,6 @@
  {{
   config({
+    "schemas": 'fds_nplus',
 	"materialized": 'view',
 	"post-hook": ["COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.event_date IS 'Date and timestamp of the scheduled live events as received from LES';
 					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.ppv_event_nm IS 'Name of the PPVevent';
