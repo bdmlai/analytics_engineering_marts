@@ -200,7 +200,7 @@ models:
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)  
 
   - name: rpt_nl_daily_wwe_live_commercial_ratings
-    description: A view to display various dimensions and metrics for  wwe live commercial ratings
+    description: '{{ doc("rpt_nl_daily_wwe_live_commercial_ratings") }}'
     columns:
         - name: broadcast_date_id
           description: Broadcast Date ID field
@@ -246,7 +246,7 @@ models:
           description: National Commerical Clock Minutes Duration (seconds) (The total number of seconds across qualified commercial minutes within a selected program.)
   
   - name: rpt_nl_daily_wwe_live_quarterhour_ratings
-    description: A view to display various dimensions and metrics for wwe live quarterhour ratings
+    description: '{{ doc("rpt_nl_daily_wwe_live_quarterhour_ratings") }}'
     columns:
         - name: broadcast_date_id
           description: Broadcast Date ID Field
@@ -294,7 +294,7 @@ models:
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
   
   - name: rpt_nl_daily_wwe_program_ratings
-    description: A view to display various dimensions and metrics for  daily wwe ratings
+    description: '{{ doc("rpt_nl_daily_wwe_program_ratings") }}'
     columns:     
         - name: broadcast_date_id
           description: Broadcast Date ID Field
