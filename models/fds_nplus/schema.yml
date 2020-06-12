@@ -87,7 +87,7 @@ models:
         - name: forecast_free_trial_subs
           description: Total trial adds for the day
 
-  - name: rpt_actuals_estimates_forecast_view
+  - name: rpt_network_ppv_actuals_estimates_forecast
     description: ppv forecast information 
     columns:
         - name: event_date
