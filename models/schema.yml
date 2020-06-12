@@ -31,6 +31,8 @@ sources:
        - name: aggr_nplus_daily_forcast_output
        - name: fact_daily_subscription_order_status
        - name: vw_fact_daily_dotcom_viewership
+  - name: dwh_read_write
+    tables:
        - name: raw_da_weekly_ppv_hourly_comps
        
   - name: fds_fbk
