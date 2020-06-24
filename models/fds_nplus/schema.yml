@@ -50,7 +50,7 @@ models:
         - name: cancel_type
         
   - name: vw_aggr_nplus_ppv_week_adds_tracking
-    description: ppv aggregate view
+    description:  '{{ doc("vw_aggr_nplus_ppv_week_adds_tracking") }}'
     columns:
         - name: event_date
           description: Date and timestamp of the scheduled live events as received from LES

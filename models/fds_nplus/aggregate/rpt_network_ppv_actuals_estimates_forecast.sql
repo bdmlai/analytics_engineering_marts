@@ -8,7 +8,8 @@
 
 select * from (with current_ppv as 
 (select *
-from {{source('dwh_read_write','raw_da_weekly_ppv_hourly_comps')}} where event_date between date(convert_timezone('AMERICA/NEW_YORK', getdate()))-1 and date(convert_timezone('AMERICA/NEW_YORK', getdate()))+7),
+from {{source('udl_nplus','raw_da_weekly_ppv_hourly_comps')}} where event_date between date(dateadd('hour',-1,convert_timezone('AMERICA/NEW_YORK', getdate())))-1 and  date(dateadd('hour',-1,convert_timezone('AMERICA/NEW_YORK', getdate())))+7),
+
 -- Creating a transposed table with comp events --
  current_list as 
 (select event_reporting_type, event_date, event_timestamp as event_dttm, event_name, 'current_ppv' as event_type from current_ppv
@@ -83,7 +84,9 @@ union all
                 select date as adds_date, hour as adds_time, 
                 sum(paid_adds) as paid_adds, sum(trial_adds) as trial_adds, sum(paid_adds+trial_adds) as total_adds
                 from {{source('udl_nplus','drvd_intra_hour_quarter_hour_adds')}}  a
-		where date = date(convert_timezone('AMERICA/NEW_YORK', getdate()))
+		--where date = date(convert_timezone('AMERICA/NEW_YORK', getdate()))
+		--TAB-2028 
+		where date = date(dateadd('hour',-1,convert_timezone('AMERICA/NEW_YORK', getdate())))
 		and adds_time <= extract(hour from dateadd('hour',-1,convert_timezone('AMERICA/NEW_YORK', getdate())))
 	      group by 1,2
         ) as b
@@ -179,7 +182,9 @@ case
         when date_part(dayofweek,bill_date) = 5 then 'Friday'
         when date_part(dayofweek,bill_date) = 6 then 'Saturday'
 else 'Other' end as bill_day_of_week,
-sum(paid_new_adds+paid_winbacks+trial_adds) as current_day_forecast
+--sum(paid_new_adds+paid_winbacks+trial_adds) as current_day_forecast
+--TAB-2028
+sum(paid_new_adds+paid_winbacks) as current_day_forecast
 from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}}
 where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}})
 and UPPER(payment_method)='MLBAM' and Upper(official_run_flag)='OFFICIAL' 
@@ -202,7 +207,10 @@ forecast_event_dt,
 bill_day_of_week,
 current_day_forecast
 from forecast2 
-where trunc(bill_date) = current_date),
+--where trunc(bill_date) = current_date),
+--TAB-2028
+where trunc(bill_date) = date(dateadd('hour',-1,convert_timezone('AMERICA/NEW_YORK', getdate())))),
+
 --To calculate Weekend Forecast--
 forecast4 as 
 (select 
