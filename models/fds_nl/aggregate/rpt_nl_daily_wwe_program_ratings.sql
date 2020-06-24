@@ -15,7 +15,7 @@
 {{
   config({
 		"pre-hook": ["delete from fds_nl.rpt_nl_daily_wwe_program_ratings where etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_program_viewership_ratings)"],
-	     "materialized": 'incremental',"tags": 'Phase4B'
+	     "materialized": 'incremental',"tags": 'Phase4B', "persist_docs": {'relation' : true, 'columns' : true}
   })
 }}
 
