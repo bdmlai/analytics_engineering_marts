@@ -89,11 +89,15 @@ on a.full_date=b.as_on_date-1
 
 RIGHT JOIN
 	(
-                 select trunc(bill_date) as bill_date,sum(paid_winbacks) as paid_winbacks,
-                        sum(paid_new_adds) as new_paid,sum(trial_adds) as free_trial_subs
+                 select trunc(bill_date) as bill_date,                --
+                 sum(paid_winbacks)+sum(paid_new_with_trial) as paid_winbacks,
+                 sum(paid_new_adds)-sum(paid_new_with_Trial) as new_paid,                --
+                -- sum(paid_winbacks) as paid_winbacks,
+                        --sum(paid_new_adds) as new_paid,
+                        sum(trial_adds) as free_trial_subs
                  from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}}
                  where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}})
-                 and payment_method='mlbam' 
+                 and payment_method in ('mlbam','roku','apple') 
                  and official_run_flag='official' 
                  and bill_date>'2019-12-20'
                  group by 1 

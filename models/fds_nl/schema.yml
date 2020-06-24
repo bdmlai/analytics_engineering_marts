@@ -93,7 +93,7 @@ models:
           description: National Commercial Clock Minute Average Audience Percentage (The percentage of the target demographic viewing the average qualified commercial minute of the selected program within the total U.S.)
         - name: natl_comm_clockmts_cvg_area_avg_audience_proj_pct  
           description: National Commercial Clock Minute Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average qualified commercial minute of a selected program within a network’s coverage area.)       
-        - name: avg_viewing_hours_units
+        - name: tot_viewing_minutes
           description: Derived Average Viewing Hours in minutes 
         
   - name: vw_aggr_nl_monthly_wwe_live_program_ratings
@@ -119,7 +119,7 @@ models:
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_audience_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name: avg_viewing_hours_units
+        - name: tot_viewing_minutes
           description: Derived Average Viewing Hours in minutes
         - name: number_of_airings
           description: Number of airings
@@ -149,7 +149,7 @@ models:
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name: avg_viewing_hours_units
+        - name: tot_viewing_minutes
           description: Derived Average Viewing Hours in minutes
           
   - name: vw_aggr_nl_quarterly_fin_wwe_live_program_ratings
@@ -402,7 +402,7 @@ models:
           description: National Commercial Clock Minute Average Audience Percentage (The percentage of the target demographic viewing the average qualified commercial minute of the selected program within the total U.S.)
         - name: natl_comm_clockmts_cvg_area_avg_audience_proj_pct
           description: National Commercial Clock Minute Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average qualified commercial minute of a selected program within a network’s coverage area.)
-        - name:  avg_viewing_hours_units
+        - name:  tot_viewing_minutes
           description: Derived Average Viewing Hours in munites
           
   - name: vw_aggr_nl_quarterly_wwe_live_program_ratings
@@ -426,7 +426,7 @@ models:
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name:  avg_viewing_hours_units
+        - name:  tot_viewing_minutes
           description: Derived Average Viewing Hours in munites
         - name:  number_of_airings
           description: Number of airing
@@ -456,7 +456,7 @@ models:
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name:  avg_viewing_hours_units
+        - name:  tot_viewing_minutes
           description: Derived Average Viewing Hours in munites
           
   - name: vw_aggr_nl_yearly_fin_wwe_live_program_ratings
@@ -542,7 +542,7 @@ models:
           description: National Commercial Clock Minute Average Audience Percentage (The percentage of the target demographic viewing the average qualified commercial minute of the selected program within the total U.S.)
         - name: natl_comm_clockmts_cvg_area_avg_audience_proj_pct
           description: National Commercial Clock Minute Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average qualified commercial minute of a selected program within a network’s coverage area.)
-        - name:  avg_viewing_hours_units
+        - name:  tot_viewing_minutes
           description: Derived Average Viewing Hours in munites
           
   - name: vw_aggr_nl_yearly_wwe_live_program_ratings
@@ -564,7 +564,7 @@ models:
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name:  avg_viewing_hours_units
+        - name:  tot_viewing_minutes
           description: Derived Average Viewing Hours in munites
         - name:  number_of_airings
           description: Number of airing
@@ -592,5 +592,158 @@ models:
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name:  avg_viewing_hours_units
+        - name:  tot_viewing_minutes
           description: Derived Average Viewing Hours in munites
+
+  - name: rpt_nl_weekly_channel_switch
+    description: '{{ doc("rpt_nl_weekly_channel_switch") }}'
+    columns:
+        - name: coverage_area
+          description: NPOWER- Coverage Area
+        - name: src_market_break
+          description: Identified Marcket break category by the broadcast nework
+        - name: src_demographic_group
+          description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
+        - name: broadcast_Date
+          description: Broadcast date for the given channel
+        - name: src_broadcast_network_name
+          description: Viewing source of the network channel
+        - name:  time_minute 
+          description: minute of measurement the intervel of switching beahiour is measured
+        - name: mc_us_aa000
+          description: Metrics for most current US audience average projection in thousants
+        - name: absolute_stay
+          description: unique viewers who stayed in the same network
+        - name: stay_percent
+          description: percentage value of viewers stayed in same network
+        - name: absolute_switch
+          description: unique viewers who swicthed to different network
+        - name:  switch_percent
+          description: percentage value of unique viewers who swicthed to different network
+        - name:  switch_percent_rank
+          description: ranking based on percentage switch
+
+
+  - name: vw_rpt_nl_weekly_channel_switch
+    description:  '{{ doc("vw_rpt_nl_weekly_channel_switch") }}'
+    columns:
+        - name: coverage_area
+          description: NPOWER- Coverage Area
+        - name: src_market_break
+          description: Identified Marcket break category by the broadcast nework
+        - name: src_demographic_group
+          description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
+        - name: broadcast_Date
+          description: Broadcast date for the given channel
+        - name: src_broadcast_network_name
+          description: Viewing source of the network channel
+        - name:  time_minute 
+          description: minute of measurement the intervel of switching beahiour is measured
+        - name: mc_us_aa000
+          description: Metrics for most current US audience average projection in thousants
+        - name: absolute_stay
+          description: unique viewers who stayed in the same network
+        - name: stay_percent
+          description: percentage value of viewers stayed in same network
+        - name: absolute_switch
+          description: unique viewers who swicthed to different network
+        - name:  switch_percent
+          description: percentage value of unique viewers who swicthed to different network
+        - name:  switch_percent_rank
+          description: ranking based on percentage switch
+
+  - name: vw_aggr_nl_monthly_hulu_wwe_vh_data
+    description:  '{{ doc("vw_aggr_nl_monthly_hulu_wwe_vh_data") }}'
+    columns:
+        - name: flight_Month
+          description: Month of program airing
+        - name: flight_Year
+          description: Year of program airing
+        - name: src_Series_id
+          description: Program name the channel has broadcasted
+        - name: tot_viewing_hours
+          description: Derived viewing hours 
+         
+  - name: vw_rpt_nl_weekly_overlap_chart
+    description:  '{{ doc("vw_rpt_nl_weekly_overlap_chart") }}'
+    columns:
+        - name: as_on_date
+          description: Record as-on date
+        - name: primary_schedule
+          description: identifier for primary program/daypart selection as input within Nielsen report
+        - name: secondary_schedule
+          description: identifier for secondary program/daypart selection as input within Nielsen report.
+        - name: market_break
+          description: Identified Market break category by the broadcast nework
+        - name: demographic_group
+          description: A comma separated list of demographic group
+        - name:  playback_period
+          description: A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. Live (Live - Includes viewing that occurred during the live airing). Live+SD (Live + Same Day -Includes all playback that occurred within the same day of the liveairing). Live+3 (Live + 3 Days - Includes all playback that occurred within three days of the live airing). Live+7 (Live + 7 Days - Includes all playback that occurred within seven days of the live airing).
+        - name: Primary_Reach_Proj_000
+          description: unique viewers who watched primary program/daypart (whether or not they watched secondary program/daypart)
+        - name: Combined_Reach_Proj_000
+          description: unique viewers who watched either the primary program/daypart or secondary program/daypart, regarless of whether they watched both
+        - name: Primary_Only_Reach_Proj_000
+          description: unique viewers who only watched primary program/daypart and did not watch secondary program/daypart
+        - name: secondary_only_reach_proj000
+          description: unique viewers who only watched secondary program/daypart and did not watch primary program/daypart
+        - name:  both_reach_proj000
+          description: unique viewers who watched both the primary program/daypart and secondary program/daypart
+        - name:  Percent_of_Primary_Show
+          description: percentage of primary show  will be calculated  based on Secondary schedule name
+        - name:  Percent_of_Wrestling
+          description: percentage of Wrestling will be calculated  based on Secondary schedule name
+        - name:  Overlap_Reach_Proj000
+          description: Overlap reach  will be calculated  based on Secondary schedule name
+
+  - name: rpt_nl_weekly_overlap_program_4_way_oob
+    description:  '{{ doc("rpt_nl_weekly_overlap_program_4_way_oob") }}'
+    columns:
+        - name: dim_date_id
+          description: References dim_date_id primary key
+        - name: input_type
+          description: Input Type is a customized column with value as staright Neilsen and Derived for schedules
+        - name: coverage_area
+          description: NPOWER- Coverage Area
+        - name: market_break
+          description: Identified Market break category by the broadcast nework
+        - name: demographic_group
+          description: A comma separated list of demographic group
+        - name: playback_period
+          description: A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. Live (Live - Includes viewing that occurred during the live airing). Live+SD (Live + Same Day -Includes all playback that occurred within the same day of the liveairing). Live+3 (Live + 3 Days - Includes all playback that occurred within three days of the live airing). Live+7 (Live + 7 Days - Includes all playback that occurred within seven days of the live airing).
+        - name: schedule_name
+          description: NPOWER - identifier for primary program/daypart selection as input within Nielsen report
+        - name: AA_Reac_Proj_000
+          description: Unique Audience/impressions
+        - name: P2_Total_Unique_Reach_Percent
+          description: Custom Calculation based on  AA_Reac_Proj_000
+        - name: Overlap_Description
+          description: Customized value for each Schedules both Straight Neilsen and Derived
+        
+  - name: vw_rpt_nl_weekly_overlap_program_4_way_oob
+    description:  '{{ doc("vw_rpt_nl_weekly_overlap_program_4_way_oob") }}'
+    columns:
+        - name: dim_date_id
+          description: References dim_date_id primary key
+        - name: input_type
+          description: Input Type is a customized column with value as staright Neilsen and Derived for schedules
+        - name: coverage_area
+          description: NPOWER- Coverage Area
+        - name: src_market_break
+          description: Identified Market break category by the broadcast nework
+        - name: demographic_group
+          description: A comma separated list of demographic group
+        - name:  playback_period
+          description: A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. Live (Live - Includes viewing that occurred during the live airing). Live+SD (Live + Same Day -Includes all playback that occurred within the same day of the liveairing). Live+3 (Live + 3 Days - Includes all playback that occurred within three days of the live airing). Live+7 (Live + 7 Days - Includes all playback that occurred within seven days of the live airing).
+        - name: schedule_name
+          description: NPOWER - identifier for primary program/daypart selection as input within Nielsen report
+        - name: AA_Reac_Proj_000
+          description: Unique Audience/impressions
+        - name: P2_Total_Unique_Reach_Percent
+          description: Custom Calculation based on  AA_Reac_Proj_000
+        - name: Overlap_Description
+          description: Customized value for each Schedules both Straight Neilsen and Derived
+ 
+
+
+
