@@ -23,7 +23,7 @@
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_audience_proj_000 IS 'Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_audience_pct IS 'Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_pct_nw_cvg_area IS 'Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a networkâ€™s coverage area.)';  
-					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_viewing_hours_units IS 'Derived Average Viewing Hours in minutes';
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.tot_viewing_minutes IS 'Derived Average Viewing Hours in minutes';
 					"]
 	})
 }}
@@ -39,6 +39,6 @@ SELECT broadcast_year,
 (sum(avg_audience_proj_000 * interval_duration)/nullif(sum(nvl2(avg_audience_proj_000, interval_duration, null)), 0)) as avg_audience_proj_000,
 (sum(avg_audience_pct * interval_duration)/nullif(sum(nvl2(avg_audience_pct, interval_duration, null)), 0)) as avg_audience_pct,
 (sum(avg_pct_nw_cvg_area * interval_duration)/nullif(sum(nvl2(avg_pct_nw_cvg_area, interval_duration, null)), 0)) as avg_pct_nw_cvg_area, 
-sum(avg_viewing_hours_units) as avg_viewing_hours_units
+sum(avg_viewing_hours_units) as tot_viewing_minutes
 FROM {{ref('rpt_nl_daily_wwe_live_quarterhour_ratings')}}
 GROUP BY  1,2,3,4,5,6,7

@@ -15,7 +15,7 @@
 {{
   config({
 		"pre-hook": ["delete from fds_nl.rpt_nl_daily_wwe_live_quarterhour_ratings where etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_quaterhour_viewership_ratings)"],
-	     "materialized": 'incremental','tags': "Phase4B"
+	     "materialized": 'incremental','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
   })
 }}
 
