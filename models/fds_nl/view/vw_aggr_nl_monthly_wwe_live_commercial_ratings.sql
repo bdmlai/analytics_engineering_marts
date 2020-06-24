@@ -10,7 +10,7 @@
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_wwe_live_commercial_ratings.natl_comm_clockmts_avg_audience_proj_000 IS 'National Commercial Clock Minute Average Audience Projection (000) (The projected number of households tuned or persons viewing the average qualified commercial minute of the selected program within the total U.S., expressed in thousands.)';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_wwe_live_commercial_ratings.natl_comm_clockmts_avg_audience_proj_pct IS 'National Commercial Clock Minute Average Audience Percentage (The percentage of the target demographic viewing the average qualified commercial minute of the selected program within the total U.S.)';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_wwe_live_commercial_ratings.natl_comm_clockmts_cvg_area_avg_audience_proj_pct IS 'National Commercial Clock Minute Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average qualified commercial minute of a selected program within a network’s coverage area.)';  
-					COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_wwe_live_commercial_ratings.avg_viewing_hours_units IS 'Derived Average Viewing Hours in minutes ';"]
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_wwe_live_commercial_ratings.tot_viewing_minutes IS 'Derived Average Viewing Hours in minutes ';"]
 	})
 }}
 
@@ -36,6 +36,6 @@ nullif(sum(nvl2(natl_comm_clockmts_avg_audience_proj_000, natl_comm_clockmts_dur
 nullif(sum(nvl2(natl_comm_clockmts_avg_audience_proj_pct, natl_comm_clockmts_duration, null)), 0)) as natl_comm_clockmts_avg_audience_proj_pct,
 (sum(natl_comm_clockmts_cvg_area_avg_audience_proj_pct * natl_comm_clockmts_duration)/
 nullif(sum(nvl2(natl_comm_clockmts_cvg_area_avg_audience_proj_pct, natl_comm_clockmts_duration, null)), 0))
-as natl_comm_clockmts_cvg_area_avg_audience_proj_pct, sum(avg_viewing_hours_units) as avg_viewing_hours_units
+as natl_comm_clockmts_cvg_area_avg_audience_proj_pct, sum(avg_viewing_hours_units) as tot_viewing_minutes
 from  {{ref('rpt_nl_daily_wwe_live_commercial_ratings')}}
 group by 1,2,3,4,5,6

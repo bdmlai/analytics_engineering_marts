@@ -9,7 +9,13 @@ sources:
       - name: dim_nl_broadcast_network
       - name: dim_nl_daypart
       - name: fact_nl_timeperiod_viewership_ratings
-      
+      - name: fact_nl_weekly_overlap_chart
+      - name: fact_nl_weekly_hulu_data
+      - name: fact_nl_minxmin_ratings
+      - name: fact_nl_weekly_live_switching_behavior_destination_dist
+      - name: rpt_nl_weekly_channel_switch
+      - name: fact_nl_weekly_overlap_4_way_oob
+      - name: rpt_nl_weekly_overlap_derived_4_way_oob      
   - name: cdm
     tables:
       - name: dim_date
@@ -31,6 +37,7 @@ sources:
        - name: aggr_nplus_daily_forcast_output
        - name: fact_daily_subscription_order_status
        - name: vw_fact_daily_dotcom_viewership
+       - name: aggr_total_subscription
   - name: dwh_read_write
     tables:
        - name: raw_da_weekly_ppv_hourly_comps
@@ -52,6 +59,7 @@ sources:
   - name: udl_nplus
     tables:
        - name: drvd_intra_hour_quarter_hour_adds
+       - name: raw_da_weekly_ppv_hourly_comps
   - name: fds_cp
     tables:
        - name: agg_cp_weekly_consumption_by_platform
