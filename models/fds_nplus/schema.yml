@@ -1,5 +1,4 @@
 version: 2
-
 models:
   - name: vw_aggr_daily_network_adds_and_loss_track
     description: A view to display total subscription losses of orders
@@ -148,3 +147,173 @@ models:
           description: current day forecast
         - name: weekend_forecast
           description: weekend forecast
+  - name: vw_rpt_network_daily_subscription_kpis
+    description: '{{ doc("vw_rpt_network_daily_subscription_kpis") }}'
+    columns:
+        - name: country_nm
+          description: Name of the country where the region located
+        - name: date
+          description: as on date of one day before
+        - name: dim_country_id
+          description: References dim country for region country location
+        - name: country_cd
+          description: Country Code
+        - name: daily_paid_adds_cnt_new
+          description: Daily count of paid subscriber adds where order type = 'first'
+        - name: daily_paid_adds_cnt_winback
+          description: Daily count of paid subscriber adds where order type = 'winback'
+        - name: daily_paid_loss_cnt_new
+          description: Daily count of total paid subscriber loss where order type = 'first' and payment method is not license partner
+        - name: daily_paid_loss_cnt_winback
+          description: Daily count of total paid subscriber loss where order type = 'winback' and payment method is not license partner
+        - name: domest_paid_add
+          description: Daily count of paid subscriber adds in US
+        - name: domest_trial_add
+          description: Daily count of trial subscriber adds in US
+        - name: inter_paid_add
+          description: Daily count of paid subscriber adds international
+        - name: inter_trial_add
+          description: Daily count of trial subscriber adds international
+        - name: lp_adds
+          description: Daily count of new subscriber adds for license partners
+        - name: adds
+          description: Daily count of new subscriber adds
+        - name: domest_paid_loss
+          description: Daily count of total paid subscriber loss in US and payment method is not license partner
+        - name: domest_trial_loss
+          description: Daily count of total trial subscriber loss in US and payment method is not license partner
+        - name: inter_paid_loss
+          description: Daily count of total paid subscriber loss international and payment method is not license partner
+        - name: inter_trial_loss
+          description: Daily count of total trial subscriber loss international and payment method is not license partner
+        - name: lp_loss
+          description: Daily count of total subscriber loss for license partners
+        - name: loss
+          description: Daily count of total subscriber loss
+        - name: tier2_new_registrations
+          description: daily tier2 prospect loggedin new users count
+        - name: unique_visitors_daily_prospects_inactives
+          description: daily unique visitors tier2 count
+        - name: unique_visitors_network_subscribers_daily
+          description: daily unique visitors tier3 count
+        - name: domest_paid_active
+          description: total number of paid active subscriptions in US
+        - name: domest_trial_active
+          description: total number of trial active subscriptions in US
+        - name: inter_paid_active
+          description: total number of paid active subscriptions international
+        - name: inter_trial_active
+          description: total number of trial active subscriptions international         
+        - name: lp_active
+          description: Total active subscription for license partners
+        - name: active
+          description: Total active subscriptions
+        - name: inactive
+          description: Total inactive subscriptions
+        - name: t2_inact_dedup
+          description: Count of distinct exid when tier_status = T2 and ever_active = 1 and remove_guid = 0
+        - name: t2_inact_dedup_logged_in
+          description: Count of distinct exid when tier_status = T2 and ever_active = 0  andlast_login_date is not null and remove_guid = 0
+        - name: prospects_logged_in
+          description: total tier 2 prospects who have logged in post n2.0 launch
+        - name: prospects_not_logged_in
+          description: total tier 2 users who have not logged in n2.0
+        - name: unique_visitors_mtd_prospects_inactives
+          description: tier 2 distinct user logins in the month. resets every month
+        - name: unique_visitors_network_subscribers_mtd
+          description: tier 3 distinct user logins in the month. resets every month       
+        
+  - name: vw_rpt_network_ppv_actuals_estimates_forecast
+    description: '{{ doc("vw_rpt_network_ppv_actuals_estimates_forecast") }}'
+    columns:
+        - name: event_date
+          description: PPV event date
+        - name: event_dttm
+          description: PPV event date and time
+        - name: event_name
+          description: PPV event name
+        - name: event_type
+          description: Evenet type
+        - name: event_reporting_type
+          description: Event reporting type
+        - name: adds_days_to_event
+          description: adds day to event
+        - name: adds_day_of_week
+          description: adds day of the week
+        - name: adds_date
+          description: adds date
+        - name: adds_time_to_event
+          description: adds time to event
+        - name: adds_time
+          description: adds time
+        - name: paid_adds
+          description: paid adds
+        - name: trial_adds
+          description: trial adds
+        - name: total_adds
+          description: total adds
+        - name: current_event_reporting_type
+          description: current event reporting type
+        - name: current_event_name
+          description: current event name
+        - name: current_event_date
+          description: current event date
+        - name: current_event_dttm
+          description: current event date time
+        - name: current_adds_date
+          description: current adds date
+        - name: current_adds_days_to_event
+          description: current adds days to event
+        - name: current_adds_day_of_week
+          description: current adds day of the week
+        - name: current_adds_time
+          description: current adds time
+        - name: ghw_adds_tillnow
+          description: go home eek adds till now
+        - name: ghw_adds_estimate
+          description: go week home adds estimate
+        - name: currentday_adds_tillnow
+          description: currentday adds till now
+        - name: currentday_adds_estimate
+          description: current day adds estimate
+        - name: weekend_adds_tillnow
+          description: weekend adds till now
+        - name: weekend_adds_estimate
+          description: weekends adds estimate
+        - name: current_day_forecast
+          description: current day forecast
+        - name: weekend_forecast
+          description: weekend forecast
+        
+        
+        
+        
+        
+        
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
