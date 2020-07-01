@@ -161,3 +161,29 @@
 ## Maintenance Log
 * Date : 06/19/2020 ; Developer: Sudhakar Andugula/Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
 {% enddocs %}
+
+
+{% docs vw_rpt_network_daily_subscription_kpis %}
+## Implementation Detail
+* Date        : 06/29/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_network_daily_subscription_kpis
+* Schema	  : fds_nl
+* Contributor : Lakshman Murugeshan
+* Description : vw_rpt_network_daily_subscription_kpis view consists of network daily kpi information
+## Maintenance Log
+* Date : 06/29/2020 ; Developer: Lakshman Murugeshan DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
+{% enddocs %}
+
+
+{% docs vw_rpt_network_ppv_actuals_estimates_forecast %}
+## Implementation Detail
+* Date        : 06/21/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_network_ppv_actuals_estimates_forecast
+* Schema	  : fds_nl
+* Contributor : Sudhakar Andugula
+* Description : vw_rpt_network_ppv_actuals_estimates_forecast view consists of network daily kpi information
+## Maintenance Log
+* Date : 06/21/2020 ; Developer: Sudhakar Andugula DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
+{% enddocs %}
