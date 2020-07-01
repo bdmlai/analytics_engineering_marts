@@ -9,8 +9,9 @@ b.domest_paid_active,
 b.domest_trial_active,
 b.inter_paid_active,
 b.inter_trial_active,
-b.lp_active,
 b.active,
+b.inactive,
+b.lp_active,
 b.t2_inact_dedup,
 b.t2_inact_dedup_logged_in,
 b.prospects_logged_in,
@@ -39,7 +40,7 @@ sum(daily_loss_cnt) as loss,
 sum(daily_tier2_prospect_loggedin_new_users_cnt) tier2_new_registrations,
 sum(daily_unique_visitors_tier2_cnt) as Unique_Visitors_Daily_Prospects_inactives,
 sum(daily_unique_visitors_tier3_cnt) as Unique_Visitors_Network_Subscribers_Daily      
-from fds_nplus.AGGR_DAILY_SUBSCRIPTION --where as_on_date >= '2020-01-02' 
+from {{source('fds_nplus','aggr_daily_subscription')}}
 group by 1,2,3) a
 left join
 (select as_on_date-1 as date,dim_country_id,country_cd,
@@ -49,19 +50,19 @@ sum(case when country_cd !='us' then total_paid_active_cnt else null end) as int
 sum(case when country_cd !='us' then total_trial_active_cnt else null end) as inter_trial_active,
 sum(case when payment_method in ('china_pptv', 'osn', 'rogers', 'astro') then total_active_cnt else null end) as lp_active,
 sum(total_active_cnt) as active, 
-sum(total_tier2_inactive_cnt) as Inactives,
+sum(total_tier2_inactive_cnt) as inactive,
 sum(total_tier2_inactive_dedup_cnt) as t2_inact_dedup,
 sum(total_tier2_prospect_loggedin_dedup_cnt) as t2_inact_dedup_logged_in,
 sum(total_tier2_prospect_loggedin_cnt) as Prospects_logged_in,
 sum(total_tier2_prospect_nonlogged_cnt) as Prospects_not_logged_in,
 sum(total_unique_visitors_tier2_mtd) as Unique_Visitors_MTD_Prospects_inactives,
 sum(total_unique_visitors_tier3_mtd) as Unique_Visitors_Network_Subscribers_MTD 
-from {{source('fds_nplus','aggr_total_subscription')}} --where as_on_date >= '2020-01-02' 
+from {{source('fds_nplus','aggr_total_subscription')}} 
 group by 1,2,3) b
 on a.date = b.date
 and a.dim_country_id = b.dim_country_id
 and a.country_cd = b.country_cd
 left join
-(select * from {{source('cdm','dim_region_country')}} where etl_source_name = 'Network 0') c
+(select * from cdm.dim_region_country where etl_source_name = 'Network 0') c
 on a.dim_country_id = c.dim_country_id
 order by date,dim_country_id,country_cd,country_nm
