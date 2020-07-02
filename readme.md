@@ -1,8 +1,14 @@
-https://jira.wwe.com/browse/TAB-2027
-Dashboard Data Prep (Enhancement)-Daily PPV Go Home Week Adds Tracking
+**** Code for 1951& 1942 available in under 
+
+*--> models/fds_nplus/views/vw_rpt_network_daily_subscription_kpis
+
+Object name: vw_rpt_network_daily_subscription_kpis
 
 
+**** Code for TAB-2028 Available under:
 
-code available under :
+*--> models/fds_nplus/views/vw_rpt_network_ppv_actuals_estimates_forecast
 
-models/fds_nplus/views/vw_aggr_nplus_ppv_week_adds_tracking
+
+Table: rpt_network_ppv_actuals_estimates_forecast
+View: vw_rpt_network_ppv_actuals_estimates_forecast
