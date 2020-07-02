@@ -234,7 +234,7 @@ schedule_name program_combination,
 aa_reac_proj_000 p2_total_unique_reach_proj,
 p2_total_unique_reach_percent,
 overlap_description,'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' AS etl_batch_id,
-'bi_dbt_user_uat'                                   AS etl_insert_user_id,
+'bi_dbt_user_prd'                                   AS etl_insert_user_id,
 CURRENT_TIMESTAMP                                   AS etl_insert_rec_dttm,
 NULL                                                AS etl_update_user_id,
 CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm from total_schedules a
