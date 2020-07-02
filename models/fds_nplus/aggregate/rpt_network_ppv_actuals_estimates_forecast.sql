@@ -165,11 +165,15 @@ from final_view as a
 left join estimates as b
 on a.adds_days_to_event = b.current_adds_days_to_event),
 -- This table bring up next scheduled ppv date--
+--next_event as
+--(select top 1 trunc(event_dttm) as forecast_event_dt, 
+--dateadd(day,-2,trunc(event_dttm)) as forecast_start_dt from cdm.dim_event 
+--where trunc(event_dttm)>=getdate() and
+--event_type_cd = 'PPV' order by event_dttm asc),
 next_event as
-(select top 1 trunc(event_dttm) as forecast_event_dt, 
-dateadd(day,-2,trunc(event_dttm)) as forecast_start_dt from cdm.dim_event 
-where trunc(event_dttm)>=getdate() and
-event_type_cd = 'PPV' order by event_dttm asc),
+(select top 1 event_date as forecast_event_dt, 
+dateadd(day,-2,event_date) as forecast_start_dt from udl_nplus.raw_da_weekly_ppv_hourly_comps  where 
+as_on_date in (select Max(as_on_date) from udl_nplus.raw_da_weekly_ppv_hourly_comps) order by event_date desc),
 --To calculate daily Forecast--
 forecast1 as 
 (select trunc(bill_date) as bill_date,
@@ -238,7 +242,7 @@ from actuals_estimates as a
 left join 
 forecast_view as b
 on a.current_event_date=b.forecast_event_dt)
-select a.*,'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_PPV' etl_batch_id, 'bi_dbt_user_uat' AS etl_insert_user_id,
+select a.*,'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_PPV' etl_batch_id, 'bi_dbt_user_prd' AS etl_insert_user_id,
     SYSDATE                                   AS etl_insert_rec_dttm,
     NULL                                                AS etl_update_user_id,
     CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm from actuals_estimates_forecast_view a)

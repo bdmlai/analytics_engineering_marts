@@ -224,19 +224,17 @@ FROM     fds_nl.fact_nl_weekly_overlap_4_way_oob a join first_15_schedules b on 
 where a.etl_insert_rec_dttm  >  coalesce ((select max(etl_insert_rec_dttm) from {{this}}), '1900-01-01 00:00:00')
 --where a.dim_date_id='20200302'
 GROUP BY 1,2,3,4,5,6,7,b.Max_AA_Reac_Proj_000)
-select dim_date_id,
+select dim_date_id week_starting_date,
 input_type,
 coverage_area,
 src_market_break market_break,
 src_demographic_group demographic_group,
 src_playback_period_cd playback_period_cd,
-schedule_name,
-aa_reac_proj_000,
+schedule_name program_combination,
+aa_reac_proj_000 p2_total_unique_reach_proj,
 p2_total_unique_reach_percent,
 overlap_description,'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' AS etl_batch_id,
-    'bi_dbt_user_uat'                                   AS etl_insert_user_id,
-    CURRENT_TIMESTAMP                                   AS etl_insert_rec_dttm,
-    NULL                                                AS etl_update_user_id,
-    CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm from total_schedules a
-	
-	
+'bi_dbt_user_prd'                                   AS etl_insert_user_id,
+CURRENT_TIMESTAMP                                   AS etl_insert_rec_dttm,
+NULL                                                AS etl_update_user_id,
+CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm from total_schedules a
