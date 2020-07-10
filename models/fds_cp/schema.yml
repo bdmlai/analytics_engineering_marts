@@ -1,7 +1,7 @@
 version: 2
 models:
-  - name: agg_cp_weekly_consumption_by_platform
-    description: '{{ doc("agg_cp_weekly_consumption_by_platform") }}'
+  - name: aggr_cp_weekly_consumption_by_platform
+    description: '{{ doc("aggr_cp_weekly_consumption_by_platform") }}'
     columns:
         - name: platform
           description: stores the name of cross platform
@@ -20,8 +20,8 @@ models:
         - name: weekly_per_change_mins
           description: gives the week over week change in total minutes watched for each platform
           
-  - name: vw_agg_cp_weekly_consumption_by_platform
-    description: '{{ doc("vw_agg_cp_weekly_consumption_by_platform") }}'
+  - name: vw_aggr_cp_weekly_consumption_by_platform
+    description: '{{ doc("vw_aggr_cp_weekly_consumption_by_platform") }}'
     columns:
         - name: platform
           description: stores the name of cross platform
