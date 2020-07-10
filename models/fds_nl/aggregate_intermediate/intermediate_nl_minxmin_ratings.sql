@@ -1,6 +1,7 @@
 
 {{
   config({
+		'schema': 'fds_nl',
 		"materialized": 'ephemeral'
   })
 }}
@@ -13,7 +14,7 @@ WHEN  upper(src_broadcast_network_name) = 'USA NETWORK' THEN 'USA' END AS src_br
  split_part(program_telecast_rpt_starttime, ':', 2) :: int*60 +
   (split_part(program_telecast_rpt_starttime, ':', 3) :: int  ))
  + (min_of_pgm_value - 1)*60) AS TIME_MINUTE ,
-most_current_us_audience_avg_proj_000
+most_current_us_audience_avg_proj_000,etl_insert_rec_dttm
 FROM  {{source('fds_nl','fact_nl_minxmin_ratings')}} 
 where src_playback_period_cd in ('Live | TV with Digital | Linear with VOD')
 

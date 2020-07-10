@@ -1,14 +1,9 @@
-**** Code for 1951& 1942 available in under 
+**** code for TAB-1642 available under 
 
-*--> models/fds_nplus/views/vw_rpt_network_daily_subscription_kpis
+Financial:
 
-Object name: vw_rpt_network_daily_subscription_kpis
+View:
+/models/fds_cp/view/vw_agg_cp_weekly_consumption_by_platform
 
-
-**** Code for TAB-2028 Available under:
-
-*--> models/fds_nplus/views/vw_rpt_network_ppv_actuals_estimates_forecast
-
-
-Table: rpt_network_ppv_actuals_estimates_forecast
-View: vw_rpt_network_ppv_actuals_estimates_forecast
+Table:
+/models/fds_cp/aggregate/agg_cp_weekly_consumption_by_platform

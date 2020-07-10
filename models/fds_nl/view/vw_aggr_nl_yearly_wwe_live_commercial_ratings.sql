@@ -13,6 +13,7 @@
 
  {{
   config({
+	'schema': 'fds_nl',
 	"materialized": 'view',
 	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_commercial_ratings.broadcast_year IS 'Broadcast year';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_commercial_ratings.src_broadcast_network_id IS 'A unique numerical identifier for an individual programming originator.';
