@@ -14,6 +14,7 @@
 */
 {{
   config({
+	'schema': 'fds_nl',
 	"materialized": 'view',
 	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_wwe_live_program_ratings.broadcast_month IS 'Broadcast Calendar Month';
 		       COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_wwe_live_program_ratings.broadcast_year IS 'Broadcast Calendar Year';
