@@ -14,7 +14,7 @@
 {{
   config({
 		"schema": 'fds_nl',
-		"pre-hook": ["delete from fds_nl.rpt_nl_weekly_channel_switch where etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_weekly_live_switching_behavior_destination_dist)"],
+		"pre-hook": ["delete from fds_nl.rpt_nl_weekly_channel_switch where (etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_weekly_live_switching_behavior_destination_dist)) and (etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_minxmin_ratings WHERE upper(mxm_source) in ('RAW','AEW','SMACKDOWN','NXT')))"],
 		"materialized": 'incremental','tags': 'Phase 4b', "persist_docs": {'relation' : true, 'columns' : true}
   })
 }}
