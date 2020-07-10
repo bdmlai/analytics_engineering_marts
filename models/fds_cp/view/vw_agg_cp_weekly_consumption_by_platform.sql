@@ -1,6 +1,5 @@
 {{
   config({
-	"schema": 'fds_cp',
     "materialized": "view"
   })
 }}

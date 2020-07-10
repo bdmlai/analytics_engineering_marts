@@ -6,4 +6,4 @@
 }}
 
 
-select * from {{ref('rpt_network_ppv_actuals_estimates_forecast')}}
+select * from {{ref('rpt_actuals_estimates_forecast_view')}}

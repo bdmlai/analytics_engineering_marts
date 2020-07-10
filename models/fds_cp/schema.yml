@@ -1,7 +1,7 @@
 version: 2
 models:
   - name: agg_cp_weekly_consumption_by_platform
-    description: '{{ doc("agg_cp_weekly_consumption_by_platform") }}'
+    description: This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
     columns:
         - name: platform
           description: stores the name of cross platform
@@ -21,7 +21,7 @@ models:
           description: gives the week over week change in total minutes watched for each platform
           
   - name: vw_agg_cp_weekly_consumption_by_platform
-    description: '{{ doc("vw_agg_cp_weekly_consumption_by_platform") }}'
+    description: This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
     columns:
         - name: platform
           description: stores the name of cross platform

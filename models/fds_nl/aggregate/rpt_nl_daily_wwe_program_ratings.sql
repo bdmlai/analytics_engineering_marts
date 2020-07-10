@@ -14,7 +14,6 @@
 
 {{
   config({
-		'schema': 'fds_nl',
 		"pre-hook": ["delete from fds_nl.rpt_nl_daily_wwe_program_ratings where etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_program_viewership_ratings)"],
 	     "materialized": 'incremental',"tags": 'Phase4B', "persist_docs": {'relation' : true, 'columns' : true}
   })
@@ -82,7 +81,7 @@ SELECT
     a.avg_audience_pct_nw_cvg_area,
     a.avg_viewing_hours_units,
     'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' AS etl_batch_id,
-    'bi_dbt_user_uat'                                   AS etl_insert_user_id,
+    'bi_dbt_user_prd'                                   AS etl_insert_user_id,
     CURRENT_TIMESTAMP                                   AS etl_insert_rec_dttm,
     NULL                                                AS etl_update_user_id,
     CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm
