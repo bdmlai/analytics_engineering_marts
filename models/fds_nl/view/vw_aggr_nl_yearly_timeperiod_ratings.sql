@@ -12,6 +12,7 @@
 */
  {{
   config({
+	'schema': 'fds_nl',
 	"materialized": 'view',
 	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_timeperiod_ratings.rpt_year IS 'Reporting year';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_timeperiod_ratings.broadcast_network_name IS 'Broadcast netowrk Name or the channel name or view source name';

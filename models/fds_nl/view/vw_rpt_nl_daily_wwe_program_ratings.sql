@@ -13,6 +13,7 @@
 */
 {{
   config({
+	'schema': 'fds_nl',
 	"materialized": 'view',
 	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_rpt_nl_daily_wwe_program_ratings.broadcast_date_id IS 'Broadcast Date ID Field';
 			COMMENT ON COLUMN fds_nl.vw_rpt_nl_daily_wwe_program_ratings.broadcast_date IS 'Derived dates based on the viewing period ; before 6 am morning hours is the preious date broadcast hour'; 
