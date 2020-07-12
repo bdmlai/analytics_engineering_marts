@@ -1,6 +1,6 @@
 {{
   config({
-	"schema": 'fds_cp',
+	"schema": 'dwh_read_write',
     "materialized": "view"
   })
 }}
