@@ -187,3 +187,44 @@
 ## Maintenance Log
 * Date : 06/21/2020 ; Developer: Sudhakar Andugula DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
 {% enddocs %}
+
+
+{% docs aggr_cp_weekly_consumption_by_platform %}
+## Implementation Detail
+* Date        : 07/09/2020
+* Version     : 1.0
+* ViewName    : aggr_cp_weekly_consumption_by_platform
+* Schema	  : fds_cp
+* Contributor : Sandeep Battula
+* Description : aggr_cp_weekly_consumption_by_platform This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
+## Maintenance Log
+* Date : 06/21/2020 ; Developer: Code: Sandeep Battula, DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
+{% enddocs %}
+
+
+
+{% docs vw_aggr_cp_weekly_consumption_by_platform %}
+## Implementation Detail
+* Date        : 07/09/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_cp_weekly_consumption_by_platform
+* Schema	  : fds_cp
+* Contributor : Sandeep Battula
+* Description : vw_aggr_cp_weekly_consumption_by_platform This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
+## Maintenance Log
+* Date : 06/21/2020 ; Developer: Code: Sandeep Battula, DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
+{% enddocs %}
+
+
+
+{% docs vw_rpt_weekly_network_subscriber_kpis_ir %}
+## Implementation Detail
+* Date        : 07/09/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_weekly_network_subscriber_kpis_ir
+* Schema	  : fds_cp
+* Contributor : Sandeep Battula
+* Description : vw_rpt_weekly_network_subscriber_kpis_ir Weekly Network Subscriber KPIs for IR Team
+## Maintenance Log
+* Date : 06/21/2020 ; Developer: Code: Sandeep Battula, DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
+{% enddocs %}
