@@ -1,6 +1,11 @@
-name: analytics_engineering_marts
+name: analytics_engineering_marts 
 version: 1.0
-profile: analytics_engineering_marts_profile
+
+config-version: 2
+
+
+profile: wwe_profile
+
 
 source-paths: ["models"]      # paths with source code to compile
 target-path: "target"         # path for compiled code
@@ -8,4 +13,6 @@ test-paths: ["tests"]           # where to store test results
 #macro-paths: ["macros"]
 
 models:
-    analytics_engineering_marts:
+    analytics_engineering_marts :
+      vars:
+        ugc_engage : 'fds_yt.rpt_yt_ugc_engagement_daily'
