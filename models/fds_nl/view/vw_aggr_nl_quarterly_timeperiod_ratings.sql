@@ -12,7 +12,6 @@
 */
  {{
   config({
-	'schema': 'fds_nl',
 	"materialized": 'view',
 	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_aggr_nl_quarterly_timeperiod_ratings.rpt_quarter_nm IS 'Reporting Quarter name';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_quarterly_timeperiod_ratings.rpt_year IS 'Reporting year';

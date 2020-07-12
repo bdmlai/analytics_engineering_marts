@@ -12,7 +12,6 @@
 
 {{
   config({
-		'schema': 'fds_nl',
 		"materialized": 'view','tags': "Phase4B", "persist_docs": {'relation' : true, 'columns' : true}
   })
 }}

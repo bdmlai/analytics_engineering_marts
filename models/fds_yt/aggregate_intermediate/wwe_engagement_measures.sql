@@ -1,6 +1,5 @@
 {{
   config(
-	schema='fds_yt',
 	materialized='ephemeral'
   )
 }}
