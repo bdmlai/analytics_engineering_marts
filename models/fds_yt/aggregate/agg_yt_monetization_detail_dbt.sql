@@ -1,6 +1,5 @@
 {{
   config({
-	"schema": 'fds_yt',
     "pre-hook": "delete from dwh_read_write.agg_yt_monetization_detail_dbt",
     "materialized": "incremental"
   })
