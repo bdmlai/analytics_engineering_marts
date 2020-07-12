@@ -1,6 +1,5 @@
 {{
   config({
-	'schema': 'fds_nl',
 	"materialized": 'view',
 	"post-hook": ["COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_fin_wwe_live_program_ratings.broadcast_fin_month IS 'Broadcast Financial Month'",
 				   "COMMENT ON COLUMN fds_nl.vw_aggr_nl_monthly_fin_wwe_live_program_ratings.broadcast_fin_year IS 'Broadcast Financial Year'",
