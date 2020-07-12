@@ -1,6 +1,7 @@
 
 {{
   config({
+		'schema': 'fds_nl',
 		"materialized": 'ephemeral'
   })
 }}

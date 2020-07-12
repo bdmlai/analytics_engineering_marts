@@ -18,7 +18,8 @@
 
 {{
   config({
-    "pre-hook": "delete from dwh_read_write.agg_yt_monetization_summary where view_date between current_date - 52  and current_date - 1",
+    "schema": 'fds_yt',
+	"pre-hook": "delete from dwh_read_write.agg_yt_monetization_summary where view_date between current_date - 52  and current_date - 1",
 	"materialized": "incremental",
 	"post-hook":["update dwh_read_write.agg_yt_monetization_summary
 	set yt_ad_revenue = Case when b.views <> 0 then a.views * (b.yt_ad_Revenue/(b.views*1.000000)) else a.yt_ad_revenue end,
