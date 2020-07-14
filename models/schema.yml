@@ -39,6 +39,7 @@ sources:
        - name: vw_fact_daily_dotcom_viewership
        - name: aggr_total_subscription
        - name: aggr_kpi_hist_prod
+       - name: fact_daily_subscription_status_plus
        
   - name: dwh_read_write
     tables:
@@ -61,7 +62,10 @@ sources:
   - name: udl_nplus
     tables:
        - name: drvd_intra_hour_quarter_hour_adds
-       - name: raw_da_weekly_ppv_hourly_comps
+       - name: raw_da_weekly_ppv_hourly_comps 
+  - name: udl_nl
+    tables:
+       - name: nielsen_finance_yearly_calendar
   - name: fds_cp
     tables:
        - name: agg_cp_weekly_consumption_by_platform
