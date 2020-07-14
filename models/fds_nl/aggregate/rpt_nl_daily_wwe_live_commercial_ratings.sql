@@ -37,7 +37,7 @@ SELECT
     natl_comm_clockmts_cvg_area_avg_audience_proj_pct,
     natl_comm_clockmts_duration,
     'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' AS etl_batch_id,
-    'bi_dbt_user_uat'                                   AS etl_insert_user_id,
+    'bi_dbt_user_prd'                                   AS etl_insert_user_id,
     CURRENT_TIMESTAMP                                   AS etl_insert_rec_dttm,
     NULL                                                AS etl_update_user_id,
     CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm

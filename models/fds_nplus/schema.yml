@@ -1,9 +1,9 @@
 version: 2
 models:
   - name: vw_aggr_daily_network_adds_and_loss_track
-    description: A view to display total subscription losses of orders
+    description: '{{ doc("vw_aggr_daily_network_adds_and_loss_track") }}'
     columns:
-        - name: date
+        - name: as_on_date
           description: Processing Date
         - name: country
           description: Country of the product sku is purchased
@@ -13,9 +13,9 @@ models:
           description: Type of cancellation whether it is 'Voluntary' or 'Involuntary'
         - name: payment_method
           description: Payment method used for the payment
-        - name: payments_count
+        - name: payments
           description: Total number of payments done for the orders
-        - name: total_losses
+        - name: ttl_losses
           description: The total number of subscription order losses
   - name: vw_aggr_monthly_network_perf_renewal_payment_track
     description: A view to display various metrics of order subscriptions

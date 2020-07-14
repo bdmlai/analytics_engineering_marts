@@ -242,7 +242,7 @@ from actuals_estimates as a
 left join 
 forecast_view as b
 on a.current_event_date=b.forecast_event_dt)
-select a.*,'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_PPV' etl_batch_id, 'bi_dbt_user_uat' AS etl_insert_user_id,
+select a.*,'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_PPV' etl_batch_id, 'bi_dbt_user_prd' AS etl_insert_user_id,
     SYSDATE                                   AS etl_insert_rec_dttm,
     NULL                                                AS etl_update_user_id,
     CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm from actuals_estimates_forecast_view a)
