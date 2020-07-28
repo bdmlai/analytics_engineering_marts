@@ -81,7 +81,7 @@ FROM
 	sum(case when order_type='winback' then daily_paid_adds_cnt else null end) as daily_paid_adds_cnt_winback
 	from {{source('fds_nplus','aggr_daily_subscription')}}
 	where
-	payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource')
+	payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource','roku')
 	group by 1 
 	) b
 on a.full_date=b.as_on_date-1 
