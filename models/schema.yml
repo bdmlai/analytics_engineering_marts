@@ -39,12 +39,10 @@ sources:
        - name: vw_fact_daily_dotcom_viewership
        - name: aggr_total_subscription
        - name: aggr_kpi_hist_prod
-       - name: fact_daily_subscription_status_plus
-       
+       - name: fact_daily_subscription_status_plus      
   - name: dwh_read_write
     tables:
-       - name: raw_da_weekly_ppv_hourly_comps
-       
+       - name: raw_da_weekly_ppv_hourly_comps     
   - name: fds_fbk
     tables:
        - name: fact_fb_consumption_parent_video
@@ -69,3 +67,8 @@ sources:
   - name: fds_cp
     tables:
        - name: agg_cp_weekly_consumption_by_platform
+  - name: fds_kntr
+    tables:
+       - name: fact_kntr_wwe_telecast_data
+       - name: fact_kntr_annual_profile
+       - name: kantar_static_country_region_tag       

@@ -13,7 +13,6 @@
 * Dependent Jobs (process_name ; process_id) : t_di_nielsen_fact_nl_commercial_viewership_ratings_abac ; 12132 (Tue) 
 
 ## Maintenance Log
-
 * Date : 06/12/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
 
 
@@ -142,11 +141,15 @@
 * Version     : 1.0
 * ViewName    : rpt_nl_weekly_overlap_program_4_way_oob
 * Schema	  : fds_nl
-* Contributor : Sudhakar Andugula/Remya K Nair
+* Contributor : Remya K Nair
 * Description :vw_rpt_nl_weekly_overlap_program_4_way_oob view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs 
 
+## Schedule Details
+* Frequency : Daily ; 10:00 P.M EST 
+* Dependent Jobs (process_name ; process_id) : t_di_nielsen_fact_nl_wkly_overlap_4_way_oob_abac ; 12126  
+
 ## Maintenance Log
-* Date : 06/19/2020 ; Developer: Sudhakar Andugula/Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
+* Date : 06/19/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
 
 
 {% enddocs %}
@@ -160,11 +163,11 @@
 * Version     : 1.0
 * ViewName    : vw_rpt_nl_weekly_overlap_program_4_way_oob
 * Schema	  : fds_nl
-* Contributor : Sudhakar Andugula/Remya K Nair
+* Contributor : Remya K Nair
 * Description : vw_rpt_nl_weekly_overlap_program_4_way_oob view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs
  
 ## Maintenance Log
-* Date : 06/19/2020 ; Developer: Sudhakar Andugula/Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
+* Date : 06/19/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
 
 
 {% enddocs %}
@@ -260,4 +263,271 @@
 * Description : vw_aggr_daily_network_adds_and_loss_track view cosists of details about total subscription losses of orders
 ## Maintenance Log
 * Date : 07/15/2020 ; Developer: Sudhakar Andugula ; Change: Initial Version as a part of Network 2.0 Project.
+{% enddocs %}
+
+
+{% docs vw_aggr_kntr_monthly_wwe_program_rating_schedule %}
+## Implementation Detail
+* Date        : 07/26/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_kntr_monthly_wwe_program_rating_schedule
+* Schema	  : fds_kntr
+* Contributor : Remya K Nair
+* Description : vw_aggr_kntr_monthly_wwe_program_rating_schedule view  consist of  Monthly RAW,SD,NXT and PPVs ratings for Live & Nth runs on monthly-basis
+## Maintenance Log
+* Date : 07/26/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+{% docs vw_aggr_kntr_quarterly_wwe_program_rating_schedule %}
+## Implementation Detail
+* Date        : 07/26/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_kntr_quarterly_wwe_program_rating_schedule
+* Schema	  : fds_kntr
+* Contributor : Remya K Nair
+* Description : vw_aggr_kntr_quarterly_wwe_program_rating_schedule view  consist of  quarterly RAW,SD,NXT and PPVs ratings for Live & Nth runs on quarterly-basis
+## Maintenance Log
+* Date : 07/26/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+{% docs vw_aggr_kntr_yearly_wwe_program_rating_schedule %}
+## Implementation Detail
+* Date        : 07/26/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_kntr_yearly_wwe_program_rating_schedule
+* Schema	  : fds_kntr
+* Contributor : Remya K Nair
+* Description : vw_aggr_kntr_yearly_wwe_program_rating_schedule view  consist of  yearly RAW,SD,NXT and PPVs ratings for Live & Nth runs on yearly-basis
+## Maintenance Log
+* Date : 07/26/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+
+{% docs vw_aggr_kntr_weekly_wwe_program_rating %}
+## Implementation Detail
+* Date        : 07/17/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_kntr_weekly_wwe_program_rating
+* Schema      : fds_kntr
+* Contributor : Hima Dasan
+* Description : WWE  rogram Rating Weekly  Aggregate View consist of rating details of all WWE  Programs to be rolled up from wwe telecast data on weekly-basis
+## Maintenance Log
+* Date : 07/17/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+
+{% docs vw_aggr_kntr_monthly_wwe_program_rating %}
+## Implementation Detail
+* Date        : 07/17/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_kntr_monthly_wwe_program_rating
+* Schema      : fds_kntr
+* Contributor : Hima Dasan
+* Description : WWE  rogram Rating monthly  Aggregate View consist of rating details of all WWE  Programs to be rolled up from wwe telecast data on monthly-basis
+## Maintenance Log
+* Date : 07/17/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+{% docs vw_aggr_kntr_quarterly_wwe_program_rating %}
+## Implementation Detail
+* Date        : 07/17/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_kntr_quarterly_wwe_program_rating
+* Schema      : fds_kntr
+* Contributor : Hima Dasan
+* Description : WWE  rogram Rating quarterly  Aggregate View consist of rating details of all WWE  Programs to be rolled up from wwe telecast data on quaterly-basis
+## Maintenance Log
+* Date : 07/17/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+{% docs vw_aggr_kntr_yearly_wwe_program_rating %}
+## Implementation Detail
+* Date        : 07/17/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_kntr_yearly_wwe_program_rating
+* Schema      : fds_kntr
+* Contributor : Hima Dasan
+* Description : WWE  rogram Rating yearly  Aggregate View consist of rating details of all WWE  Programs to be rolled up from wwe telecast data on yearly-basis
+## Maintenance Log
+* Date : 07/17/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs aggr_kntr_weekly_competitive_program_ratings %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   TableName   : aggr_kntr_weekly_competitive_program_ratings
+*   Schema	    : fds_kntr
+*   Contributor : Rahul Chandran
+*   Description : Competitive Program Ratings Weekly Aggregate Table consist of rating details of competitive programs referencing from Annual Profile Table on weekly-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_aggr_kntr_weekly_competitive_program_ratings %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_kntr_weekly_competitive_program_ratings
+*   Schema	    : fds_kntr
+*   Contributor : Rahul Chandran
+*   Description : Competitive Program Ratings Weekly Aggregate View consist of rating details of competitive programs referencing from Competitive Weekly Program Ratings Table on weekly-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_aggr_kntr_monthly_competitive_program_ratings %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_kntr_monthly_competitive_program_ratings
+*   Schema	    : fds_kntr
+*   Contributor : Rahul Chandran
+*   Description : Competitive Program Ratings Monthly Aggregate View consist of rating details of competitive programs referencing from Competitive Weekly Program Ratings Table on monthly-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_aggr_kntr_quarterly_competitive_program_ratings %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_kntr_quarterly_competitive_program_ratings
+*   Schema	    : fds_kntr
+*   Contributor : Rahul Chandran
+*   Description : Competitive Program Ratings Quarterly Aggregate View consist of rating details of competitive programs referencing from Competitive Weekly Program Ratings Table on quarterly-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_aggr_kntr_yearly_competitive_program_ratings %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_kntr_yearly_competitive_program_ratings
+*   Schema	    : fds_kntr
+*   Contributor : Rahul Chandran
+*   Description : Competitive Program Ratings Yearly Aggregate View consist of rating details of competitive programs referencing from Competitive Weekly Program Ratings Table on yearly-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+{% docs rpt_kntr_schedule_vh_data %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   TableName   : rpt_kntr_schedule_vh_data
+*   Schema	    : fds_kntr
+*   Contributor : Rahul Chandran
+*   Description : WWE Program Schedule Viewing Hours Report table consist of rating and other details of WWE program schedule referencing from WWE Telecast Data table on daily-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_rpt_kntr_schedule_vh_data %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_kntr_schedule_vh_data
+*   Schema	    : fds_kntr
+*   Contributor : Rahul Chandran
+*   Description : WWE Program Schedule Viewing Hours Report View consist of rating and other details of WWE program schedule referencing from Schedule VH Data Report Table on daily-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_aggr_kntr_schedule_wca_data %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_kntr_schedule_wca_data
+*   Schema	    : fds_kntr
+*   Contributor : Hima Dasan
+*   Description : WWE Program Schedule Weekly Cumulative Audience Aggregate View consist of rating and other details of WWE program schedule referencing from Schedule VH Data Report Table on weekly-basis
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_aggr_kntr_monthly_country_vh %}
+## Implemenation Detail
+*   Date        : 07/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_kntr_monthly_country_vh
+*   Schema	: fds_kntr
+*   Contributor : Hima Dasan
+*   Description : View calculates actual viewing hour on monthly basis and calculates estimate value for last month for all WWE programs
+
+## Maintenance Log
+* Date : 07/24/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+
+{% docs aggr_monthly_network_kpis_vkm %}
+## Implemenation Detail
+*   Date        : 07/28/2020
+*   Version     : 1.0
+*   ViewName    : aggr_monthly_network_kpis_vkm
+*   Schema	: fds_nplus
+*   Contributor : Lakshman Murugeshan
+*   Description : monthly VKM network kpis
+
+## Maintenance Log
+* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version
+{% enddocs %}
+
+
+{% docs vw_aggr_monthly_network_kpis_vkm %}
+## Implemenation Detail
+*   Date        : 07/28/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_monthly_network_kpis_vkm
+*   Schema	: fds_nplus
+*   Contributor : Lakshman Murugeshan
+*   Description : monthly VKM network kpis
+
+## Maintenance Log
+* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version
+{% enddocs %}
+
+
+{% docs rpt_network_ppv_liveplusvod %}
+## Implemenation Detail
+*   Date        : 07/28/2020
+*   Version     : 1.0
+*   ViewName    : rpt_network_ppv_liveplusvod
+*   Schema	: fds_nplus
+*   Contributor : Lakshman Murugeshan
+*   Description : View contains the information related to Live NXT and HOF evenet
+
+## Maintenance Log
+* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT & Python Automation: Sudhakar; Change: Initial Version
+{% enddocs %}
+
+
+{% docs vw_rpt_network_ppv_liveplusvod %}
+## Implemenation Detail
+*   Date        : 07/28/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_network_ppv_liveplusvod
+*   Schema	: fds_nplus
+*   Contributor : Lakshman Murugeshan
+*   Description : View contains the information related to Live NXT and HOF evenet
+
+## Maintenance Log
+* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT & Python Automation: Sudhakar; Change: Initial Version
 {% enddocs %}
