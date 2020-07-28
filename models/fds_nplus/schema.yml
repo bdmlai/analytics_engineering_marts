@@ -244,4 +244,260 @@ models:
         - name: paid_ending_actives
           description: Weekly count of total number of paid active subscriptions
         - name: total_ending_actives
-          description: Weekly count of total number of active subscriptions
+          description: Weekly count of total number of active subscriptions          
+  - name: aggr_monthly_network_kpis_vkm
+    description: '{{ doc("aggr_monthly_network_kpis_vkm") }}'
+    columns:
+        - name: bill_date
+          description: report date
+        - name: paid_winbacks
+          description: All paid winback subscriptions for the month
+        - name: new_paid
+          description: All paid subscriptions who have paid for the first time
+        - name: free_trial_subs
+          description: Total trial adds for the month
+        - name: losses
+          description: Total Paid and trial Losses for the month 
+        - name: paid_churn_rate
+          description: paid churn rate
+        - name: total_churn_rate
+          description: total churn rate
+        - name: eom_total_subs
+          description: end of month total subscriptions
+        - name: adp
+          description: average daily paid subscriptions
+        - name: paid_winbacks_ly
+          description: All paid winback subscriptions for the month in last year
+        - name: new_paid_ly
+          description: All paid subscriptions who have paid for the first time last year
+        - name: free_trial_subs_ly
+          description: Total trial adds for the month in last year
+        - name: losses_ly
+          description: Total Paid and trial Losses for the month last year
+        - name: paid_churn_rate_ly
+          description: paid churn rate last year
+        - name: total_churn_rate_ly
+          description: total churn rate last year
+        - name: eom_total_subs_ly
+          description: end of month total subscriptions last year
+        - name: adp_ly
+          description: average daily paid subscriptions last year
+        - name: paid_winbacks_f
+          description: All paid winback subscriptions for the month forecasted
+        - name: new_paid_f
+          description: All paid subscriptions who have paid for the first time forecasted
+        - name: free_trial_subs_f
+          description: Total trial adds for the month forecasted
+        - name: losses_f
+          description: Total Paid and trial Losses for the month forecasted
+        - name: eom_total_subs_f
+          description: end of month total subscriptions forecasted
+        - name: adp_f
+          description: average daily paid subscriptions forecasted
+        - name: mnthly_total_hours_watched
+          description: Count of unique viewers for the month
+        - name: mnthly_avg_hours_per_sub
+          description: average hours per subscriber for the month
+        - name: lst_mnth_subs_viewing_cohort_rate
+          description: viewing cohert rate of last month subscriptions
+        - name: mnthly_total_hours_watched_ly
+          description: last year Count of unique viewers for the month
+        - name: mnthly_avg_hours_per_sub_ly
+          description: last year average hours per subscriber for the month
+        - name: lst_mnth_subs_viewing_cohort_rate_ly
+          description: last year viewing cohert rate of last month subscriptions
+  - name: vw_aggr_monthly_network_kpis_vkm
+    description: '{{ doc("vw_aggr_monthly_network_kpis_vkm") }}'
+    columns:
+        - name: bill_date
+          description: report date
+        - name: paid_winbacks
+          description: All paid winback subscriptions for the month
+        - name: new_paid
+          description: All paid subscriptions who have paid for the first time
+        - name: free_trial_subs
+          description: Total trial adds for the month
+        - name: losses
+          description: Total Paid and trial Losses for the month 
+        - name: paid_churn_rate
+          description: paid churn rate
+        - name: total_churn_rate
+          description: total churn rate
+        - name: eom_total_subs
+          description: end of month total subscriptions
+        - name: adp
+          description: average daily paid subscriptions
+        - name: paid_winbacks_ly
+          description: All paid winback subscriptions for the month in last year
+        - name: new_paid_ly
+          description: All paid subscriptions who have paid for the first time last year
+        - name: free_trial_subs_ly
+          description: Total trial adds for the month in last year
+        - name: losses_ly
+          description: Total Paid and trial Losses for the month last year
+        - name: paid_churn_rate_ly
+          description: paid churn rate last year
+        - name: total_churn_rate_ly
+          description: total churn rate last year
+        - name: eom_total_subs_ly
+          description: end of month total subscriptions last year
+        - name: adp_ly
+          description: average daily paid subscriptions last year
+        - name: paid_winbacks_f
+          description: All paid winback subscriptions for the month forecasted
+        - name: new_paid_f
+          description: All paid subscriptions who have paid for the first time forecasted
+        - name: free_trial_subs_f
+          description: Total trial adds for the month forecasted
+        - name: losses_f
+          description: Total Paid and trial Losses for the month forecasted
+        - name: eom_total_subs_f
+          description: end of month total subscriptions forecasted
+        - name: adp_f
+          description: average daily paid subscriptions forecasted
+        - name: mnthly_total_hours_watched
+          description: Count of unique viewers for the month
+        - name: mnthly_avg_hours_per_sub
+          description: average hours per subscriber for the month
+        - name: lst_mnth_subs_viewing_cohort_rate
+          description: viewing cohert rate of last month subscriptions
+        - name: mnthly_total_hours_watched_ly
+          description: last year Count of unique viewers for the month
+        - name: mnthly_avg_hours_per_sub_ly
+          description: last year average hours per subscriber for the month
+        - name: lst_mnth_subs_viewing_cohort_rate_ly
+          description: last year viewing cohert rate of last month subscriptions
+  - name: rpt_network_ppv_liveplusvod
+    description: '{{ doc("rpt_network_ppv_liveplusvod") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data
+  - name: vw_rpt_network_ppv_liveplusvod
+    description: '{{ doc("vw_rpt_network_ppv_liveplusvod") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data

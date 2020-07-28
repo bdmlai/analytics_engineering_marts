@@ -10,14 +10,14 @@ prior_change_live as
          views as prev_month_views,
          event as prev_month_event,
          event_brand
-  from fds_nplus.rpt_ntwrk_ppv_liveplusvod
+  from dwh_read_write.rpt_ntwrk_ppv_liveplusvod
   where data_level = 'Live' and event_brand in (select distinct event_brand from live_manual) and event in (select distinct prev_month_event from live_manual)) as a 
   join 
   (select platform,
          views as prev_year_views,
          event as prev_year_event,
          event_brand
-  from fds_nplus.rpt_ntwrk_ppv_liveplusvod
+  from dwh_read_write.rpt_ntwrk_ppv_liveplusvod
   where data_level = 'Live' and event_brand in (select distinct event_brand from live_manual) and event in (select distinct prev_year_event from live_manual)) as b
   on a.platform=b.platform
   and a.event_brand = b.event_brand
@@ -209,7 +209,7 @@ union all
 select report_name,event,event_name,event_brand,series_name,event_date,start_time,end_time,
 prev_month_event,prev_year_event,platform,data_level,content_wweid,production_id,account,url,asset_id::varchar,
 views,minutes,prev_month_views,prev_year_views,us_views,per_us_views 
-from fds_nplus.rpt_ntwrk_ppv_liveplusvod where event_brand in (select distinct event_brand from live_manual) and data_level = 'Live'
+from dwh_read_write.rpt_ntwrk_ppv_liveplusvod where event_brand in (select distinct event_brand from live_manual) and data_level = 'Live'
 and event_date <> current_date)),
 
 live_final as 
