@@ -1,13 +1,10 @@
-Code for Live+VOD code available under :
+Code for TAB-2018 
+Phase 4a - Monthly Cross Platform AVOD Viewership- Data Prep
+Available under : 
+Table: rpt_cp_monthly_global_consumption_by_platform
+models/fds_cp/aggregate/
+view: vw_rpt_cp_monthly_global_consumption_by_platform
+models/fds_cp/view/
 
-\live_vod
-
-models\fds_nplus\aggregate\rpt_network_ppv_liveplusvod
-models\fds_nplus\view\vw_rpt_network_ppv_liveplusvod
-
-Code for VKM code available under :
-
-\live_vod
-
-models\fds_nplus\aggregate\aggr_monthly_network_kpis_vkm
-models\fds_nplus\view\vw_aggr_monthly_network_kpis_vkm
+Aggregate table refresh code is dynamic hence maintaining in custom folder:
+custom

@@ -531,3 +531,31 @@
 ## Maintenance Log
 * Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT & Python Automation: Sudhakar; Change: Initial Version
 {% enddocs %}
+
+
+{% docs rpt_cp_monthly_global_consumption_by_platform %}
+## Implemenation Detail
+*   Date        : 07/14/2020
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_global_consumption_by_platform
+*   Schema	: fds_cp
+*   Contributor : Sandeep Battula
+*   Description : Monthly Cross Platform Global Content Consumption aggregate table consists of consumption metrics Views and Hours watched with country and 	region details for all cross platforms. This script inserts last month data for platforms- Youtube, Facebook, WWE.Com and WWE App, Instagram, Snapchat and Twitter from respective source tables on monthly basis (5th of every month). Inaddition to the latest month, metrics are also calculated and inserted for previous month, year-to-date and previous year-to-date. 
+
+## Maintenance Log
+* Date : 07/14/2020 ; Developer: Sandeep Battula ; DBT & Python Automation: Sudhakar; Change: Initial Version
+{% enddocs %}
+
+
+{% docs vw_rpt_cp_monthly_global_consumption_by_platform %}
+## Implemenation Detail
+*   Date        : 07/14/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cp_monthly_global_consumption_by_platform
+*   Schema	: fds_cp
+*   Contributor : Sandeep Battula
+*   Description : Monthly Cross Platform Global Content Consumption aggregate table consists of consumption metrics Views and Hours watched with country and 	region details for all cross platforms. This script inserts last month data for platforms- Youtube, Facebook, WWE.Com and WWE App, Instagram, Snapchat and Twitter from respective source tables on monthly basis (5th of every month). Inaddition to the latest month, metrics are also calculated and inserted for previous month, year-to-date and previous year-to-date. 
+
+## Maintenance Log
+* Date : 07/14/2020 ; Developer: Sandeep Battula ; DBT & Python Automation: Sudhakar; Change: Initial Version
+{% enddocs %}
