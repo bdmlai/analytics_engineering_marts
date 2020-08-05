@@ -14,7 +14,9 @@ models:
         - name: src_demographic_group
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24)
         - name: src_program_id
-          description: A unique numerical identifier for an individual program nam.';
+          description: A unique numerical identifier for an individual program name
+        - name: src_series_name
+          description: Series name or program name provided by the source
         - name: avg_audience_proj_000
           description: (Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
@@ -110,7 +112,9 @@ models:
         - name: src_demographic_group
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
-          description: A unique numerical identifier for an individual program nam.
+          description: A unique numerical identifier for an individual program name
+        - name: src_series_name
+          description: Series name or program name provided by the source
         - name: avg_audience_proj_000
           description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
@@ -165,6 +169,8 @@ models:
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
           description: A unique numerical identifier for an individual program nam.
+        - name: src_series_name
+          description: Series name or program name provided by the source
         - name: avg_audience_proj_000
           description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
@@ -420,6 +426,8 @@ models:
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
           description: A unique numerical identifier for an individual program nam.
+        - name: src_series_name
+          description: Series name or program name provided by the source
         - name: src_daypart_cd
           description: A unique character identifier for an individual daypart
         - name: src_daypart_name
@@ -497,7 +505,9 @@ models:
         - name: src_demographic_group
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
-          description: A unique numerical identifier for an individual program name; sourced from the Programs API, response field “programId”.    
+          description: A unique numerical identifier for an individual program name; sourced from the Programs API, response field “programId”.
+        - name: src_series_name
+          description: Series name or program name provided by the source    
         - name: avg_audience_proj_000
           description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
@@ -549,7 +559,9 @@ models:
         - name: src_demographic_group
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
-          description: A unique numerical identifier for an individual program name; sourced from the Programs API, response field “programId”.    
+          description: A unique numerical identifier for an individual program name; sourced from the Programs API, response field “programId”.
+        - name: src_series_name
+          description: Series name or program name provided by the source    
         - name: avg_audience_proj_000
           description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
@@ -635,7 +647,9 @@ models:
         - name: src_demographic_group
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
-          description: A unique numerical identifier for an individual program name; sourced from the Programs API, response field “programId”.    
+          description: A unique numerical identifier for an individual program name; sourced from the Programs API, response field “programId”. 
+        - name: src_series_name
+          description: Series name or program name provided by the source   
         - name: avg_audience_proj_000
           description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
