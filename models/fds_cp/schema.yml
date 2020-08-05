@@ -39,3 +39,66 @@ models:
           description: gives the week over week change in total views for each platform
         - name: weekly_per_change_mins
           description: gives the week over week change in total minutes watched for each platform
+  - name: rpt_cp_monthly_global_consumption_by_platform
+    description: '{{ doc("rpt_cp_monthly_global_consumption_by_platform") }}'
+    columns:
+        - name: platform
+          description: name of cross platform
+        - name: type
+          description: platform type where applicable
+        - name: type2
+          description: network premium type for International TV - Pay or FTA
+        - name: region
+          description: geographical region based on country
+        - name: country
+          description: country
+        - name: month
+          description: view month
+        - name: views
+          description: total views for the month for each platform
+        - name: hours_watched
+          description: total hours watched for the month for each platform
+        - name: prev_month_views
+          description: total views for previous month for each platform
+        - name: prev_month_hours
+          description: total hours watched for previous month for each platform
+        - name: ytd_views
+          description: total year-to-date views for each platform
+        - name: ytd_hours_watched
+          description: total year-to-date hours watched for each platform
+        - name: prev_year_views
+          description: total previous year-to-date views for each platform
+        - name: prev_year_hours
+          description: total previous year-to-date hours watched for each platform
+  - name: vw_rpt_cp_monthly_global_consumption_by_platform
+    description: '{{ doc("vw_rpt_cp_monthly_global_consumption_by_platform") }}'
+    columns:
+        - name: platform
+          description: name of cross platform
+        - name: type
+          description: platform type where applicable
+        - name: type2
+          description: network premium type for International TV - Pay or FTA
+        - name: region
+          description: geographical region based on country
+        - name: country
+          description: country
+        - name: month
+          description: view month
+        - name: views
+          description: total views for the month for each platform
+        - name: hours_watched
+          description: total hours watched for the month for each platform
+        - name: prev_month_views
+          description: total views for previous month for each platform
+        - name: prev_month_hours
+          description: total hours watched for previous month for each platform
+        - name: ytd_views
+          description: total year-to-date views for each platform
+        - name: ytd_hours_watched
+          description: total year-to-date hours watched for each platform
+        - name: prev_year_views
+          description: total previous year-to-date views for each platform
+        - name: prev_year_hours
+          description: total previous year-to-date hours watched for each platform
+   

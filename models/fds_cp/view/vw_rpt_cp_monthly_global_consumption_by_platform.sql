@@ -5,4 +5,4 @@
   })
 }}
 
-select * from {{ref('aggr_cp_weekly_consumption_by_platform')}}
+select * from {{ref('rpt_cp_monthly_global_consumption_by_platform')}}
