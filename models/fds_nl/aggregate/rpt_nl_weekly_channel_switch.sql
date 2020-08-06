@@ -27,7 +27,7 @@ absolute_stay,stay_percent,absolute_switch,switch_percent,
 dense_rank() over(partition by src_broadcast_network_name,broadcast_Date,src_demographic_group  order by switch_percent desc NULLS LAST)
 as switch_percent_rank,
 'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' AS etl_batch_id,
-    'bi_dbt_user_uat'                                   AS etl_insert_user_id,
+    'bi_dbt_user_prd'                                   AS etl_insert_user_id,
     CURRENT_TIMESTAMP                                   AS etl_insert_rec_dttm,
     NULL                                                AS etl_update_user_id,
     CAST( NULL AS TIMESTAMP)                            AS etl_update_rec_dttm

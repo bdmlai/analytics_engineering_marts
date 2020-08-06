@@ -1,6 +1,6 @@
 {% docs rpt_nl_daily_wwe_live_commercial_ratings %}
 
-## Implemenation Detail
+## Implementation Detail
 * Date        : 06/12/2020
 * Version     : 1.0
 * TableName   : rpt_nl_daily_wwe_live_commercial_ratings
@@ -22,7 +22,7 @@
 
 {% docs rpt_nl_daily_wwe_live_quarterhour_ratings %}
 
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 06/12/2020
 *   Version     : 1.0
 *   TableName   : rpt_nl_daily_wwe_live_quarterhour_ratings
@@ -42,7 +42,7 @@
 
 
 {% docs rpt_nl_daily_wwe_program_ratings %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/21/2020
 *   Version     : 1.0
 *   TableName   : rpt_nl_daily_wwe_program_ratings
@@ -62,7 +62,7 @@
 
 {% docs rpt_nl_weekly_channel_switch %}
 
-## Implemenation Detail
+## Implementation Detail
 * Date        : 06/19/2020
 * Version     : 1.0
 * TableName   : rpt_nl_weekly_channel_switch
@@ -84,7 +84,7 @@
 
 {% docs vw_rpt_nl_weekly_channel_switch %}
 
-## Implemenation Detail
+## Implementation Detail
 * Date        : 06/19/2020
 * Version     : 1.0
 * TableName   : vw_rpt_nl_weekly_channel_switch
@@ -102,7 +102,7 @@
 
 {% docs vw_aggr_nl_monthly_hulu_wwe_vh_data %}
 
-## Implemenation Detail
+## Implementation Detail
 * Date        : 06/19/2020
 * Version     : 1.0
 * ViewName    : vw_aggr_nl_monthly_hulu_wwe_vh_data
@@ -359,7 +359,7 @@
 {% enddocs %}
 
 {% docs aggr_kntr_weekly_competitive_program_ratings %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   TableName   : aggr_kntr_weekly_competitive_program_ratings
@@ -372,7 +372,7 @@
 {% enddocs %}
 
 {% docs vw_aggr_kntr_weekly_competitive_program_ratings %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_kntr_weekly_competitive_program_ratings
@@ -385,7 +385,7 @@
 {% enddocs %}
 
 {% docs vw_aggr_kntr_monthly_competitive_program_ratings %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_kntr_monthly_competitive_program_ratings
@@ -398,7 +398,7 @@
 {% enddocs %}
 
 {% docs vw_aggr_kntr_quarterly_competitive_program_ratings %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_kntr_quarterly_competitive_program_ratings
@@ -411,7 +411,7 @@
 {% enddocs %}
 
 {% docs vw_aggr_kntr_yearly_competitive_program_ratings %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_kntr_yearly_competitive_program_ratings
@@ -425,7 +425,7 @@
 
 
 {% docs rpt_kntr_schedule_vh_data %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   TableName   : rpt_kntr_schedule_vh_data
@@ -438,7 +438,7 @@
 {% enddocs %}
 
 {% docs vw_rpt_kntr_schedule_vh_data %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_rpt_kntr_schedule_vh_data
@@ -451,7 +451,7 @@
 {% enddocs %}
 
 {% docs vw_aggr_kntr_schedule_wca_data %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_kntr_schedule_wca_data
@@ -464,7 +464,7 @@
 {% enddocs %}
 
 {% docs vw_aggr_kntr_monthly_country_vh %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_kntr_monthly_country_vh
@@ -478,7 +478,7 @@
 
 
 {% docs aggr_monthly_network_kpis_vkm %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/28/2020
 *   Version     : 1.0
 *   ViewName    : aggr_monthly_network_kpis_vkm
@@ -492,7 +492,7 @@
 
 
 {% docs vw_aggr_monthly_network_kpis_vkm %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/28/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_monthly_network_kpis_vkm
@@ -506,7 +506,7 @@
 
 
 {% docs rpt_network_ppv_liveplusvod %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/28/2020
 *   Version     : 1.0
 *   ViewName    : rpt_network_ppv_liveplusvod
@@ -520,7 +520,7 @@
 
 
 {% docs vw_rpt_network_ppv_liveplusvod %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/28/2020
 *   Version     : 1.0
 *   ViewName    : vw_rpt_network_ppv_liveplusvod
@@ -534,7 +534,7 @@
 
 
 {% docs rpt_cp_monthly_global_consumption_by_platform %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/14/2020
 *   Version     : 1.0
 *   ViewName    : rpt_cp_monthly_global_consumption_by_platform
@@ -548,7 +548,7 @@
 
 
 {% docs vw_rpt_cp_monthly_global_consumption_by_platform %}
-## Implemenation Detail
+## Implementation Detail
 *   Date        : 07/14/2020
 *   Version     : 1.0
 *   ViewName    : vw_rpt_cp_monthly_global_consumption_by_platform

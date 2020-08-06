@@ -16,7 +16,7 @@ e.financial_month_name as broadcast_fin_month_nm, e.financial_quarter as broadca
 a.src_broadcast_network_id, f.broadcast_network_name, a.src_playback_period_cd, a.src_demographic_group, a.src_program_id,a.src_series_name, a.src_daypart_cd,
 g.src_daypart_name, a.program_telecast_rpt_starttime, a.program_telecast_rpt_endtime, a.src_total_duration, a.avg_audience_proj_000, 
 a.avg_audience_pct, a.avg_audience_pct_nw_cvg_area, a.avg_viewing_hours_units as viewing_minutes_units,
-'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' as etl_batch_id,'bi_dbt_user_uat' as etl_insert_user_id, 
+'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' as etl_batch_id,'bi_dbt_user_prd' as etl_insert_user_id, 
 current_timestamp as etl_insert_rec_dttm, null as etl_update_user_id, cast(null as timestamp) as etl_update_rec_dttm
 from
 (
