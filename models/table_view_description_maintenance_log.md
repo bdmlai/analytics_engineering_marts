@@ -484,7 +484,7 @@
 *   ViewName    : aggr_monthly_network_kpis_vkm
 *   Schema	: fds_nplus
 *   Contributor : Lakshman Murugeshan
-*   Description : monthly VKM network kpis
+*   Description : Aggregate table for monthly VKM report to share the actual subscription and forecast numbers in the previous month , table refresh on 7th of 	evenry month 
 
 ## Maintenance Log
 * Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version
@@ -498,7 +498,7 @@
 *   ViewName    : vw_aggr_monthly_network_kpis_vkm
 *   Schema	: fds_nplus
 *   Contributor : Lakshman Murugeshan
-*   Description : monthly VKM network kpis
+*   Description : Aggregate table for monthly VKM report to share the actual subscription and forecast numbers in the previous month , table refresh on 7th of 	evenry month 
 
 ## Maintenance Log
 * Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version

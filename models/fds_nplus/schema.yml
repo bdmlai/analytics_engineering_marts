@@ -310,9 +310,9 @@ models:
     description: '{{ doc("vw_aggr_monthly_network_kpis_vkm") }}'
     columns:
         - name: bill_date
-          description: report date
+          description: First day of report month
         - name: paid_winbacks
-          description: All paid winback subscriptions for the month
+          description: User subscribed previously and returned back with paid subscription
         - name: new_paid
           description: All paid subscriptions who have paid for the first time
         - name: free_trial_subs

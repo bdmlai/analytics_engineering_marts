@@ -2,8 +2,8 @@
 
 {{
   config({
-	"schema": 'dwh_read_write',
-    "pre-hook": "delete from dwh_read_write.agg_cp_weekly_consumption_by_platform where monday_date >= date_trunc('week',current_date-14)",
+	"schema": 'fds_cp',
+    "pre-hook": "delete from fds_cp.aggr_cp_weekly_consumption_by_platform where monday_date >= date_trunc('week',current_date-14)",
     "materialized": "incremental"
   })
 }}
@@ -198,8 +198,8 @@ where a.monday_date < date_trunc('week',current_date)
 )
 
 select a.*,
-100001 as  etl_batch_id,
-'etluser_4a' as etl_insert_user_id,
+'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_CP' as  etl_batch_id,
+'bi_dbt_user_prd' as etl_insert_user_id,
 sysdate etl_insert_rec_dttm,
 '' etl_update_user_id,
 sysdate etl_update_rec_dttm from (

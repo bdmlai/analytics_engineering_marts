@@ -191,7 +191,7 @@ where a.monday_date < date_trunc('week',current_date)
 
 select a.*,
 100001 as  etl_batch_id,
-'etluser_4a' as etl_insert_user_id,
+'bi_dbt_user_prd' as etl_insert_user_id,
 sysdate etl_insert_rec_dttm,
 '' etl_update_user_id,
 sysdate etl_update_rec_dttm from (

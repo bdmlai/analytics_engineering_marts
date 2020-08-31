@@ -18,35 +18,35 @@
 
 {{
   config({
-    "schema": 'fds_yt',
-	"pre-hook": "delete from dwh_read_write.agg_yt_monetization_summary where view_date between current_date - 52  and current_date - 1",
+    "schema": 'dt_prod_support',
+	"pre-hook": "delete from dt_prod_support.agg_yt_monetization_summary where view_date between current_date - 52  and current_date - 1",
 	"materialized": "incremental",
-	"post-hook":["update dwh_read_write.agg_yt_monetization_summary
+	"post-hook":["update dt_prod_support.agg_yt_monetization_summary
 	set yt_ad_revenue = Case when b.views <> 0 then a.views * (b.yt_ad_Revenue/(b.views*1.000000)) else a.yt_ad_revenue end,
 	ad_impressions = Case when b.views <> 0 then a.views * (b.ad_impressions/(b.views*1.000000)) else a.ad_impressions end,
 	partner_revenue = Case when b.views <> 0 then a.views * (b.partner_revenue/(b.views*1.000000)) else a.partner_revenue end,
 	subscribers_gained = Case when b.views <> 0 then a.views * (b.subscribers_gained/(b.views*1.000000)) else a.subscribers_gained end,
 subscribers_lost = Case when b.views <> 0 then a.views * (b.subscribers_lost/(b.views*1.000000)) else a.subscribers_lost end
-from dwh_read_write.agg_yt_monetization_summary a
+from dt_prod_support.agg_yt_monetization_summary a
 join (select channel_name,debut_type,type,owned_class, duration_group,sum(yt_ad_revenue) yt_ad_revenue,sum(views) views,sum(ad_impressions) ad_impressions,sum(partner_revenue) partner_revenue,sum(subscribers_gained) subscribers_gained,sum(subscribers_lost) subscribers_lost
-from dwh_read_write.agg_yt_monetization_summary
-where view_date between (select max(view_date) - 31 from dwh_read_write.agg_yt_monetization_summary) and (select max(view_date) - 2 from dwh_read_write.agg_yt_monetization_summary)
+from dt_prod_support.agg_yt_monetization_summary
+where view_date between (select max(view_date) - 31 from dt_prod_support.agg_yt_monetization_summary) and (select max(view_date) - 2 from dt_prod_support.agg_yt_monetization_summary)
 group by 1,2,3,4,5) b on a.channel_name = b.channel_name and a.debut_type = b.debut_type and a.type = b.type and a.owned_class = b.owned_class
 and a.duration_group = b.duration_group
-where a.view_date in (select max(view_date) as Maxdate from dwh_read_write.agg_yt_monetization_summary)",
-"update dwh_read_write.agg_yt_monetization_summary
+where a.view_date in (select max(view_date) as Maxdate from dt_prod_support.agg_yt_monetization_summary)",
+"update dt_prod_support.agg_yt_monetization_summary
 set yt_ad_revenue = Case when b.views <> 0 then a.views * (b.yt_ad_Revenue/(b.views*1.000000)) else a.yt_ad_revenue end,
 ad_impressions = Case when b.views <> 0 then a.views * (b.ad_impressions/(b.views*1.000000)) else a.ad_impressions end,
 partner_revenue = Case when b.views <> 0 then a.views * (b.partner_revenue/(b.views*1.000000)) else a.partner_revenue end,
 subscribers_gained = Case when b.views <> 0 then a.views * (b.subscribers_gained/(b.views*1.000000)) else a.subscribers_gained end,
 subscribers_lost = Case when b.views <> 0 then a.views * (b.subscribers_lost/(b.views*1.000000)) else a.subscribers_lost end
-from dwh_read_write.agg_yt_monetization_summary a
+from dt_prod_support.agg_yt_monetization_summary a
 join (select channel_name,debut_type,type,owned_class, duration_group, sum(yt_ad_revenue) yt_ad_revenue,sum(views) views,sum(ad_impressions) ad_impressions,sum(partner_revenue) partner_revenue,sum(subscribers_gained) subscribers_gained,sum(subscribers_lost) subscribers_lost
-from dwh_read_write.agg_yt_monetization_summary
-where view_date between (select max(view_date) - 32 from dwh_read_write.agg_yt_monetization_summary) and (select max(view_date) - 2 from dwh_read_write.agg_yt_monetization_summary)
+from dt_prod_support.agg_yt_monetization_summary
+where view_date between (select max(view_date) - 32 from dt_prod_support.agg_yt_monetization_summary) and (select max(view_date) - 2 from dt_prod_support.agg_yt_monetization_summary)
 group by 1,2,3,4,5) b on a.channel_name = b.channel_name and a.debut_type = b.debut_type and a.type = b.type and a.owned_class = b.owned_class
 and a.duration_group = b.duration_group
-where a.view_date in (select max(view_date)-1 as Maxdate from dwh_read_write.agg_yt_monetization_summary)"]})}}
+where a.view_date in (select max(view_date)-1 as Maxdate from dt_prod_support.agg_yt_monetization_summary)"]})}}
 
 
 select country_name,country_code,channel_name, view_date, report_date, region, channel_short,region2, country_name2,
