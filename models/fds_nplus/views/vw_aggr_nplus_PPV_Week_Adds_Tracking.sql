@@ -1,30 +1,29 @@
- {{
+ 
+{{
   config({
-    "schemas": 'fds_nplus',
+	"schemas": 'fds_nplus',
 	"materialized": 'view',
-	"post-hook": ["COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.event_date IS 'Date and timestamp of the scheduled live events as received from LES';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.ppv_event_nm IS 'Name of the PPVevent';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.ppv_nm IS 'Name of the PPV';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.ghw_start_date IS 'date of Event Date minus 6 days';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.ghw_end_date IS 'date of Event date plus 2 days';  
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.year IS 'Extracted year from event date';  
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.event IS 'concatenated text of PPV event name and year ';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.full_date IS 'full date';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.daily_paid_adds_cnt IS 'Daily count of paid subscriber adds';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.daily_trial_adds_cnt IS 'Daily count of trial subscriber adds';  
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.daily_promo_paid_add_cnt IS 'Daily count of total promo paid subscription add';  
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.daily_paid_adds_cnt_new IS 'custom filed based on order type and Daily count of paid subscriber adds';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.daily_paid_adds_cnt_winback IS 'custom filed based on order type winback and Daily count of paid subscriber adds';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.bill_date IS 'Process date';
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.forecast_paid_winbacks IS 'Roll up of all paid winback subscriptions for the day';  
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.forecast_new_paid IS 'Roll up of all paid subscriptions who have paid for the first time';  
-					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_PPV_Week_Adds_Tracking.forecast_free_trial_subs IS 'Total trial adds for the day';
+	"post-hook": ["COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.event_date IS 'Date and timestamp of the scheduled live events as received from LES';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.ppv_event_nm IS 'Name of the PPVevent';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.ppv_nm IS 'Name of the PPV';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.ghw_start_date IS 'date of Event Date minus 6 days';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.ghw_end_date IS 'date of Event date plus 2 days';  
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.year IS 'Extracted year from event date';  
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.event IS 'concatenated text of PPV event name and year ';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.full_date IS 'full date';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.daily_paid_adds_cnt IS 'Daily count of paid subscriber adds';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.daily_trial_adds_cnt IS 'Daily count of trial subscriber adds';  
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.daily_promo_paid_add_cnt IS 'Daily count of total promo paid subscription add';  
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.daily_paid_adds_cnt_new IS 'custom filed based on order type and Daily count of paid subscriber adds';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.daily_paid_adds_cnt_winback IS 'custom filed based on order type winback and Daily count of paid subscriber adds';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.bill_date IS 'Process date';
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.forecast_paid_winbacks IS 'Roll up of all paid winback subscriptions for the day';  
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.forecast_new_paid IS 'Roll up of all paid subscriptions who have paid for the first time';  
+					COMMENT ON COLUMN fds_nplus.vw_aggr_nplus_ppv_week_adds_tracking.forecast_free_trial_subs IS 'Total trial adds for the day';
 					
 			"]
 	})
 }}
-
-
 SELECT c.date as event_date,
        c.ppv_event_nm,
        c.ppv_nm,
@@ -64,6 +63,7 @@ FROM
                EXTRACT(YEAR FROM date) as year,
                CONCAT(ppv_event_nm,TO_CHAR(year,'9999')) as event
           from {{source('cdm','dim_event')}}
+		  
           where ppv_event_nm <> '' 
            and event_status='Published'
          )
@@ -77,11 +77,10 @@ FROM
 	sum(daily_paid_adds_cnt) as daily_paid_adds_cnt,
 	sum(daily_trial_adds_cnt) as daily_trial_adds_cnt,
 	sum(daily_promo_paid_add_cnt) as daily_promo_paid_add_cnt,
-	sum(case when order_type='first' then daily_paid_adds_cnt else null end) as daily_paid_adds_cnt_new,
-	sum(case when order_type='winback' then daily_paid_adds_cnt else null end) as daily_paid_adds_cnt_winback
+	sum(case when order_type='first' then daily_new_adds_cnt else null end) as daily_paid_adds_cnt_new,
+	sum(case when order_type='winback' then daily_new_adds_cnt else null end) as daily_paid_adds_cnt_winback
 	from {{source('fds_nplus','aggr_daily_subscription')}}
-	where
-	payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource','roku')
+	where payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource','roku_iap')
 	group by 1 
 	) b
 on a.full_date=b.as_on_date-1 
@@ -89,14 +88,13 @@ on a.full_date=b.as_on_date-1
 
 RIGHT JOIN
 	(
-                 select trunc(bill_date) as bill_date,                --
-                 sum(paid_winbacks)+sum(paid_new_with_trial) as paid_winbacks,
-                 sum(paid_new_adds)-sum(paid_new_with_Trial) as new_paid,                --
-                -- sum(paid_winbacks) as paid_winbacks,
-                        --sum(paid_new_adds) as new_paid,
-                        sum(trial_adds) as free_trial_subs
+                 select trunc(bill_date) as bill_date,                
+                 sum(paid_winbacks)+sum(paid_new_with_trial)+sum(trial_winback_adds) as paid_winbacks,
+                 sum(paid_new_adds)-sum(paid_new_with_Trial) as new_paid,                
+                 sum(trial_adds) as free_trial_subs
                  from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}}
-                 where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}})
+                 where forecast_date=(select max(forecast_date) from 
+				 {{source('fds_nplus','aggr_nplus_daily_forcast_output')}})
                  and payment_method in ('mlbam','roku','apple') 
                  and official_run_flag='official' 
                  and bill_date>'2019-12-20'
