@@ -1,10 +1,16 @@
-Code for TAB-2018 
-Phase 4a - Monthly Cross Platform AVOD Viewership- Data Prep
-Available under : 
-Table: rpt_cp_monthly_global_consumption_by_platform
-models/fds_cp/aggregate/
-view: vw_rpt_cp_monthly_global_consumption_by_platform
-models/fds_cp/view/
+###Code for 4A weekly crossplatform(PSTA-1061) enhancements available under:
+Table:
+	\models\fds_cp\aggregate\aggr_cp_weekly_consumption_by_platform
 
-Aggregate table refresh code is dynamic hence maintaining in custom folder:
-custom
+View:
+	\models\fds_cp\aggregate\vw_aggr_cp_weekly_consumption_by_platform
+	
+###Code for 5B Aggregate tables available under:
+
+\models\fds_cpg\aggregate\aggr_cpg_daily_kit_sales
+\models\fds_cpg\aggregate\aggr_cpg_daily_sales
+
+
+###Code for 4b International and Docmestic tables available under:
+\models\fds_nl\
+\models\fds_kntr\

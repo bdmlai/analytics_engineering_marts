@@ -27,7 +27,8 @@ sources:
        - name: rpt_yt_revenue_daily
        - name: youtube_video_metadata_direct
        - name: rpt_yt_demographics_views_daily 
-       - name: rpt_yt_ugc_engagement_daily 
+       - name: rpt_yt_ugc_engagement_daily
+       - name: agg_yt_monetization_summary
   - name: public
     tables:
        - name: yt_amg_content_groups
@@ -44,9 +45,7 @@ sources:
        - name: aggr_kpi_hist
        - name: aggr_monthly_program_type_viewership
        - name: aggr_monthly_subs_cohort_viewership
-  - name: dwh_read_write
-    tables:
-       - name: raw_da_weekly_ppv_hourly_comps     
+       - name: fact_daily_content_viewership
   - name: fds_fbk
     tables:
        - name: fact_fb_consumption_parent_video
@@ -64,7 +63,8 @@ sources:
   - name: udl_nplus
     tables:
        - name: drvd_intra_hour_quarter_hour_adds
-       - name: raw_da_weekly_ppv_hourly_comps 
+       - name: raw_da_weekly_ppv_hourly_comps
+       - name: raw_lite_log 
   - name: udl_nl
     tables:
        - name: nielsen_finance_yearly_calendar
@@ -75,4 +75,26 @@ sources:
     tables:
        - name: fact_kntr_wwe_telecast_data
        - name: fact_kntr_annual_profile
-       - name: kantar_static_country_region_tag       
+       - name: kantar_static_country_region_tag
+  - name: udl_emm
+    tables:
+       - name: emm_weekly_log_reference  
+  - name: udl_tkt
+    tables: 
+       - name: tiktok_weekly_country_consumption
+  - name: fds_cpg
+    tables:
+      - name: dim_cpg_item
+      - name: dim_cpg_kit_item
+      - name: dim_cpg_order_method
+      - name: fact_cpg_sales_detail
+      - name: fact_cpg_sales_detail_kit_component
+      - name: fact_cpg_sales_header
+  - name: dt_stage
+    tables:
+      - name: prestg_cpg_currency_exchange_rate
+  - name: fds_le
+    tables:
+      - name: brdg_live_event_venue
+  
+      
