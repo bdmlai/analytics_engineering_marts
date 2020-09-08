@@ -1,0 +1,578 @@
+version: 2
+models:
+  - name: vw_aggr_kntr_monthly_wwe_program_rating_schedule
+    description: '{{ doc("vw_aggr_kntr_monthly_wwe_program_rating_schedule") }}'
+    columns:
+        - name: month
+          description: Month Name
+        - name: year
+          description: Year
+        - name: src_country
+          description: Country in which the program boradcasted by the broadcast network (channel)
+        - name: src_channel
+          description: broadcast network name
+        - name: series_name
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: hd_flag
+          description: identifier for high definition video telecast
+        - name: live_flag
+          description: Program live telecasted identifier
+        - name: nth_run
+          description: Program telecasted count after live telecasted
+        - name: rat_value
+          description: Duration weighted Average Rating (of specific demographic selected)
+        - name: viewing_hours
+          description: Total time of broadcast
+        - name: duration_hours
+          description: total length of program (in hours and minutes)
+        - name: count_telecast
+          description: Total count of telecast
+        - name: average_weekly_cumulative_audience_000
+          description: Monthly cumulative Average Rating (of specific demographic selected)
+          
+  - name: vw_aggr_kntr_quarterly_wwe_program_rating_schedule
+    description: '{{ doc("vw_aggr_kntr_quarterly_wwe_program_rating_schedule") }}'
+    columns:
+        - name: quarter
+          description: Quarter Name
+        - name: year
+          description: Year
+        - name: src_country
+          description: Country in which the program boradcasted by the broadcast network (channel)
+        - name: src_channel
+          description: broadcast network name
+        - name: series_name
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: hd_flag
+          description: identifier for high definition video telecast
+        - name: live_flag
+          description: Program live telecasted identifier
+        - name: nth_run
+          description: Program telecasted count after live telecasted
+        - name: rat_value
+          description: Duration weighted Average Rating (of specific demographic selected)
+        - name: viewing_hours
+          description: Total time of broadcast
+        - name: duration_hours
+          description: total length of program (in hours and minutes)
+        - name: count_telecast
+          description: Total count of telecast
+        - name: average_weekly_cumulative_audience_000
+          description: Quarterly cumulative Average Rating (of specific demographic selected)
+          
+  - name: vw_aggr_kntr_yearly_wwe_program_rating_schedule
+    description: '{{ doc("vw_aggr_kntr_yearly_wwe_program_rating_schedule") }}'
+    columns:
+        - name: year
+          description: Year
+        - name: src_country
+          description: Country in which the program boradcasted by the broadcast network (channel)
+        - name: src_channel
+          description: broadcast network name
+        - name: series_name
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: hd_flag
+          description: identifier for high definition video telecast
+        - name: live_flag
+          description: Program live telecasted identifier
+        - name: nth_run
+          description: Program telecasted count after live telecasted
+        - name: rat_value
+          description: Duration weighted Average Rating (of specific demographic selected)
+        - name: viewing_hours
+          description: Total time of broadcast
+        - name: duration_hours
+          description: total length of program (in hours and minutes)
+        - name: count_telecast
+          description: Total count of telecast
+        - name: average_weekly_cumulative_audience_000
+          description: Yearly cumulative Average Rating (of specific demographic selected)
+
+  - name: vw_aggr_kntr_weekly_wwe_program_rating
+    description: '{{ doc("vw_aggr_kntr_weekly_wwe_program_rating") }}'
+    columns:
+        - name: week_start_date
+          description: Start date of the week
+        - name: src_country
+          description: Country in which the program boradcasted by the broadcast network (channel)
+        - name: src_channel
+          description: broadcast network name
+        - name: series_name
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: hd_flag
+          description: identifier for high definition video telecast
+        - name: rat_value
+          description: Duration weighted Average Rating (of specific demographic selected)
+        - name: viewing_hours
+          description: Total time of broadcast
+        - name: duration_hours
+          description: total length of program (in hours and minutes)
+        - name: count_telecast
+          description: Total count of telecast
+        - name: average_weekly_cumulative_audience_000
+          description: Monthly cumulative Average Rating (of specific demographic selected)
+
+  - name: vw_aggr_kntr_monthly_wwe_program_rating
+    description: '{{ doc("vw_aggr_kntr_monthly_wwe_program_rating") }}'
+    columns:
+        - name: month
+          description: Month Name
+        - name: year
+          description: Year
+        - name: src_country
+          description: Country in which the program boradcasted by the broadcast network (channel)
+        - name: src_channel
+          description: broadcast network name
+        - name: series_name
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: hd_flag
+          description: identifier for high definition video telecast
+        - name: rat_value
+          description: Duration weighted Average Rating (of specific demographic selected)
+        - name: viewing_hours
+          description: Total time of broadcast
+        - name: duration_hours
+          description: total length of program (in hours and minutes)
+        - name: count_telecast
+          description: Total count of telecast
+        - name: average_weekly_cumulative_audience_000
+          description: Monthly cumulative Average Rating (of specific demographic selected)
+
+          
+  - name: vw_aggr_kntr_quarterly_wwe_program_rating
+    description: '{{ doc("vw_aggr_kntr_quarterly_wwe_program_rating") }}'
+    columns:
+        - name: quarter
+          description: Quarter Name
+        - name: year
+          description: Year
+        - name: src_country
+          description: Country in which the program boradcasted by the broadcast network (channel)
+        - name: src_channel
+          description: broadcast network name
+        - name: series_name
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: hd_flag
+          description: identifier for high definition video telecast
+        - name: rat_value
+          description: Duration weighted Average Rating (of specific demographic selected)
+        - name: viewing_hours
+          description: Total time of broadcast
+        - name: duration_hours
+          description: total length of program (in hours and minutes)
+        - name: count_telecast
+          description: Total count of telecast
+        - name: average_weekly_cumulative_audience_000
+          description: Quarterly cumulative Average Rating (of specific demographic selected)
+          
+  - name: vw_aggr_kntr_yearly_wwe_program_rating
+    description: '{{ doc("vw_aggr_kntr_yearly_wwe_program_rating") }}'
+    columns:
+        - name: year
+          description: Year
+        - name: src_country
+          description: Country in which the program boradcasted by the broadcast network (channel)
+        - name: src_channel
+          description: broadcast network name
+        - name: series_name
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: hd_flag
+          description: identifier for high definition video telecast
+        - name: rat_value
+          description: Duration weighted Average Rating (of specific demographic selected)
+        - name: viewing_hours
+          description: Total time of broadcast
+        - name: duration_hours
+          description: total length of program (in hours and minutes)
+        - name: count_telecast
+          description: Total count of telecast
+        - name: average_weekly_cumulative_audience_000
+          description: Yearly cumulative Average Rating (of specific demographic selected)
+
+  - name: aggr_kntr_weekly_competitive_program_ratings
+    description: '{{ doc("aggr_kntr_weekly_competitive_program_ratings") }}'
+    columns:     
+        - name: week_start_date
+          description: Calendar Year Week Start Date based on Broadcast Date
+          tests:
+              - not_null
+        - name: week_end_date
+          description: Calendar Year Week End Date based on Broadcast Date      
+        - name: week_num
+          description: Calendar Year Week Number based on Broadcast Date
+        - name: month
+          description: Abbreviated Month Name based on week start date
+          tests:
+              - not_null
+        - name: quarter
+          description: Abbreviated Quarter Name based on week start date
+          tests:
+              - not_null
+        - name: year
+          description: Year based on week start date
+          tests:
+              - not_null
+        - name: src_country
+          description: country name where competitive program telecasted
+        - name: src_channel
+          description: The channel name in which competitive program telecasted
+        - name: src_property
+          description: The competitive program which is telecasted
+        - name: demographic
+          description: The demographic group who watched the competitive program
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: total_duration_mins
+          description: The total duration of the competitive program in minutes
+        - name: duration_hours
+          description: The total duration of the competitive program in hours
+        - name: rat_value
+          description: The rating value of the competitive program
+        - name: viewing_hours
+          description: The viewing hours of competitive program by specified demographic group
+        - name: telecasts_count
+          description: Count of Telecasts of competitive program
+        - name: weekly_cumulative_audience
+          description: The weekly cumulative Audience who watched the competitive program
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+          
+  - name: vw_aggr_kntr_weekly_competitive_program_ratings
+    description: '{{ doc("vw_aggr_kntr_weekly_competitive_program_ratings") }}'
+    columns:     
+        - name: week_start_date
+          description: Calendar Year Week Start Date based on Broadcast Date
+        - name: src_country
+          description: country name where competitive program telecasted
+        - name: src_channel
+          description: The channel name in which competitive program telecasted
+        - name: src_property
+          description: The competitive program which is telecasted
+        - name: demographic
+          description: The demographic group who watched the competitive program
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: duration_hours
+          description: The weekly total durationof the competitive program in hours
+        - name: rat_value
+          description: The weekly rating value of the competitive program
+        - name: viewing_hours
+          description: The weekly viewing hours of competitive program by specified demographic group
+        - name: telecasts_count
+          description: Count of Telecasts of competitive program on weekly-basis
+        - name: average_weekly_cumulative_audience_000
+          description: The weekly cumulative Audience who watched the competitive program
+
+  - name: vw_aggr_kntr_monthly_competitive_program_ratings
+    description: '{{ doc("vw_aggr_kntr_monthly_competitive_program_ratings") }}'
+    columns:     
+        - name: month
+          description: Abbreviated Month Name based on week start date
+        - name: year
+          description: Year based on week start date
+        - name: src_country
+          description: country name where competitive program telecasted
+        - name: src_channel
+          description: The channel name in which competitive program telecasted
+        - name: src_property
+          description: The competitive program which is telecasted
+        - name: demographic
+          description: The demographic group who watched the competitive program
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: duration_hours
+          description: The total monthly durationof the competitive program in hours
+        - name: rat_value
+          description: The monthly rating value of the competitive program
+        - name: viewing_hours
+          description: The monthly viewing hours of competitive program by specified demographic group
+        - name: telecasts_count
+          description: Count of Telecasts of competitive program on monthly-basis
+        - name: average_weekly_cumulative_audience_000
+          description: The average weekly cumulative Audience who watched the competitive program on monthly-basis
+
+  - name: vw_aggr_kntr_quarterly_competitive_program_ratings
+    description: '{{ doc("vw_aggr_kntr_quarterly_competitive_program_ratings") }}'
+    columns:     
+        - name: quarter
+          description: Abbreviated Quarter Name based on week start date
+        - name: year
+          description: Year based on week start date
+        - name: src_country
+          description: country name where competitive program telecasted
+        - name: src_channel
+          description: The channel name in which competitive program telecasted
+        - name: src_property
+          description: The competitive program which is telecasted
+        - name: demographic
+          description: The demographic group who watched the competitive program
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: duration_hours
+          description: The total quarterly durationof the competitive program in hours
+        - name: rat_value
+          description: The quarterly rating value of the competitive program
+        - name: viewing_hours
+          description: The quarterly viewing hours of competitive program by specified demographic group
+        - name: telecasts_count
+          description: Count of Telecasts of competitive program on quarterly-basis
+        - name: average_weekly_cumulative_audience_000
+          description: The average weekly cumulative Audience who watched the competitive program on quarterly-basis
+
+  - name: vw_aggr_kntr_yearly_competitive_program_ratings
+    description: '{{ doc("vw_aggr_kntr_yearly_competitive_program_ratings") }}'
+    columns:     
+        - name: year
+          description: Year based on week start date
+        - name: src_country
+          description: country name where competitive program telecasted
+        - name: src_channel
+          description: The channel name in which competitive program telecasted
+        - name: src_property
+          description: The competitive program which is telecasted
+        - name: demographic
+          description: The demographic group who watched the competitive program
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: duration_hours
+          description: The total yearly durationof the competitive program in hours
+        - name: rat_value
+          description: The yearly rating value of the competitive program
+        - name: viewing_hours
+          description: The yearly viewing hours of competitive program by specified demographic group
+        - name: telecasts_count
+          description: Count of Telecasts of competitive program on yearly-basis
+        - name: average_weekly_cumulative_audience_000
+          description: The average weekly cumulative Audience who watched the competitive program on yearly-basis
+          
+  - name: rpt_kntr_schedule_vh_data
+    description: '{{ doc("rpt_kntr_schedule_vh_data") }}'
+    columns:     
+        - name: dim_date_id
+          description: The broadcast date ID field
+          tests:
+              - not_null
+        - name: broadcast_date
+          description: The date on when the WWE program broadcasted
+          tests:
+              - not_null          
+        - name: src_weekday
+          description: The day on when the WWE program broadcasted
+        - name: month_name
+          description: The month name on when the WWE program broadcasted
+        - name: month_num
+          description: The month number on when the WWE program broadcasted
+        - name: modified_month
+          description: Derived from broadcast_date; day part of broadcast_date replaced with '01'
+        - name: year
+          description: The broadcast year when the WWE program broadcasted
+        - name: region
+          description: The region of country from where the WWE program is telecasted
+        - name: src_country
+          description: The country from where the WWE program is telecasted
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: src_channel
+          description: The channel name in which WWE program telecasted
+        - name: demographic_type
+          description: The type of demographic group watched the WWE program
+        - name: demographic_group_name
+          description: The demographic group name who watched the WWE program
+        - name: src_series
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: series_episode_name
+          description: Name of the content broadcast
+        - name: series_episode_num
+          description: No.of episodes broadcast
+        - name: series_name
+          description: Indicates WWE series name
+        - name: series_type
+          description: Indicates WWE series type
+        - name: start_time
+          description: Start Time of the WWE Program
+        - name: end_time
+          description: End Time of the WWE Program
+        - name: duration_mins
+          description: The duration of WWE Program in minutes
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: week_start_date
+          description: Calendar Year Week Start Date based on Broadcast Date
+        - name: start_time_modified
+          description: The Start Time of WWE Program rounded off to the closest hour in timestamp format
+        - name: channel_1
+          description: The value will be 'Others', if the channel is broadcasting for more than an year and percentage of viewership of the channel (compared to total viewership of country) is <=0.01
+        - name: program_1
+          description: The value will be 'Others' for the programs other than 'RAW', 'SMACKDOWN', 'NXT', 'PPV', 'SUNDAY DHAMAAL', 'SATURDAY NIGHT', 'TOTAL BELLAS' and 'TOTAL DIVAS' 
+        - name: rat_value
+          description: The average rating value of the WWE program
+        - name: viewing_hours
+          description: The viewing hours of WWE program by specified demographic group
+        - name: aud
+          description: The average audience who watched the WWE Program
+        - name: regional_viewing_hours
+          description: The regional viewing hours of the demographic group on monthly-basis
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_kntr_schedule_vh_data
+    description: '{{ doc("vw_rpt_kntr_schedule_vh_data") }}'
+    columns:     
+        - name: dim_date_id
+          description: The broadcast date ID field
+        - name: broadcast_date
+          description: The date on when the WWE program broadcasted
+        - name: src_weekday
+          description: The day on when the WWE program broadcasted
+        - name: month_name
+          description: The month name on when the WWE program broadcasted
+        - name: month_num
+          description: The month number on when the WWE program broadcasted
+        - name: modified_month
+          description: Derived from broadcast_date; day part of broadcast_date replaced with '01'
+        - name: year
+          description: The broadcast year when the WWE program broadcasted
+        - name: src_country
+          description: The country from where the WWE program is telecasted
+        - name: region
+          description: The region of country from where the WWE program is telecasted
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: src_channel
+          description: The channel name in which WWE program telecasted
+        - name: demographic_type
+          description: The type of demographic group watched the WWE program
+        - name: demographic_group_name
+          description: The demographic group name who watched the WWE program
+        - name: src_series
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: series_episode_name
+          description: Name of the content broadcast
+        - name: series_episode_num
+          description: No.of episodes broadcast
+        - name: series_name
+          description: Indicates WWE series name
+        - name: series_type
+          description: Indicates WWE series type
+        - name: start_time
+          description: Start Time of the WWE Program
+        - name: end_time
+          description: End Time of the WWE Program
+        - name: duration_mins
+          description: The duration of WWE Program in minutes
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: start_time_modified
+          description: The Start Time of WWE Program rounded off to the closest hour in timestamp format
+        - name: channel_1
+          description: The value will be 'Others', if the channel is broadcasting for more than an year and percentage of viewership of the channel (compared to total viewership of country) is <=0.01
+        - name: program_1
+          description: The value will be 'Others' for the programs other than 'RAW', 'SMACKDOWN', 'NXT', 'PPV', 'SUNDAY DHAMAAL', 'SATURDAY NIGHT', 'TOTAL BELLAS' and 'TOTAL DIVAS' 
+        - name: rat_value
+          description: The average rating value of the WWE program
+        - name: viewing_hours
+          description: The viewing hours of WWE program by specified demographic group
+        - name: regional_viewing_hours
+          description: The regional viewing hours of the demographic group on monthly-basis
+
+  - name: vw_aggr_kntr_schedule_wca_data
+    description: '{{ doc("vw_aggr_kntr_schedule_wca_data") }}'
+    columns:     
+        - name: week_start_date
+          description: The week start date based on broadcast date
+        - name: src_country
+          description: The country from where the WWE program is telecasted
+        - name: region
+          description: The region of country from where the WWE program is telecasted
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: src_channel
+          description: The channel name in which WWE program telecasted
+        - name: demographic_type
+          description: The type of demographic group watched the WWE program
+        - name: demographic_group_name
+          description: The demographic group name who watched the WWE program
+        - name: series_name
+          description: Indicates WWE series name
+        - name: series_type
+          description: Indicates WWE series type
+        - name: hd_flag
+          description: Indicates whether the channel is HD or not
+        - name: channel_1
+          description: The value will be 'Others', if the channel is broadcasting for more than an year and percentage of viewership of the channel (compared to total viewership of country) is <=0.01
+        - name: program_1
+          description: The value will be 'Others' for the programs other than 'RAW', 'SMACKDOWN', 'NXT', 'PPV', 'SUNDAY DHAMAAL', 'SATURDAY NIGHT', 'TOTAL BELLAS' and 'TOTAL DIVAS' 
+        - name: duration_hours
+          description: The weekly duration of WWE Program in hours
+        - name: rat_value
+          description: The average weekly rating value of the WWE program
+        - name: viewing_hours
+          description: The weekly viewing hours of WWE program by specified demographic group
+        - name: weekly_cumulative_audience
+          description: The weekly cumulative audience
+        - name: telecasts_count
+          description: The count of telecasts on weekly-basis
+  - name: vw_aggr_kntr_monthly_country_vh
+    description: '{{ doc("vw_aggr_kntr_monthly_country_vh") }}'
+    columns:     
+        - name: broadcast_month
+          description: The broadcast month based on broadcast date
+        - name: broadcast_year
+          description: The broadcast year based on broadcast date
+        - name: region
+          description: The region of country from where the WWE program is telecasted
+        - name: src_country
+          description: The country from where the WWE program is telecasted        
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: src_demographic_group
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: src_demographic_age
+          description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
+        - name: viewing_hours
+          description: Average monthly viewing Hours by specified demographic group
+        
