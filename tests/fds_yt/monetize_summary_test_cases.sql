@@ -5,10 +5,10 @@
 
 --script to check the three channes exists or not
 
-with channel_check as (select COUNT(distinct channel_name) cnt from   dwh_read_write.agg_yt_monetization_summary  where view_date=trunc(current_date)-1
+with channel_check as (select COUNT(distinct channel_name) cnt from   fds_yt.agg_yt_monetization_summary  where view_date=trunc(current_date)-1
 and  channel_name  
 in ('UpUpDownDown','The Bella Twins','WWE') having count(distinct channel_name)<3),
-check_data as (select count(*) from dwh_read_write.agg_yt_monetization_summary where view_date=trunc(current_date)-1
+check_data as (select count(*) from fds_yt.agg_yt_monetization_summary where view_date=trunc(current_date)-1
 having count(*)<=0)
 select * from channel_check
 union 

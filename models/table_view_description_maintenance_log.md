@@ -32,7 +32,7 @@
 
 ## Schedule Details
 * Frequency : Daily ; 02:00 A.M EST (Wed-Mon) & 04:00 A.M EST (Tue)
-* Dependent Jobs (process_name ; process_id) : : t_di_nielsen_fact_nl_quarterhour_viewership_ratings_daily_slot2_abac ; 12145 (Wed-Mon) & t_di_nielsen_fact_nl_quarterhour_viewership_ratings_abac ; 12122 (Tue)
+* Dependent Jobs (process_name ; process_id) : t_di_nielsen_fact_nl_quarterhour_viewership_ratings_daily_slot2_abac ; 12145 (Wed-Mon) & t_di_nielsen_fact_nl_quarterhour_viewership_ratings_abac ; 12122 (Tue)
 
 ## Maintenance Log
 * Date : 06/12/2020 ; Developer: Sudhakar Andugula ; Change: Initial Version as a part of Phase 4b Project.
@@ -76,7 +76,7 @@
 
 ## Maintenance Log
 * Date : 06/19/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
-
+* Date : 08/28/2020 ; Developer: Hima Dasan ; Change: Enhancement to remove commercial break minutes and starting and ending 5 minutes from ranking.
 
 {% enddocs %}
 
@@ -215,13 +215,15 @@
 {% docs aggr_cp_weekly_consumption_by_platform %}
 ## Implementation Detail
 * Date        : 07/09/2020
-* Version     : 1.0
+* Version     : 2.0
 * ViewName    : aggr_cp_weekly_consumption_by_platform
 * Schema	  : fds_cp
 * Contributor : Sandeep Battula
 * Description : aggr_cp_weekly_consumption_by_platform This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
 ## Maintenance Log
 * Date : 06/21/2020 ; Developer: Code: Sandeep Battula, DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
+* Date : 08/24/2020 ; Developer: Code: Sandeep Battula, DBT: Sudhakar ; Change: As a part weekly cross platform consumption enhancements to add Youtube-UGC, 	WWE Network and TikTok platform
+
 {% enddocs %}
 
 
@@ -484,7 +486,7 @@
 *   ViewName    : aggr_monthly_network_kpis_vkm
 *   Schema	: fds_nplus
 *   Contributor : Lakshman Murugeshan
-*   Description : Aggregate table for monthly VKM report to share the actual subscription and forecast numbers in the previous month , table refresh on 7th of 	evenry month 
+*   Description : monthly VKM network kpis
 
 ## Maintenance Log
 * Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version
@@ -498,7 +500,7 @@
 *   ViewName    : vw_aggr_monthly_network_kpis_vkm
 *   Schema	: fds_nplus
 *   Contributor : Lakshman Murugeshan
-*   Description : Aggregate table for monthly VKM report to share the actual subscription and forecast numbers in the previous month , table refresh on 7th of 	evenry month 
+*   Description : monthly VKM network kpis
 
 ## Maintenance Log
 * Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version
@@ -558,4 +560,105 @@
 
 ## Maintenance Log
 * Date : 07/14/2020 ; Developer: Sandeep Battula ; DBT & Python Automation: Sudhakar; Change: Initial Version
+{% enddocs %}
+
+
+
+{% docs vw_rpt_nplus_monthly_marketing_subs %}
+## Implementation Detail
+*   Date        : 08/14/2020
+*   Version     : 1.0
+*   TableName   : vw_rpt_nplus_monthly_marketing_subs
+*   Schema      : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : vw_rpt_nplus_monthly_marketing_subs view consist of Actuals,forecast and Budget for adds and Disconnects For Roku,Apple and mlbam (Monthly)
+
+## Maintenance Log
+* Date : 08/14/2020 ; Developer: Hima Dasan; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_nl_daily_minxmin_lite_log_ratings %}
+## Implementation Detail
+*   Date        : 08/17/2020
+*   Version     : 1.0
+*   TableName   : rpt_nl_daily_minxmin_lite_log_ratings
+*   Schema	    : fds_nl
+*   Contributor : Rahul Chandran
+*   Description : Minute By Minture Ratings joining with Lite Log Report table consist of ratings of segments along with its details referencing from Minute By Minute Ratings and Lite Log tables on daily-basis
+
+## Maintenance Log
+* Date : 08/17/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs vw_rpt_nl_daily_minxmin_lite_log_ratings %}
+## Implementation Detail
+*   Date        : 08/17/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_nl_daily_minxmin_lite_log_ratings
+*   Schema	    : fds_nl
+*   Contributor : Rahul Chandran
+*   Description : Minute By Minture Ratings joining with Lite Log Report View consist of ratings of segments along with its details referencing from Minute By Minute Ratings joining with Lite Log daily table
+
+## Maintenance Log
+* Date : 08/17/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+{% enddocs %}
+
+{% docs aggr_cpg_daily_sales %}
+## Implementation Detail
+*   Date        : 08/28/2020
+*   Version     : 1.0
+*   ViewName    : aggr_cpg_daily_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Aggregated CPG Daily Sales Table consist of Sales details of WWE products on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 08:00 A.M EST 
+* Dependent Jobs (process_name ; process_id) : t_di_cpg_fact_cpg_sales_detail_radial_abac ; 30230,            t_di_cpg_fact_cpg_sales_detail_cb_abac ; 30231, t_di_cpg_fact_cpg_sales_detail_amazon_abac ; 30232, t_di_cpg_fact_cpg_sales_detail_kit_component_radial_abac ; 30233, t_di_cpg_fact_cpg_sales_header_radial_abac ; 30234, t_di_cpg_fact_cpg_sales_header_cb_abac ; 30235 & t_di_cpg_fact_cpg_sales_header_amazon_abac ; 30236
+
+## Maintenance Log
+* Date : 08/28/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
+{% enddocs %}
+
+{% docs vw_aggr_cpg_daily_sales %}
+## Implementation Detail
+*   Date        : 08/28/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_cpg_daily_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Aggregated CPG Daily Sales Table View of Sales details of WWE products on daily-basis
+
+## Maintenance Log
+* Date : 08/28/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
+{% enddocs %}
+
+{% docs aggr_cpg_daily_kit_sales %}
+## Implementation Detail
+*   Date        : 08/28/2020
+*   Version     : 1.0
+*   ViewName    : aggr_cpg_daily_kit_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Aggregated CPG Daily Kit Sales Table consist of Sales details of WWE Kit products on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 08:00 A.M EST 
+* Dependent Jobs (process_name ; process_id) : t_di_cpg_fact_cpg_sales_detail_radial_abac ; 30230,            t_di_cpg_fact_cpg_sales_detail_cb_abac ; 30231, t_di_cpg_fact_cpg_sales_detail_amazon_abac ; 30232,      t_di_cpg_fact_cpg_sales_header_radial_abac ; 30234, t_di_cpg_fact_cpg_sales_header_cb_abac ; 30235 &     t_di_cpg_fact_cpg_sales_header_amazon_abac ; 30236
+
+## Maintenance Log
+* Date : 08/28/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
+{% enddocs %}
+
+{% docs vw_aggr_cpg_daily_kit_sales %}
+## Implementation Detail
+*   Date        : 08/28/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_cpg_daily_kit_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Aggregated CPG Daily Kit Sales View consist of Sales details of WWE Kit products on daily-basis
+
+## Maintenance Log
+* Date : 08/28/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
 {% enddocs %}
