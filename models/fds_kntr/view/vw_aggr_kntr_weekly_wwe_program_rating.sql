@@ -25,5 +25,5 @@ rat_value,
 viewing_hours,
 duration_hours,
 count_telecast,
-Weekly_Cumulative_Audience
+Weekly_Cumulative_Audience as average_weekly_cumulative_audience_000
 from  {{ref('intm_kntr_wwe_program_rating')}}

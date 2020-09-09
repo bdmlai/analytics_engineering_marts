@@ -15,6 +15,6 @@ sum(duration_mins) as total_duration_mins,
 sum(watched_mins/60) as viewing_hours,
 sum(duration_mins/60.00) as duration_hours,
 count(*) as count_telecast,
-sum(aud) as Weekly_Cumulative_Audience
+sum(aud/1000) as Weekly_Cumulative_Audience
 from {{source('fds_kntr','fact_kntr_wwe_telecast_data')}}  a
   group by 1,2,3,4,5,6,7,8,9,10

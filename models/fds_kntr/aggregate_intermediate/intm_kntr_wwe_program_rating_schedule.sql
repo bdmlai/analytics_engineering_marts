@@ -22,7 +22,9 @@ select  week_Start_date,
         sum(duration_mins) as total_duration_mins,
         sum(watched_mins/60) as viewing_hours,
         sum(duration_mins/60.00) as duration_hours,
-        sum(aud) as Sum_Weekly_Cumulative_Audience
+        sum(aud/1000) as Sum_Weekly_Cumulative_Audience,
+        count(*) as count_telecast
+
 
 from {{source('fds_kntr','fact_kntr_wwe_telecast_data')}} a
 where a.series_name in ('SmackDown','RAW','NXT','PPV')

@@ -1,6 +1,8 @@
 {{
   config({
-		'schema': 'fds_kntr',"materialized": 'table','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+		'schema': 'fds_kntr',
+		"pre-hook": ["truncate fds_kntr.aggr_kntr_weekly_competitive_program_ratings"],
+		"materialized": 'table','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
   })
 }}
 select c.*, 'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' as etl_batch_id,
@@ -19,7 +21,7 @@ sum(length_avg_tm) as total_duration_mins, sum(length_avg_tm/60) as duration_hou
 (sum(rat_num_avg_wg * length_avg_tm))/(nullif(sum(nvl2(rat_num_avg_wg, length_avg_tm, null)),0)) as rat_value,
 sum((rat_num_avg_wg * 1000 * length_avg_tm) / 60) as viewing_hours,
 count(*) as telecasts_count,
-sum(rat_num_avg_wg * 1000) as weekly_cumulative_audience
+sum(rat_num_avg_wg) as weekly_cumulative_audience
 from {{source('fds_kntr','fact_kntr_annual_profile')}} a
 join {{source('cdm','dim_date')}} b on a.broadcast_date_id = b.dim_date_id
 group by 1,2,3,4,5,6,7,8,9,10,11 ) c

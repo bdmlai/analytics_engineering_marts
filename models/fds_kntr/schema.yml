@@ -31,7 +31,7 @@ models:
           description: total length of program (in hours and minutes)
         - name: count_telecast
           description: Total count of telecast
-        - name: Average_Weekly_Cumulative_Audience
+        - name: average_weekly_cumulative_audience_000
           description: Monthly cumulative Average Rating (of specific demographic selected)
           
   - name: vw_aggr_kntr_quarterly_wwe_program_rating_schedule
@@ -65,7 +65,7 @@ models:
           description: total length of program (in hours and minutes)
         - name: count_telecast
           description: Total count of telecast
-        - name: Average_Weekly_Cumulative_Audience
+        - name: average_weekly_cumulative_audience_000
           description: Quarterly cumulative Average Rating (of specific demographic selected)
           
   - name: vw_aggr_kntr_yearly_wwe_program_rating_schedule
@@ -97,7 +97,7 @@ models:
           description: total length of program (in hours and minutes)
         - name: count_telecast
           description: Total count of telecast
-        - name: Average_Weekly_Cumulative_Audience
+        - name: average_weekly_cumulative_audience_000
           description: Yearly cumulative Average Rating (of specific demographic selected)
 
   - name: vw_aggr_kntr_weekly_wwe_program_rating
@@ -125,7 +125,7 @@ models:
           description: total length of program (in hours and minutes)
         - name: count_telecast
           description: Total count of telecast
-        - name: Weekly_Cumulative_Audience
+        - name: average_weekly_cumulative_audience_000
           description: Monthly cumulative Average Rating (of specific demographic selected)
 
   - name: vw_aggr_kntr_monthly_wwe_program_rating
@@ -155,7 +155,7 @@ models:
           description: total length of program (in hours and minutes)
         - name: count_telecast
           description: Total count of telecast
-        - name: Average_Weekly_Cumulative_Audience
+        - name: average_weekly_cumulative_audience_000
           description: Monthly cumulative Average Rating (of specific demographic selected)
 
           
@@ -186,7 +186,7 @@ models:
           description: total length of program (in hours and minutes)
         - name: count_telecast
           description: Total count of telecast
-        - name: Average_Weekly_Cumulative_Audience
+        - name: average_weekly_cumulative_audience_000
           description: Quarterly cumulative Average Rating (of specific demographic selected)
           
   - name: vw_aggr_kntr_yearly_wwe_program_rating
@@ -214,7 +214,7 @@ models:
           description: total length of program (in hours and minutes)
         - name: count_telecast
           description: Total count of telecast
-        - name: Average_Weekly_Cumulative_Audience
+        - name: average_weekly_cumulative_audience_000
           description: Yearly cumulative Average Rating (of specific demographic selected)
 
   - name: aggr_kntr_weekly_competitive_program_ratings
@@ -296,7 +296,7 @@ models:
           description: The weekly viewing hours of competitive program by specified demographic group
         - name: telecasts_count
           description: Count of Telecasts of competitive program on weekly-basis
-        - name: weekly_cumulative_audience
+        - name: average_weekly_cumulative_audience_000
           description: The weekly cumulative Audience who watched the competitive program
 
   - name: vw_aggr_kntr_monthly_competitive_program_ratings
@@ -324,7 +324,7 @@ models:
           description: The monthly viewing hours of competitive program by specified demographic group
         - name: telecasts_count
           description: Count of Telecasts of competitive program on monthly-basis
-        - name: average_weekly_cumulative_audience
+        - name: average_weekly_cumulative_audience_000
           description: The average weekly cumulative Audience who watched the competitive program on monthly-basis
 
   - name: vw_aggr_kntr_quarterly_competitive_program_ratings
@@ -352,7 +352,7 @@ models:
           description: The quarterly viewing hours of competitive program by specified demographic group
         - name: telecasts_count
           description: Count of Telecasts of competitive program on quarterly-basis
-        - name: average_weekly_cumulative_audience
+        - name: average_weekly_cumulative_audience_000
           description: The average weekly cumulative Audience who watched the competitive program on quarterly-basis
 
   - name: vw_aggr_kntr_yearly_competitive_program_ratings
@@ -378,7 +378,7 @@ models:
           description: The yearly viewing hours of competitive program by specified demographic group
         - name: telecasts_count
           description: Count of Telecasts of competitive program on yearly-basis
-        - name: average_weekly_cumulative_audience
+        - name: average_weekly_cumulative_audience_000
           description: The average weekly cumulative Audience who watched the competitive program on yearly-basis
           
   - name: rpt_kntr_schedule_vh_data
@@ -392,9 +392,15 @@ models:
           description: The date on when the WWE program broadcasted
           tests:
               - not_null          
-        - name: broadcast_month
-          description: The broadcast month when the WWE program broadcasted
-        - name: broadcast_year
+        - name: src_weekday
+          description: The day on when the WWE program broadcasted
+        - name: month_name
+          description: The month name on when the WWE program broadcasted
+        - name: month_num
+          description: The month number on when the WWE program broadcasted
+        - name: modified_month
+          description: Derived from broadcast_date; day part of broadcast_date replaced with '01'
+        - name: year
           description: The broadcast year when the WWE program broadcasted
         - name: region
           description: The region of country from where the WWE program is telecasted
@@ -408,6 +414,12 @@ models:
           description: The type of demographic group watched the WWE program
         - name: demographic_group_name
           description: The demographic group name who watched the WWE program
+        - name: src_series
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: series_episode_name
+          description: Name of the content broadcast
+        - name: series_episode_num
+          description: No.of episodes broadcast
         - name: series_name
           description: Indicates WWE series name
         - name: series_type
@@ -454,6 +466,16 @@ models:
           description: The broadcast date ID field
         - name: broadcast_date
           description: The date on when the WWE program broadcasted
+        - name: src_weekday
+          description: The day on when the WWE program broadcasted
+        - name: month_name
+          description: The month name on when the WWE program broadcasted
+        - name: month_num
+          description: The month number on when the WWE program broadcasted
+        - name: modified_month
+          description: Derived from broadcast_date; day part of broadcast_date replaced with '01'
+        - name: year
+          description: The broadcast year when the WWE program broadcasted
         - name: src_country
           description: The country from where the WWE program is telecasted
         - name: region
@@ -466,6 +488,12 @@ models:
           description: The type of demographic group watched the WWE program
         - name: demographic_group_name
           description: The demographic group name who watched the WWE program
+        - name: src_series
+          description: Program name broadcasted on a partucular broadcast network (channel)
+        - name: series_episode_name
+          description: Name of the content broadcast
+        - name: series_episode_num
+          description: No.of episodes broadcast
         - name: series_name
           description: Indicates WWE series name
         - name: series_type

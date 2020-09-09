@@ -7,7 +7,7 @@
 }}
 
 select a.coverage_area,a.src_market_break,a.src_demographic_group,
-a.broadcast_Date,a.src_broadcast_network_name,a.time_minute,
+a.broadcast_Date,a.src_broadcast_network_name,a.time_minute,a.source_name,d.comment ,
 a.most_current_us_audience_avg_proj_000,
 a.absolute_network_number,
 c.absolute_network_number as absolute_set_off_off_air,
@@ -25,3 +25,10 @@ ON a.src_demographic_group = c.src_demographic_group and
 a.broadcast_Date = c.broadcast_Date and
 a.src_broadcast_network_name = c.src_broadcast_network_name and
 a.time_minute = c. time_minute
+left join (select distinct airdate,title,modified_inpoint,modified_outpoint,comment from {{ref('intm_nl_lite_log_est')}}
+ where  lower(comment) in ('commercial break'))  d 
+ on trunc(a.broadcast_date) = d.airdate
+and lower(trim(a.source_name)) = lower(trim(d.title)) 
+and ( (trunc(a.broadcast_date) || ' ' || trim(a.time_minute))::timestamp)
+>= d.modified_inpoint and ( (trunc(a.broadcast_date) || ' ' || trim(a.time_minute))::timestamp) < d.modified_outpoint
+

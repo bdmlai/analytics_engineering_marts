@@ -28,7 +28,7 @@ select 'q'+ cast(cal_quarter as varchar) as quarter,
         (sum(rat_value*total_duration_mins))/(nullif(sum(nvl2(rat_value,total_duration_mins,null)),0)) as rat_value,
         sum(viewing_hours) as viewing_hours,
         sum(duration_hours) as duration_hours,
-        count(*) as count_telecast,
-        avg(Sum_Weekly_Cumulative_Audience) as Average_Weekly_Cumulative_Audience
+        sum(count_telecast) as count_telecast,
+        avg(Sum_Weekly_Cumulative_Audience) as average_weekly_cumulative_audience_000
 from  {{ref('intm_kntr_wwe_program_rating_schedule')}}
 group by 1,2,3,4,5,6,7,8,9,10

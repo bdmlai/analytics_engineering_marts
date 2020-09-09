@@ -25,5 +25,5 @@ series_name,src_demographic_group,src_demographic_age,hd_flag ,
 sum(viewing_hours) as viewing_hours,
 sum(duration_hours) as duration_hours,
 sum(count_telecast) as count_telecast,
-avg(Weekly_Cumulative_Audience) as Average_Weekly_Cumulative_Audience
+avg(Weekly_Cumulative_Audience) as average_weekly_cumulative_audience_000
 from {{ref('intm_kntr_wwe_program_rating')}} group by 1,2,3,4,5,6,7,8

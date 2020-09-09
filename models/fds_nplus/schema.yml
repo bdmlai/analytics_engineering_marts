@@ -501,3 +501,34 @@ models:
           description: unique identifier for the event
         - name: data_level
           description: identifier for Live data and Live+VOD data
+  - name: vw_rpt_nplus_monthly_marketing_subs
+    description: '{{ doc("vw_rpt_nplus_monthly_marketing_subs") }}'
+    columns:
+        - name: bill_date
+          description: report date
+        - name: free_adds_budget
+          description: Total trial adds budget for the month
+        - name: paid_adds_budget
+          description: Budget for all paid subscriptions who have paid for the first time and all paid winback subscriptions for the month
+        - name: free_disconnects_budget
+          description: Budget for Total trial losses for the month
+        - name: paid_disconnects_budget
+          description: Budget for Total Paid Losses for the month 
+        - name: free_adds_actuals
+          description: Total trial adds for the month
+        - name: paid_adds_actuals
+          description: All paid subscriptions who have paid for the first time and all paid winback subscriptions for the month
+        - name: free_disconnects_actuals
+          description: Total trial losses for the month
+        - name: paid_disconnects_actuals
+          description: Total Paid Losses for the month
+        - name: eop_subs
+          description: end of period total subscriptions
+        - name: free_adds_FYE
+          description: Total trial adds for the month forecasted
+        - name: paid_adds_FYE
+          description: All paid subscriptions who have paid for the first time and all paid winback subscriptions for the month forecasted
+        - name: free_disconnects_FYE
+          description: Total trial losses for the month forecasted
+        - name: paid_disconnects_FYE
+          description: Total Paid Losses for the month forecasted
