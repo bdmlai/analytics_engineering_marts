@@ -2722,3 +2722,249 @@ There are 1 unused configuration paths:
 2020-09-21 17:56:50.897581 (Thread-103): sending response (<Response 64882 bytes [200 OK]>) to 10.32.0.6
 2020-09-21 17:57:02.175046 (Thread-104): handling status request
 2020-09-21 17:57:02.196044 (Thread-104): sending response (<Response 64882 bytes [200 OK]>) to 10.32.0.6
+2020-09-21 17:57:05.127359 (Thread-105): Parsing macros/get_custom_schema.sql
+2020-09-21 17:57:05.165013 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_le_weekly_consolidated_kpi".
+2020-09-21 17:57:05.165226 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.183834 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_weekly_network_subscriber_kpis_ir".
+2020-09-21 17:57:05.183958 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.196483 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_network_ppv_liveplusvod".
+2020-09-21 17:57:05.196603 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.209361 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_monthly_network_kpis_vkm".
+2020-09-21 17:57:05.209480 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.222399 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_network_daily_subscription_kpis".
+2020-09-21 17:57:05.222524 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.236439 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-09-21 17:57:05.236551 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.249170 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nplus_PPV_Week_Adds_Tracking".
+2020-09-21 17:57:05.249279 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.270878 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_network_ppv_actuals_estimates_forecast".
+2020-09-21 17:57:05.270991 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.283491 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_nplus_monthly_marketing_subs".
+2020-09-21 17:57:05.283606 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.304251 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_daily_network_adds_and_loss_track".
+2020-09-21 17:57:05.304365 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.321666 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_network_ppv_liveplusvod".
+2020-09-21 17:57:05.321891 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.342051 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_network_ppv_actuals_estimates_forecast".
+2020-09-21 17:57:05.342172 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.383714 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.aggr_monthly_network_kpis_vkm".
+2020-09-21 17:57:05.383908 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.446628 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_cp_monthly_global_consumption_by_platform".
+2020-09-21 17:57:05.446892 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.472645 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_cp_weekly_consolidated_kpi".
+2020-09-21 17:57:05.472819 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.498947 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.aggr_cp_weekly_consumption_by_platform".
+2020-09-21 17:57:05.499164 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.545878 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_cp_monthly_global_consumption_by_platform".
+2020-09-21 17:57:05.546117 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.558907 (Thread-106): handling status request
+2020-09-21 17:57:05.567591 (Thread-106): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.6
+2020-09-21 17:57:05.569648 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_cp_weekly_consumption_by_platform".
+2020-09-21 17:57:05.570204 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.588799 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_cp_weekly_consolidated_kpi".
+2020-09-21 17:57:05.589161 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.603443 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.aggr_kntr_weekly_competitive_program_ratings".
+2020-09-21 17:57:05.603555 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.622036 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_kntr_schedule_vh_data".
+2020-09-21 17:57:05.624378 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.643415 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_country_channel_vh".
+2020-09-21 17:57:05.643533 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.664251 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_country_vh".
+2020-09-21 17:57:05.664435 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.684311 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_schedule_vh_data".
+2020-09-21 17:57:05.684448 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.700667 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_germany_high_income".
+2020-09-21 17:57:05.700823 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.713984 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_region_vh".
+2020-09-21 17:57:05.714113 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.726709 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_monthly_country_vh".
+2020-09-21 17:57:05.726834 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.741460 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_channel_1".
+2020-09-21 17:57:05.741591 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.760201 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_wwe_program_rating_schedule".
+2020-09-21 17:57:05.760411 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.780595 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_wwe_program_rating".
+2020-09-21 17:57:05.780758 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.797260 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_kntr_previous_month_value".
+2020-09-21 17:57:05.797431 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.812288 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_yearly_competitive_program_ratings".
+2020-09-21 17:57:05.812439 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.831928 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_wwe_program_rating".
+2020-09-21 17:57:05.832093 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.848474 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts. ".
+2020-09-21 17:57:05.848635 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.863744 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_competitive_program_ratings".
+2020-09-21 17:57:05.863913 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.877764 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_quarterly_competitive_program_ratings".
+2020-09-21 17:57:05.877911 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.891670 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_wwe_program_rating_schedule".
+2020-09-21 17:57:05.891832 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.908310 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_quarterly_wwe_program_rating".
+2020-09-21 17:57:05.908462 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.922624 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_yearly_wwe_program_rating".
+2020-09-21 17:57:05.922769 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.935974 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_weekly_wwe_program_rating".
+2020-09-21 17:57:05.936085 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.949224 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_weekly_competitive_program_ratings".
+2020-09-21 17:57:05.949331 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.962466 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_country_vh".
+2020-09-21 17:57:05.962573 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.977006 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_quarterly_wwe_program_rating_schedule".
+2020-09-21 17:57:05.977111 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:05.991809 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_kntr_schedule_wca_data".
+2020-09-21 17:57:05.991915 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.006458 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_kntr_schedule_vh_data".
+2020-09-21 17:57:06.006571 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.023661 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_nl_daily_minxmin_lite_log_ratings".
+2020-09-21 17:57:06.023790 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.043089 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_nl_weekly_overlap_derived_4_way_oob".
+2020-09-21 17:57:06.043223 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.077703 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_nl_weekly_channel_switch".
+2020-09-21 17:57:06.077862 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.095619 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_nl_daily_wwe_live_commercial_ratings".
+2020-09-21 17:57:06.095769 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.114082 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_nl_daily_wwe_program_ratings".
+2020-09-21 17:57:06.114211 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.147737 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.rpt_nl_daily_wwe_live_quarterhour_ratings".
+2020-09-21 17:57:06.147948 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.174594 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intermediate_nl_absolute_usa_fox_tnt_stay".
+2020-09-21 17:57:06.174776 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.188135 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intermediate_nl_absolute_network_total_num".
+2020-09-21 17:57:06.188292 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.203394 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intermediate_nl_absolute_switch_stay_detail".
+2020-09-21 17:57:06.203532 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.221745 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_nl_est_time_diff".
+2020-09-21 17:57:06.221872 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.240412 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_nl_lite_log_est".
+2020-09-21 17:57:06.240542 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.254273 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intermediate_nl_minxmin_ratings".
+2020-09-21 17:57:06.254389 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.269424 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intermediate_nl_ranking".
+2020-09-21 17:57:06.269567 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.283801 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intermediate_nl_set_off_air_absolute_network_num".
+2020-09-21 17:57:06.283922 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.297185 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intermediate_nl_switching_absolute_network_num".
+2020-09-21 17:57:06.297303 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.312703 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_fin_wwe_live_program_ratings".
+2020-09-21 17:57:06.312810 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.326071 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_hulu_wwe_vh_data".
+2020-09-21 17:57:06.326179 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.340629 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_nl_weekly_overlap_derived_4_way_oob".
+2020-09-21 17:57:06.340737 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.354039 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_wwe_live_quarterhour_ratings".
+2020-09-21 17:57:06.354144 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.371671 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_nl_weekly_channel_switch".
+2020-09-21 17:57:06.371779 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.385051 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_wwe_live_program_ratings".
+2020-09-21 17:57:06.385173 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.398580 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_wwe_live_commercial_ratings".
+2020-09-21 17:57:06.398706 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.414893 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_nl_weekly_overlap_chart".
+2020-09-21 17:57:06.415000 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.429519 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_wwe_live_commercial_ratings".
+2020-09-21 17:57:06.429626 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.446889 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_wwe_live_program_ratings".
+2020-09-21 17:57:06.447002 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.460246 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_nl_daily_minxmin_lite_log_ratings".
+2020-09-21 17:57:06.460351 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.474398 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_wwe_live_program_ratings".
+2020-09-21 17:57:06.474519 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.491014 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_fin_wwe_live_program_ratings".
+2020-09-21 17:57:06.491121 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.504474 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_primetime_ratings".
+2020-09-21 17:57:06.504580 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.525392 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings".
+2020-09-21 17:57:06.525508 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.541397 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_rpt_nl_daily_wwe_program_ratings".
+2020-09-21 17:57:06.541508 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.554939 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_primetime_ratings".
+2020-09-21 17:57:06.555047 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.574922 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_primetime_ratings".
+2020-09-21 17:57:06.575033 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.593893 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_wwe_live_quarterhour_ratings".
+2020-09-21 17:57:06.594007 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.610118 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_timeperiod_ratings".
+2020-09-21 17:57:06.610228 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.629667 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_fin_wwe_live_program_ratings".
+2020-09-21 17:57:06.629784 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.643381 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_timeperiod_ratings".
+2020-09-21 17:57:06.643502 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.662497 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_timeperiod_ratings".
+2020-09-21 17:57:06.662621 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.683247 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_wwe_live_commercial_ratings".
+2020-09-21 17:57:06.683377 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.701666 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.aggr_cpg_daily_kit_sales".
+2020-09-21 17:57:06.701802 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.827864 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.aggr_cpg_daily_sales".
+2020-09-21 17:57:06.828027 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:06.978862 (Thread-107): handling status request
+2020-09-21 17:57:06.995304 (Thread-107): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.23
+2020-09-21 17:57:07.034953 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_sales_gratis".
+2020-09-21 17:57:07.035150 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.099874 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_kit_sales".
+2020-09-21 17:57:07.100042 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.115072 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_kit_sales_free".
+2020-09-21 17:57:07.115209 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.171919 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_kit_sales_regular".
+2020-09-21 17:57:07.172079 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.214380 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_sales".
+2020-09-21 17:57:07.214530 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.230327 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_sales_free".
+2020-09-21 17:57:07.230463 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.282355 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_sales_others".
+2020-09-21 17:57:07.282496 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.332518 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_sales_regular".
+2020-09-21 17:57:07.332662 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.384796 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.intm_cpg_kit_sales_gratis".
+2020-09-21 17:57:07.384946 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.427529 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_cpg_daily_kit_sales".
+2020-09-21 17:57:07.427671 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.441011 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.vw_aggr_cpg_daily_sales".
+2020-09-21 17:57:07.441144 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.455388 (Thread-105): Acquiring new redshift connection "model.analytics_engineering_marts.test_dbt_cloud".
+2020-09-21 17:57:07.455515 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.467644 (Thread-105): Acquiring new redshift connection "test.analytics_engineering_marts.monetize_summary_test_cases".
+2020-09-21 17:57:07.467763 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.479309 (Thread-105): Acquiring new redshift connection "test.analytics_engineering_marts.ppv_hourly_test_post_load".
+2020-09-21 17:57:07.479421 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:07.492012 (Thread-105): Acquiring new redshift connection "test.analytics_engineering_marts.ppv_hourly_test_pre_load".
+2020-09-21 17:57:07.492138 (Thread-105): Opening a new connection, currently in state init
+2020-09-21 17:57:08.435081 (Thread-108): handling status request
+2020-09-21 17:57:08.456721 (Thread-108): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.6
+2020-09-21 17:57:09.618440 (Thread-105): WARNING: Found documentation for resource "vw_aggr_nplus_ppv_week_adds_tracking" which was not found or is disabled
+2020-09-21 17:57:09.618627 (Thread-105): WARNING: Found documentation for resource "vw_aggr_kntr_yearly_wwe_program_rating_schedule" which was not found or is disabled
+2020-09-21 17:57:09.618715 (Thread-105): WARNING: Found documentation for resource "vw_rpt_nl_daily_wwe_live_program_ratings" which was not found or is disabled
+2020-09-21 17:57:09.618772 (Thread-105): WARNING: Found documentation for resource "rpt_nl_weekly_overlap_program_4_way_oob" which was not found or is disabled
+2020-09-21 17:57:09.618824 (Thread-105): WARNING: Found documentation for resource "vw_rpt_nl_weekly_overlap_program_4_way_oob" which was not found or is disabled
+2020-09-21 17:57:09.815172 (Thread-105): WARNING: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.analytics_engineering_marts.vars
+
+2020-09-21 17:57:09.881949 (Thread-109): handling status request
+2020-09-21 17:57:09.898354 (Thread-109): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.23
+2020-09-21 17:57:12.334328 (Thread-110): handling status request
+2020-09-21 17:57:12.356600 (Thread-110): sending response (<Response 65091 bytes [200 OK]>) to 10.32.0.6
+2020-09-21 18:00:23.055800 (Thread-111): handling ps request
+2020-09-21 18:00:23.060142 (Thread-111): sending response (<Response 3521 bytes [200 OK]>) to 10.32.0.6
+2020-09-21 18:00:23.147436 (Thread-112): handling status request
+2020-09-21 18:00:23.184645 (Thread-112): sending response (<Response 65091 bytes [200 OK]>) to 10.32.0.23
+2020-09-21 18:00:24.654740 (Thread-113): handling poll request
+2020-09-21 18:00:25.179568 (Thread-113): sending response (<Response 1303326 bytes [200 OK]>) to 10.32.0.6
+2020-09-21 18:00:25.878560 (Thread-114): handling status request
+2020-09-21 18:00:25.916930 (Thread-114): sending response (<Response 65091 bytes [200 OK]>) to 10.32.0.23
+2020-09-21 18:00:34.391569 (Thread-115): Got an acceptable cached parse result
+2020-09-21 18:00:34.589191 (Thread-115): WARNING: Found documentation for resource "vw_aggr_nplus_ppv_week_adds_tracking" which was not found or is disabled
+2020-09-21 18:00:34.589418 (Thread-115): WARNING: Found documentation for resource "vw_aggr_kntr_yearly_wwe_program_rating_schedule" which was not found or is disabled
+2020-09-21 18:00:34.589521 (Thread-115): WARNING: Found documentation for resource "vw_rpt_nl_daily_wwe_live_program_ratings" which was not found or is disabled
+2020-09-21 18:00:34.589595 (Thread-115): WARNING: Found documentation for resource "rpt_nl_weekly_overlap_program_4_way_oob" which was not found or is disabled
+2020-09-21 18:00:34.589663 (Thread-115): WARNING: Found documentation for resource "vw_rpt_nl_weekly_overlap_program_4_way_oob" which was not found or is disabled
+2020-09-21 18:00:34.867383 (Thread-115): WARNING: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.analytics_engineering_marts.vars
+
+2020-09-21 18:00:34.870607 (Thread-116): handling status request
+2020-09-21 18:00:34.890854 (Thread-116): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.23
+2020-09-21 18:00:36.342253 (Thread-117): handling status request
+2020-09-21 18:00:36.344244 (Thread-117): sending response (<Response 2640 bytes [200 OK]>) to 10.32.0.6
+2020-09-21 18:01:16.163831 (Thread-118): handling status request
+2020-09-21 18:01:16.165853 (Thread-118): sending response (<Response 2640 bytes [200 OK]>) to 10.32.0.23
