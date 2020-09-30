@@ -3745,3 +3745,249 @@ group by 1
 2020-09-30 13:33:55.575099 (Thread-11): sending response (<Response 3328 bytes [200 OK]>) to 10.32.0.23
 2020-09-30 13:36:05.688535 (Thread-12): handling status request
 2020-09-30 13:36:05.719045 (Thread-12): sending response (<Response 71449 bytes [200 OK]>) to 10.32.0.23
+2020-09-30 13:36:09.052593 (Thread-13): Parsing macros/get_custom_schema.sql
+2020-09-30 13:36:09.112364 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_network_daily_subscription_kpis".
+2020-09-30 13:36:09.112607 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.139274 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_monthly_network_perf_renewal_payment_track".
+2020-09-30 13:36:09.139466 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.167788 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_monthly_network_kpis_vkm".
+2020-09-30 13:36:09.167981 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.192257 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_weekly_network_subscriber_kpis_ir".
+2020-09-30 13:36:09.192454 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.214249 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_daily_network_adds_and_loss_track".
+2020-09-30 13:36:09.214454 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.237768 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nplus_PPV_Week_Adds_Tracking".
+2020-09-30 13:36:09.237950 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.274500 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_network_ppv_actuals_estimates_forecast".
+2020-09-30 13:36:09.274712 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.297007 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_network_ppv_liveplusvod".
+2020-09-30 13:36:09.297192 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.319526 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_nplus_monthly_marketing_subs".
+2020-09-30 13:36:09.319700 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.357154 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.aggr_monthly_network_kpis_vkm".
+2020-09-30 13:36:09.357336 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.430910 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_network_ppv_actuals_estimates_forecast".
+2020-09-30 13:36:09.431100 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.469497 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_network_ppv_liveplusvod".
+2020-09-30 13:36:09.469692 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.492205 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_cp_weekly_consumption_by_platform".
+2020-09-30 13:36:09.492421 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.515951 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_cp_weekly_consolidated_kpi".
+2020-09-30 13:36:09.516251 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.540849 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_cp_monthly_global_consumption_by_platform".
+2020-09-30 13:36:09.541056 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.565700 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.aggr_cp_weekly_consumption_by_platform".
+2020-09-30 13:36:09.565909 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.588146 (Thread-14): handling status request
+2020-09-30 13:36:09.589561 (Thread-14): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.23
+2020-09-30 13:36:09.624193 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_cp_monthly_global_consumption_by_platform".
+2020-09-30 13:36:09.624403 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.653095 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_cp_weekly_consolidated_kpi".
+2020-09-30 13:36:09.653294 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.681883 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_wwe_program_rating".
+2020-09-30 13:36:09.682072 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.706143 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_yearly_competitive_program_ratings".
+2020-09-30 13:36:09.706327 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.728369 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_weekly_wwe_program_rating".
+2020-09-30 13:36:09.728556 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.752007 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_wwe_program_rating_schedule".
+2020-09-30 13:36:09.752201 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.774360 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_kntr_schedule_vh_data".
+2020-09-30 13:36:09.774555 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.796416 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_competitive_program_ratings".
+2020-09-30 13:36:09.796596 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.821432 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_schedule_wca_data".
+2020-09-30 13:36:09.821623 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.842210 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_quarterly_wwe_program_rating_schedule".
+2020-09-30 13:36:09.842419 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.860646 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts. ".
+2020-09-30 13:36:09.860796 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.877630 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_yearly_wwe_program_rating".
+2020-09-30 13:36:09.877755 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.891338 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_weekly_competitive_program_ratings".
+2020-09-30 13:36:09.891453 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.904875 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_quarterly_wwe_program_rating".
+2020-09-30 13:36:09.904978 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.918903 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_monthly_country_vh".
+2020-09-30 13:36:09.919007 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.938387 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_kntr_quarterly_competitive_program_ratings".
+2020-09-30 13:36:09.938490 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.952232 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_kntr_schedule_vh_data".
+2020-09-30 13:36:09.952334 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.969821 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.aggr_kntr_weekly_competitive_program_ratings".
+2020-09-30 13:36:09.969924 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:09.987765 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_germany_high_income".
+2020-09-30 13:36:09.987868 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.000919 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_country_channel_vh".
+2020-09-30 13:36:10.001021 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.014126 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_wwe_program_rating_schedule".
+2020-09-30 13:36:10.014229 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.027222 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_schedule_vh_data".
+2020-09-30 13:36:10.027324 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.046995 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_channel_1".
+2020-09-30 13:36:10.047107 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.063327 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_country_vh".
+2020-09-30 13:36:10.063476 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.080733 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_monthly_country_vh".
+2020-09-30 13:36:10.080903 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.095916 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_previous_month_value".
+2020-09-30 13:36:10.096021 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.109396 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_region_vh".
+2020-09-30 13:36:10.109500 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.123901 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_kntr_wwe_program_rating".
+2020-09-30 13:36:10.124004 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.141819 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_le_weekly_consolidated_kpi".
+2020-09-30 13:36:10.141929 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.170943 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_wwe_live_commercial_ratings".
+2020-09-30 13:36:10.171081 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.196052 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_wwe_live_program_ratings".
+2020-09-30 13:36:10.196187 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.212574 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_nl_weekly_overlap_derived_4_way_oob".
+2020-09-30 13:36:10.212773 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.230690 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_primetime_ratings".
+2020-09-30 13:36:10.230849 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.252198 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_fin_wwe_live_program_ratings".
+2020-09-30 13:36:10.252326 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.266361 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_timeperiod_ratings".
+2020-09-30 13:36:10.266488 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.287024 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_wwe_live_quarterhour_ratings".
+2020-09-30 13:36:10.287180 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.304120 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_nl_weekly_overlap_chart".
+2020-09-30 13:36:10.304239 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.319134 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings".
+2020-09-30 13:36:10.319254 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.337488 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_wwe_live_commercial_ratings".
+2020-09-30 13:36:10.337619 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.354261 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_wwe_live_program_ratings".
+2020-09-30 13:36:10.354396 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.368137 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_wwe_live_program_ratings".
+2020-09-30 13:36:10.368276 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.382032 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_nl_weekly_channel_switch".
+2020-09-30 13:36:10.382157 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.395942 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_nl_daily_minxmin_lite_log_ratings".
+2020-09-30 13:36:10.396077 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.412030 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_yearly_primetime_ratings".
+2020-09-30 13:36:10.412168 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.432833 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_wwe_live_quarterhour_ratings".
+2020-09-30 13:36:10.432978 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.449652 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_wwe_live_commercial_ratings".
+2020-09-30 13:36:10.449783 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.466449 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_timeperiod_ratings".
+2020-09-30 13:36:10.466582 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.487410 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_timeperiod_ratings".
+2020-09-30 13:36:10.487559 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.507489 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_hulu_wwe_vh_data".
+2020-09-30 13:36:10.507673 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.525794 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_monthly_fin_wwe_live_program_ratings".
+2020-09-30 13:36:10.525925 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.540481 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_primetime_ratings".
+2020-09-30 13:36:10.540597 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.567258 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_rpt_nl_daily_wwe_program_ratings".
+2020-09-30 13:36:10.567417 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.583349 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_nl_quarterly_fin_wwe_live_program_ratings".
+2020-09-30 13:36:10.583547 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.602228 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_nl_daily_wwe_live_commercial_ratings".
+2020-09-30 13:36:10.602357 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.621069 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_nl_daily_wwe_live_quarterhour_ratings".
+2020-09-30 13:36:10.621189 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.640467 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_nl_daily_minxmin_lite_log_ratings".
+2020-09-30 13:36:10.640581 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.659915 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_nl_weekly_overlap_derived_4_way_oob".
+2020-09-30 13:36:10.660061 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.703828 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_nl_daily_wwe_program_ratings".
+2020-09-30 13:36:10.704047 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.740425 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.rpt_nl_weekly_channel_switch".
+2020-09-30 13:36:10.740610 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.765305 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intermediate_nl_absolute_switch_stay_detail".
+2020-09-30 13:36:10.765503 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.788608 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intermediate_nl_absolute_network_total_num".
+2020-09-30 13:36:10.788796 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.802670 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intermediate_nl_absolute_usa_fox_tnt_stay".
+2020-09-30 13:36:10.802817 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.818786 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intermediate_nl_switching_absolute_network_num".
+2020-09-30 13:36:10.818912 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.837974 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_nl_lite_log_est".
+2020-09-30 13:36:10.838142 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.855297 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_nl_est_time_diff".
+2020-09-30 13:36:10.855454 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.869098 (Thread-15): handling status request
+2020-09-30 13:36:10.873325 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intermediate_nl_ranking".
+2020-09-30 13:36:10.873768 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.874438 (Thread-15): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.23
+2020-09-30 13:36:10.888586 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intermediate_nl_minxmin_ratings".
+2020-09-30 13:36:10.888788 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.903760 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intermediate_nl_set_off_air_absolute_network_num".
+2020-09-30 13:36:10.903865 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.918120 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_cpg_daily_kit_sales".
+2020-09-30 13:36:10.918234 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.935075 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.vw_aggr_cpg_daily_sales".
+2020-09-30 13:36:10.935261 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:10.950487 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.aggr_cpg_daily_kit_sales".
+2020-09-30 13:36:10.950594 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.087397 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.aggr_cpg_daily_sales".
+2020-09-30 13:36:11.087572 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.289420 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_sales_others".
+2020-09-30 13:36:11.289595 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.342395 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_sales_free".
+2020-09-30 13:36:11.342580 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.396850 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_sales_gratis".
+2020-09-30 13:36:11.396999 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.448576 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_sales_regular".
+2020-09-30 13:36:11.448744 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.502038 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_kit_sales_regular".
+2020-09-30 13:36:11.502197 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.548661 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_kit_sales_free".
+2020-09-30 13:36:11.548848 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.591445 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_kit_sales_gratis".
+2020-09-30 13:36:11.591640 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.635559 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_kit_sales".
+2020-09-30 13:36:11.635714 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.651505 (Thread-13): Acquiring new snowflake connection "model.analytics_engineering_marts.intm_cpg_sales".
+2020-09-30 13:36:11.651655 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.671085 (Thread-13): Acquiring new snowflake connection "test.analytics_engineering_marts.ppv_hourly_test_post_load".
+2020-09-30 13:36:11.671234 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.686369 (Thread-13): Acquiring new snowflake connection "test.analytics_engineering_marts.ppv_hourly_test_pre_load".
+2020-09-30 13:36:11.686522 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:11.698392 (Thread-13): Acquiring new snowflake connection "test.analytics_engineering_marts.monetize_summary_test_cases".
+2020-09-30 13:36:11.698517 (Thread-13): Opening a new connection, currently in state init
+2020-09-30 13:36:12.221663 (Thread-16): handling status request
+2020-09-30 13:36:12.243352 (Thread-16): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.6
+2020-09-30 13:36:13.496747 (Thread-17): handling status request
+2020-09-30 13:36:13.518326 (Thread-17): sending response (<Response 176 bytes [200 OK]>) to 10.32.0.23
+2020-09-30 13:36:13.768172 (Thread-13): WARNING: Found documentation for resource "vw_aggr_nplus_ppv_week_adds_tracking" which was not found or is disabled
+2020-09-30 13:36:13.768335 (Thread-13): WARNING: Found documentation for resource "vw_aggr_kntr_yearly_wwe_program_rating_schedule" which was not found or is disabled
+2020-09-30 13:36:13.768400 (Thread-13): WARNING: Found documentation for resource "vw_rpt_nl_daily_wwe_live_program_ratings" which was not found or is disabled
+2020-09-30 13:36:13.768454 (Thread-13): WARNING: Found documentation for resource "rpt_nl_weekly_overlap_program_4_way_oob" which was not found or is disabled
+2020-09-30 13:36:13.768504 (Thread-13): WARNING: Found documentation for resource "vw_rpt_nl_weekly_overlap_program_4_way_oob" which was not found or is disabled
+2020-09-30 13:36:13.989184 (Thread-13): WARNING: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.analytics_engineering_marts.vars
+
+2020-09-30 13:36:14.749142 (Thread-18): handling status request
+2020-09-30 13:36:14.771818 (Thread-18): sending response (<Response 64386 bytes [200 OK]>) to 10.32.0.23
+2020-09-30 13:36:29.008471 (Thread-19): handling status request
+2020-09-30 13:36:29.161325 (Thread-19): sending response (<Response 64386 bytes [200 OK]>) to 10.32.0.6
+2020-09-30 13:36:29.396745 (Thread-20): handling run_sql request
+2020-09-30 13:36:29.398460 (Thread-20): Connection 'test.analytics_engineering_marts.monetize_summary_test_cases' was properly closed.
+2020-09-30 13:36:30.580545 (Thread-20): sending response (<Response 130 bytes [200 OK]>) to 10.32.0.6
+2020-09-30 13:36:30.605492 (MainThread): Acquiring new snowflake connection "rpc.analytics_engineering_marts.request".
+2020-09-30 13:36:30.606071 (MainThread): Opening a new connection, currently in state init
+2020-09-30 13:36:30.649478 (MainThread): Found 97 models, 38 tests, 0 snapshots, 0 analyses, 137 macros, 0 operations, 0 seed files, 60 sources
+2020-09-30 13:36:30.658579 (Thread-1): Acquiring new snowflake connection "rpc.analytics_engineering_marts.request".
+2020-09-30 13:36:30.658741 (Thread-1): Opening a new connection, currently in state init
+2020-09-30 13:36:30.658844 (Thread-1): Compiling rpc.analytics_engineering_marts.request
+2020-09-30 13:36:30.680921 (Thread-1): finished collecting timing info
+2020-09-30 13:36:30.681880 (Thread-1): Using snowflake connection "rpc.analytics_engineering_marts.request".
+2020-09-30 13:36:30.682013 (Thread-1): On rpc.analytics_engineering_marts.request: select etl_insert_rec_dttm, count(ETL_INSERT_REC_DTTM) from PROD_ENTDWDB.udl_nplus.raw_lite_log
+group by 1
+;
+2020-09-30 13:36:30.820418 (Thread-21): handling poll request
+2020-09-30 13:36:30.823856 (Thread-21): sending response (<Response 3288 bytes [200 OK]>) to 10.32.0.23
+2020-09-30 13:36:30.881713 (Thread-1): unclosed file <_io.BufferedReader name='/usr/local/lib/python3.6/dist-packages/certifi/cacert.pem'>
+2020-09-30 13:36:31.618630 (Thread-1): SQL status: SUCCESS 1 in 0.94 seconds
+2020-09-30 13:36:31.619261 (Thread-1): finished collecting timing info
+2020-09-30 13:36:31.619749 (Thread-1): On rpc.analytics_engineering_marts.request: Close
+2020-09-30 13:36:32.109062 (Thread-22): handling poll request
+2020-09-30 13:36:32.114812 (Thread-22): sending response (<Response 3331 bytes [200 OK]>) to 10.32.0.6
+2020-09-30 13:36:39.536486 (Thread-23): handling status request
+2020-09-30 13:36:39.558437 (Thread-23): sending response (<Response 64386 bytes [200 OK]>) to 10.32.0.6
