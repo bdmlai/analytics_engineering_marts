@@ -1,11 +1,8 @@
-
 {{
   config({
-		'schema': 'fds_kntr',
 		"materialized": 'ephemeral'
   })
 }}
-
 select to_char(broadcast_date :: date, 'YYYYMM') as broadcast_month_year,
 case 
    when upper(a.src_country)='UNITED ARAB EMIRATES' then 'APAC except India' 

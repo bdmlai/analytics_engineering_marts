@@ -101,4 +101,27 @@ models:
           description: total previous year-to-date views for each platform
         - name: prev_year_hours
           description: total previous year-to-date hours watched for each platform
+  - name: vw_aggr_cp_monthly_social_followership
+    description: '{{ doc("vw_aggr_cp_monthly_social_followership") }}'
+    columns:
+        - name: country
+          description: name of country
+        - name: date
+          description: as-on date
+        - name: population
+          description: countrywise population
+        - name: fb_gain
+          description: calculated value for face book subscribers gain
+        - name: fb_followers
+          description: The number of Facebook Followers broken out by Country
+        - name: igm_gain
+          description: calculated value for insta gram subscribers gain
+        - name: igm_followers
+          description: The number of Instagram Followers broken out by Country
+        - name: yt_gain
+          description: calculated value for youtube subscribers gain
+        - name: yt_followers
+          description: The number of youtube Followers broken out by Country
+
+  
    
