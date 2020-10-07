@@ -151,6 +151,33 @@ from
 		and ent_map_nm='GM Region'
  where month = date_trunc('month',current_date-25)
  group by 1,2,3,4,5,6),
+ 
+ 
+ #twitch_global_monthly as (
+select  'Twitch' as Platform, 
+		'Twitch' as type, 
+		'' as type2, 
+		date_trunc('month',a.date) as month,
+		'No Geo Detail' as Country,
+		'No Geo Detail' as region,
+		sum(live_views) views, 
+		sum(minutes_watched)/60 hours_watched
+from
+		(select date, 
+				as_on_date, 
+				minutes_watched, 
+				live_views  
+		from hive_udl_cp.twitch_monthly_stream_sessions 
+		where date_trunc('month',date)= date_trunc('month',current_date-25) ) a
+join
+		(select date, 
+				max(as_on_date) max_as_on_date 
+		from hive_udl_cp.twitch_monthly_stream_sessions
+		where date_trunc('month',date)= date_trunc('month',current_date-25)
+		group by 1) b
+	on a.date=b.date
+	and a.as_on_date = b.max_as_on_date
+group by 1,2,3,4,5,6),
 
 #latest_month as 
 (select a.*, 
@@ -169,7 +196,9 @@ from
 		union all
 		select * from #sc_global_monthly
 		union all
-		select * from #dotcom_global_monthly) a
+		select * from #dotcom_global_monthly
+		union all
+		select * from #twitch_global_monthly) a
 ),
 
 #all_data as
@@ -189,7 +218,7 @@ from
 from fds_cp.rpt_cp_monthly_global_consumption_by_platform 
 where month between date_trunc('month',add_months(current_date,-14)) 
 	  and date_trunc('month',current_date-50) 
-	  and platform in ('YouTube','Facebook','Twitter','Instagram','Snapchat','.COM/App'))
+	  and platform in ('YouTube','Facebook','Twitter','Instagram','Snapchat','.COM/App','Twitch'))
 union
 (select * from #latest_month)
 )
@@ -209,7 +238,7 @@ union
 		c.prev_year_views, 
 		c.prev_year_hours,
 		100001 		 as  etl_batch_id,
-		'bi_dbt_user_prd' as etl_insert_user_id,
+		'bi_dbt_prod' as etl_insert_user_id,
 		sysdate 	 as etl_insert_rec_dttm,
 		'' 			 as etl_update_user_id,
 		sysdate 	 as etl_update_rec_dttm

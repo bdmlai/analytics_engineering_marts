@@ -1,8 +1,8 @@
  {{
   config({
-	"schema": 'fds_nplus',	
+	"schema": 'fds_mkt',	
 	"materialized": 'incremental',
-	"pre-hook":"delete from fds_nplus.aggr_nplus_monthly_paid_media_execution"
+	"pre-hook":"delete from fds_mkt.rpt_nplus_monthly_paid_media_execution"
 		})
 }}
 
