@@ -116,6 +116,40 @@
 
 {% enddocs %}
 
+{% docs vw_aggr_nl_monthly_timeperiod_ratings %}
+
+## Implementation Detail
+* Date        : 06/19/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_nl_monthly_timeperiod_ratings
+* Schema	  : fds_nl
+* Contributor : Remya K Nair
+* Description :vw_aggr_nl_monthly_timeperiod_ratings View consist of rating details of all channels and programs to be rolled up from Timeperiod Viewership Ratings table on monthly-basis. 
+
+## Maintenance Log
+* Date : 06/19/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
+
+
+{% enddocs %}
+
+
+{% docs vw_aggr_nl_monthly_wwe_live_program_ratings %}
+
+## Implementation Detail
+* Date        : 07/30/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_nl_monthly_wwe_live_program_ratings
+* Schema	  : fds_nl
+* Contributor : Remya K Nair
+* Description :WWE Live Program Rating Monthly Aggregate View consist of rating details of all WWE Live - RAW, SD, NXT Programs to be rolled up from WWE Program Ratings Daily Report Table on monthly-basis
+
+
+## Maintenance Log
+* Date : 07/30/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
+
+
+{% enddocs %}
+
 
 {% docs vw_rpt_nl_weekly_overlap_chart %}
 
@@ -470,12 +504,13 @@
 *   Date        : 07/24/2020
 *   Version     : 1.0
 *   ViewName    : vw_aggr_kntr_monthly_country_vh
-*   Schema	: fds_kntr
+*   Schema	    : fds_kntr
 *   Contributor : Hima Dasan
 *   Description : View calculates actual viewing hour on monthly basis and calculates estimate value for last month for all WWE programs
 
 ## Maintenance Log
 * Date : 07/24/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 4b Project.
+* Date : 09/22/2020 ; Developer: Rahul Chandran ; Change: Enhancement has done as requested as per Jira Request: PSTA-1153.
 {% enddocs %}
 
 
@@ -662,3 +697,47 @@
 ## Maintenance Log
 * Date : 08/28/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
 {% enddocs %}
+
+{% docs aggr_cpg_daily_venue_sales %}
+## Implementation Detail
+*   Date        : 09/23/2020
+*   Version     : 1.0
+*   ViewName    : aggr_cpg_daily_venue_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Aggregated CPG Daily Venue Sales Table consist of Sales details of WWE products on venue & event - basis
+
+## Schedule Details
+* Frequency : Daily ; 10:30 A.M EST 
+* Dependent Jobs (process_name ; process_id) : t_di_5a_le_udl_to_fds_mstr_load_dim_event_le_venue_event_info ; 9301,            t_di_5a_le_udl_to_fds_mstr_load_brdg_live_event_venue ; 9303
+
+## Maintenance Log
+* Date : 09/23/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
+{% enddocs %}
+
+{% docs vw_aggr_cpg_daily_venue_sales %}
+## Implementation Detail
+*   Date        : 09/23/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_cpg_daily_venue_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Aggregated CPG Daily Venue Sales View consist of Sales details of WWE products on venue & event - basis
+
+## Maintenance Log
+* Date : 09/23/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
+{% enddocs %}
+
+{% docs vw_aggr_cp_monthly_social_followership %}
+## Implementation Detail
+* Date        : 09/23/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_cp_monthly_social_followership
+* Schema	  : fds_cp
+* Contributor : Remya K Nair
+* Description : vw_aggr_cp_monthly_social_followership provide Subscribers gains and followers of Facebook, YouTube, Instagram at country level 
+## Maintenance Log
+* Date : 09/23/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of network dashboards.
+{% enddocs %}
+
+

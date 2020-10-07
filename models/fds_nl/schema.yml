@@ -238,6 +238,10 @@ models:
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
           description: A unique numerical identifier for an individual program name.
+        - name: program_telecast_rpt_starttime
+          description: The start time of the program telecast (HH:MM).
+        - name: program_telecast_rpt_endtime
+          description: The end time of the program telecast (HH:MM).
         - name: avg_viewing_hours_units
           description: Derived Average Viewing Hours in minutes
         - name: natl_comm_clockmts_avg_audience_proj_000
