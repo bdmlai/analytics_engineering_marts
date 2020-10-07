@@ -31,6 +31,8 @@ SELECT
     src_playback_period_cd,
     src_demographic_group,
     src_program_id,
+    program_telecast_rpt_starttime, 
+    program_telecast_rpt_endtime,
     avg_viewing_hours_units,
     natl_comm_clockmts_avg_audience_proj_000,
     natl_comm_clockmts_avg_audience_proj_pct,

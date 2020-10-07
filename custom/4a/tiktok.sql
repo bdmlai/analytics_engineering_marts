@@ -35,14 +35,14 @@ with #temp_table as
 				else b.Country
 				end as Country
 		from
-				((select date_trunc('month', (source_as_on_date-1)) as month, 
+				((select date_trunc('month', (date_trunc('month',source_as_on_date)-1)) as month,  
 						 country as Country,
 						 sum(video_views) views, 
 						 sum(play_duration)/3600 hours_watched
 				 from udl_tkt.tiktok_monthly_country_consumption
 				 where 	date_trunc('month',source_as_on_date) = date_trunc('month',current_date) 
 						and as_on_date = (select max(as_on_date) from udl_tkt.tiktok_monthly_country_consumption)
-				 group by date_trunc('month',source_as_on_date-1),country) a
+				 group by 1,2) a
 				 right outer join
 				(select date_trunc('month',source_as_on_date) as month, 
 						country as Country,

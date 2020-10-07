@@ -422,4 +422,96 @@ models:
         - name: etl_update_user_id          
           description: Unique ID of the DBT user which was used to update the record manually
         - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated      
+          description: Date Time information on when the record was updated
+
+  - name: aggr_cpg_daily_venue_sales
+    description: '{{ doc("aggr_cpg_daily_venue_sales") }}'
+    columns:
+        - name: dim_agg_sales_id
+          description: Auto generated id to uniquely identify a sale
+        - name: date_id
+          description: Order Date 
+        - name: dim_item_id
+          description: References dim_item_id from dim_cpg_item table
+        - name: dim_event_id
+          description: References dim_event_id from cdm.dim_event table
+        - name: dim_venue_id
+          description: References dim_venue_id from fds_le.brdg_live_event_venue table 
+        - name: quantity_shipped
+          description: Shipped Quantity
+        - name: quantity_adjustment
+          description: Adjusted Quantity
+        - name: quantity_returned
+          description: Returned Quantity
+        - name: compelements
+          description: Complements
+        - name: net_units_sold
+          description: Net units sold 
+        - name: selling_price
+          description: Selling Price
+        - name: total_revenue
+          description: Total revenue
+        - name: complement_revenue
+          description: Complement revenue
+        - name: active_flag
+          description: To indicate whether its active or not
+        - name: effective_start_datetime
+          description: effective start date time
+        - name: effective_end_datetime
+          description: effective end date time
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+          
+  - name: vw_aggr_cpg_daily_venue_sales
+    description: '{{ doc("vw_aggr_cpg_daily_venue_sales")}}'
+    columns:
+        - name: dim_agg_sales_id
+          description: Auto generated id to uniquely identify a sale
+        - name: date_id
+          description: Order Date 
+        - name: dim_item_id
+          description: References dim_item_id from dim_cpg_item table
+        - name: dim_event_id
+          description: References dim_event_id from cdm.dim_event table
+        - name: dim_venue_id
+          description: References dim_venue_id from fds_le.brdg_live_event_venue table 
+        - name: quantity_shipped
+          description: Shipped Quantity
+        - name: quantity_adjustment
+          description: Adjusted Quantity
+        - name: quantity_returned
+          description: Returned Quantity
+        - name: compelements
+          description: Complements
+        - name: net_units_sold
+          description: Net units sold 
+        - name: selling_price
+          description: Selling Price
+        - name: total_revenue
+          description: Total revenue
+        - name: complement_revenue
+          description: Complement revenue
+        - name: active_flag
+          description: To indicate whether its active or not
+        - name: effective_start_datetime
+          description: effective start date time
+        - name: effective_end_datetime
+          description: effective end date time
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated          
