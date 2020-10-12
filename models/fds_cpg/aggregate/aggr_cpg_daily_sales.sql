@@ -1887,8 +1887,9 @@ net_sales_$,demand_selling_margin$ demand_selling_margin_$,shipped_selling_margi
 		select * from #fact_aggregate_sales_temp3
 		union all
 		select * from #fact_aggregate_sales_temp4
-))
-
+)),
+#fact_aggregate_sales_final as 
+(select * from  #fact_aggregate_sales where (src_currency_code_from!='CAD' or date_key !='19000101'))
 select dim_business_unit_id,
 dim_order_method_id,
 date_key,
@@ -1944,7 +1945,7 @@ from
 (
 	select src.*,
 	coalesce((case when src.src_currency_code_from='USD' then 1 else cc.currency_conversion_rate_spot_rate end),0) as conversion_rate_to_local
-	from #fact_aggregate_sales src
+	from #fact_aggregate_sales_final src
 	--left outer join public.dim_Date dt on  dt.datekey=src.date_key
 	left outer join (select * from dt_stage.prestg_cpg_currency_exchange_rate ) cc
 	on cast(cast(src.date_key as varchar(20)) as date) =cc.as_on_date and src.src_currency_code_from=cc.currency_code_from and cc.currency_code_to='USD'
