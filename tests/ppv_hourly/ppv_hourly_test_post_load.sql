@@ -1,15 +1,5 @@
 {{ config(severity='error') }}
-select distinct * from(
-select case when total=0 then null else 1 end query2 from
-(select 'total_adds_comp_ppvs' as metric_nm, 'n/a' as dm_dimension_val, count(*) as total from (with a as (select event_date,event_name,event_type,
-adds_date,sum(total_adds) as rpt_total_adds from fds_nplus.rpt_network_ppv_actuals_estimates_forecast where 
-date_part(dayofweek,adds_date) = date_part(dayofweek,current_date) and event_type <> 'current_ppv' group by event_date,event_name,event_type,adds_date), 
-b as (select trunc(initial_order_dttm) as adds_date, count(*) as sos_total_adds from fds_nplus.fact_daily_subscription_order_status 
-where trunc(initial_order_dttm) + 1 = as_on_date and  trunc(initial_order_dttm) in (select distinct adds_date from a) and trunc(as_on_date) - 1 in 
-(select distinct adds_date from a) and payment_method in ('cybersource','stripe','incomm','paypal') group by 1) select * from a 
-left join b on a.adds_date = b.adds_date) where rpt_total_adds <> sos_total_adds)
-union all
-select case when total=0 then null else 1 end query5 from
+select distinct * from(select case when total=0 then null else 1 end query2 from
 (select 'forecasted_total_adds_fri_sat_sun' as metric_nm, 'n/a' as dm_dimension_val, count(*) as total from 
 (select current_adds_days_to_event, sum(current_day_forecast) as current_day_forecast,sum(weekend_forecast) as weekend_forecast,
 case when sum(current_day_forecast) is null or sum(current_day_forecast) = 0 or sum(weekend_forecast) = 0 or sum(weekend_forecast) is null then 

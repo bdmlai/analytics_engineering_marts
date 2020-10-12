@@ -22,6 +22,7 @@ sources:
       - name: dim_region_country
       - name: dim_event
       - name: dim_country_population
+      - name: dim_content_classification_title
   - name: fds_yt
     tables:
        - name: rpt_yt_wwe_engagement_daily
@@ -32,6 +33,7 @@ sources:
        - name: agg_yt_monetization_summary
        - name: youtube_annotations
        - name: youtube_end_screens
+       - name: youtube_cards
   - name: public
     tables:
        - name: yt_amg_content_groups
@@ -49,6 +51,7 @@ sources:
        - name: aggr_monthly_program_type_viewership
        - name: aggr_monthly_subs_cohort_viewership
        - name: fact_daily_content_viewership
+       - name: rpt_network_ppv_liveplusvod
   - name: dwh_read_write
     tables:
        - name: raw_da_weekly_ppv_hourly_comps     
@@ -117,6 +120,11 @@ sources:
   - name: hive_udl_pii
     tables:
       - name: restricted_jde_daily_address_by_date_f0116
-      
-  
-      
+  - name: hive_udl_mkt
+    tables:    
+        - name: wavemaker_monthly_display_mmm
+        - name: wavemaker_monthly_search_mmm
+        - name: wavemaker_monthly_youtube_mmm        
+        - name: wavemaker_monthly_facebook_mmm
+        - name: wavemaker_monthly_twitter_mmm
+        - name: wavemaker_monthly_snapchat_mmm

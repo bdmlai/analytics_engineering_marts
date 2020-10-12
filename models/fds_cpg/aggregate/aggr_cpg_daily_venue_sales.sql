@@ -249,8 +249,8 @@
 		ON upper(ltrim(rtrim(I.src_item_id))) = upper(ltrim(rtrim(T.src_item_id))))  ;
 		UPDATE fds_cpg.aggr_cpg_daily_venue_sales
 		SET active_flag = 'N',
-		effective_end_datetime = current_timestamp,
-		etl_update_rec_dttm = current_timestamp,
+		effective_end_datetime = sysdate,
+		etl_update_rec_dttm = sysdate,
 		etl_update_user_id = 'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B'
 		FROM 
 		fds_cpg.aggr_cpg_daily_venue_sales df
@@ -278,7 +278,7 @@ SELECT
     'Y' as active_flag,
 	current_timestamp as effective_start_datetime,
     cast('2050-12-31 00:00:00' as timestamp) as effective_end_datetime,
-	'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_5B' as etl_batch_id, 
+	50001 as etl_batch_id, 
 	'bi_dbt_user_prd' as etl_insert_user_id, 
 	current_timestamp as etl_insert_rec_dttm, 
 	null as etl_update_user_id, 
