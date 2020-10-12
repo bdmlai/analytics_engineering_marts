@@ -741,3 +741,27 @@
 {% enddocs %}
 
 
+{% docs rpt_mkt_weekly_owned_media_execution %}
+## Implementation Detail
+* Date        : 10/08/2020
+* Version     : 1.0
+* ViewName    : rpt_mkt_weekly_owned_media_execution
+* Schema	  : fds_mkt
+* Contributor : Lakshman Murugeshan
+* Description : Reporting table for marketing team owned media execution. This is a weekly aggregate table containing the metrics Impressions, Viewership and Promos for the channels Owned YouTube, Owned Facebook, Owned Twitter, Owned Instagram, Owned TV US, Owned TV Promos, Owned TV Non US and Owned TV PPV.
+## Maintenance Log
+* Date : 09/23/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+{% enddocs %}
+
+
+{% docs rpt_mkt_weekly_paid_media_execution %}
+## Implementation Detail
+* Date        : 10/08/2020
+* Version     : 1.0
+* ViewName    : rpt_mkt_weekly_paid_media_execution
+* Schema	  : fds_mkt
+* Contributor : Lakshman Murugeshan
+* Description : Reporting table for marketing team paid media execution. This is a weekly aggregate table containing the metrics Impressions, Spend and Clicks for the channels Display, Search, YouTube, Twitter, Facebook and Snap chat.
+## Maintenance Log
+* Date : 09/23/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+{% enddocs %}
