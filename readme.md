@@ -7,3 +7,5 @@ models/fds_mkt/aggregate/
 
 Code for 4A available under
 \custom\4a\rpt_cp_monthly_global_consumption_dom_inter.sql
+
+# removed log files
