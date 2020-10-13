@@ -1,8 +1,8 @@
 /***********************************************************************************/
 /*                 tier 3 model - rules based behaviors-sub-rules                  */
 /* db:analytics_workspace schema:content                                           */
-/* input tables: al_t3_vc_user_consumption_ly                                      */
-/* ouput tables: al_t3_vc_clustering_sub_rules_ly                                  */
+/* input tables: jw_t3_vc_user_consumption_ly                                      */
+/* ouput tables: jw_t3_vc_clustering_sub_rules_ly                                  */
 /***********************************************************************************/
 
 {{

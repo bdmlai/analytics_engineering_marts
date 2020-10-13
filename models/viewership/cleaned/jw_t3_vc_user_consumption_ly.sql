@@ -1,10 +1,10 @@
 /***********************************************************************************/
 /*             tier 3 model - user consumption(last year model)                    */
 /* db:analytics_workspace schema:content                                           */
-/* input tables: al_t3_vc_content_cluster                                          */
-/*               al_t3_vc_user_act_month                                           */
-/*               al_t3_vc_content_duration_ly                                      */
-/* ouput tables: al_t3_vc_user_consumption_ly                                      */
+/* input tables: jw_t3_vc_content_cluster                                          */
+/*               jw_t3_vc_user_act_month                                           */
+/*               jw_t3_vc_content_duration_ly                                      */
+/* ouput tables: jw_t3_vc_user_consumption_ly                                      */
 /***********************************************************************************/
 {{
     config(

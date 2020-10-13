@@ -1,8 +1,8 @@
 /***********************************************************************************/
 /*           TIER 3 MODEL - CONTENT DURATION CALCULATION(last year model)          */
 /* DB:ANALYTICS_WORKSPACE SCHEMA:CONTENT                                           */
-/* INPUT TABLES: al_t3_vc_available_content                                          */
-/* OUPUT TABLES: al_t3_vc_content_duration_ly                                       */
+/* INPUT TABLES: jw_t3_vc_available_content                                          */
+/* OUPUT TABLES: jw_t3_vc_content_duration_ly                                       */
 /***********************************************************************************/
 {{
     config(

@@ -2,7 +2,7 @@
 /*                   tier 3 model - subscription history base                      */
 /*                    db:analytics_workspace schema:content                        */
 /* input tables: fds_nplus.fact_daily_subscription_status_plus*/
-/* output table: al_t3_vc_user_act_month */
+/* output table: jw_t3_vc_user_act_month */
 /***********************************************************************************/
 {{
     config(
