@@ -2,8 +2,8 @@
 /*                 tier 3 model - available content duration base                  */
 /* db:analytics_workspace schema:content                                           */
 /* input tables: fds_nplus.fact_daily_subscription_status_plus                     */
-/*               al_t3_vc_content_cluster                                          */
-/* ouput tables: al_t3_vc_available_content                                        */
+/*               jw_t3_vc_content_cluster                                          */
+/* ouput tables: jw_t3_vc_available_content                                        */
 /***********************************************************************************/
 {{
     config(
@@ -129,9 +129,21 @@ final as (
     
     from bracketed
 
+),
+
+with_id as (
+    
+    select 
+    
+        *,
+        {{  dbt_utils.surrogate_key(['src_fan_id','production_id','order_id']) }}
+            as unique_id
+        
+    from final
+    
 )
 
-select * from final
+select * from with_id
   
 {# grant select on al_t3_vc_available_content to public;
 
