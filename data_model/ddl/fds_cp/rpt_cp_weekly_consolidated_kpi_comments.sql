@@ -6,8 +6,11 @@ ViewName : rpt_cp_weekly_consolidated_kpi
 Schema : fds_cp
 Contributor : Lakshman Murugeshan
 Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
-***************************************************************************************************/
-/* Date : 10/13/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version */
+***************************************************************************************************
+Updates
+TYPE JIRA DEVELOPER DATE DESCRIPTION
+----- --------- ----- -----------
+NEW PSTA-1077 Lakshman M 10/13/2020 Initial Version  */
 
 comment on column fds_cp.rpt_cp_weekly_consolidated_kpi.granularity   is 'represents the cadence i.e. Weekly or MTD or YTD'
 comment on column fds_cp.rpt_cp_weekly_consolidated_kpi.platform     is 'represents the platform name i.e. Facebook, Network etc';
