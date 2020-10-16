@@ -1,11 +1,11 @@
-code for vw_aggr_kntr_monthly_country_vh available under 
+Code for fds_cp.rpt_cp_weekly_consolidated_kpi
 
-models/fds_kntr/views/vw_aggr_kntr_monthly_country_vh.sql
+available under 
 
-Code for Marketings subs available under fds_mkt
-models/fds_mkt/aggregate/
+#Data model
 
-Code for 4A available under
-\custom\4a\rpt_cp_monthly_global_consumption_dom_inter.sql
+<<<<<<< readme.md
+\data_model\ddl\fds_cp\rpt_cp_weekly_consolidated_kpi.sql
 
-# removed log files
+# Business logic model
+\models\fds_cp\aggregate\rpt_cp_weekly_consolidated_kpi.sql
