@@ -3991,3 +3991,12 @@ group by 1
 2020-09-30 13:36:32.114812 (Thread-22): sending response (<Response 3331 bytes [200 OK]>) to 10.32.0.6
 2020-09-30 13:36:39.536486 (Thread-23): handling status request
 2020-09-30 13:36:39.558437 (Thread-23): sending response (<Response 64386 bytes [200 OK]>) to 10.32.0.6
+2020-10-19 14:47:56.413146 (MainThread): Running with dbt=0.18.0
+2020-10-19 14:47:56.898503 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.clean.CleanTask'>, debug=False, defer=None, log_cache_events=False, log_format='default', partial_parse=None, profile=None, profiles_dir='/Users/jesswilliams/.dbt', project_dir=None, record_timing_info=None, rpc_method=None, single_threaded=False, state=None, strict=False, target=None, test_new_parser=False, use_cache=True, use_colors=None, vars='{}', warn_error=False, which='clean', write_json=True)
+2020-10-19 14:47:56.898831 (MainThread): Tracking: tracking
+2020-10-19 14:47:56.898969 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113c36f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112e2e220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113c76940>]}
+2020-10-19 14:47:56.899168 (MainThread): Checking target/*
+2020-10-19 14:47:56.919748 (MainThread):  Cleaned target/*
+2020-10-19 14:47:56.919923 (MainThread): Finished cleaning all paths.
+2020-10-19 14:47:56.920119 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112e2e220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113c36f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113c764f0>]}
+2020-10-19 14:47:56.920302 (MainThread): Flushing usage events
