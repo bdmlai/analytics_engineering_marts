@@ -16,7 +16,3 @@ models:
     analytics_engineering_marts :
       vars:
         ugc_engage : 'fds_yt.rpt_yt_ugc_engagement_daily'
-        
-      viewership:
-        +tags: 
-          - dbt_poc

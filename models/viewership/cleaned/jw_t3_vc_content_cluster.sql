@@ -11,7 +11,8 @@
 /*-----------------------------------------------------------*/
 {{
     config(
-        materialized='table'
+        materialized='table',
+        tag='viewership'
     )
 }}
 
