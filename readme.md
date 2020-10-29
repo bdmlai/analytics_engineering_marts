@@ -1,16 +1,11 @@
-###Code for 4A weekly crossplatform(PSTA-1061) enhancements available under:
-Table:
-	\models\fds_cp\aggregate\aggr_cp_weekly_consumption_by_platform
+Code for fds_cp.rpt_cp_weekly_consolidated_kpi
 
-View:
-	\models\fds_cp\aggregate\vw_aggr_cp_weekly_consumption_by_platform
-	
-###Code for 5B Aggregate tables available under:
+available under 
 
-\models\fds_cpg\aggregate\aggr_cpg_daily_kit_sales
-\models\fds_cpg\aggregate\aggr_cpg_daily_sales
+#Data model
 
+<<<<<<< readme.md
+\data_model\ddl\fds_cp\rpt_cp_weekly_consolidated_kpi.sql
 
-###Code for 4b International and Docmestic tables available under:
-\models\fds_nl\
-\models\fds_kntr\
+# Business logic model
+\models\fds_cp\aggregate\rpt_cp_weekly_consolidated_kpi.sql
