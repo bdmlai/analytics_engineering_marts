@@ -14,7 +14,8 @@
 
 ## Maintenance Log
 * Date : 06/12/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
-
+* Date : 09/21/2020 ; Developer: Remya K Nair   ; Change: Added columns program_telecast_rpt_starttime,program_telecast_rpt_endtime as a part of Phase 4b Project.
+ 
 
 {% enddocs %}
 
@@ -56,6 +57,7 @@
 
 ## Maintenance Log
 * Date : 07/21/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+* Date : 08/06/2020 ; Developer: Remya K Nair ; Change:TAB-2105,TAB-2106 :- Added src_series_name and excluded all the repeats while calculating the live viewership by including src_program_attributes filter..
 
 {% enddocs %}
 
@@ -765,3 +767,331 @@
 ## Maintenance Log
 * Date : 09/23/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
 {% enddocs %}
+
+
+{% docs rpt_cp_weekly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 10/13/2020
+* Version     : 1.0
+* ViewName    : rpt_cp_weekly_consolidated_kpi
+* Schema	  : fds_cp
+* Contributor : Lakshman Murugeshan
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 10/13/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+{% enddocs %}
+
+
+{% docs vw_rpt_cp_weekly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 10/13/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_cp_weekly_consolidated_kpi
+* Schema	  : fds_cp
+* Contributor : Lakshman Murugeshan
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 10/13/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+{% enddocs %}
+
+
+{% docs rpt_nplus_daily_ppv_streams %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* TableName   : rpt_nplus_daily_ppv_streams
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : Report table consists of viewership by segment details for PPV Stream on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+
+{% docs rpt_nplus_daily_live_streams %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* TableName   : rpt_nplus_daily_live_streams
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : Report table consists of viewership by segment details for Live Stream on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+
+{% docs rpt_nplus_daily_nxt_tko_streams %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* TableName   : rpt_nplus_daily_nxt_tko_streams
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : Report table consists of viewership by segment details for NXT tko Stream on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+
+{% docs rpt_nplus_daily_milestone_complete_rates %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* TableName   : rpt_nplus_daily_milestone_complete_rates
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : Report table consists of Complete rates and viewers for PPV,live and tko streams on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+{% docs rpt_cpg_monthly_talent_overall_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_monthly_talent_overall_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Monthly Talent Overall Shop Sales Report table consist of various sales details & metrics of talents on monthly-basis
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_monthly_talent_overall_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_monthly_talent_overall_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Monthly Talent Overall Shop Sales Report view consist of various sales details & metrics of talents on monthly-basis referencing from Monthly Talent Overall Shop Sales Report table
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+{% docs rpt_cpg_weekly_talent_overall_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_weekly_talent_overall_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Weekly Talent Overall Shop Sales Report table consist of various sales details & metrics of talents on weekly-basis
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_weekly_talent_overall_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_weekly_talent_overall_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Weekly Talent Overall Shop Sales Report view consist of various sales details & metrics of talents on weekly-basis referencing from Weekly Talent Overall Shop Sales Report table
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_monthly_talent_top25_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_monthly_talent_top25_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Monthly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last month
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_weekly_talent_top25_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_weekly_talent_top25_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Weekly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last week
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_monthly_talent_top25_venue_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_monthly_talent_top25_venue_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Monthly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last month
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_weekly_talent_top25_venue_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_weekly_talent_top25_venue_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Weekly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last week
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_fb_published_post %}
+## Implementation Detail
+*   Date        : 10/29/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_fb_published_post
+*   Schema	    : fds_fbk
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_fbk.fact_fb_published_post table   
+
+## Maintenance Log
+* Date : 10/29/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_fb_published_video %}
+## Implementation Detail
+*   Date        : 10/29/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_fb_published_video
+*   Schema	    : fds_fbk
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_fbk.fact_fb_published_video table  
+
+## Maintenance Log
+* Date : 10/29/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_ig_published_frame %}
+## Implementation Detail
+*   Date        : 10/29/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_ig_published_frame
+*   Schema	    : fds_igm
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_igm.fact_ig_published_frame table  
+
+## Maintenance Log
+* Date : 10/29/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_ig_published_post %}
+## Implementation Detail
+*   Date        : 10/29/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_ig_published_post
+*   Schema	    : fds_igm
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_igm.fact_ig_published_post table  
+
+## Maintenance Log
+* Date : 10/29/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_ig_published_story %}
+## Implementation Detail
+*   Date        : 10/29/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_ig_published_story
+*   Schema	    : fds_igm
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_igm.fact_ig_published_story table  
+
+## Maintenance Log
+* Date : 10/29/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_sc_published_story %}
+## Implementation Detail
+*   Date        : 10/30/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_sc_published_story
+*   Schema	    : fds_sc
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_sc.fact_sc_published_story table  
+
+## Maintenance Log
+* Date : 10/30/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_sc_published_frame %}
+## Implementation Detail
+*   Date        : 10/30/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_sc_published_frame
+*   Schema	    : fds_sc
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_sc.fact_sc_published_frame table  
+
+## Maintenance Log
+* Date : 10/30/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+{% docs vw_rpt_daily_tw_published_post %}
+## Implementation Detail
+*   Date        : 10/30/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_tw_published_post
+*   Schema	    : fds_tw
+*   Contributor : Remya K Nair
+*   Description : View contains only the most recent dim_video_id or dim_media_id or dim_story_id record from fds_tw.fact_tw_published_post table  
+
+## Maintenance Log
+* Date : 10/30/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
+{% enddocs %}
+
+
+
+
+
+
