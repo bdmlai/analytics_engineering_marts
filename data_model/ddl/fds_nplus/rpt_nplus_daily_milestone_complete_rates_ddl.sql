@@ -21,7 +21,7 @@ CREATE TABLE
           title CHARACTER VARYING(1000) ENCODE LZO,
 	  premiere_date DATE ENCODE LZO,
 	  complete_rate DOUBLE PRECISION,
-          viewers BIGINT ENCODE LZO ,
+          viewers_count BIGINT ENCODE LZO ,
           etl_batch_id CHARACTER VARYING(26) ENCODE LZO,
           etl_insert_user_id CHARACTER VARYING(15) ENCODE LZO,
           etl_insert_rec_dttm TIMESTAMP WITH TIME ZONE ENCODE AZ64,

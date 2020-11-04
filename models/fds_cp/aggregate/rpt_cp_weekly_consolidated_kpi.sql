@@ -1,8 +1,8 @@
  {{
   config({
-	"schema": 'fds_nplus',	
+	"schema": 'fds_cp',	
 	"materialized": 'incremental',
-	"pre-hook": [
+	"pre-hook": ["delete from fds_cp.rpt_cp_weekly_consolidated_kpi",
 	"
 	--create dates for rollup
 drop table if exists #dim_dates;
@@ -87,15 +87,38 @@ from
 #dim_dates b
 left join 
 (       
-select 	date_trunc('week',to_date(dim_date_id,'yyyymmdd')) as monday_date,
-        sum(views_3_seconds) views, 
-        sum(video_view_time_minutes)/60 hours_watched		 
-from fds_fbk.fact_fb_consumption_parent_video 
-where to_date(dim_date_id,'yyyymmdd') >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
-group by 1
+select monday_date,views,minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = 'Facebook'
 )  a
 on trunc(a.monday_date) = b.cal_year_mon_week_begin_date;
 
+--create TikTok weekly dataset
+drop table if exists #dp_wkly_tt;
+create table #dp_wkly_tt as
+select b.*, a.hours_watched as hours_watched_wk, 0 as hours_watched_tier2_wk, 0 as active_network_subscribers_wk, 
+0 as hours_per_tot_subscriber_wk, a.views as views_wk, 0 as ad_impressions_wk, 
+0 as network_subscriber_adds_wk,
+0 as new_adds_wk,
+0 as new_adds_direct_t3_wk,
+0 as reg_prospects_t2_to_t3_wk,
+0 as winback_adds_t2_to_t3_wk,
+0 as lp_adds_wk,
+0 as new_free_version_regns_wk,
+0 as network_losses_wk,
+'TikTok' as platform,
+'TikTok' as type
+from 
+#dim_dates b
+left join 
+(       
+select monday_date,views,minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = 'TikTok'
+)  a
+on trunc(a.monday_date) = b.cal_year_mon_week_begin_date;
 
 --create dotocm weekly dataset
 drop table if exists #dp_wkly_dc;
@@ -116,12 +139,10 @@ from
 #dim_dates b
 left join 
 (       
-select 	date_trunc('week',start_time) as monday_date,
-                count(*) views, 
-                sum(play_time)/3600 hours_watched		 
-                from fds_nplus.vw_fact_daily_dotcom_viewership 
-where trunc(start_time) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
-group by 1
+select monday_date,views,minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = '.COM/App'
 )  a
 on trunc(a.monday_date) = b.cal_year_mon_week_begin_date;
 
@@ -145,12 +166,10 @@ from
 #dim_dates b
 left join 
 (       
-select 	date_trunc('week',to_date(dim_date_id,'yyyymmdd')) as monday_date,
-                sum(video_views) views, 
-                sum(post_view_time_secs)/3600 hours_watched		 
-                from fds_tw.fact_tw_consumption_post 
-where to_date(dim_date_id,'yyyymmdd') >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
-group by 1
+select monday_date,views,minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = 'Twitter'
 )  a
 on trunc(a.monday_date) = b.cal_year_mon_week_begin_date;
 
@@ -173,24 +192,10 @@ from
 #dim_dates b
 left join 
 (       
-select 	        monday_date,
-                sum(views) views, 
-		sum(hours_watched) hours_watched
-from
-	(select	date_trunc('week',to_date(dim_date_id,'yyyymmdd')) as monday_date,
-                        sum(video_views) views, 
-                        sum(post_view_time_secs)/3600 hours_watched		 
-                        from fds_igm.fact_ig_consumption_post 
-         where to_date(dim_date_id,'yyyymmdd') >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
-         group by 1
-	 union all
-         select date_trunc('week',to_date(dim_date_id,'yyyymmdd')) as monday_date,
-                        sum(impressions) views, 
-                        sum(story_view_time_secs)/3600 hours_watched		 
-                        from fds_igm.fact_ig_consumption_story 
-         where to_date(dim_date_id,'yyyymmdd') >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
-         group by 1)
-group by 1
+select monday_date,views,minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = 'Instagram'
 )  a
 on trunc(a.monday_date) = b.cal_year_mon_week_begin_date;
 
@@ -213,36 +218,10 @@ from
 #dim_dates b
 left join 
 (       
-select 	        monday_date,
-                sum(views) views, 
-		sum(hours_watched) hours_watched 
-from
-		((
-		select 	sum(views) views, 
-			(sum(views)/6.0)/60 as hours_watched,
-			date_trunc('week',story_start+4) as monday_date
-		from fds_sc.fact_sc_consumption_story a
-		join
-			(select trunc(story_start) post_date,
-					max(dim_date_id) max_dim_date 
-			from fds_sc.fact_sc_consumption_story
-			where 	trunc(story_start+4) >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) and views>0
-			group by 1) b
-		        on trunc(a.story_start) = b.post_date and a.dim_date_id= b.max_dim_date
-		group by 3)
-		union all 
-		(select sum(topsnap_views) views, 
-				sum(total_time_viewed_secs)/3600 hours_watched,
-				date_trunc('week',snap_time_posted+4) as monday_date 
-		 from fds_sc.fact_scd_consumption_frame a
-		 join
-			 (select trunc(snap_time_posted) post_date, max(dim_date_id) max_dim_date 
-			 from fds_sc.fact_scd_consumption_frame
-			 where trunc(snap_time_posted+4) >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) and topsnap_views>0
-			 group by 1) b
-			 on trunc(a.snap_time_posted) = b.post_date and a.dim_date_id= b.max_dim_date
-		 group by 3))
-group by 1
+select monday_date,views,minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = 'Snapchat'
 )  a
 on trunc(a.monday_date) = b.cal_year_mon_week_begin_date;
 
@@ -279,25 +258,25 @@ group by 1,2
 left join
 --Youtube-Owned
 (
-select 	date_trunc('week',report_date_dt) as monday_date,
+select 	 monday_date,
         'Owned' as type,
-        sum(views) Views, 
-	sum(watch_time_minutes)/60 hours_watched
-from fds_yt.rpt_yt_wwe_engagement_daily 
-where report_date_dt >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) and report_date_dt <= getdate()
-group by 1,2
+         views, 
+	 minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = 'Youtube-Owned'
 ) b
 on a.monday_date = b.monday_date and a.type = b.type
 left join
 --Youtube-UGC
 (
-select 	date_trunc('week',report_date_dt) as monday_date,
+select 	 monday_date,
         'UGC' as type,
-        sum(views) Views, 
-	sum(watch_time_minutes)/60 hours_watched
-from fds_yt.rpt_yt_ugc_engagement_daily
-where report_date_dt >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) and report_date_dt <= getdate()
-group by 1,2
+         views, 
+	 minutes_watched/60 as hours_watched
+from fds_cp.aggr_cp_weekly_consumption_by_platform 
+where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and platform = 'Youtube-UGC'
 ) c
 on a.monday_date = c.monday_date and a.type = c.type
 )  a
@@ -324,7 +303,8 @@ select * from #dp_wkly_dc union all
 select * from #dp_wkly_tw union all
 select * from #dp_wkly_ig union all
 select * from #dp_wkly_sc union all
-select * from #dp_wkly_yt);
+select * from #dp_wkly_yt union all
+select * from #dp_wkly_tt);
 
 
 drop table if exists #dp_wkly1;
@@ -381,7 +361,8 @@ sum(b.prev_new_free_version_regns_wk) as prev_new_free_version_regns_mtd,
 sum(b.prev_network_losses_wk) as prev_network_losses_mtd
 from #dp_wkly1 a
 left join #dp_wkly1 b
-on a.cal_year = b.cal_year and a.cal_mth_num = b.cal_mth_num and a.cal_year_week_num_mon >= b.cal_year_week_num_mon and a.platform = b.platform and a.type=b.type
+on a.cal_year = b.cal_year and a.cal_mth_num = b.cal_mth_num and a.cal_year_week_num_mon >= b.cal_year_week_num_mon
+ and a.platform = b.platform and a.type=b.type
 group by 1,2,3,4,5,6,7,8,9,10,11,12;
 
 --create yearly dataset
@@ -806,7 +787,7 @@ and a.year = e.year
 and a.month = e.month
 and a.week = e.week
 and a.start_date = e.start_date
-and a.end_date = e.end_date
+and a.end_date = e.end_date;
 "]
 	})}}
 select *,'DBT_'+TO_CHAR(convert_timezone('AMERICA/NEW_YORK', sysdate),'YYYY_MM_DD_HH_MI_SS')+'_CP' etl_batch_id, 

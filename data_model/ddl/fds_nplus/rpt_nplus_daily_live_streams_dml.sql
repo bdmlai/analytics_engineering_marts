@@ -5,9 +5,6 @@ select
 	  series_episode as title ,
 	  segementtype as segmenttype ,
 	  content_duration,
-	  /*((substring(content_duration, 1, 2))::int * 3600)
-	  +((substring(content_duration, 4, 2))::int * 60)
-	  +((substring(content_duration, 7, 2))::int) as content_duration ,*/
 	  seg_num ,
 	  milestone ,
 	  matchtype ,
