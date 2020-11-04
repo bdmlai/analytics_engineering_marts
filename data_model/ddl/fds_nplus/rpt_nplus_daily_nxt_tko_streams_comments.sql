@@ -35,8 +35,8 @@ COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.nxt_seg_begindate IS
 COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.intvl_dttm IS 'Time splitted into 5 minutes interval between premiere date and current date';	
 COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.time_interval IS 'Derived time intervals by considering in_time_est,out_time_est and intvl_dttm';
 COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.prev_time_interval IS 'Previous time interval';
-COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.streams IS 'Count of stream ids';
-COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.cum_unique_users IS 'count of cumulative users';
+COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.streams_count IS 'Count of stream ids';
+COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.cumulative_unique_user IS 'count of cumulative users';
 COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.etl_batch_id IS 'Unique ID of DBT Job used to insert the record';
 COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.etl_insert_user_id IS 'Unique ID of the DBT user that was used to insert the record';
 COMMENT ON COLUMN fds_nplus.rpt_nplus_daily_nxt_tko_streams.etl_insert_rec_dttm IS 'Date Time information on when the DBT inserted the record';
