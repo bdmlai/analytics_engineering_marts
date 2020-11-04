@@ -1,9 +1,26 @@
+/*
+*******************************************************************************************
+Date : 11/04/2020
+Version : 1.0
+ViewName : aggr_cp_weekly_consumption_by_platform
+Schema : fds_cp
+Contributor : Hima Dasan
+Description : Consolidated KPIs Table- Enhancement (Fix Snapchat table for #Views and Min. Watched)
+***************************************************************************************************
+Updates
+TYPE JIRA DEVELOPER DATE DESCRIPTION
+----- --------- ----- -----------
+DATAFIX PSTA-1506 Hima Dasan 11/04/2020 Data Fix  */
+
+
 update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=82732481,	
 														 Minutes_Watched=11573308,
 														 prev_views=3785914,
 														 prev_mins=630986,
 														 weekly_per_change_views=20.85271007,
-														 weekly_per_change_mins=17.34162406
+														 weekly_per_change_mins=17.34162406,
+														 etl_update_user_id='bi_dbt_user_prd',
+														 etl_update_rec_dttm=current_date
 														 where lower(platform) like '%Snapchat%' and monday_date='2019-12-30';
 
 update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=87843139,	
@@ -11,7 +28,9 @@ update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=87843139,
 														 prev_views=82732481,
 														 prev_mins=11573308,
 														 weekly_per_change_views=0.061773296,
-														 weekly_per_change_mins=0.118236636
+														 weekly_per_change_mins=0.118236636,
+														 etl_update_user_id='bi_dbt_user_prd',
+														 etl_update_rec_dttm=current_date
 														 where lower(platform) like '%Snapchat%' and monday_date='2020-01-06';
 
 update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=93830527,	
@@ -19,7 +38,9 @@ update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=93830527,
 														 prev_views=87843139,
 														 prev_mins=12941697,
 														 weekly_per_change_views=0.068159996,
-														 weekly_per_change_mins=0.071250702
+														 weekly_per_change_mins=0.071250702,
+														 etl_update_user_id='bi_dbt_user_prd',
+														 etl_update_rec_dttm=current_date
 														 where lower(platform) like '%Snapchat%' and monday_date='2020-01-13';
 
 update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=59026194,	
@@ -27,7 +48,9 @@ update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=59026194,
 														 prev_views=93830527,
 														 prev_mins=13863802,
 														 weekly_per_change_views=-0.370927609,
-														 weekly_per_change_mins=-0.344622348
+														 weekly_per_change_mins=-0.344622348,
+														 etl_update_user_id='bi_dbt_user_prd',
+														 etl_update_rec_dttm=current_date
 														 where lower(platform) like '%Snapchat%' and monday_date='2020-01-20';
 
 
@@ -37,7 +60,9 @@ update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=65138043,
 														 prev_views=59026194,
 														 prev_mins=9086026,
 														 weekly_per_change_views=0.103544691,
-														 weekly_per_change_mins=0.11237223
+														 weekly_per_change_mins=0.11237223,
+														 etl_update_user_id='bi_dbt_user_prd',
+														 etl_update_rec_dttm=current_date
 														 where lower(platform) like '%Snapchat%' and monday_date='2020-01-27';
 
 update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=78155432,	
@@ -45,7 +70,9 @@ update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=78155432,
 														 prev_views=65138043,
 														 prev_mins=10107043,
 														 weekly_per_change_views=0.199843109,
-														 weekly_per_change_mins=0.223967782
+														 weekly_per_change_mins=0.223967782,
+														 etl_update_user_id='bi_dbt_user_prd',
+														 etl_update_rec_dttm=current_date
 														 where lower(platform) like '%Snapchat%' and monday_date='2020-02-03';
 
 update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=66338296,	
@@ -53,5 +80,7 @@ update fds_cp.aggr_cp_weekly_consumption_by_platform set Views=66338296,
 														 prev_views=78155432,
 														 prev_mins=12370695,
 														 weekly_per_change_views=-0.151200444,
-														 weekly_per_change_mins=-0.128444117
+														 weekly_per_change_mins=-0.128444117,
+														 etl_update_user_id='bi_dbt_user_prd',
+														 etl_update_rec_dttm=current_date
 														 where lower(platform) like '%Snapchat%' and monday_date='2020-02-10';

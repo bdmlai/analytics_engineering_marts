@@ -6,11 +6,11 @@
   })
 }}
 
-select type,external_id,title,premiere_date,complete_rate,viewers
+select type,external_id,title,premiere_date,complete_rate,viewers_count,etl_batch_id,etl_insert_user_id,etl_insert_rec_dttm,etl_update_user_id,etl_update_rec_dttm
 from 
 (
 select distinct 'PPV' as type, external_id, title, premiere_date, round(complete_rate,2):: float(2) complete_rate,
- count(src_fan_id) as viewers,
+ count(src_fan_id) as viewers_count,
  'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
  'bi_dbt_user_prd' as etl_insert_user_id, 
 current_timestamp as etl_insert_rec_dttm, 
@@ -34,11 +34,11 @@ from
 group by 1,2,3,4,5 order by 1,2,3,4,5)
 
 union all --live stream
-select type,external_id,title,premiere_date,complete_rate,viewers
+select type,external_id,title,premiere_date,complete_rate,viewers_count,etl_batch_id,etl_insert_user_id,etl_insert_rec_dttm,etl_update_user_id,etl_update_rec_dttm
 from 
 (
 select distinct 'Live' as type, external_id, title, premiere_date, round(complete_rate,2):: float(2) complete_rate,
- count(src_fan_id) as viewers,
+ count(src_fan_id) as viewers_count,
  'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
  'bi_dbt_user_prd' as etl_insert_user_id, 
 current_timestamp as etl_insert_rec_dttm, 
@@ -47,7 +47,7 @@ null as etl_update_user_id, cast(null as timestamp) as etl_update_rec_dttm
 (select distinct *, 
 case when show_sec <viewed_sec then 1.00 
      when show_sec = 0  then 0
-else viewed_sec/show_sec end as complete_rate 
+else viewed_sec/cast (show_sec as int) end as complete_rate 
 from
         (select distinct *, 
         content_duration as show_sec from
@@ -62,11 +62,11 @@ from
 group by 1,2,3,4,5 order by 1,2,3,4,5)
 
 union all --tko stream
-select type,external_id,title,premiere_date,complete_rate,viewers
+select type,external_id,title,premiere_date,complete_rate,viewers_count,etl_batch_id,etl_insert_user_id,etl_insert_rec_dttm,etl_update_user_id,etl_update_rec_dttm
 from 
 (
 select distinct 'nxt_tko' as type, external_id, title, premiere_date, round(complete_rate,2):: float(2) complete_rate,
- count(src_fan_id) as viewers,
+ count(src_fan_id) as viewers_count,
  'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
  'bi_dbt_user_prd' as etl_insert_user_id, 
 current_timestamp as etl_insert_rec_dttm, 
