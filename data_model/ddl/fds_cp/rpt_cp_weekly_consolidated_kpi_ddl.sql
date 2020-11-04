@@ -11,7 +11,8 @@ JIRA : PSTA-1077
 Updates
 TYPE JIRA DEVELOPER DATE DESCRIPTION
 ----- --------- ----- -----------
-NEW PSTA-1077 Lakshman M 10/13/2020 Initial Version  */
+NEW PSTA-1077 Lakshman M 10/13/2020 Initial Version  
+CODE CHANGE BIOPS-198 Lakshman M  11/04/2020 Tableau Publish Request - Production - Network - " WWE Consolidated KPI Report"*/
 
 CREATE TABLE
     fds_cp.rpt_cp_weekly_consolidated_kpi
