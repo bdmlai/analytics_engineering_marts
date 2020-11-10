@@ -7,8 +7,8 @@ Schema : fds_cp
 Contributor : Sandeep Battula
 Frequency : Weekly Wednesday 10:30 AM
 Description : rpt_cp_monthly_global_consumption_by_platform This aggregate table stores the crossplatform consumption metrics - total views and total minutes watched aggregated for each week for platforms- Youtube, facebook, Twitter, Instagram, Snapchat and dotcom/App.
-*********************************************************************************************************************************/
-
+*********************************************************************************************************************************
+FIX PSTA-1407    Enhancement is done for Domestic TV platform to get viewing hours for Live+Same day for the dates Live+7 data is not available.  Also updated prehook to delete current month's data for platforms - Domestic TV, PPTV, Hulu SVOD and WWE Network inaddition to current International TV                     																								*/
 CREATE TABLE
     fds_cp.rpt_cp_monthly_global_consumption_by_platform
     (

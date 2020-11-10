@@ -52,6 +52,7 @@ sources:
        - name: aggr_monthly_subs_cohort_viewership
        - name: fact_daily_content_viewership
        - name: rpt_network_ppv_liveplusvod
+       - name: fact_daily_viewership
   - name: dwh_read_write
     tables:
        - name: raw_da_weekly_ppv_hourly_comps     
@@ -60,23 +61,34 @@ sources:
        - name: fact_fb_consumption_parent_video
        - name: fact_fb_consumption_post
        - name: fact_fb_smfollowership_audience_bycountry
+       - name: fact_fb_published_post
+       - name: fact_fb_published_video
   - name: fds_tw
     tables:
        - name: fact_tw_consumption_post
+       - name: fact_tw_published_post
   - name: fds_igm
     tables:
        - name: fact_ig_consumption_post
        - name: fact_ig_consumption_story
        - name: fact_ig_smfollowership_audience_bycountry
+       - name: fact_ig_published_frame
+       - name: fact_ig_published_post
+       - name: fact_ig_published_story
+
   - name: fds_sc
     tables:
        - name: fact_sc_consumption_story   
-       - name: fact_scd_consumption_frame  
+       - name: fact_scd_consumption_frame
+       - name: fact_sc_published_frame
+       - name: fact_sc_published_story
+         
   - name: udl_nplus
     tables:
        - name: drvd_intra_hour_quarter_hour_adds
        - name: raw_da_weekly_ppv_hourly_comps
-       - name: raw_lite_log 
+       - name: raw_lite_log
+       - name: raw_post_event_log 
   - name: udl_nl
     tables:
        - name: nielsen_finance_yearly_calendar
@@ -99,9 +111,12 @@ sources:
       - name: dim_cpg_item
       - name: dim_cpg_kit_item
       - name: dim_cpg_order_method
+      - name: dim_cpg_shop_site    
       - name: fact_cpg_sales_detail
       - name: fact_cpg_sales_detail_kit_component
       - name: fact_cpg_sales_header
+      - name: aggr_cpg_daily_sales
+      - name: aggr_cpg_daily_venue_sales
   - name: dt_stage
     tables:
       - name: prestg_cpg_currency_exchange_rate
@@ -128,3 +143,10 @@ sources:
         - name: wavemaker_monthly_facebook_mmm
         - name: wavemaker_monthly_twitter_mmm
         - name: wavemaker_monthly_snapchat_mmm
+  - name: fds_mdm
+    tables:
+      - name: alternateid
+      - name: character
+  - name: fds_emm
+    tables:
+      - name: brand
