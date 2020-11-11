@@ -1,10 +1,4 @@
-Code for fds_cp.rpt_cp_weekly_consolidated_kpi
+Fix for https://jira.wwe.com/browse/PSTA-1590
 
-available under 
-
-#Data model
-
-\data_model\ddl\fds_cp\rpt_cp_weekly_consolidated_kpi.sql
-
-# Business logic model
-\models\fds_cp\aggregate\rpt_cp_weekly_consolidated_kpi.sql
+Available under /models/fds_nl/rpt_nl_daily_wwe_live_quarterhour_ratings
+				/models/fds_nl/rpt_nl_daily_wwe_live_commercial_ratings
