@@ -35,7 +35,7 @@ SELECT
     interval_starttime,
     interval_endtime,
     interval_duration,
-    avg_viewing_hours_units,
+    viewing_minutes_units as avg_viewing_hours_units,
     avg_audience_proj_000,
     avg_audience_pct,
     avg_pct_nw_cvg_area,
