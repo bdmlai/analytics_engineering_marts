@@ -580,6 +580,8 @@
 *   Schema	: fds_cp
 *   Contributor : Sandeep Battula
 *   Description : Monthly Cross Platform Global Content Consumption aggregate table consists of consumption metrics Views and Hours watched with country and 	region details for all cross platforms. This script inserts last month data for platforms- Youtube, Facebook, WWE.Com and WWE App, Instagram, Snapchat and Twitter from respective source tables on monthly basis (5th of every month). Inaddition to the latest month, metrics are also calculated and inserted for previous month, year-to-date and previous year-to-date. 
+*   Date        : 07/14/2020
+*   Change      : Enhancement is done for Domestic TV platform to get viewing hours for Live+Same day for the dates Live+7 data is not available.  Also updated prehook to delete current month's data for platforms - Domestic TV, PPTV, Hulu SVOD and WWE Network inaddition to current International TV
 
 ## Maintenance Log
 * Date : 07/14/2020 ; Developer: Sandeep Battula ; DBT & Python Automation: Sudhakar; Change: Initial Version
@@ -753,6 +755,9 @@
 * Description : Reporting table for marketing team owned media execution. This is a weekly aggregate table containing the metrics Impressions, Viewership and Promos for the channels Owned YouTube, Owned Facebook, Owned Twitter, Owned Instagram, Owned TV US, Owned TV Promos, Owned TV Non US and Owned TV PPV.
 ## Maintenance Log
 * Date : 09/23/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Hima Dasan ; Change: For Owned viewership data for USA , included smackdown program - 'WWE SMACKDOWN' to include all smackdown data.
+
 {% enddocs %}
 
 
@@ -815,6 +820,27 @@
 {% enddocs %}
 
 
+{% docs vw_rpt_nplus_daily_ppv_streams %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_nplus_daily_ppv_streams
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : View consists of viewership by segment details for PPV Stream  from aggregate table rpt_nplus_daily_ppv_streams on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+
+
 {% docs rpt_nplus_daily_live_streams %}
 
 ## Implementation Detail
@@ -824,6 +850,27 @@
 * Schema	  : fds_nplus
 * Contributor : Remya K Nair
 * Description : Report table consists of viewership by segment details for Live Stream on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+
+
+{% docs vw_rpt_nplus_daily_live_streams %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* ViewName   : vw_rpt_nplus_daily_live_streams
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : View consists of viewership by segment details for Live Stream from aggregate table rpt_nplus_daily_live_streams on daily-basis
 
 ## Schedule Details
 * Frequency : Daily ; 
@@ -855,6 +902,26 @@
 {% enddocs %}
 
 
+{% docs vw_rpt_nplus_daily_nxt_tko_streams %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* ViewName   : vw_rpt_nplus_daily_nxt_tko_streams
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : View consists of viewership by segment details for NXT tko Stream from aggregate table rpt_nplus_daily_nxt_tko_streams on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+
 {% docs rpt_nplus_daily_milestone_complete_rates %}
 
 ## Implementation Detail
@@ -874,6 +941,27 @@
 
 {% enddocs %}
 
+
+{% docs vw_rpt_nplus_daily_milestone_complete_rates %}
+
+## Implementation Detail
+* Date        : 10/27/2020
+* Version     : 1.0
+* ViewName   : vw_rpt_nplus_daily_milestone_complete_rates
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : View consists of Complete rates and viewers for PPV,live and tko streams from aggregate table rpt_nplus_daily_milestone_complete_rates on daily-basis
+
+## Schedule Details
+* Frequency : Daily ; 
+* Dependent Jobs (process_name ; process_id) :  
+
+## Maintenance Log
+* Date : 10/27/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Network 2.0 Project.
+
+{% enddocs %}
+
+
 {% docs rpt_cpg_monthly_talent_overall_shop_sales %}
 ## Implementation Detail
 *   Date        : 10/16/2020
@@ -884,7 +972,7 @@
 *   Description : Monthly Talent Overall Shop Sales Report table consist of various sales details & metrics of talents on monthly-basis
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_monthly_talent_overall_shop_sales %}
@@ -897,7 +985,7 @@
 *   Description : Monthly Talent Overall Shop Sales Report view consist of various sales details & metrics of talents on monthly-basis referencing from Monthly Talent Overall Shop Sales Report table
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 {% docs rpt_cpg_weekly_talent_overall_shop_sales %}
@@ -910,7 +998,7 @@
 *   Description : Weekly Talent Overall Shop Sales Report table consist of various sales details & metrics of talents on weekly-basis
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_weekly_talent_overall_shop_sales %}
@@ -923,7 +1011,7 @@
 *   Description : Weekly Talent Overall Shop Sales Report view consist of various sales details & metrics of talents on weekly-basis referencing from Weekly Talent Overall Shop Sales Report table
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_monthly_talent_top25_shop_sales %}
@@ -936,7 +1024,7 @@
 *   Description : Monthly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last month
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_weekly_talent_top25_shop_sales %}
@@ -949,7 +1037,7 @@
 *   Description : Weekly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last week
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_monthly_talent_top25_venue_sales %}
@@ -962,7 +1050,7 @@
 *   Description : Monthly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last month
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_weekly_talent_top25_venue_sales %}
@@ -975,7 +1063,7 @@
 *   Description : Weekly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last week
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5B Project.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
 
@@ -1090,6 +1178,163 @@
 * Date : 10/30/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Cross Platform Project.
 {% enddocs %}
 
+{% docs rpt_cpg_daily_shop_kpi_orders %}
+## Implementation Detail
+*   Date        : 11/04/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_daily_shop_kpi_orders
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG Shop KPI Orders Report table consist of order details of Daily CPG Shop Orders.
+
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily KPI Report Dashboard Views.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_shop_kpi_orders %}
+## Implementation Detail
+*   Date        : 11/04/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_daily_shop_kpi_orders
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG Shop KPI Orders Report view consist of order details of Daily CPG Shop Orders referencing from Daily CPG Shop KPI Orders Report table
+
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily KPI Report Dashboard Views.
+{% enddocs %}
+
+{% docs rpt_cpg_daily_kpi_sale %}
+## Implementation Detail
+*   Date        : 11/04/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_daily_kpi_sale
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG KPI Sale Report table consist of sale details of Daily CPG Shop & Venue Orders.
+
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily KPI Report Dashboard Views.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_kpi_sale %}
+## Implementation Detail
+*   Date        : 11/04/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_daily_kpi_sale
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG KPI Sale Report view consist of sale details of Daily CPG Shop & Venue Orders referencing from Daily CPG KPI Sale Report table
+
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily KPI Report Dashboard Views.
+{% enddocs %}
+
+
+{% docs rpt_cp_monthly_global_followership_by_platform %}
+## Implementation Detail
+*   Date        : 11/05/2020
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_global_followership_by_platform
+*   Schema	    : fds_cp
+*   Contributor : Hima Dasan
+*   Description : rpt_cp_monthly_global_followership_by_platform table consists of monthly followership details for platsforms - facebook,instagram,twitter,youtube and china social on country and account level.
+
+## Maintenance Log
+* Date : 11/05/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of monthly global market followership by platform.
+{% enddocs %}
+
+
+{% docs vw_rpt_cp_monthly_global_followership_by_platform %}
+## Implementation Detail
+*   Date        : 11/05/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cp_monthly_global_followership_by_platform
+*   Schema	    : fds_cp
+*   Contributor : Hima Dasan
+*   Description : vw_rpt_cp_monthly_global_followership_by_platform view consists of monthly followership details for platsforms - facebook,instagram,twitter,youtube and china social on country and account level.
+
+## Maintenance Log
+* Date : 11/05/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of monthly global market followership by platform.
+{% enddocs %}
+
+{% docs rpt_cpg_daily_snapshot_order_sale %}
+## Implementation Detail
+*   Date        : 11/06/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_daily_snapshot_order_sale
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG Snapshot Order Sale Report table consist of sale details of ordered units.
+
+## Maintenance Log
+* Date : 11/06/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily CPG Snapshot Dashboard Views.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_snapshot_order_sale %}
+## Implementation Detail
+*   Date        : 11/06/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_daily_snapshot_order_sale
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG Snapshot Order Sale Report view consist of sale details of ordered units referencing from Daily CPG Snapshot Order Sale Report table
+
+## Maintenance Log
+* Date : 11/06/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily CPG Snapshot Dashboard Views.
+{% enddocs %}
+
+{% docs rpt_cpg_daily_snapshot_shipped_sale %}
+## Implementation Detail
+*   Date        : 11/06/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_daily_snapshot_shipped_sale
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG Snapshot Shipped Sale Report table consist of sale details of shipped units.
+
+## Maintenance Log
+* Date : 11/06/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily CPG Snapshot Dashboard Views.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_snapshot_shipped_sale %}
+## Implementation Detail
+*   Date        : 11/06/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_daily_snapshot_shipped_sale
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily CPG Snapshot Shipped Sale Report view consist of sale details of shipped units referencing from Daily CPG Snapshot Shipped Sale Report table
+
+## Maintenance Log
+* Date : 11/06/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily CPG Snapshot Dashboard Views.
+{% enddocs %}
+
+{% docs rpt_cpg_daily_talent_brand_achievement %}
+## Implementation Detail
+*   Date        : 11/06/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_daily_talent_brand_achievement
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily Talent Brand Achievement Report table consist of achievement details of talent based on brands.
+
+## Maintenance Log
+* Date : 11/06/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily CPG Snapshot Dashboard Views.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_talent_brand_achievement %}
+## Implementation Detail
+*   Date        : 11/06/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cpg_daily_talent_brand_achievement
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Daily Talent Brand Achievement Report view consist of achievement details of talent based on brands referencing from Daily Talent Brand Achievement Report table
+
+## Maintenance Log
+* Date : 11/06/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Daily CPG Snapshot Dashboard Views.
+{% enddocs %}
 
 
 
