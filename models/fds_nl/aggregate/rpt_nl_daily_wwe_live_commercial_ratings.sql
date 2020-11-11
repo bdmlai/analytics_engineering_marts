@@ -33,7 +33,7 @@ SELECT
     src_program_id,
     program_telecast_rpt_starttime, 
     program_telecast_rpt_endtime,
-    avg_viewing_hours_units,
+    viewing_minutes_units as avg_viewing_hours_units,
     natl_comm_clockmts_avg_audience_proj_000,
     natl_comm_clockmts_avg_audience_proj_pct,
     natl_comm_clockmts_cvg_area_avg_audience_proj_pct,

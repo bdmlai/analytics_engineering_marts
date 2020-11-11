@@ -577,18 +577,75 @@ models:
           description: Time intervals between segment begin time and end time
         - name: prev_time_interval
           description: Previous time interval
-        - name: streams
+        - name: streams_count
           description: Count of stream ids
-        - name: cum_unique_users
+        - name: cumulative_unique_user
           description: count of cumulative users
-        - name: added
+        - name: users_added
           description: count of added users
-        - name: exits
+        - name: users_exits
           description: count of users exits
-        - name: users
+        - name: total_user
           description: count of users
-        - name: previous_users
+        - name: previous_seg_users
           description: count of previous users
+  - name: vw_rpt_nplus_daily_ppv_streams
+    description: '{{ doc("vw_rpt_nplus_daily_ppv_streams") }}'
+    columns:
+        - name: premiere_date
+          description: Date of the content when it debuted
+        - name: external_id
+          description: Network ID of the content played on the stream
+        - name: title
+          description: Title of the content when it debuted
+        - name: segmenttype
+          description: Type of Segment
+        - name: content_duration
+          description: Duration of the content 
+        - name: seg_num
+          description: Segement Number
+        - name: milestone
+          description: The comment about the segment
+        - name: matchtype
+          description: Type of match
+        - name: talentactions
+          description: Describing the actions of talents
+        - name: move
+          description: Describing the move
+        - name: finishtype
+          description: The type of finish
+        - name: additionaltalent
+          description: Additional talent
+        - name: venuelocation
+          description: Venue Location of the Program
+        - name: venuename
+          description: Venue Name of the Program
+        - name: state
+          description: Short name for venuelocation
+        - name: begindate
+          description: Segement begin date time
+        - name: enddate
+          description: Segment end date time
+        - name: nxt_seg_begindate
+          description: Next segment begin datetime
+        - name: intvl_dttm
+          description: Time splitted into 5 minutes interval between segment begin time and end time
+        - name: time_interval
+          description: Time intervals between segment begin time and end time
+        - name: prev_time_interval
+          description: Previous time interval
+        - name: streams_count
+          description: Count of stream ids
+        - name: cumulative_unique_user
+          description: count of cumulative users
+        - name: users_added
+          description: count of added users
+        - name: users_exits
+          description: count of users exits
+        - name: total_user
+          description: count of users
+        - name: previous_seg_users
+          description: count of previous users 
   - name: rpt_nplus_daily_live_streams
     description: '{{ doc("rpt_nplus_daily_live_streams") }}'
     columns:
@@ -634,18 +691,75 @@ models:
           description: Time intervals between segment begin time and end time
         - name: prev_time_interval
           description: Previous time interval
-        - name: streams
+        - name: streams_count
           description: Count of stream ids
-        - name: cum_unique_users
+        - name: cumulative_unique_user
           description: count of cumulative users
-        - name: added
+        - name: users_added
           description: count of added users
-        - name: exits
+        - name: users_exits
           description: count of users exits
-        - name: users
+        - name: total_user
           description: count of users
-        - name: previous_users
+        - name: previous_seg_users
           description: count of previous users
+  - name: vw_rpt_nplus_daily_live_streams
+    description: '{{ doc("vw_rpt_nplus_daily_live_streams") }}'
+    columns:
+        - name: airdate
+          description: Date of the content when it debuted
+        - name: external_id
+          description: Network ID of the content played on the stream
+        - name: title
+          description: Title of the content when it debuted
+        - name: segmenttype
+          description: Type of Segment
+        - name: content_duration
+          description: Duration of the content 
+        - name: seg_num
+          description: Segement Number
+        - name: milestone
+          description: The comment about the segment
+        - name: matchtype
+          description: Type of match
+        - name: talentactions
+          description: Describing the actions of talents
+        - name: move
+          description: Describing the move
+        - name: finishtype
+          description: The type of finish
+        - name: additionaltalent
+          description: Additional talent
+        - name: venuelocation
+          description: Venue Location of the Program
+        - name: venuename
+          description: Venue Name of the Program
+        - name: state
+          description: Short name for venuelocation
+        - name: begindate
+          description: Segement begin date time
+        - name: enddate
+          description: Segment end date time
+        - name: nxt_seg_begindate
+          description: Next segment begin datetime
+        - name: intvl_dttm
+          description: Time splitted into 5 minutes interval between segment begin time and end time
+        - name: time_interval
+          description: Time intervals between segment begin time and end time
+        - name: prev_time_interval
+          description: Previous time interval
+        - name: streams_count
+          description: Count of stream ids
+        - name: cumulative_unique_user
+          description: count of cumulative users
+        - name: users_added
+          description: count of added users
+        - name: users_exits
+          description: count of users exits
+        - name: total_user
+          description: count of users
+        - name: previous_seg_users
+          description: count of previous users  
   - name: rpt_nplus_daily_nxt_tko_streams
     description: '{{ doc("rpt_nplus_daily_nxt_tko_streams") }}'
     columns:
@@ -691,17 +805,74 @@ models:
           description: Time intervals between segment begin time and end time
         - name: prev_time_interval
           description: Previous time interval
-        - name: streams
+        - name: streams_count
           description: Count of stream ids
-        - name: cum_unique_users
+        - name: cumulative_unique_user
           description: count of cumulative users
-        - name: added
+        - name: users_added
           description: count of added users
-        - name: exits
+        - name: users_exits
           description: count of users exits
-        - name: users
+        - name: total_user
           description: count of users
-        - name: previous_users
+        - name: previous_seg_users
+          description: count of previous users
+  - name: vw_rpt_nplus_daily_nxt_tko_streams
+    description: '{{ doc("vw_rpt_nplus_daily_nxt_tko_streams") }}'
+    columns:
+        - name: premiere_date
+          description: Date of the content when it debuted
+        - name: external_id
+          description: Network ID of the content played on the stream
+        - name: title
+          description: Title of the content when it debuted
+        - name: segmenttype
+          description: Type of Segment
+        - name: content_duration
+          description: Duration of the content 
+        - name: seg_num
+          description: Segement Number
+        - name: milestone
+          description: The comment about the segment
+        - name: matchtype
+          description: Type of match
+        - name: talentactions
+          description: Describing the actions of talents
+        - name: move
+          description: Describing the move
+        - name: finishtype
+          description: The type of finish
+        - name: additionaltalent
+          description: Additional talent
+        - name: venuelocation
+          description: Venue Location of the Program
+        - name: venuename
+          description: Venue Name of the Program
+        - name: state
+          description: Short name for venuelocation
+        - name: begindate
+          description: Segement begin date time
+        - name: enddate
+          description: Segment end date time
+        - name: nxt_seg_begindate
+          description: Next segment begin datetime
+        - name: intvl_dttm
+          description: Time splitted into 5 minutes interval between segment begin time and end time
+        - name: time_interval
+          description: Time intervals between segment begin time and end time
+        - name: prev_time_interval
+          description: Previous time interval
+        - name: streams_count
+          description: Count of stream ids
+        - name: cumulative_unique_user
+          description: count of cumulative users
+        - name: users_added
+          description: count of added users
+        - name: users_exits
+          description: count of users exits
+        - name: total_user
+          description: count of users
+        - name: previous_seg_users
           description: count of previous users
   - name: rpt_nplus_daily_milestone_complete_rates
     description: '{{ doc("rpt_nplus_daily_milestone_complete_rates") }}'
@@ -716,6 +887,22 @@ models:
           description: Date of the content when it debuted       
         - name: complete_rate
           description: complete rate is a derived value from time spent and content duration
-        - name: viewers
+        - name: viewers_count
           description: count of viewers 
+  - name: vw_rpt_nplus_daily_milestone_complete_rates
+    description: '{{ doc("vw_rpt_nplus_daily_milestone_complete_rates") }}'
+    columns:
+        - name: type
+          description: type of content
+        - name: external_id
+          description: Network ID of the content played on the stream
+        - name: title
+          description: Title of the content when it debuted
+        - name: premiere_date
+          description: Date of the content when it debuted       
+        - name: complete_rate
+          description: complete rate is a derived value from time spent and content duration
+        - name: viewers_count
+          description: count of viewers 
+  
         
