@@ -1,6 +1,6 @@
 insert into fds_nplus.rpt_nplus_daily_ppv_streams
 select 
-          date as premiere_date,
+          cast(date as date ) as premiere_date,
 	  external_id ,
 	  content_title as title ,
 	  segmenttype ,
@@ -21,7 +21,7 @@ select
 	  null as enddate ,
 	  null as nxt_seg_begindate ,
 	  null as intvl_dttm ,
-	  timestamp as time_interval ,
+	  null as time_interval ,
 	  null as prev_time_interval ,
 	  streams ,
 	  cum_unique_users ,

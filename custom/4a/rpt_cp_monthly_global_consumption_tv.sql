@@ -1,13 +1,11 @@
 {{
   config({
 	"schema": 'fds_cp',
-	"pre-hook": "delete from fds_cp.rpt_cp_monthly_global_consumption_by_platform where platform='TV' and type='International' and month >= date_trunc('month',current_date-60)",
-    "materialized": "incremental"
-	
-  })
-}}
-
-with #nw_global_monthly as (
+	"materialized": "incremental",
+	"pre-hook": ["delete from fds_cp.rpt_cp_monthly_global_consumption_by_platform where platform='TV' and type='International' and month >= date_trunc('month',current_date-60)",
+	"delete from fds_cp.rpt_cp_monthly_global_consumption_by_platform where platform IN ('WWE Network','PPTV','Hulu SVOD','TV') and month = date_trunc('month',current_date-30)",
+"create table #all_data as select * from 
+(with #nw_global_monthly as (
 select 	'WWE Network' as platform, 
 		'WWE Network' as type, 
 		'' as type2,
@@ -89,18 +87,38 @@ group by 1,2,3,4,5,6),
 
 
 #domestic_tv_global_monthly as (
-select  'TV' as Platform, 
+select 'TV' as Platform, 
 		'Domestic' as type, 
 		'' as type2, 
-		date_trunc('month',broadcast_date) as month,
-		'United States' as Country,
+		month,
+        'United States' as Country,
 		'United States ' as region,
-		null as views, 
+		null as views,
+        sum(hours_watched) hours_watched
+from
+((
+select  date_trunc('month',broadcast_date) as month,
 		sum(viewing_minutes_units)/60 hours_watched
 from fds_nl.vw_rpt_nl_daily_wwe_program_ratings a 
 where 	month = date_trunc('month',current_date-30)
 		and src_demographic_group='P2-999'
 		and src_playback_period_cd='Live+7'
+group by 1)
+union all
+(
+select  date_trunc('month',broadcast_date) as month,
+		sum(viewing_minutes_units)/60 hours_watched
+from fds_nl.vw_rpt_nl_daily_wwe_program_ratings a 
+where 	broadcast_date between 
+		(select max(broadcast_date) + 1 
+		from fds_nl.vw_rpt_nl_daily_wwe_program_ratings 
+		where 	month=date_trunc('month',current_date-30)
+				and src_demographic_group='P2-999'
+				and src_playback_period_cd='Live+7')
+		and date_trunc('month',current_date) - 1
+		and src_demographic_group='P2-999'
+		and src_playback_period_cd='Live+SD'
+group by 1)) a
 group by 1,2,3,4,5,6),
 
 
@@ -121,8 +139,7 @@ from
 		union all
 		select * from #domestic_tv_global_monthly) a
 ),
-
-#all_data as
+all_data as
 (
 (select platform,
 		type, 
@@ -143,6 +160,10 @@ where month between date_trunc('month',add_months(current_date,-16))
 union
 (select * from #latest_month)
 )
+select * from all_data);"
+	]
+  })
+}}
 
 (select a.platform, 
 		a.type, 

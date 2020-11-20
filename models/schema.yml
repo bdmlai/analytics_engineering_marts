@@ -23,6 +23,9 @@ sources:
       - name: dim_event
       - name: dim_country_population
       - name: dim_content_classification_title
+      - name: dim_platform
+      - name: dim_smprovider_account
+
   - name: fds_yt
     tables:
        - name: rpt_yt_wwe_engagement_daily
@@ -88,13 +91,15 @@ sources:
        - name: drvd_intra_hour_quarter_hour_adds
        - name: raw_da_weekly_ppv_hourly_comps
        - name: raw_lite_log
-       - name: raw_post_event_log 
+       - name: raw_post_event_log
+       - name: stg_dice_stream_flattened 
   - name: udl_nl
     tables:
        - name: nielsen_finance_yearly_calendar
   - name: fds_cp
     tables:
        - name: agg_cp_weekly_consumption_by_platform
+       - name: fact_co_smfollowership_cumulative_summary
   - name: fds_kntr
     tables:
        - name: fact_kntr_wwe_telecast_data
@@ -117,6 +122,7 @@ sources:
       - name: fact_cpg_sales_header
       - name: aggr_cpg_daily_sales
       - name: aggr_cpg_daily_venue_sales
+      - name: fact_cpg_inventory
   - name: dt_stage
     tables:
       - name: prestg_cpg_currency_exchange_rate
@@ -147,6 +153,17 @@ sources:
     tables:
       - name: alternateid
       - name: character
+      - name: characterlineage_grouplineage
+      - name: achievement_entity
+      - name: achievement
+      - name: groups
+      
   - name: fds_emm
     tables:
       - name: brand
+  - name: hive_udl_chscl
+    tables:
+      - name: china_weekly_social_data
+  - name: hive_udl_yt
+    tables:
+      - name: youtube_subscribers_full_audiencecountries
