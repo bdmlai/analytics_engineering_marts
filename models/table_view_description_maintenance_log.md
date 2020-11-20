@@ -1337,6 +1337,32 @@
 {% enddocs %}
 
 
+{% docs drvd_intra_hour_quarter_hour_adds %}
+## Implementation Detail
+*   Date        : 11/20/2020
+*   Version     : 1.0
+*   ViewName    : drvd_intra_hour_quarter_hour_adds
+*   Schema	    : fds_nplus
+*   Contributor : Sudhakar Andugula
+*   Description : Intra hour table and Table workbook refresh tto capture every hour , each quarter paid and trial adds info
+*   Frequency   : Every 15 mins
 
+## Maintenance Log
+* Date : 11/20/2020 ; Developer: Sudhakar Andugula ; Change: Initial Version as a part Intra hour dashboard
+{% enddocs %}
+
+{% docs vw_drvd_intra_hour_quarter_hour_adds %}
+## Implementation Detail
+*   Date        : 11/20/2020
+*   Version     : 1.0
+*   ViewName    : vw_drvd_intra_hour_quarter_hour_adds
+*   Schema	    : fds_nplus
+*   Contributor : Sudhakar Andugula
+*   Description : Intra hour table and Table workbook refresh tto capture every hour , each quarter paid and trial adds info
+*   Frequency   : Every 15 mins
+
+## Maintenance Log
+* Date : 11/20/2020 ; Developer: Sudhakar Andugula ; Change: Initial Version as a part Intra hour dashboard
+{% enddocs %}
 
 
