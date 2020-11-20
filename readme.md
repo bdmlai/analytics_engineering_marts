@@ -1,6 +1,5 @@
-Fix for https://jira.wwe.com/browse/PSTA-1590
+Fix for https://jira.wwe.com/browse/DED-3317
 
-Fix for PSTA-1590
 
-Available under /models/fds_nl/rpt_nl_daily_wwe_live_quarterhour_ratings
-				/models/fds_nl/rpt_nl_daily_wwe_live_commercial_ratings
+Available under /models/fds_nplus/aggregate/drvd_intra_hour_quarter_hour_adds.sql
+				/data model/fds_nplus/drvd_intra_hour_quarter_hour_adds_ddl.sql
