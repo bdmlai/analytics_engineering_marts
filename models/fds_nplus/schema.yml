@@ -905,4 +905,34 @@ models:
         - name: viewers_count
           description: count of viewers 
   
-        
+  - name: drvd_intra_hour_quarter_hour_adds
+    description: '{{ doc("drvd_intra_hour_quarter_hour_adds") }}'
+    columns:
+        - name: date
+          description: keeping last date 7 days data e represents date 
+        - name: hour
+          description: represents hour for the adds
+        - name: quarter_hour
+          description: Each hour is divided into 4 quarters - 15 mins
+        - name: paid_adds
+          description: Paid adds 
+        - name: trial_adds
+          description: Trial adds
+        - name: payment_method
+          description: Payment methods STRIPE,PAYPAL,...
+
+  - name: vw_drvd_intra_hour_quarter_hour_adds
+    description: '{{ doc("vw_drvd_intra_hour_quarter_hour_adds") }}'
+    columns:
+        - name: date
+          description: keeping last date 7 days data e represents date 
+        - name: hour
+          description: represents hour for the adds
+        - name: quarter_hour
+          description: Each hour is divided into 4 quarters - 15 mins
+        - name: paid_adds
+          description: Paid adds 
+        - name: trial_adds
+          description: Trial adds
+        - name: payment_method
+          description: Payment methods STRIPE,PAYPAL,...
