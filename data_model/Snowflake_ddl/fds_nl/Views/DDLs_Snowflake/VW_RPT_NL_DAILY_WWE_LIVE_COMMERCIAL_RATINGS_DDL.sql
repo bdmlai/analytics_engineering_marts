@@ -1,0 +1,54 @@
+
+CREATE VIEW
+    VW_RPT_NL_DAILY_WWE_LIVE_COMMERCIAL_RATINGS
+    (
+        broadcast_date_id,
+        broadcast_date,
+        broadcast_month_num,
+        broadcast_month_nm,
+        broadcast_quarter_num,
+        broadcast_quarter_nm,
+        broadcast_year,
+        src_broadcast_network_id,
+        src_playback_period_cd,
+        src_demographic_group,
+        src_program_id,
+        program_telecast_rpt_starttime,
+        program_telecast_rpt_endtime,
+        avg_viewing_hours_units,
+        natl_comm_clockmts_avg_audience_proj_000,
+        natl_comm_clockmts_avg_audience_proj_pct,
+        natl_comm_clockmts_cvg_area_avg_audience_proj_pct,
+        natl_comm_clockmts_duration,
+        etl_batch_id,
+        etl_insert_user_id,
+        etl_insert_rec_dttm,
+        etl_update_user_id,
+        etl_update_rec_dttm
+    ) AS
+SELECT
+    rpt_nl_daily_wwe_live_commercial_ratings.broadcast_date_id,
+    rpt_nl_daily_wwe_live_commercial_ratings.broadcast_date,
+    rpt_nl_daily_wwe_live_commercial_ratings.broadcast_month_num,
+    rpt_nl_daily_wwe_live_commercial_ratings.broadcast_month_nm,
+    rpt_nl_daily_wwe_live_commercial_ratings.broadcast_quarter_num,
+    rpt_nl_daily_wwe_live_commercial_ratings.broadcast_quarter_nm,
+    rpt_nl_daily_wwe_live_commercial_ratings.broadcast_year,
+    rpt_nl_daily_wwe_live_commercial_ratings.src_broadcast_network_id,
+    rpt_nl_daily_wwe_live_commercial_ratings.src_playback_period_cd,
+    rpt_nl_daily_wwe_live_commercial_ratings.src_demographic_group,
+    rpt_nl_daily_wwe_live_commercial_ratings.src_program_id,
+    rpt_nl_daily_wwe_live_commercial_ratings.program_telecast_rpt_starttime,
+    rpt_nl_daily_wwe_live_commercial_ratings.program_telecast_rpt_endtime,
+    rpt_nl_daily_wwe_live_commercial_ratings.avg_viewing_hours_units,
+    rpt_nl_daily_wwe_live_commercial_ratings.natl_comm_clockmts_avg_audience_proj_000,
+    rpt_nl_daily_wwe_live_commercial_ratings.natl_comm_clockmts_avg_audience_proj_pct,
+    rpt_nl_daily_wwe_live_commercial_ratings.natl_comm_clockmts_cvg_area_avg_audience_proj_pct,
+    rpt_nl_daily_wwe_live_commercial_ratings.natl_comm_clockmts_duration,
+    rpt_nl_daily_wwe_live_commercial_ratings.etl_batch_id,
+    rpt_nl_daily_wwe_live_commercial_ratings.etl_insert_user_id,
+    rpt_nl_daily_wwe_live_commercial_ratings.etl_insert_rec_dttm,
+    rpt_nl_daily_wwe_live_commercial_ratings.etl_update_user_id,
+    rpt_nl_daily_wwe_live_commercial_ratings.etl_update_rec_dttm
+FROM
+    rpt_nl_daily_wwe_live_commercial_ratings;
