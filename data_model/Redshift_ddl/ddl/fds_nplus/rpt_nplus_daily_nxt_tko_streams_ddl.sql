@@ -44,9 +44,9 @@ CREATE TABLE
 	  users_exits BIGINT ENCODE LZO,
 	  total_user BIGINT ENCODE LZO,
 	  previous_seg_users BIGINT ENCODE LZO,
-	  etl_batch_id CHARACTER VARYING(50) ENCODE LZO,
-         etl_insert_user_id CHARACTER VARYING(30) ENCODE LZO,
+	  etl_batch_id CHARACTER VARYING(26) ENCODE LZO,
+         etl_insert_user_id CHARACTER VARYING(15) ENCODE LZO,
          etl_insert_rec_dttm TIMESTAMP WITH TIME ZONE ENCODE AZ64,
-         etl_update_user_id CHARACTER VARYING(30) ENCODE LZO,
+         etl_update_user_id CHARACTER VARYING(1) ENCODE LZO,
          etl_update_rec_dttm TIMESTAMP WITHOUT TIME ZONE ENCODE AZ64
 	  );

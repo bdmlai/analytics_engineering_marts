@@ -37,7 +37,7 @@ union all --live stream
 select type,external_id,title,premiere_date,complete_rate,viewers_count,etl_batch_id,etl_insert_user_id,etl_insert_rec_dttm,etl_update_user_id,etl_update_rec_dttm
 from 
 (
-select distinct 'Live' as type, external_id, title, premiere_date, round(complete_rate,2):: float(2) complete_rate,
+select distinct '205 Live' as type, external_id, title, premiere_date, round(complete_rate,2):: float(2) complete_rate,
  count(src_fan_id) as viewers_count,
  'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
  'bi_dbt_user_prd' as etl_insert_user_id, 
@@ -61,11 +61,11 @@ from
 )
 group by 1,2,3,4,5 order by 1,2,3,4,5)
 
-union all --tko stream
+union all --Nxt_tko stream
 select type,external_id,title,premiere_date,complete_rate,viewers_count,etl_batch_id,etl_insert_user_id,etl_insert_rec_dttm,etl_update_user_id,etl_update_rec_dttm
 from 
 (
-select distinct 'nxt_tko' as type, external_id, title, premiere_date, round(complete_rate,2):: float(2) complete_rate,
+select distinct 'NXT' as type, external_id, title, premiere_date, round(complete_rate,2):: float(2) complete_rate,
  count(src_fan_id) as viewers_count,
  'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
  'bi_dbt_user_prd' as etl_insert_user_id, 

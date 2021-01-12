@@ -1,3 +1,23 @@
+--Monthly Cross Platform Global Content Consumption
+
+/*
+*************************************************************************************************************************************************
+   Date        : 07/31/2020
+   Version     : 1.0
+   TableName   : rpt_cp_monthly_global_consumption_by_platform
+   Schema	   : fds_cp
+   Contributor : Sandeep Battula
+   Description : Monthly Cross Platform Global Content Consumption aggregate table consists of consumption metrics Views and Hours watched with country and region details for all cross platforms. This script inserts last month data for platforms- WWE Network, PPTV, Hulu SVOD, International TV and Domestic TV from respective source tables on monthly basis (15th of every month). Inaddition to the latest month, metrics are also calculated and inserted for previous month, year-to-date and previous year-to-date. 
+*************************************************************************************************************************************************
+Date        : 10/23/2020
+   Version     : 2.0
+   TableName   : rpt_cp_monthly_global_consumption_by_platform
+   Schema	   : fds_cp
+   Contributor : Sandeep Battula
+   Description : Enhancement is done for Domestic TV platform to get viewing hours for Live+Same day for the dates Live+7 data is not available.  Also updated prehook to delete current month's data for platforms - Domestic TV, PPTV, Hulu SVOD and WWE Network inaddition to current International TV
+*************************************************************************************************************************************************
+*/																																		 
+									 
 {{
   config({
 	"schema": 'fds_cp',
@@ -180,10 +200,11 @@ select * from all_data);"
 		c.prev_year_views, 
 		c.prev_year_hours,
 		100001 		 as  etl_batch_id,
-		'bi_dbt_user_prd' as etl_insert_user_id,
+										  
 		sysdate 	 as etl_insert_rec_dttm,
 		'' 			 as etl_update_user_id,
-		sysdate 	 as etl_update_rec_dttm
+		sysdate 	 as etl_update_rec_dttm,
+		'bi_dbt_user_prd' as etl_insert_user_id
 from 
 	(select platform, 
 			month, 
@@ -264,10 +285,11 @@ union all
 		c.prev_year_views, 
 		c.prev_year_hours,
 		100001 		 as  etl_batch_id,
-		'bi_dbt_user_prd' as etl_insert_user_id,
+										  
 		sysdate 	 as etl_insert_rec_dttm,
 		'' 			 as etl_update_user_id,
-		sysdate 	 as etl_update_rec_dttm
+		sysdate 	 as etl_update_rec_dttm,
+		'bi_dbt_user_prd' as etl_insert_user_id
 from 
 	(select platform, 
 			month, 

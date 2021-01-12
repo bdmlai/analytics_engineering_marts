@@ -9,17 +9,6 @@
 ********
 */
 
-		/*
-*************************************************************************************************************************************************
-   Date        : 06/19/2020
-   Version     : 1.0
-   TableName   : rpt_nl_weekly_overlap_derived_4_way_oob
-   Schema	   : fds_nl
-   Contributor : Remya K Nair
-   Description : rpt_nl_weekly_overlap_derived_4_way_oob view consists of weekly  overlap program schedules and unique reach for each time period 
-********
-*/
-
 {{
   config({
 		'schema': 'fds_nl',
@@ -208,7 +197,6 @@ sum(case when schedule_name = '{{schedule_name}}' then aa_reach_proj000 end) {{s
 max(aa_reach_proj000) as Max_AA_Reac_Proj_000 
 FROM   fds_nl.fact_nl_weekly_overlap_4_way_oob a
 where a.etl_insert_rec_dttm  >  coalesce ((select max(etl_insert_rec_dttm) from {{this}}), '1900-01-01 00:00:00') 
---where dim_date_id='20200302'
 GROUP BY 1,2,3,4,5),
  total_schedules as 
 ({% for schedule_formula,schedule_name,input_type,overlap_description in schedule_formulas %}
@@ -233,8 +221,11 @@ SELECT a.dim_date_id,
 			when schedule_name='{{schedule_nm}}' then '{{description}}'
 			{% endfor %} end as Overlap_Description
 FROM     fds_nl.fact_nl_weekly_overlap_4_way_oob a join first_15_schedules b on a.dim_date_id=b.dim_date_id
+ and a.src_demographic_group=b.src_demographic_group
+ and a.coverage_area=b.coverage_area
+ and a.src_market_break=b.src_market_break
+ and a.src_playback_period_cd=b.src_playback_period_cd
 where a.etl_insert_rec_dttm  >  coalesce ((select max(etl_insert_rec_dttm) from {{this}}), '1900-01-01 00:00:00')
---where a.dim_date_id='20200302'
 GROUP BY 1,2,3,4,5,6,7,b.Max_AA_Reac_Proj_000)
 select dim_date_id week_starting_date,
 input_type,

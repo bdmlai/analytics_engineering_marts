@@ -2,7 +2,7 @@
   config({
 		'schema': 'fds_kntr',
 		"pre-hook": ["truncate fds_kntr.aggr_kntr_weekly_competitive_program_ratings"],
-		"materialized": 'table','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'incremental','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
   })
 }}
 select c.*, 'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' as etl_batch_id,

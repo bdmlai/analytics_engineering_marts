@@ -311,6 +311,10 @@ models:
         - name: broadcast_date
           description: Derived dates based on the viewing period; before 6 am morning hours is the preious date broadcast hour
           tests:
+              - not_null 
+        - name: orig_broadcast_date_id
+          description: References dim_date_id 
+          tests:
               - not_null       
         - name: broadcast_cal_week_begin_date
           description: Calendar Year Week Begin Date based on Broadcast Date
@@ -359,9 +363,23 @@ models:
         - name: src_demographic_group
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
-          description: A unique numerical identifier for an individual program nam.
+          description: A unique numerical identifier for an individual program name
           tests:
               - not_null
+        - name: src_series_name
+          description: A unique identifier for an individual program name
+        - name: src_program_attributes
+          description: Special attributes attached to programs that let you select a set of days on which selected programs air and also permit dropping of specials, breakouts, or programs of less than five minutes duration. For syndication, you can also drop long-term programs
+        - name: program_aired_weekday
+          description: The day of the week during which the program aired (e.g. THURSDAY)
+        - name: telecast_trackage_name
+          description: A unique identifier provided by the client to track each telecast (e.g. NCIS MARA TH 3P tracks airings of NCIS that occurred on Thursdays at 3PM)
+        - name: src_episode_id
+          description: A unique numerical identifier for an individual episode of a program
+        - name: src_episode_number
+          description: The sequential episode number within the program series
+        - name: src_episode_title
+          description: Source provided Title for the episode of a series
         - name: src_daypart_cd
           description: A unique character identifier for an individual daypart
         - name: src_daypart_name
@@ -378,8 +396,16 @@ models:
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_audience_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name: viewing_minutes_units          
-          description: Derived Average Viewing Hours in minutes
+        - name: viewing_hours          
+          description: Derived Average Viewing Hours 
+        - name: viewing_hours_000          
+          description: Derived Average persons viewing hours 
+        - name: avg_audience_proj_units          
+          description: Total U.S. Average Audience Projection (Units) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute.)
+        - name: share_pct          
+          description: Total U.S. Share Percentage (The percentage of households tuning or persons viewing that are tuned to a specific program/originator/daypart.)
+        - name: share_pct_nw_cvg_area          
+          description: Coverage Area Share Percent (The percentage of households or persons using television (HUT/PUT) viewing a particular program or time period within a specific coverage area.)
         - name: etl_batch_id          
           description: Unique ID of DBT Job used to insert the record
         - name: etl_insert_user_id          
