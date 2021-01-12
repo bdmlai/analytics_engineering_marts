@@ -43,12 +43,12 @@ IS
           IS 'A comma separated list of demographic group';
      COMMENT ON COLUMN  fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob.playback_period
          IS 'A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. Live (Live - Includes viewing that occurred during the live airing). Live+SD (Live + Same Day -Includes all playback that occurred within the same day of the liveairing). Live+3 (Live + 3 Days - Includes all playback that occurred within three days of the live airing). Live+7 (Live + 7 Days - Includes all playback that occurred within seven days of the live airing).';
-     COMMENT ON COLUMN  fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob.schedule_name
+     COMMENT ON COLUMN  fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob.program_combination
           IS 'NPOWER - identifier for primary program/daypart selection as input within Nielsen report';
-     COMMENT ON COLUMN  fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob.AA_Reac_Proj_000
+     COMMENT ON COLUMN  fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob.p2_total_unique_reach_proj
           IS 'Unique Audience/impressions';
      COMMENT ON COLUMN  fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob.P2_Total_Unique_Reach_Percent
-          IS 'Custom Calculation based on  AA_Reac_Proj_000';
+          IS 'Custom Calculation based on  p2_total_unique_reach_proj';
      COMMENT ON COLUMN  fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob.Overlap_Description
           IS 'Customized value for each Schedules both Straight Neilsen and Derived';
         

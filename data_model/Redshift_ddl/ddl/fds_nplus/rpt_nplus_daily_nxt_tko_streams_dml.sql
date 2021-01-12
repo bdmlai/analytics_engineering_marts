@@ -1,6 +1,6 @@
 insert into fds_nplus.rpt_nplus_daily_nxt_tko_streams
 select 
-          cast(date as date) as premiere_date,
+      cast(date as date) as premiere_date,
 	  external_id ,
 	  content_title as title ,
 	  segmenttype ,
@@ -21,7 +21,7 @@ select
 	  null as enddate ,
 	  null as nxt_seg_begindate ,
 	  null as intvl_dttm ,
-	  null as time_interval ,
+	  cast(timestamp as timestamp) as time_interval ,
 	  null as prev_time_interval ,
 	  streams ,
 	  cum_unique_users ,
@@ -32,7 +32,7 @@ select
 	  'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
           'bi_dbt_user_prd' as etl_insert_user_id, 
           current_timestamp as etl_insert_rec_dttm, 
-          'bi_dbt_user_prd' as etl_update_user_id, 
+          null as etl_update_user_id, 
           cast(null as timestamp) as etl_update_rec_dttm
 from hive_udl_cp.da_static_take_over_stream_detail ;
 --where date >='2016-01-01';

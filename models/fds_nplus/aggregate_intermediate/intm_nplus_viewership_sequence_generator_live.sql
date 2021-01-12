@@ -40,7 +40,7 @@ inter AS
        
        
 llog AS (
-        select airdate,external_id,titles as title,segmenttype,content_duration, seg_num, milestone,matchtype,
+        select airdate,external_id,series_episode as title,segmenttype,content_duration, seg_num, milestone,matchtype,
 		talentactions,move,finishtype,additionaltalent, venuelocation,venuename,state,   
 		in_time_est :: timestamp as begindate, out_time_est :: timestamp as enddate,
          (lead(in_time_est, 1) OVER (partition by external_id order by in_time_est asc )) as nxt_seg_begindate

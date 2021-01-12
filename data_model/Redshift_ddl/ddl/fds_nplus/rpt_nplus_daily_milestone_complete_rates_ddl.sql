@@ -17,14 +17,14 @@ CREATE TABLE
     fds_nplus.rpt_nplus_daily_milestone_complete_rates 
     (
           type CHARACTER VARYING(1000) ENCODE LZO,
-          external_id CHARACTER VARYING(1000) ENCODE LZO,
-          title CHARACTER VARYING(2000) ENCODE LZO,
-		  premiere_date DATE ENCODE LZO,
-		  complete_rate DOUBLE PRECISION,
+          external_id CHARACTER VARYING(256) ENCODE LZO,
+          title CHARACTER VARYING(1000) ENCODE LZO,
+	  premiere_date DATE ENCODE LZO,
+	  complete_rate DOUBLE PRECISION,
           viewers_count BIGINT ENCODE LZO ,
-          etl_batch_id CHARACTER VARYING(50) ENCODE LZO,
-          etl_insert_user_id CHARACTER VARYING(20) ENCODE LZO,
+          etl_batch_id CHARACTER VARYING(26) ENCODE LZO,
+          etl_insert_user_id CHARACTER VARYING(15) ENCODE LZO,
           etl_insert_rec_dttm TIMESTAMP WITH TIME ZONE ENCODE AZ64,
-          etl_update_user_id CHARACTER VARYING(20) ENCODE LZO,
+          etl_update_user_id CHARACTER VARYING(1) ENCODE LZO,
           etl_update_rec_dttm TIMESTAMP WITHOUT TIME ZONE ENCODE AZ64
     );
