@@ -1810,7 +1810,53 @@
 * Date : 12/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
 {% enddocs %}
 
+{% docs aggr_cpg_daily_shops_sessions %}
 
+## Implementation Detail
+* Date        : 1/12/2021
+* Version     : 1.0
+* TableName   : aggr_cpg_daily_shops_sessions
+* Schema	  : fds_cpg
+* Contributor : Shihab, Dhanesh
+* Description : WWE Shops Daily Sessions Transaction and Revenue Summary
+
+## Schedule Details
+* Frequency : Daily ; 10:00 A.M EST
+* Dependent Jobs (process_name ; process_id) : dbt_aggr_cpg_daily_shops_sessions ; 30601 
+
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
+{% enddocs %}
+
+
+{% docs vw_rpt_cpg_monthly_shops_sessions %}
+
+## Implementation Detail
+* Date        : 1/12/2021
+* Version     : 1.0
+* TableName   : vw_rpt_cpg_monthly_shops_sessions
+* Schema	  : fds_cpg
+* Contributor : Shihab, Dhanesh
+* Description : WWE Shops Sessions - Monthly Conversions and AOV Summary 
+
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
+{% enddocs %}
+
+
+{% docs vw_rpt_cpg_weekly_shops_sessions %}
+
+### Implementation Detail
+* Date        : 1/12/2021
+* Version     : 1.0
+* TableName   : vw_rpt_cpg_weekly_shops_sessions
+* Schema	  : fds_cpg
+* Contributor : Shihab, Dhanesh
+* Description : WWE Shops Sessions - Weekly Conversions and AOV Summary 
+
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
+{% enddocs %}
 
 
 
