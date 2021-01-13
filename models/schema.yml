@@ -213,6 +213,7 @@ sources:
       - name: radial_monthly_order_return
       - name: radial_monthly_payment_refund
       - name: raw_amazon_monthly_payments
+      - name: ga_cpg_daily_sessions
   - name: hive_udl_nl
     tables:
       - name: nielsen_finance_yearly_calendar
