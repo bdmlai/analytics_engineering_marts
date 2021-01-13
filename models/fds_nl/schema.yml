@@ -1103,3 +1103,36 @@ models:
           description: Season details
         - name: source_ffed_name
           description: source_ffed_name
+  - name: rpt_tv_weekly_consolidated_kpi
+    description:  '{{ doc("rpt_tv_weekly_consolidated_kpi") }}'
+    columns:
+        - name: granularity
+          description: Represents the cadence i.e. Weekly or MTD or YTD
+        - name: platform
+          description: platform name i.e. Facebook, Network etc
+        - name: type
+          description: represents the youtube content types i.e. Owned or UGC
+        - name: metric
+          description: metric name
+        - name: year
+          description: calander year
+        - name: month
+          description: calander month
+        - name: week
+          description: calander week
+        - name: start_date
+          description: calander date representing the start date of the week
+        - name: end_date
+          description: calander date representing the end date of the week
+        - name: value
+          description: metric value for current year
+        - name: prev_year
+          description: Previous calander year
+        - name: prev_year_week
+          description: Previous year calander week
+        - name: prev_year_start_date
+          description: Previous year calander date representing the start date of the week
+        - name: prev_year_end_date
+          description: Previous year calander date representing the end date of the week
+        - name: prev_year_value
+          description: metric value for previous year
