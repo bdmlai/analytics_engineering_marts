@@ -1699,37 +1699,6 @@
 {% enddocs %}
 
 
-{% docs rpt_nplus_viewership_cluster %}
-
-## Model Overview
-*   Date        : 2020-12-02
-*   Version     : 1.0
-*   Contributor : Audrey Lee, Jess Williams
-*   Description : This customer segmentation model is based on WWE Network viewership data and payment history. At this time, only data of tier 3 subs is included. 
-*   Run Time    : The entire model takes about 3-4 hours to update.
-
-## Instruction on How to Run the Code
-* Step 1: update as_on_date in dbt_project.yml. By default, if the variable is left blank, it will be set to the end of prior month
-* Step 2: dbt run --models tag:'viewership'
-
-## Schedule Details
-* Frequency : Monthly, beginning of each month.
-* Dependencies: fds_nplus.fact_daily_subscription_status_plus, cdm.dim_content_classification_title,fds_nplus.aggr_daily_postshow_rankings, fds_nplus.fact_daily_content_viewership
-
-## Final Output Table
-* The final output table is rpt_nplus_viewership_cluster. This table is at model/user/as_on_date level. It shows the segmentation and network consumption behavior of each subscriber.
-
-################# INSTRUCTIONS TO RUN THE MODEL #######################
-# STEP 1: change AS_ON_DATE variable in dbt_project.yml
-# STEP 2: run dbt run --models tag:'viewership_base' to update the base tables
-# STEP 3: based on which model(s) to update, uncomment the section in dbt_project.yml to set model specific variables
-# STEP 4: run dbt run --models tag:'viewership_model' to update the base tables
-# STEP 5: repeat step 3-4 if there are more than one models needed to be updated. 
-#         please note that each time, only one model can be updated.
-
-
-{% enddocs %}
-
 {% docs rpt_yt_daily_consumption_bychannel %}
 ## Implementation Detail
 * Date        : 12/21/2020
@@ -1810,8 +1779,27 @@
 * Date : 12/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
 {% enddocs %}
 
+{% docs vw_rpt_nplus_weekly_network_kpi %}
+## Implementation Detail
+* Date        : 01/12/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_nplus_weekly_network_kpi
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : View consists of subscriber adds and loss based on payment methods/order type ,registered users,subscriptions based on payment method etc.
 
+## Maintenance Log
+* Date : 01/12/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  N/W 2.0 project.
+{% enddocs %}
 
-
-
-
+{% docs rpt_tv_weekly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 1/12/2022
+* Version     : 1.0
+* ViewName    : rpt_tv_weekly_consolidated_kpi
+* Schema	  : fds_nl
+* Contributor : Lakshman Murugeshan
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+{% enddocs %}
