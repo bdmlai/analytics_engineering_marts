@@ -20,7 +20,8 @@ select broadcast_fin_quarter, broadcast_fin_year, src_broadcast_network_id, src_
 --Duration Weighted Averages are taking here for avg_audience_proj_000, avg_audience_pct and avg_audience_pct_nw_cvg_area..
 (sum(avg_audience_proj_000 * src_total_duration)/nullif(sum(nvl2(avg_audience_proj_000, src_total_duration, null)), 0)) as avg_audience_proj_000,
 (sum(avg_audience_pct * src_total_duration)/nullif(sum(nvl2(avg_audience_pct, src_total_duration, null)), 0)) as avg_audience_pct,
-(sum(avg_audience_pct_nw_cvg_area * src_total_duration)/nullif(sum(nvl2(avg_audience_pct_nw_cvg_area, src_total_duration, null)), 0)) as avg_audience_pct_nw_cvg_area, sum(viewing_minutes_units) as tot_viewing_minutes, count(*) as number_of_airings
+(sum(avg_audience_pct_nw_cvg_area * src_total_duration)/nullif(sum(nvl2(avg_audience_pct_nw_cvg_area, src_total_duration, null)), 0)) as avg_audience_pct_nw_cvg_area, 
+sum(viewing_hours) as tot_viewing_minutes, count(*) as number_of_airings
 from {{ref('rpt_nl_daily_wwe_program_ratings')}}
 where broadcast_fin_quarter is not null and broadcast_fin_year is not null and
 (src_broadcast_network_id, src_program_id) in ((5, 296881), (5, 339681), (5, 436999), (81, 898521), (10433, 1000131))
