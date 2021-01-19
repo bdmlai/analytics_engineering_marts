@@ -17,7 +17,7 @@ CREATE TABLE
     (
         broadcast_date_id INTEGER ENCODE LZO,
         broadcast_date DATE ENCODE LZO,
-	orig_broadcast_date_id INTEGER ENCODE ZSTD,
+		orig_broadcast_date_id INTEGER ENCODE ZSTD,
         broadcast_cal_week_begin_date DATE ENCODE LZO,
         broadcast_cal_week_end_date DATE ENCODE LZO,
         broadcast_cal_week_num SMALLINT ENCODE LZO,
@@ -30,7 +30,7 @@ CREATE TABLE
         broadcast_fin_week_num BIGINT ENCODE LZO,
         broadcast_fin_month_num BIGINT ENCODE LZO,
         broadcast_fin_month_nm CHARACTER VARYING(20) ENCODE LZO,
-	broadcast_fin_quarter CHARACTER VARYING(16383) ENCODE LZO,
+	    broadcast_fin_quarter CHARACTER VARYING(16383) ENCODE LZO,
         broadcast_fin_year BIGINT ENCODE LZO,
         src_broadcast_network_id BIGINT ENCODE LZO,
         broadcast_network_name CHARACTER VARYING(255) ENCODE LZO,
@@ -38,7 +38,7 @@ CREATE TABLE
         src_demographic_group CHARACTER VARYING(255) ENCODE LZO,
         src_program_id BIGINT ENCODE BYTEDICT,
         src_series_name CHARACTER VARYING(255) ENCODE LZO,
-	src_program_attributes CHARACTER VARYING(255) ENCODE LZO,
+	    src_program_attributes CHARACTER VARYING(255) ENCODE LZO,
 	program_aired_weekday CHARACTER VARYING(255) ENCODE LZO,
 	telecast_trackage_name CHARACTER VARYING(255) ENCODE LZO,
 	src_episode_id BIGINT ENCODE ZSTD,
@@ -61,6 +61,6 @@ CREATE TABLE
         etl_insert_user_id CHARACTER VARYING(100) ENCODE LZO,
         etl_insert_rec_dttm TIMESTAMP WITHOUT TIME ZONE ENCODE AZ64,
         etl_update_user_id CHARACTER VARYING(50) ENCODE LZO,
-        etl_update_rec_dttm TIMESTAMP WITHOUT TIME ZONE ENCODE AZ64,
+        etl_update_rec_dttm TIMESTAMP WITHOUT TIME ZONE ENCODE AZ64
         
     );

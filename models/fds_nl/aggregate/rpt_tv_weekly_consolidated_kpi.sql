@@ -12,7 +12,7 @@ case when cal_year = extract('year' from cal_year_mon_week_begin_date) then extr
      end as cal_mth_num, 
 case when cal_year_week_num_mon is null then 1 else cal_year_week_num_mon end as cal_year_week_num_mon,
 cal_year_mon_week_begin_date, cal_year_mon_week_end_date
-from cdm.dim_date where cal_year_mon_week_begin_date >= trunc(dateadd('year',-1,date_trunc('year',getdate()))) 
+from cdm.dim_date where cal_year_mon_week_begin_date >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) 
 and cal_year_mon_week_end_date < date_trunc('week',getdate());
 
 --create TV weekly dataset
