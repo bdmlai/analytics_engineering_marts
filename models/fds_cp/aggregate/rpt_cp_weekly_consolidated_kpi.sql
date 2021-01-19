@@ -3,11 +3,14 @@
 	"schema": 'fds_cp',	
 	"materialized": 'incremental',
 	"pre-hook": ["delete from fds_cp.rpt_cp_weekly_consolidated_kpi",
-	"
-	--create dates for rollup
+  
+	"--create dates for rollup
 drop table if exists #dim_dates;
 create table #dim_dates as
-select distinct cal_year, extract('month' from cal_year_mon_week_begin_date) as cal_mth_num, 
+select distinct cal_year, --extract('month' from cal_year_mon_week_begin_date) as cal_mth_num, 
+case when cal_year = extract('year' from cal_year_mon_week_begin_date) then extract('month' from cal_year_mon_week_begin_date)
+     when cal_year = extract('year' from cal_year_mon_week_end_date) then extract('month' from cal_year_mon_week_end_date)   
+     end as cal_mth_num,     
 case when cal_year_week_num_mon is null then 1 else cal_year_week_num_mon end as cal_year_week_num_mon,
 cal_year_mon_week_begin_date, cal_year_mon_week_end_date
 from cdm.dim_date where cal_year_mon_week_begin_date >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) and cal_year_mon_week_end_date < date_trunc('week',getdate());
@@ -43,11 +46,13 @@ left join
         where trunc(stream_start_dttm) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
         group by 1) a
         join
-        (select a.as_on_date,b.cal_year_mon_week_begin_date as monday_date,sum(a.total_active_cnt) as active_network_subscribers
+        (select a.as_on_date,b.cal_year_mon_week_begin_date as monday_date,
+        sum(a.total_active_cnt) as active_network_subscribers
         from fds_nplus.AGGR_TOTAL_SUBSCRIPTION a
         join #dim_dates b
         on a.as_on_date = b.cal_year_mon_week_end_date+1
         where a.as_on_date >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+        and extract('year' from a.as_on_date) = b.cal_year
         group by 1,2) b
         on a.monday_date=b.monday_date
 )  a
@@ -88,7 +93,7 @@ from
 left join 
 (       
 select monday_date,views,minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = 'Facebook'
 )  a
@@ -114,7 +119,7 @@ from
 left join 
 (       
 select monday_date,views,minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = 'TikTok'
 )  a
@@ -140,7 +145,7 @@ from
 left join 
 (       
 select monday_date,views,minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = '.COM/App'
 )  a
@@ -167,7 +172,7 @@ from
 left join 
 (       
 select monday_date,views,minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = 'Twitter'
 )  a
@@ -193,7 +198,7 @@ from
 left join 
 (       
 select monday_date,views,minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = 'Instagram'
 )  a
@@ -219,7 +224,7 @@ from
 left join 
 (       
 select monday_date,views,minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = 'Snapchat'
 )  a
@@ -262,7 +267,7 @@ select 	 monday_date,
         'Owned' as type,
          views, 
 	 minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = 'Youtube-Owned'
 ) b
@@ -274,7 +279,7 @@ select 	 monday_date,
         'UGC' as type,
          views, 
 	 minutes_watched/60 as hours_watched
-from fds_cp.aggr_cp_weekly_consumption_by_platform 
+from fds_cp.vw_aggr_cp_weekly_consumption_by_platform 
 where trunc(monday_date) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
 and platform = 'Youtube-UGC'
 ) c
@@ -285,7 +290,7 @@ on trunc(a.monday_date) = b.cal_year_mon_week_begin_date;
 
 drop table if exists #dp_wkly;
 create table #dp_wkly as 
-select platform, type,cal_year, cal_mth_num, cal_year_week_num_mon, 
+select distinct platform, type,cal_year, cal_mth_num, cal_year_week_num_mon, 
 cal_year_mon_week_begin_date, cal_year_mon_week_end_date, hours_watched_wk::decimal(15,1), hours_watched_tier2_wk::decimal(15,1), views_wk::decimal(15,1),
 active_network_subscribers_wk::decimal(15,1), hours_per_tot_subscriber_wk::decimal(15,1), ad_impressions_wk::decimal(15,1),
 network_subscriber_adds_wk::decimal(15,1),

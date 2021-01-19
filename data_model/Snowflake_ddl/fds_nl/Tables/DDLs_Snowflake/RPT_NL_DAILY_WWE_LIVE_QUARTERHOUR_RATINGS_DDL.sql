@@ -1,0 +1,26 @@
+CREATE TABLE RPT_NL_DAILY_WWE_LIVE_QUARTERHOUR_RATINGS (
+	BROADCAST_DATE_ID NUMBER(38,0) COMMENT 'Broadcast Date ID Field',
+	BROADCAST_DATE DATE COMMENT 'Derived dates based on the viewing period; before 6 am morning hours is the preious date broadcast hour',
+	BROADCAST_MONTH_NUM NUMBER(38,0) COMMENT 'Broadcast Month Number',
+	BROADCAST_MONTH_NM VARCHAR(20) COMMENT 'Broadcast Month Name',
+	BROADCAST_QUARTER_NUM NUMBER(38,0) COMMENT 'Broadcast Quarter Number',
+	BROADCAST_QUARTER_NM VARCHAR(20) COMMENT 'Broadcast Quarter Name',
+	BROADCAST_YEAR NUMBER(38,0) COMMENT 'Broadcast year',
+	SRC_BROADCAST_NETWORK_ID NUMBER(38,0) COMMENT 'A unique numerical identifier for an individual programming originator.',
+	SRC_PLAYBACK_PERIOD_CD VARCHAR(255) COMMENT 'A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load.• Live (Live - Includes viewing that occurred during the live airing).• Live+SD (Live + Same Day -Includes all playback that occurred within the same day of the liveairing).• Live+3 (Live + 3 Days - Includes all playback that occurred within three days of the live airing).• Live+7 (Live + 7 Days - Includes all playback that occurred within seven days of the live airing).',
+	SRC_DEMOGRAPHIC_GROUP VARCHAR(255) COMMENT 'A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).',
+	SRC_PROGRAM_ID NUMBER(38,0) COMMENT 'A unique numerical identifier for an individual program nam.',
+	INTERVAL_STARTTIME VARCHAR(255) COMMENT 'calcuated interval start time if it is quarter hour , every quarter start time will be profided',
+	INTERVAL_ENDTIME VARCHAR(255) COMMENT 'calcuated interval end time if it is quarter hour , every quarter end time will be profided',
+	INTERVAL_DURATION NUMBER(38,0) COMMENT 'quarter period interval duration',
+	AVG_VIEWING_HOURS_UNITS NUMBER(38,0) COMMENT 'Derived Average Viewing Hours in minutes',
+	AVG_AUDIENCE_PROJ_000 NUMBER(38,0) COMMENT 'Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)',
+	AVG_AUDIENCE_PCT NUMBER(20,2) COMMENT 'Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)',
+	AVG_PCT_NW_CVG_AREA NUMBER(20,2) COMMENT 'Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)',
+	ETL_BATCH_ID VARCHAR(100),
+	ETL_INSERT_USER_ID VARCHAR(100),
+	ETL_INSERT_REC_DTTM TIMESTAMP_NTZ(9),
+	ETL_UPDATE_USER_ID VARCHAR(50),
+	ETL_UPDATE_REC_DTTM TIMESTAMP_NTZ(9)
+)COMMENT='## Implementation Detail\n*   Date        : 06/12/2020\n*   Version     : 1.0\n*   TableName   : rpt_nl_daily_wwe_live_quarterhour_ratings\n*   Schema     : fds_nl\n*   Contributor : Sudhakar Andugula\n*   Description : WWE Live Quarter Hour Ratings Daily Report table consist of rating details of all WWE Live - RAW, SD, NXT Programs referencing from Quarter Hour Viewership Ratings Table on daily-basis \n\n## Schedule Details\n* Frequency : Daily ; 02:00 A.M EST (Wed-Mon) & 04:00 A.M EST (Tue)\n* Dependent Jobs (process_name ; process_id) : t_di_nielsen_fact_nl_quarterhour_viewership_ratings_daily_slot2_abac ; 12145 (Wed-Mon) & t_di_nielsen_fact_nl_quarterhour_viewership_ratings_abac ; 12122 (Tue)\n\n## Maintenance Log\n* Date : 06/12/2020 ; Developer: Sudhakar Andugula ; Change: Initial Version as a part of Phase 4b Project.'
+;

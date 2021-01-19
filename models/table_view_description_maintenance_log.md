@@ -57,8 +57,9 @@
 
 ## Maintenance Log
 * Date : 07/21/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
-* Date : 08/06/2020 ; Developer: Remya K Nair ; Change:TAB-2105,TAB-2106 :- Added src_series_name and excluded all the repeats while calculating the live viewership by including src_program_attributes filter..
-
+* Date : 8/06/2020  ; Developer: Remya K Nair ; Enhancements program_rating report table -Exclude all the repeats while calculating the live viewership - TAB-2106 
+* Date : 8/14/2020  ; Developer: Remya K Nair ; Enhancements program_rating report table - TAB-2105 
+* Date : 12/07/2020 ; Developer: Remya K Nair ; Enhancement Added 11 columns to program_rating report table - PSTA-1349 
 {% enddocs %}
 
 
@@ -732,17 +733,30 @@
 * Date : 09/23/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
 {% enddocs %}
 
-{% docs vw_aggr_cp_monthly_social_followership %}
+{% docs rpt_cp_daily_social_followership %}
 ## Implementation Detail
-* Date        : 09/23/2020
+* Date        : 12/21/2020
 * Version     : 1.0
-* ViewName    : vw_aggr_cp_monthly_social_followership
+* TableName    : rpt_cp_daily_social_followership
 * Schema	  : fds_cp
-* Contributor : Remya K Nair
-* Description : vw_aggr_cp_monthly_social_followership provide Subscribers gains and followers of Facebook, YouTube, Instagram at country level 
+* Contributor : Hima Dasan
+* Description : rpt_cp_daily_social_followership provide Subscribers gains and followers of Facebook, YouTube, Instagram at country level 
 ## Maintenance Log
-* Date : 09/23/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of network dashboards.
+* Date : 12/21/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of network dashboards.
 {% enddocs %}
+
+{% docs vw_rpt_cp_daily_social_followership %}
+## Implementation Detail
+* Date        : 12/21/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_cp_daily_social_followership
+* Schema	  : fds_cp
+* Contributor : Hima Dasan
+* Description : rpt_cp_daily_social_followership provide Subscribers gains and followers of Facebook, YouTube, Instagram at country level 
+## Maintenance Log
+* Date : 12/21/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of network dashboards.
+{% enddocs %}
+
 
 
 {% docs rpt_mkt_weekly_owned_media_execution %}
@@ -1014,6 +1028,19 @@
 * Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
 {% enddocs %}
 
+{% docs rpt_cpg_monthly_talent_top25_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_monthly_talent_top25_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Monthly Talent Top 25 Shop Sales Report Table consist of various shop sales details & metrics of talents on each days of last month
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
+{% enddocs %}
+
 {% docs vw_rpt_cpg_monthly_talent_top25_shop_sales %}
 ## Implementation Detail
 *   Date        : 10/16/2020
@@ -1021,10 +1048,23 @@
 *   ViewName    : vw_rpt_cpg_monthly_talent_top25_shop_sales
 *   Schema	    : fds_cpg
 *   Contributor : Rahul Chandran
-*   Description : Monthly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last month
+*   Description : Monthly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last month referencing from Monthly Talent Top 25 Shop Sales Report Table
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
+{% enddocs %}
+
+{% docs rpt_cpg_weekly_talent_top25_shop_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_weekly_talent_top25_shop_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Weekly Talent Top 25 Shop Sales Report Table consist of various shop sales details & metrics of talents on each days of last week
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_weekly_talent_top25_shop_sales %}
@@ -1034,10 +1074,23 @@
 *   ViewName    : vw_rpt_cpg_weekly_talent_top25_shop_sales
 *   Schema	    : fds_cpg
 *   Contributor : Rahul Chandran
-*   Description : Weekly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last week
+*   Description : Weekly Talent Top 25 Shop Sales Report view consist of various shop sales details & metrics of talents on each days of last week referencing from Weekly Talent Top 25 Shop Sales Report Table
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
+{% enddocs %}
+
+{% docs rpt_cpg_monthly_talent_top25_venue_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_monthly_talent_top25_venue_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Monthly Talent Top 25 Venue Sales Report Table consist of various venue sales details & metrics of talents on each days of last month
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_monthly_talent_top25_venue_sales %}
@@ -1047,10 +1100,23 @@
 *   ViewName    : vw_rpt_cpg_monthly_talent_top25_venue_sales
 *   Schema	    : fds_cpg
 *   Contributor : Rahul Chandran
-*   Description : Monthly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last month
+*   Description : Monthly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last month referencing from Monthly Talent Top 25 Venue Sales Report Table
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
+{% enddocs %}
+
+{% docs rpt_cpg_weekly_talent_top25_venue_sales %}
+## Implementation Detail
+*   Date        : 10/16/2020
+*   Version     : 1.0
+*   TableName   : rpt_cpg_weekly_talent_top25_venue_sales
+*   Schema	    : fds_cpg
+*   Contributor : Rahul Chandran
+*   Description : Weekly Talent Top 25 Venue Sales Report Table consist of various venue sales details & metrics of talents on each days of last week
+
+## Maintenance Log
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_weekly_talent_top25_venue_sales %}
@@ -1060,10 +1126,10 @@
 *   ViewName    : vw_rpt_cpg_weekly_talent_top25_venue_sales
 *   Schema	    : fds_cpg
 *   Contributor : Rahul Chandran
-*   Description : Weekly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last week
+*   Description : Weekly Talent Top 25 Venue Sales Report view consist of various venue sales details & metrics of talents on each days of last week referencing from Weekly Talent Top 25 Venue Sales Report Table
 
 ## Maintenance Log
-* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance Dashboard Views.
+* Date : 10/16/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Weekly CPG Talent Performance & Top 25 Talent Dashboard Views.
 {% enddocs %}
 
 
@@ -1337,6 +1403,167 @@
 {% enddocs %}
 
 
+{% docs rpt_cp_daily_int_kpi_ranking_dotcom %}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  TableName : rpt_cp_daily_int_kpi_ranking_dotcom
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting table consists of  daily international KPI ranking data for Dotcom .Has metrics like unique_visitors,visits,page_views,video_views,hours_watched,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking Dotcom.
+{% enddocs %}
+
+{% docs vw_rpt_cp_daily_int_kpi_ranking_dotcom %}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  ViewName : vw_rpt_cp_daily_int_kpi_ranking_dotcom
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting view consists of  daily international KPI ranking data for Dotcom .Has metrics like unique_visitors,visits,page_views,video_views,hours_watched,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking Dotcom.
+{% enddocs %}
+
+{% docs rpt_cp_daily_int_kpi_ranking_network%}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  TableName : rpt_cp_daily_int_kpi_ranking_network
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting table consists of  daily international KPI ranking data for network .Has metrics like active_subs,hours_watched,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking Network.
+* Date : 12/09/2020 ; Developer: Hima Dasan ; Change: resolving nulls values for hours_Watched metric in network view - jira -PSTA-1905 .
+
+{% enddocs %}
+
+{% docs vw_rpt_cp_daily_int_kpi_ranking_network%}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  ViewName : vw_rpt_cp_daily_int_kpi_ranking_network
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting view consists of  daily international KPI ranking data for network .Has metrics like active_subs,hours_watched,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking Network.
+*Date : 1/6/2021 ; Developer: Hima Dasan ; Change: Added views as part of enhancement on network KPI ranking . Jira - PSTA-1897
+{% enddocs %}
+
+
+{% docs rpt_cp_daily_int_kpi_ranking_tv%}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  TableName : rpt_cp_daily_int_kpi_ranking_tv
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting table consists of  daily international KPI ranking data for TV .Has metrics like telecasts,weekly_aud,duration_mins,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking TV.
+*Date : 1/6/2021 ; Developer: Hima Dasan ; Change: Added column series_type and telecast_hours as part of KPI ranking tv enhancement . Jira - PSTA-1897 
+{% enddocs %}
+
+{% docs vw_rpt_cp_daily_int_kpi_ranking_tv%}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  ViewName : vw_rpt_cp_daily_int_kpi_ranking_tv
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting view consists of  daily international KPI ranking data for TV .Has metrics like telecasts,weekly_aud,duration_mins,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking TV.
+{% enddocs %}
+
+{% docs rpt_cp_daily_int_kpi_ranking_youtube%}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  TableName : rpt_cp_daily_int_kpi_ranking_youtube
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting table consists of  daily international KPI ranking data for Youtube .Has metrics like views,netsubs,hours_watched,revenue,gross_revenue,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking TV.
+{% enddocs %}
+
+{% docs vw_rpt_cp_daily_int_kpi_ranking_youtube%}
+## Implementation Detail
+*  Date : 11/13/2020
+*  Version : 1.0
+*  ViewName : vw_rpt_cp_daily_int_kpi_ranking_youtube
+*  Schema : fds_cp
+*  Contributor : Hima Dasan
+*  Description : Reporting view consists of  daily international KPI ranking data for Youtube .Has metrics like views,netsubs,hours_watched,revenue,gross_revenue,population.
+*  JIRA : PSTA-1538
+## Maintenance Log
+* Date : 11/13/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of international KPI ranking TV.
+{% enddocs %}
+
+{% docs aggr_voc_daily_mentions_count %}
+## Implementation Detail
+*   Date        : 11/23/2020
+*   Version     : 1.0
+*   TableName   : aggr_voc_daily_mentions_count
+*   Schema	    : fds_voc
+*   Contributor : Rahul Chandran
+*   Description : Daily Aggregate VOC Mentions Count Table provides count of tweets about mentions on daily-basis
+
+## Maintenance Log
+* Date : 11/23/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 8 Project.
+{% enddocs %}
+
+{% docs vw_aggr_voc_daily_mentions_count %}
+## Implementation Detail
+*   Date        : 11/23/2020
+*   Version     : 1.0
+*   ViewName    : vw_aggr_voc_daily_mentions_count
+*   Schema	    : fds_voc
+*   Contributor : Rahul Chandran
+*   Description : Daily Aggregate VOC Mentions Count view provides count of tweets about mentions referencing from Daily Aggregate VOC Mentions Count Table
+
+## Maintenance Log
+* Date : 11/23/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 8 Project.
+{% enddocs %}
+
+{% docs rpt_cp_daily_followership_by_platform_digitalsnapshot %}
+## Implementation Detail
+*   Date        : 11/24/2020
+*   Version     : 1.0
+*   ViewName    : rpt_cp_daily_followership_by_platform_digitalsnapshot
+*   Schema	    : fds_cp
+*   Contributor : Remya K Nair
+*   Description : rpt_cp_daily_followership_by_platform_digitalsnapshot table consists of followership details for platforms - social media,youtube and dotcom on country level.
+
+## Maintenance Log
+* Date : 11/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of cross platform Monthly International Market Viewership.
+{% enddocs %}
+
+{% docs vw_rpt_cp_daily_followership_by_platform_digitalsnapshot %}
+## Implementation Detail
+*   Date        : 11/24/2020
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cp_daily_followership_by_platform_digitalsnapshot
+*   Schema	    : fds_cp
+*   Contributor : Remya K Nair
+*   Description : vw_rpt_cp_daily_followership_by_platform_digitalsnapshot consists of followership details for platforms - social media,youtube and dotcom on country level.
+
+## Maintenance Log
+* Date : 11/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of cross platform Monthly International Market Viewership.
+{% enddocs %}
+
 {% docs drvd_intra_hour_quarter_hour_adds %}
 ## Implementation Detail
 *   Date        : 11/20/2020
@@ -1351,18 +1578,228 @@
 * Date : 11/20/2020 ; Developer: Sudhakar Andugula ; Change: Initial Version as a part Intra hour dashboard
 {% enddocs %}
 
-{% docs vw_drvd_intra_hour_quarter_hour_adds %}
+{% docs vw_rpt_cp_weekly_consolidated_kpi_visuals %}
 ## Implementation Detail
-*   Date        : 11/20/2020
+*   Date        : 11/30/2020
 *   Version     : 1.0
-*   ViewName    : vw_drvd_intra_hour_quarter_hour_adds
-*   Schema	    : fds_nplus
-*   Contributor : Sudhakar Andugula
-*   Description : Intra hour table and Table workbook refresh tto capture every hour , each quarter paid and trial adds info
-*   Frequency   : Every 15 mins
+*   ViewName    : vw_rpt_cp_weekly_consolidated_kpi_visuals
+*   Schema	    : fds_cp
+*   Contributor : Hima Dasan
+*   Description : Consolidated KPI weekly reporting view for graphs contains metrics from network ,live events and tv
+
 
 ## Maintenance Log
-* Date : 11/20/2020 ; Developer: Sudhakar Andugula ; Change: Initial Version as a part Intra hour dashboard
+* Date : 11/30/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part Weekly consolidated kpi view for graphs
 {% enddocs %}
 
 
+{% docs vw_aggr_nplus_ppv_week_adds_tracking_hist %}
+## Implementation Detail
+* Date        : 12/04/2020
+* Version     : 1.0
+* ViewName    : vw_aggr_nplus_ppv_week_adds_tracking_hist
+* Schema	  : fds_nplus
+* Contributor : Hima Dasan
+* Description : vw_aggr_nplus_ppv_week_adds_tracking_hist view consists of historical PPV event details with count of paid/trail/promo subscription add and forecast suscription count for PPV summary historical tab of GHW report.
+## Maintenance Log
+* Date : 12/04/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Network 2.0 Project.
+{% enddocs %}
+
+
+{% docs rpt_cpg_monthly_royalty %}
+## Implementation Detail
+* Date        : 12/07/2020
+* Version     : 1.0
+* TableName    : rpt_cpg_monthly_royalty
+* Schema	  : fds_cpg
+* Contributor : Hima Dasan
+* Description : Reporting table consists of monthly royalty finance details . Has item shipped,returned and refunded details of items in monthly basis.
+
+## Maintenance Log
+* Date : 12/07/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of cpg royalty report finance.
+{% enddocs %}
+
+{% docs vw_rpt_cpg_monthly_royalty %}
+## Implementation Detail
+* Date        : 12/07/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_cpg_monthly_royalty
+* Schema	  : fds_cpg
+* Contributor : Hima Dasan
+* Description : Reporting view consists of monthly royalty finance details . Has item shipped,returned and refunded details of items in monthly basis.
+
+## Maintenance Log
+* Date : 12/07/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of cpg royalty report finance.
+{% enddocs %}
+
+
+{% docs rpt_cp_weekly_social_followership %}
+## Implementation Detail
+* Date        : 11/04/2020
+* Version     : 1.0
+* ViewName    : rpt_cp_weekly_social_followership
+* Schema	  : fds_cpg
+* Contributor : Sandeep Battula
+* Description : Weekly Social Followership reporting table consists of social followership data for conviva platforms and China social platforms. It also stores account_name, designation, brand, gender for the talent.
+
+## Maintenance Log
+* Date : 11/04/2020 ; PSTA-1283 Developer: Sandeep Battula ; Change: Initial Version as a part of Weekly Social Followership reporting.
+{% enddocs %}
+
+{% docs rpt_cp_monthly_social_overview %}
+## Implementation Detail
+* Date        : 11/13/2020
+* Version     : 1.0
+* ViewName    : rpt_cp_monthly_social_overview
+* Schema	  : fds_cpg
+* Contributor : Sandeep Battula
+* Description : Monthly Social reporting table consists of social consumption, engagemenet and followership data for social platforms. It also has corresponding account name, country and region details.
+
+## Maintenance Log
+* Date : 11/13/2020 ; PSTA-1812 Developer: Sandeep Battula ; Change: Initial Version as a part of Monthly Social reporting.
+{% enddocs %}
+
+{% docs vw_rpt_cp_weekly_social_followers_by_account %}
+## Implementation Detail
+* Date        : 11/13/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_cp_weekly_social_followers_by_account
+* Schema	  : fds_cpg
+* Contributor : Sandeep Battula
+* Description : Weekly Social Followers by account view is built on top of reporting table-rpt_cp_weekly_social_followership to fetch the followers at the granularity of account. The followers for previous week, previous month and previous year are also calculated.
+
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Sandeep Battula ; Change: Initial Version as a part of Weekly Social Followers by account JIRA-PSTA-1047.
+{% enddocs %}
+
+{% docs vw_rpt_cp_weekly_social_followers_by_platform %}
+## Implementation Detail
+* Date        : 11/13/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_cp_weekly_social_followers_by_platform
+* Schema	  : fds_cpg
+* Contributor : Sandeep Battula
+* Description : Weekly Social Followers by platform view is built on top of reporting table-rpt_cp_weekly_social_followership to fetch the  followers by platform. The followers for previous week, previous year and previous month are also calculated.
+
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Sandeep Battula ; Change: Initial Version as a part of Weekly Social Followers by platform JIRA-PSTA-1047.
+{% enddocs %}
+
+{% docs vw_rpt_cp_weekly_social_followers_summary %}
+## Implementation Detail
+* Date        : 11/13/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_cp_weekly_social_followers_summary
+* Schema	  : fds_cpg
+* Contributor : Sandeep Battula
+* Description : Weekly Social Followers summary view is built on top of reporting table-rpt_cp_weekly_social_followership to fetch the summary of followers. The followers for previous week and previous month are also calculated.
+
+## Maintenance Log
+* Date : 11/04/2020 ; Developer: Sandeep Battula ; Change: Initial Version as a part of Weekly Social Followers summary JIRA-PSTA-1047
+{% enddocs %}
+
+
+{% docs rpt_yt_daily_consumption_bychannel %}
+## Implementation Detail
+* Date        : 12/21/2020
+* Version     : 1.0
+* TableName    : rpt_yt_daily_consumption_bychannel
+* Schema	  : fds_yt
+* Contributor : Hima Dasan
+* Description : Reporting table consists of daily youtube consumption by channel details . Has metrics like views,likes,dislikes,watched minutes,subscribers gained and lost,revenue views etc for respective country ,channel,content type on daily basis.
+
+## Maintenance Log
+* Date : 12/21/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of youtube consumption by channel.
+{% enddocs %}
+
+{% enddocs %}
+
+{% docs vw_rpt_yt_daily_consumption_bychannel %}
+## Implementation Detail
+* Date        : 12/21/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_yt_daily_consumption_bychannel
+* Schema	  : fds_yt
+* Contributor : Hima Dasan
+* Description : Reporting view consists of daily youtube consumption by channel details . Has metrics like views,likes,dislikes,watched minutes,subscribers gained and lost,revenue views etc for respective country ,channel,content type on daily basis.
+
+## Maintenance Log
+* Date : 12/21/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of youtube consumption by channel.
+{% enddocs %}
+
+{% docs rpt_yt_daily_wwe_video %}
+## Implementation Detail
+* Date        : 12/24/2020
+* Version     : 1.0
+* ViewName    : rpt_yt_daily_wwe_video
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : Report table consists of total views  at video_id,region and talent  level on daily basis
+
+## Maintenance Log
+* Date : 12/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs rpt_yt_daily_wwe_talent %}
+## Implementation Detail
+* Date        : 12/24/2020
+* Version     : 1.0
+* ViewName    : rpt_yt_daily_wwe_talent
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : Report table consists of splitting talents present in talent pool on daily basis
+
+## Maintenance Log
+* Date : 12/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs rpt_yt_daily_wwe_talent_views %}
+## Implementation Detail
+* Date        : 12/24/2020
+* Version     : 1.0
+* ViewName    : rpt_yt_daily_wwe_talent_views
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : Report table consists of total views for individual talends at video_id level
+
+## Maintenance Log
+* Date : 12/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs vw_rpt_yt_daily_wwe_talent %}
+## Implementation Detail
+* Date        : 12/24/2020
+* Version     : 1.0
+* ViewName    : vw_rpt_yt_daily_wwe_talent
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : View consists of total views ,total videos,popularity index,unique index for individual talends at region  level and granularity base
+
+## Maintenance Log
+* Date : 12/24/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs vw_rpt_nplus_weekly_network_kpi %}
+## Implementation Detail
+* Date        : 01/12/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_nplus_weekly_network_kpi
+* Schema	  : fds_nplus
+* Contributor : Remya K Nair
+* Description : View consists of subscriber adds and loss based on payment methods/order type ,registered users,subscriptions based on payment method etc.
+
+## Maintenance Log
+* Date : 01/12/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  N/W 2.0 project.
+{% enddocs %}
+
+{% docs rpt_tv_weekly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 1/12/2022
+* Version     : 1.0
+* ViewName    : rpt_tv_weekly_consolidated_kpi
+* Schema	  : fds_nl
+* Contributor : Lakshman Murugeshan
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+{% enddocs %}

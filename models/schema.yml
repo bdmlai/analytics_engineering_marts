@@ -15,7 +15,7 @@ sources:
       - name: fact_nl_weekly_live_switching_behavior_destination_dist
       - name: rpt_nl_weekly_channel_switch
       - name: fact_nl_weekly_overlap_4_way_oob
-      - name: rpt_nl_weekly_overlap_derived_4_way_oob      
+      - name: rpt_nl_weekly_overlap_derived_4_way_oob
   - name: cdm
     tables:
       - name: dim_date
@@ -25,7 +25,7 @@ sources:
       - name: dim_content_classification_title
       - name: dim_platform
       - name: dim_smprovider_account
-
+      - name: dim_country
   - name: fds_yt
     tables:
        - name: rpt_yt_wwe_engagement_daily
@@ -37,6 +37,10 @@ sources:
        - name: youtube_annotations
        - name: youtube_end_screens
        - name: youtube_cards
+       - name: yt_amg_content_groups
+       - name: rpt_yt_daily_wwe_talent
+       - name: rpt_yt_daily_wwe_video
+       - name: rpt_yt_daily_wwe_talent_views
   - name: public
     tables:
        - name: yt_amg_content_groups
@@ -56,6 +60,10 @@ sources:
        - name: fact_daily_content_viewership
        - name: rpt_network_ppv_liveplusvod
        - name: fact_daily_viewership
+       - name: AGGR_MONTHLY_DVC_PLATFORM_CNTRY_VIEWERSHIP
+       - name: AGGR_TOTAL_SUBSCRIPTION
+       - name: dim_content_classification_title
+       - name: vw_rpt_network_daily_subscription_kpis
   - name: dwh_read_write
     tables:
        - name: raw_da_weekly_ppv_hourly_comps     
@@ -66,10 +74,16 @@ sources:
        - name: fact_fb_smfollowership_audience_bycountry
        - name: fact_fb_published_post
        - name: fact_fb_published_video
+       - name: fact_fb_engagement_video
+       - name: vw_rpt_daily_fb_published_video
+       - name: vw_rpt_daily_fb_published_post
+       - name: fact_fb_engagement_post
   - name: fds_tw
     tables:
        - name: fact_tw_consumption_post
        - name: fact_tw_published_post
+       - name: fact_tw_engagement_post
+       - name: vw_rpt_daily_tw_published_post
   - name: fds_igm
     tables:
        - name: fact_ig_consumption_post
@@ -78,7 +92,11 @@ sources:
        - name: fact_ig_published_frame
        - name: fact_ig_published_post
        - name: fact_ig_published_story
-
+       - name: vw_rpt_daily_ig_published_frame
+       - name: fact_ig_engagement_post
+       - name: vw_rpt_daily_ig_published_post
+       - name: fact_ig_consumption_frame
+       - name: fact_ig_engagement_frame
   - name: fds_sc
     tables:
        - name: fact_sc_consumption_story   
@@ -92,7 +110,8 @@ sources:
        - name: raw_da_weekly_ppv_hourly_comps
        - name: raw_lite_log
        - name: raw_post_event_log
-       - name: stg_dice_stream_flattened 
+       - name: stg_dice_stream_flattened
+       - name: raw_da_weekly_ppv_hourly_comps_new
   - name: udl_nl
     tables:
        - name: nielsen_finance_yearly_calendar
@@ -100,11 +119,16 @@ sources:
     tables:
        - name: agg_cp_weekly_consumption_by_platform
        - name: fact_co_smfollowership_cumulative_summary
+       - name: vw_rpt_cp_monthly_global_consumption_by_platform
+       - name: vw_rpt_cp_weekly_consolidated_kpi
+       - name: rpt_cp_monthly_social_overview
   - name: fds_kntr
     tables:
        - name: fact_kntr_wwe_telecast_data
        - name: fact_kntr_annual_profile
        - name: kantar_static_country_region_tag
+       - name: vw_aggr_kntr_schedule_wca_data
+       - name: rpt_kntr_schedule_vh_data
   - name: udl_emm
     tables:
        - name: emm_weekly_log_reference  
@@ -123,6 +147,7 @@ sources:
       - name: aggr_cpg_daily_sales
       - name: aggr_cpg_daily_venue_sales
       - name: fact_cpg_inventory
+ 
   - name: dt_stage
     tables:
       - name: prestg_cpg_currency_exchange_rate
@@ -141,6 +166,9 @@ sources:
   - name: hive_udl_pii
     tables:
       - name: restricted_jde_daily_address_by_date_f0116
+  - name: udl_pii
+    tables: 
+      - name: restricted_cpg_clientbase_monthly_shipment
   - name: hive_udl_mkt
     tables:    
         - name: wavemaker_monthly_display_mmm
@@ -161,9 +189,31 @@ sources:
   - name: fds_emm
     tables:
       - name: brand
+      - name: babyface_heel
   - name: hive_udl_chscl
     tables:
       - name: china_weekly_social_data
   - name: hive_udl_yt
     tables:
       - name: youtube_subscribers_full_audiencecountries
+  - name: fds_da
+    tables:
+      - name: dm_digital_kpi_datamart_monthly_topline
+  - name: hive_udl_cp
+    tables:
+      - name: daily_social_account_country_mapping
+      - name: da_monthly_conviva_emm_accounts_mapping
+  - name: hive_udl_voc
+    tables:
+      - name: tweet_tags
+  - name: hive_udl_cpg
+    tables:
+      - name: clientbase_monthly_returns
+      - name: radial_monthly_order_ship
+      - name: radial_monthly_order_return
+      - name: radial_monthly_payment_refund
+      - name: raw_amazon_monthly_payments
+      - name: ga_cpg_daily_sessions
+  - name: hive_udl_nl
+    tables:
+      - name: nielsen_finance_yearly_calendar

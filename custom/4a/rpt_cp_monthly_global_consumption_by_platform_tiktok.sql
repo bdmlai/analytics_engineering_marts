@@ -9,7 +9,7 @@ with #temp_table as
 (select x.platform,
 		x.type, 
 		'' as type2, 
-		nvl(y.region_nm,'Global') as Region, 
+		nvl(y.alternate_region_nm,'Global') as Region, 
 		nvl(y.country_nm,'Global') as Country,
 		x.month, 
 		x.views, 
@@ -21,7 +21,7 @@ with #temp_table as
  from
 		(select distinct 
 				'TikTok' as platform, 
-				b.month, '' as type, 
+				b.month, 'TikTok' as type, 
 				case when a.month=date_trunc('month',current_date-25)
 				then a.views
 				else b.views

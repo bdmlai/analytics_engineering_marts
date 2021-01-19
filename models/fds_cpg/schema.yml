@@ -514,4 +514,1142 @@ models:
         - name: etl_update_user_id          
           description: Unique ID of the DBT user which was used to update the record manually
         - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_monthly_talent_overall_shop_sales
+    description: '{{ doc("rpt_cpg_monthly_talent_overall_shop_sales") }}'
+    columns:
+        - name: gender_description_product
+          description: Gender Description of the Product
+        - name: style_category
+          description: Category of Style
+        - name: product_category
+          description: Major Category of the Product
+        - name: talent_description
+          description: Description of Talent
+        - name: active_inactive_flag
+          description: source active inactive flag of product
+        - name: gender_talent
+          description: gender of talent
+        - name: brand
+          description: name of brand
+        - name: website
+          description: Site Name
+        - name: order_month
+          description: The month on when product ordered
+        - name: style_launched_90_days
+          description: To indicate whether style sold is launched within 90 days or not
+        - name: style_launched_month
+          description: Launched month of the style 
+        - name: avg_age_style_month
+          description: Average age of Style in Months
+        - name: revenue
+          description: Revenue Amount
+        - name: margin
+          description: Margin Amount
+        - name: units_ordered
+          description: Number of Units Ordered
+        - name: avg_unit_price
+          description: Average Unit Price
+        - name: customers_cnt
+          description: Number of customers ordered
+        - name: py_styles_selling
+          description: Number of styles sold in the prior year
+        - name: py_revenue
+          description: Revenue in prior year
+        - name: py_margin
+          description: Margin in prior year
+        - name: py_units_ordered
+          description: Number of units ordered in prior year
+        - name: py_avg_unit_price
+          description: Average Unit Price in prior year
+        - name: py_cust_count
+          description: Customer Count in Prior Year
+        - name: py_new_styles
+          description: Number of new styles sold in prior year
+        - name: pm_rev_rank
+          description: Rank based on revenue in prior month
+        - name: pm_units_rank
+          description: Rank based on number of units ordered in prior month
+        - name: pm_style_sold_rank
+          description: Rank based on number of styles sold in Prior Month
+        - name: pm_avg_unit_p_rank
+          description: Rank based on Average Unit Price in prior month
+        - name: aup_percentile
+          description: Average Unit Price Percentage Rank
+        - name: pm_revenue
+          description: Revenue in prior month
+        - name: pm_margin
+          description: Margin in prior month
+        - name: pm_units_ordered
+          description: Number of Units ordered in prior month
+        - name: pm_avg_unit_price
+          description: Average Unit Price in prior month
+        - name: pm_cust_count
+          description: Customers count in prior month
+        - name: pm_styles_selling
+          description: Number of Styles Sold in prior month
+        - name: pm_overall_revenue
+          description: Overall Revenue in prior month
+        - name: pm_overall_margin
+          description: Overall Margin in prior month
+        - name: pm_overall_units_ordered
+          description: Overall Units Ordered in prior month
+        - name: pm_overall_avg_unit_price
+          description: Overall Average Unit Price in prior month
+        - name: pm_overall_styles_selling
+          description: Overall Styles Sold in prior month
+        - name: overall_revenue
+          description: Overall Revenue
+        - name: overall_margin
+          description: Overall Margin 
+        - name: overall_units_ordered
+          description: Overall Units Ordered
+        - name: overall_avg_unit_price
+          description: Overall Average Unit Price
+        - name: overall_styles_selling
+          description: Overall Styles Sold
+        - name: rev_rank
+          description: Ranks based on revenue 
+        - name: units_rank
+          description: Rank based on number of units ordered
+        - name: style_sold_rank
+          description: Rank based on number of styles sold
+        - name: avg_unit_p_rank
+          description: Rank based on Average Unit Price
+        - name: pm_new_styles
+          description: Number of New Styles sold in prior month
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_monthly_talent_overall_shop_sales
+    description: '{{ doc("vw_rpt_cpg_monthly_talent_overall_shop_sales") }}'
+    columns:
+        - name: gender_description_product
+          description: Gender Description of the Product
+        - name: style_category
+          description: Category of Style
+        - name: product_category
+          description: Major Category of the Product
+        - name: talent_description
+          description: Description of Talent
+        - name: active_inactive_flag
+          description: source active inactive flag of product
+        - name: gender_talent
+          description: gender of talent
+        - name: brand
+          description: name of brand
+        - name: website
+          description: Site Name
+        - name: order_month
+          description: The month on when product ordered
+        - name: style_launched_90_days
+          description: To indicate whether style sold is launched within 90 days or not
+        - name: style_launched_month
+          description: Launched month of the style 
+        - name: avg_age_style_month
+          description: Average age of Style in Months
+        - name: revenue
+          description: Revenue Amount
+        - name: margin
+          description: Margin Amount
+        - name: units_ordered
+          description: Number of Units Ordered
+        - name: avg_unit_price
+          description: Average Unit Price
+        - name: customers_cnt
+          description: Number of customers ordered
+        - name: py_styles_selling
+          description: Number of styles sold in the prior year
+        - name: py_revenue
+          description: Revenue in prior year
+        - name: py_margin
+          description: Margin in prior year
+        - name: py_units_ordered
+          description: Number of units ordered in prior year
+        - name: py_avg_unit_price
+          description: Average Unit Price in prior year
+        - name: py_cust_count
+          description: Customer Count in Prior Year
+        - name: py_new_styles
+          description: Number of new styles sold in prior year
+        - name: pm_rev_rank
+          description: Rank based on revenue in prior month
+        - name: pm_units_rank
+          description: Rank based on number of units ordered in prior month
+        - name: pm_style_sold_rank
+          description: Rank based on number of styles sold in Prior Month
+        - name: pm_avg_unit_p_rank
+          description: Rank based on Average Unit Price in prior month
+        - name: aup_percentile
+          description: Average Unit Price Percentage Rank
+        - name: pm_revenue
+          description: Revenue in prior month
+        - name: pm_margin
+          description: Margin in prior month
+        - name: pm_units_ordered
+          description: Number of Units ordered in prior month
+        - name: pm_avg_unit_price
+          description: Average Unit Price in prior month
+        - name: pm_cust_count
+          description: Customers count in prior month
+        - name: pm_styles_selling
+          description: Number of Styles Sold in prior month
+        - name: pm_overall_revenue
+          description: Overall Revenue in prior month
+        - name: pm_overall_margin
+          description: Overall Margin in prior month
+        - name: pm_overall_units_ordered
+          description: Overall Units Ordered in prior month
+        - name: pm_overall_avg_unit_price
+          description: Overall Average Unit Price in prior month
+        - name: pm_overall_styles_selling
+          description: Overall Styles Sold in prior month
+        - name: overall_revenue
+          description: Overall Revenue
+        - name: overall_margin
+          description: Overall Margin 
+        - name: overall_units_ordered
+          description: Overall Units Ordered
+        - name: overall_avg_unit_price
+          description: Overall Average Unit Price
+        - name: overall_styles_selling
+          description: Overall Styles Sold
+        - name: rev_rank
+          description: Ranks based on revenue 
+        - name: units_rank
+          description: Rank based on number of units ordered
+        - name: style_sold_rank
+          description: Rank based on number of styles sold
+        - name: avg_unit_p_rank
+          description: Rank based on Average Unit Price
+        - name: pm_new_styles
+          description: Number of New Styles sold in prior month
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_weekly_talent_overall_shop_sales
+    description: '{{ doc("rpt_cpg_weekly_talent_overall_shop_sales") }}'
+    columns:
+        - name: gender_description_product
+          description: Gender Description of the Product
+        - name: style_category
+          description: Category of Style
+        - name: product_category
+          description: Major Category of the Product
+        - name: talent_description
+          description: Description of Talent
+        - name: active_inactive_flag
+          description: source active inactive flag of product
+        - name: gender_talent
+          description: gender of talent
+        - name: website
+          description: Site Name
+        - name: style_launched_90_days
+          description: To indicate whether style sold is launched within 90 days or not
+        - name: style_launched_month
+          description: Launched month of the style 
+        - name: avg_age_style_month
+          description: Average age of Style in Months
+        - name: brand
+          description: name of brand
+        - name: order_week
+          description: The week on when product ordered
+        - name: pw_rev_rank
+          description: Rank based on revenue in prior week
+        - name: pw_units_rank
+          description: Rank based on number of units ordered in prior week
+        - name: pw_style_sold_rank
+          description: Rank based on number of styles sold in prior week
+        - name: pw_avg_unit_p_rank
+          description: Rank based on Average Unit Price in prior week
+        - name: rev_rank
+          description: Ranks based on revenue 
+        - name: units_rank
+          description: Rank based on number of units ordered
+        - name: style_sold_rank
+          description: Rank based on number of styles sold
+        - name: avg_unit_p_rank
+          description: Rank based on Average Unit Price
+        - name: overall_revenue
+          description: Overall Revenue
+        - name: overall_margin
+          description: Overall Margin 
+        - name: overall_units_ordered
+          description: Overall Units Ordered
+        - name: overall_avg_unit_price
+          description: Overall Average Unit Price
+        - name: overall_styles_selling
+          description: Overall Styles Sold
+        - name: pw_overall_revenue
+          description: Overall Revenue in prior week
+        - name: pw_overall_margin
+          description: Overall Margin in prior week
+        - name: pw_overall_units_ordered
+          description: Overall Units Ordered in prior week
+        - name: pw_overall_avg_unit_price
+          description: Overall Average Unit Price in prior week
+        - name: pw_overall_styles_selling
+          description: Overall Styles Sold in prior week
+        - name: revenue
+          description: Revenue Amount
+        - name: margin
+          description: Margin Amount
+        - name: units_ordered
+          description: Number of Units Ordered
+        - name: avg_unit_price
+          description: Average Unit Price
+        - name: customers_cnt
+          description: Number of customers ordered
+        - name: py_styles_selling
+          description: Number of styles sold in the prior year
+        - name: py_revenue
+          description: Revenue in prior year
+        - name: py_margin
+          description: Margin in prior year
+        - name: py_units_ordered
+          description: Number of units ordered in prior year
+        - name: py_avg_unit_price
+          description: Average Unit Price in prior year
+        - name: py_cust_count
+          description: Customer Count in Prior Year
+        - name: py_new_styles
+          description: Number of new styles sold in prior year
+        - name: aup_percentile
+          description: Average Unit Price Percentage Rank
+        - name: pw_revenue
+          description: Revenue in prior week
+        - name: pw_margin
+          description: Margin in prior week
+        - name: pw_units_ordered
+          description: Number of Units ordered in prior week
+        - name: pw_avg_unit_price
+          description: Average Unit Price in prior week
+        - name: pw_cust_count
+          description: Customers count in prior week
+        - name: pw_styles_selling
+          description: Number of Styles Sold in prior week
+        - name: pw_new_styles
+          description: Number of New Styles sold in prior week
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_weekly_talent_overall_shop_sales
+    description: '{{ doc("vw_rpt_cpg_weekly_talent_overall_shop_sales") }}'
+    columns:
+        - name: gender_description_product
+          description: Gender Description of the Product
+        - name: style_category
+          description: Category of Style
+        - name: product_category
+          description: Major Category of the Product
+        - name: talent_description
+          description: Description of Talent
+        - name: active_inactive_flag
+          description: source active inactive flag of product
+        - name: gender_talent
+          description: gender of talent
+        - name: website
+          description: Site Name
+        - name: style_launched_90_days
+          description: To indicate whether style sold is launched within 90 days or not
+        - name: style_launched_month
+          description: Launched month of the style 
+        - name: avg_age_style_month
+          description: Average age of Style in Months
+        - name: brand
+          description: name of brand
+        - name: order_week
+          description: The week on when product ordered
+        - name: pw_rev_rank
+          description: Rank based on revenue in prior week
+        - name: pw_units_rank
+          description: Rank based on number of units ordered in prior week
+        - name: pw_style_sold_rank
+          description: Rank based on number of styles sold in prior week
+        - name: pw_avg_unit_p_rank
+          description: Rank based on Average Unit Price in prior week
+        - name: rev_rank
+          description: Ranks based on revenue 
+        - name: units_rank
+          description: Rank based on number of units ordered
+        - name: style_sold_rank
+          description: Rank based on number of styles sold
+        - name: avg_unit_p_rank
+          description: Rank based on Average Unit Price
+        - name: overall_revenue
+          description: Overall Revenue
+        - name: overall_margin
+          description: Overall Margin 
+        - name: overall_units_ordered
+          description: Overall Units Ordered
+        - name: overall_avg_unit_price
+          description: Overall Average Unit Price
+        - name: overall_styles_selling
+          description: Overall Styles Sold
+        - name: pw_overall_revenue
+          description: Overall Revenue in prior week
+        - name: pw_overall_margin
+          description: Overall Margin in prior week
+        - name: pw_overall_units_ordered
+          description: Overall Units Ordered in prior week
+        - name: pw_overall_avg_unit_price
+          description: Overall Average Unit Price in prior week
+        - name: pw_overall_styles_selling
+          description: Overall Styles Sold in prior week
+        - name: revenue
+          description: Revenue Amount
+        - name: margin
+          description: Margin Amount
+        - name: units_ordered
+          description: Number of Units Ordered
+        - name: avg_unit_price
+          description: Average Unit Price
+        - name: customers_cnt
+          description: Number of customers ordered
+        - name: py_styles_selling
+          description: Number of styles sold in the prior year
+        - name: py_revenue
+          description: Revenue in prior year
+        - name: py_margin
+          description: Margin in prior year
+        - name: py_units_ordered
+          description: Number of units ordered in prior year
+        - name: py_avg_unit_price
+          description: Average Unit Price in prior year
+        - name: py_cust_count
+          description: Customer Count in Prior Year
+        - name: py_new_styles
+          description: Number of new styles sold in prior year
+        - name: aup_percentile
+          description: Average Unit Price Percentage Rank
+        - name: pw_revenue
+          description: Revenue in prior week
+        - name: pw_margin
+          description: Margin in prior week
+        - name: pw_units_ordered
+          description: Number of Units ordered in prior week
+        - name: pw_avg_unit_price
+          description: Average Unit Price in prior week
+        - name: pw_cust_count
+          description: Customers count in prior week
+        - name: pw_styles_selling
+          description: Number of Styles Sold in prior week
+        - name: pw_new_styles
+          description: Number of New Styles sold in prior week
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_monthly_talent_top25_shop_sales
+    description: '{{ doc("vw_rpt_cpg_monthly_talent_top25_shop_sales") }}'
+    columns:
+        - name: etl_insert_rec_dttm
+          description: Date Time information on when the record got inserted
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: date_key
+          description: The date on when product ordered
+        - name: month
+          description: The month on when product ordered
+        - name: src_order_type
+          description: Type of Order
+        - name: src_channel_name
+          description: Name of channel via product ordered
+        - name: site_name
+          description: Site Name
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_month_revenue
+          description: Revenue achieved in last month
+        - name: last_month_units
+          description: Number of Units ordered in last month
+        - name: rank_last_month
+          description: Rank based on revenue in last month
+
+  - name: vw_rpt_cpg_weekly_talent_top25_shop_sales
+    description: '{{ doc("vw_rpt_cpg_weekly_talent_top25_shop_sales") }}'
+    columns:
+        - name: etl_insert_rec_dttm
+          description: Date Time information on when the record got inserted
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: date_key
+          description: The date on when product ordered
+        - name: week_start
+          description: The week on when product ordered
+        - name: src_order_type
+          description: Type of Order
+        - name: src_channel_name
+          description: Name of channel via product ordered
+        - name: site_name
+          description: Site Name
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_week_revenue
+          description: Revenue achieved in last week
+        - name: last_week_units
+          description: Number of Units ordered in last week
+        - name: rank_last_week
+          description: Rank based on revenue in last week
+
+  - name: vw_rpt_cpg_monthly_talent_top25_venue_sales
+    description: '{{ doc("vw_rpt_cpg_monthly_talent_top25_venue_sales") }}'
+    columns:
+        - name: etl_insert_rec_dttm
+          description: Date Time information on when the record got inserted
+        - name: date_id
+          description: The date on when product ordered
+        - name: month
+          description: The month on when product ordered
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_month_revenue
+          description: Revenue achieved in last month
+        - name: last_month_units
+          description: Number of Units ordered in last month
+        - name: rank_last_month
+          description: Rank based on revenue in last month
+          
+  - name: vw_rpt_cpg_weekly_talent_top25_venue_sales
+    description: '{{ doc("vw_rpt_cpg_weekly_talent_top25_venue_sales") }}'
+    columns:
+        - name: etl_insert_rec_dttm
+          description: Date Time information on when the record got inserted
+        - name: date_id
+          description: The date on when product ordered
+        - name: week_start
+          description: The week on when product ordered
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_week_revenue
+          description: Revenue achieved in last week
+        - name: last_week_units
+          description: Number of Units ordered in last week
+        - name: rank_last_week
+          description: Rank based on revenue in last week
+
+  - name: rpt_cpg_daily_shop_kpi_orders
+    description: '{{ doc("rpt_cpg_daily_shop_kpi_orders") }}'
+    columns:
+        - name: business_unit
+          description: Indicates business unit of shop sales
+        - name: date
+          description: date on when the order is made
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: orders
+          description: Number of orders made on the day
+        - name: customers
+          description: Number of customers ordered on the day
+        - name: sales
+          description: Total Sale Amount made on the day
+        - name: units
+          description: Number of Units ordered on the day
+        - name: orders_ttm
+          description: Number of orders made from last year to to-date
+        - name: customer_ttm
+          description: Number of Customers ordered from last year to to-date
+        - name: sales_ttm
+          description: Total Sale Amount made from last year to to-date
+        - name: units_ttm
+          description: Number of Units ordered from last year to to-date
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_daily_shop_kpi_orders
+    description: '{{ doc("vw_rpt_cpg_daily_shop_kpi_orders") }}'
+    columns:
+        - name: business_unit
+          description: Indicates business unit of shop sales
+        - name: date
+          description: date on when the order is made
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: orders
+          description: Number of orders made on the day
+        - name: customers
+          description: Number of customers ordered on the day
+        - name: sales
+          description: Total Sale Amount made on the day
+        - name: units
+          description: Number of Units ordered on the day
+        - name: orders_ttm
+          description: Number of orders made from last year to to-date
+        - name: customer_ttm
+          description: Number of Customers ordered from last year to to-date
+        - name: sales_ttm
+          description: Total Sale Amount made from last year to to-date
+        - name: units_ttm
+          description: Number of Units ordered from last year to to-date
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_daily_kpi_sale
+    description: '{{ doc("rpt_cpg_daily_kpi_sale") }}'
+    columns:
+        - name: src_category_description
+          description: Description of category of product
+        - name: src_major_category_description
+          description: Description of major category of product
+        - name: business_unit
+          description: Indicates business unit of shop sales
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: date
+          description: date on when the order is made
+        - name: sales
+          description: Total Sale Amount made on the day
+        - name: units
+          description: Number of Units ordered on the day
+        - name: margin
+          description: Total Margin Amount made on the day
+        - name: shipped_sales
+          description: Total Shipped Sale Amount made on the day
+        - name: sales_ttm
+          description: Total Sale Amount made from last year to to-date
+        - name: units_ttm
+          description: Number of Units ordered from last year to to-date
+        - name: margin_ttm
+          description: Total Margin Amount made from last year to to-date
+        - name: shipped_sales_ttm
+          description: Total Shipped Sale Amount made from last year to to-date
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_daily_kpi_sale
+    description: '{{ doc("vw_rpt_cpg_daily_kpi_sale") }}'
+    columns:
+        - name: src_category_description
+          description: Description of category of product
+        - name: src_major_category_description
+          description: Description of major category of product
+        - name: business_unit
+          description: Indicates business unit of shop sales
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: date
+          description: date on when the order is made
+        - name: sales
+          description: Total Sale Amount made on the day
+        - name: units
+          description: Number of Units ordered on the day
+        - name: margin
+          description: Total Margin Amount made on the day
+        - name: shipped_sales
+          description: Total Shipped Sale Amount made on the day
+        - name: sales_ttm
+          description: Total Sale Amount made from last year to to-date
+        - name: units_ttm
+          description: Number of Units ordered from last year to to-date
+        - name: margin_ttm
+          description: Total Margin Amount made from last year to to-date
+        - name: shipped_sales_ttm
+          description: Total Shipped Sale Amount made from last year to to-date
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_daily_snapshot_order_sale
+    description: '{{ doc("rpt_cpg_daily_snapshot_order_sale") }}'
+    columns:
+        - name: business_unit
+          description: Indicates business unit whether its shop or venue
+        - name: date
+          description: date on when the order is made
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: site_description
+          description: Description of site from where order is made
+        - name: src_item_id
+          description: Source Item ID of the product 
+        - name: src_style_description
+          description: Style Description of the product
+        - name: src_category_description
+          description: Category description of the product
+        - name: src_major_category_description
+          description: Major category description of the product
+        - name: src_talent_description
+          description: Talent description of the product
+        - name: demand_units
+          description: Number of Demand Units
+        - name: demand_sales
+          description: Demand Sale Amount
+        - name: demand_margin
+          description: Demand Margin Amount
+        - name: shipped_units
+          description: Number of Units shipped
+        - name: shipped_sales
+          description: Shipped Sale Amount
+        - name: shipped_margin
+          description: Shipped Margin Amount
+        - name: total_units_on_hand
+          description: Total Number of Units in hand
+        - name: reserved_units
+          description: Number of reserved units
+        - name: available_units
+          description: Number of available units
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_daily_snapshot_order_sale
+    description: '{{ doc("vw_rpt_cpg_daily_snapshot_order_sale") }}'
+    columns:
+        - name: business_unit
+          description: Indicates business unit whether its shop or venue
+        - name: date
+          description: date on when the order is made
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: site_description
+          description: Description of site from where order is made
+        - name: src_item_id
+          description: Source Item ID of the product 
+        - name: src_style_description
+          description: Style Description of the product
+        - name: src_category_description
+          description: Category description of the product
+        - name: src_major_category_description
+          description: Major category description of the product
+        - name: src_talent_description
+          description: Talent description of the product
+        - name: demand_units
+          description: Number of Demand Units
+        - name: demand_sales
+          description: Demand Sale Amount
+        - name: demand_margin
+          description: Demand Margin Amount
+        - name: shipped_units
+          description: Number of Units shipped
+        - name: shipped_sales
+          description: Shipped Sale Amount
+        - name: shipped_margin
+          description: Shipped Margin Amount
+        - name: total_units_on_hand
+          description: Total Number of Units in hand
+        - name: reserved_units
+          description: Number of reserved units
+        - name: available_units
+          description: Number of available units
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_daily_snapshot_shipped_sale
+    description: '{{ doc("rpt_cpg_daily_snapshot_shipped_sale") }}'
+    columns:
+        - name: business_unit
+          description: Indicates business unit whether its shop or venue
+        - name: date
+          description: date on when the shipping is done
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: site_description
+          description: Description of site from where order is made
+        - name: src_item_id
+          description: Source Item ID of the product 
+        - name: src_style_description
+          description: Style Description of the product
+        - name: src_category_description
+          description: Category description of the product
+        - name: src_major_category_description
+          description: Major category description of the product
+        - name: src_talent_description
+          description: Talent description of the product
+        - name: demand_units
+          description: Number of Demand Units
+        - name: demand_sales
+          description: Demand Sale Amount
+        - name: demand_margin
+          description: Demand Margin Amount
+        - name: shipped_units
+          description: Number of Units shipped
+        - name: shipped_sales
+          description: Shipped Sale Amount
+        - name: shipped_margin
+          description: Shipped Margin Amount
+        - name: total_units_on_hand
+          description: Total Number of Units in hand
+        - name: reserved_units
+          description: Number of reserved units
+        - name: available_units
+          description: Number of available units
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_daily_snapshot_shipped_sale
+    description: '{{ doc("vw_rpt_cpg_daily_snapshot_shipped_sale") }}'
+    columns:
+        - name: business_unit
+          description: Indicates business unit whether its shop or venue
+        - name: date
+          description: date on when the shipping is done
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: site_description
+          description: Description of site from where order is made
+        - name: src_item_id
+          description: Source Item ID of the product 
+        - name: src_style_description
+          description: Style Description of the product
+        - name: src_category_description
+          description: Category description of the product
+        - name: src_major_category_description
+          description: Major category description of the product
+        - name: src_talent_description
+          description: Talent description of the product
+        - name: demand_units
+          description: Number of Demand Units
+        - name: demand_sales
+          description: Demand Sale Amount
+        - name: demand_margin
+          description: Demand Margin Amount
+        - name: shipped_units
+          description: Number of Units shipped
+        - name: shipped_sales
+          description: Shipped Sale Amount
+        - name: shipped_margin
+          description: Shipped Margin Amount
+        - name: total_units_on_hand
+          description: Total Number of Units in hand
+        - name: reserved_units
+          description: Number of reserved units
+        - name: available_units
+          description: Number of available units
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_daily_talent_brand_achievement
+    description: '{{ doc("rpt_cpg_daily_talent_brand_achievement") }}'
+    columns:
+        - name: talent_description
+          description: Description of the talent
+        - name: entity_type
+          description: Type of Entity
+        - name: brand
+          description: Indicates brand name such as RAW, NXT, SMACKDOWN, etc..
+        - name: achievement_name
+          description: Name of the Achievement
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_daily_talent_brand_achievement
+    description: '{{ doc("vw_rpt_cpg_daily_talent_brand_achievement") }}'
+    columns:
+        - name: talent_description
+          description: Description of the talent
+        - name: entity_type
+          description: Type of Entity
+        - name: brand
+          description: Indicates brand name such as RAW, NXT, SMACKDOWN, etc..
+        - name: achievement_name
+          description: Name of the Achievement
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_monthly_royalty
+    description: '{{ doc("rpt_cpg_monthly_royalty") }}'
+    columns:
+        - name: source
+          description: Indicates the sources like radial,clientbase etc
+        - name: currency_type
+          description: Indicates currency type
+        - name: report_month
+          description: Reporting month
+        - name: month
+          description: Indicates month name
+        - name: year          
+          description: Indicates year
+        - name: quarter          
+          description: indicates Quarter number
+        - name: item_id          
+          description: item id for item from reference system (JDE)
+        - name: item_description          
+          description: Description of the item from reference system (JDE)
+        - name: royalty_code          
+          description: Name of royalty for item from reference system (JDE). Eg. WWF011051, WWE999999
+        - name: shipped_quantity
+          description: Indicates shipped quantity
+        - name: shipped_sales          
+          description: Indicates shipped sales
+        - name: returned_quantity          
+          description: Indicates returned quantity
+        - name: returned_sales          
+          description: Indicates returned sales
+        - name: refunded_quantity          
+          description: Indicates refunded quantity
+        - name: refunded_sales          
+          description: Indicates refunded sales
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_monthly_royalty
+    description: '{{ doc("vw_rpt_cpg_monthly_royalty") }}'
+    columns:
+        - name: source
+          description: Indicates the sources like radial,clientbase etc
+        - name: currency_type
+          description: Indicates currency type
+        - name: report_month
+          description: Reporting month
+        - name: month
+          description: Indicates month name
+        - name: year          
+          description: Indicates year
+        - name: quarter          
+          description: indicates Quarter number
+        - name: item_id          
+          description: item id for item from reference system (JDE)
+        - name: item_description          
+          description: Description of the item from reference system (JDE)
+        - name: royalty_code          
+          description: Name of royalty for item from reference system (JDE). Eg. WWF011051, WWE999999
+        - name: shipped_quantity
+          description: Indicates shipped quantity
+        - name: shipped_sales          
+          description: Indicates shipped sales
+        - name: returned_quantity          
+          description: Indicates returned quantity
+        - name: returned_sales          
+          description: Indicates returned sales
+        - name: refunded_quantity          
+          description: Indicates refunded quantity
+        - name: refunded_sales          
+          description: Indicates refunded sales
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: aggr_cpg_daily_shops_sessions
+    description: '{{ doc("aggr_cpg_daily_shops_sessions") }}'
+    columns:
+        - name: date
+          description: Processing Date
+        - name: property
+          description: Shop name
+          tests:
+            -  not_null
+        - name: Channel
+          description: Channel name
+          tests:
+            -  not_null
+        - name: sessions
+          description: Session count
+        - name: Transactions
+          description: Transaction count
+        - name: Revenue
+          description: Total Revenue in USD
+        - name: etl_batch_id
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_monthly_shops_sessions
+    description: '{{ doc("vw_rpt_cpg_monthly_shops_sessions") }}'
+    columns:
+        - name: month_date
+          description: First date of month of report
+        - name: property
+          description: Shop name
+          tests:
+            -  not_null
+        - name: Channel
+          description: Channel name
+          tests:
+            -  not_null
+        - name: Sessions
+          description: Total Session count
+        - name: Conversion
+          description: Conversion Ratio
+        - name: AOV
+          description: Average Order Value
+
+  - name: vw_rpt_cpg_weekly_shops_sessions
+    description: '{{ doc("vw_rpt_cpg_weekly_shops_sessions") }}'
+    columns:
+        - name: week_date
+          description: First date of week of report
+        - name: property
+          description: Shop name
+          tests:
+            -  not_null
+        - name: Channel
+          description: Channel name
+          tests:
+            -  not_null
+        - name: Sessions
+          description: Total Session count
+        - name: Conversion
+          description: Conversion Ratio
+        - name: AOV
+          description: Average Order Value
