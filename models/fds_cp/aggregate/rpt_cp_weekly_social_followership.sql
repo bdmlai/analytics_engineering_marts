@@ -14,7 +14,8 @@
 {{
   config({
 		'schema': 'fds_cp',
-		"materialized": 'incremental','tags': "Content"
+		"materialized": 'incremental','tags': "Content",
+		"pre-hook": "delete from fds_cp.rpt_cp_weekly_social_followership where as_on_date =  date_trunc('week',current_date-7) + interval '4 days'"
   })
 }}
 
