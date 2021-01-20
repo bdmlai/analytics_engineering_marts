@@ -1,0 +1,8 @@
+delete from fds_cp.aggr_cp_weekly_consumption_by_platform 
+using dt_prod_support.aggr_cp_weekly_consumption_by_platform_dups_removal 
+where 
+aggr_cp_weekly_consumption_by_platform.platform=aggr_cp_weekly_consumption_by_platform_dups_removal.platform
+and trunc(aggr_cp_weekly_consumption_by_platform.monday_date)=trunc(aggr_cp_weekly_consumption_by_platform_dups_removal.monday_date);
+
+insert into fds_cp.aggr_cp_weekly_consumption_by_platform
+select * from dt_prod_suppport.aggr_cp_weekly_consumption_by_platform_dups_removal;
