@@ -16,7 +16,6 @@
 * Date : 06/12/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
 * Date : 09/21/2020 ; Developer: Remya K Nair   ; Change: Added columns program_telecast_rpt_starttime,program_telecast_rpt_endtime as a part of Phase 4b Project.
  
-
 {% enddocs %}
 
 
@@ -1787,9 +1786,57 @@
 * Schema	  : fds_nplus
 * Contributor : Remya K Nair
 * Description : View consists of subscriber adds and loss based on payment methods/order type ,registered users,subscriptions based on payment method etc.
-
 ## Maintenance Log
 * Date : 01/12/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  N/W 2.0 project.
+{% enddocs %}
+
+
+{% docs aggr_cpg_daily_shops_sessions %}
+
+## Implementation Detail
+* Date        : 1/12/2021
+* Version     : 1.0
+* TableName   : aggr_cpg_daily_shops_sessions
+* Schema	  : fds_cpg
+* Contributor : Shihab, Dhanesh
+* Description : WWE Shops Daily Sessions Transaction and Revenue Summary
+
+## Schedule Details
+* Frequency : Daily ; 10:00 A.M EST
+* Dependent Jobs (process_name ; process_id) : dbt_aggr_cpg_daily_shops_sessions ; 30601 
+
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
+{% enddocs %}
+
+
+{% docs vw_rpt_cpg_monthly_shops_sessions %}
+
+## Implementation Detail
+* Date        : 1/12/2021
+* Version     : 1.0
+* TableName   : vw_rpt_cpg_monthly_shops_sessions
+* Schema	  : fds_cpg
+* Contributor : Shihab, Dhanesh
+* Description : WWE Shops Sessions - Monthly Conversions and AOV Summary 
+
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
+{% enddocs %}
+
+
+{% docs vw_rpt_cpg_weekly_shops_sessions %}
+
+### Implementation Detail
+* Date        : 1/12/2021
+* Version     : 1.0
+* TableName   : vw_rpt_cpg_weekly_shops_sessions
+* Schema	  : fds_cpg
+* Contributor : Shihab, Dhanesh
+* Description : WWE Shops Sessions - Weekly Conversions and AOV Summary 
+
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
 {% enddocs %}
 
 {% docs rpt_tv_weekly_consolidated_kpi %}
@@ -1802,4 +1849,64 @@
 * Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
 ## Maintenance Log
 * Date : 1/12/2021 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+{% enddocs %}
+
+{% docs rpt_yt_daily_wwe_talent_views_pastyear %}
+## Implementation Detail
+* Date        : 01/15/2021
+* Version     : 1.0
+* TableName    : rpt_yt_daily_wwe_talent_views_pastyear
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : Report table consists of total views,views for 30 days from uploaded date,video count for individual talents against country for previous year
+## Maintenance Log
+* Date : 01/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs rpt_yt_daily_wwe_talent_views_pastquarter %}
+## Implementation Detail
+* Date        : 01/15/2021
+* Version     : 1.0
+* TableName    : rpt_yt_daily_wwe_talent_views_pastquarter
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : Report table consists of total views,views for 30 days from uploaded date,video count for individual talents against country for previous quarter
+## Maintenance Log
+* Date : 01/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs rpt_yt_daily_wwe_talent_views_halfyear %}
+## Implementation Detail
+* Date        : 01/15/2021
+* Version     : 1.0
+* TableName    : rpt_yt_daily_wwe_talent_views_halfyear
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : Report table consists of total views,views for 30 days from uploaded date,video count for individual talents against country for past six months
+## Maintenance Log
+* Date : 01/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs rpt_yt_daily_wwe_talent_views_since_upload %}
+## Implementation Detail
+* Date        : 01/15/2021
+* Version     : 1.0
+* TableName    : rpt_yt_daily_wwe_talent_views_since_upload
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : Report table consists of total views,views for 30 days from uploaded date,video count for individual talents against country since upload
+## Maintenance Log
+* Date : 01/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+{% docs vw_rpt_yt_daily_wwe_talent_views_indices %}
+## Implementation Detail
+* Date        : 01/15/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_yt_daily_wwe_talent_views_indices
+* Schema	  : fds_yt
+* Contributor : Remya K Nair
+* Description : View consists of total views,views for 30 days from uploaded date,video count based on granularity,unique index and popularity index based on total_views and views_30days for individual talents against country on granularity basis                        
+## Maintenance Log
+* Date : 01/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
 {% enddocs %}

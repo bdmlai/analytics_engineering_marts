@@ -8,7 +8,12 @@
 
 select region_code, talent, 'half year' as granularity,
 sum(ttl_views) as total_views, sum(views_30days) as views_30days, 
-count(distinct video_id) as cnt_video_id
+count(distinct video_id) as cnt_video_id,
+'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
+ 'bi_dbt_user_prd' as etl_insert_user_id, 
+current_timestamp as etl_insert_rec_dttm, 
+null as etl_update_user_id, cast(null as timestamp) as etl_update_rec_dttm
+
 from {{ref('intm_yt_daily_wwe_talent_halfyear')}}
 group by 1,2,3
 order by 1 desc, 2,3 asc  
