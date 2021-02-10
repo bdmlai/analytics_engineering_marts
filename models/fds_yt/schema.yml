@@ -120,6 +120,8 @@ models:
     columns:
         - name: region_code
           description: Country Code
+        - name: region_name
+          description: Country Name
         - name: talent
           description: List of Talents
         - name: granularity
@@ -135,6 +137,8 @@ models:
     columns:
         - name: region_code
           description: Country Code
+        - name: region_name
+          description: Country Name
         - name: talent
           description: List of Talents
         - name: granularity
@@ -150,6 +154,8 @@ models:
     columns:
         - name: region_code
           description: Country Code
+        - name: region_name
+          description: Country Name
         - name: talent
           description: List of Talents
         - name: granularity
@@ -165,6 +171,8 @@ models:
     columns:
         - name: region_code
           description: Country Code
+        - name: region_name
+          description: Country Name
         - name: talent
           description: List of Talents
         - name: granularity
@@ -180,6 +188,8 @@ models:
     columns:
         - name: region_code
           description: Country Code
+        - name: region_name
+          description: Country Name
         - name: talent
           description: List of Talents
         - name: granularity

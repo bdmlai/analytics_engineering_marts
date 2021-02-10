@@ -16,6 +16,7 @@ sources:
       - name: rpt_nl_weekly_channel_switch
       - name: fact_nl_weekly_overlap_4_way_oob
       - name: rpt_nl_weekly_overlap_derived_4_way_oob
+      - name: rpt_nl_daily_minxmin_lite_log_ratings
   - name: cdm
     tables:
       - name: dim_date
@@ -26,6 +27,7 @@ sources:
       - name: dim_platform
       - name: dim_smprovider_account
       - name: dim_country
+      - name: dim_venue
   - name: fds_yt
     tables:
        - name: rpt_yt_wwe_engagement_daily
@@ -154,6 +156,10 @@ sources:
   - name: fds_le
     tables:
       - name: brdg_live_event_venue
+      - name: fact_combined_ticket_sale
+      - name: fact_ticket_self_reported
+
+
   - name: udl_cpg
     tables:
       - name: jde_daily_user_defined_codes_f0005
@@ -217,3 +223,39 @@ sources:
   - name: hive_udl_nl
     tables:
       - name: nielsen_finance_yearly_calendar
+  - name: udl_cp
+    tables:
+      - name: raw_storyline_daily_nielsen_social_litelog
+      
+  - name: sf_fds_nl
+    database: prod_entdwdb
+    schema: fds_nl
+    tables:
+      - name: fact_nl_monthly_local_market
+      
+  - name: sf_udl_nl
+    database: prod_entdwdb
+    schema: udl_nl
+    tables:
+      - name: nielsen_mapping_ziptodma
+
+  - name: sf_cdm
+    database: dev_entdwdb
+    schema: cdm
+    tables:
+      - name: lookup_table
+
+  - name: sf_public
+    database: starschema_aws_us_east_va_covid19_by_starschema_dm
+    schema: public
+    tables:
+      - name: kff_us_state_mitigations
+      - name: nyt_us_covid19
+      - name: demographics
+      - name: goog_global_mobility_report
+      
+  - name: sf_udl_cp
+    database: prod_entdwdb
+    schema: udl_cp
+    tables:
+      - name: le_weekly_us_unemployment_claims_details

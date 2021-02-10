@@ -9,7 +9,8 @@
 SELECT
     date,
     property ,
-    Channel ,
+    channel_grouping ,
+    trafficsource_source ,
     COUNT(DISTINCT CONCAT(visit_id_calc, total_visits)) AS sessions,
     SUM(total_transactions) AS Transactions,
     SUM(total_totalTransactionRevenue)/1000000.0 AS Revenue,
@@ -19,12 +20,14 @@ SELECT
     null as etl_update_user_id,
     cast(null as timestamp) as etl_update_rec_dttm
 FROM
-    {{ref('intm_cpg_daily_shops_sessions')}}
+    {{ ref('intm_cpg_daily_shops_sessions') }}
 GROUP BY
     date ,
     property,
-    Channel
+    channel_grouping ,
+    trafficsource_source
 ORDER BY
     date,
     property,
-    Channel
+    channel_grouping ,
+    trafficsource_source
