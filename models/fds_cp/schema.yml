@@ -788,4 +788,93 @@ models:
         - name: prev_month_followers
           description: followers for previous month for all platforms
 
-          
+  - name: aggr_cp_daily_storyline_ui_data
+    description: '{{ doc("aggr_cp_daily_storyline_ui_data") }}'
+    columns:
+        - name: show_date
+          description: The date on when the show aired
+        - name: show_name
+          description: represents the show name like Raw,Smackdown etc
+        - name: story
+          description: indicates the storyline
+        - name: talent
+          description: indicates the talent involved in the storyline
+        - name: comments
+          description: indicates the comments for the storyline
+        - name: appeared
+          description: indicates the inpoint and outpoint est time related to the storyline
+        - name: average_viewers_p18_49
+          description: Indicates  average viewers for  src_demographic_group in Persons 18 - 49
+        - name: avg_p2_plus_viewership
+          description: Indicates average viewers for p2-plus demographic group
+        - name: agg_nielsen_tw_interactions
+          description: Indicates average nielsen twitter interactions
+        - name: tw_interactions_Ranking
+          description: indicates Twitter interactions ranking based on each storyline
+
+
+  - name: vw_aggr_cp_daily_storyline_ui_data
+    description: '{{ doc("vw_aggr_cp_daily_storyline_ui_data") }}'
+    columns:
+        - name: show_date
+          description: The date on when the show aired
+        - name: show_name
+          description: represents the show name like Raw,Smackdown etc
+        - name: story
+          description: indicates the storyline
+        - name: talent
+          description: indicates the talent involved in the storyline
+        - name: comments
+          description: indicates the comments for the storyline
+        - name: appeared
+          description: indicates the inpoint and outpoint est time related to the storyline
+        - name: average_viewers_p18_49
+          description: Indicates  average viewers for  src_demographic_group in Persons 18 - 49
+        - name: avg_p2_plus_viewership
+          description: Indicates average viewers for p2-plus demographic group
+        - name: agg_nielsen_tw_interactions
+          description: Indicates average nielsen twitter interactions
+        - name: tw_interactions_Ranking
+          description: indicates Twitter interactions ranking based on each storyline
+  - name: rpt_cp_monthly_talent_ranking
+    description: '{{ doc("rpt_cp_monthly_talent_ranking") }}'
+    columns:
+        - name: month
+          description: represents the start of the month
+        - name: metric
+          description: represents the metric name 
+        - name: platform
+          description: stores the name of platform
+        - name: talent
+          description: gives the talent name
+        - name: value
+          description: gives the value for the corresponding metric
+        - name: brand
+          description: gives the latest brand for the respective talent
+        - name: designation
+          description: gives the latest designation for the respective talent
+        - name: gender
+          description: stores the gender of the talent
+        - name: status
+          description: Stores status as active if the brand is active in last month. Else inactive      
+  - name: vw_rpt_cp_monthly_talent_ranking
+    description: '{{ doc("vw_rpt_cp_monthly_talent_ranking") }}'
+    columns:
+        - name: month
+          description: represents the start of the month
+        - name: metric
+          description: represents the metric name 
+        - name: platform
+          description: stores the name of platform
+        - name: talent
+          description: gives the talent name
+        - name: value
+          description: gives the value for the corresponding metric
+        - name: brand
+          description: gives the latest brand for the respective talent
+        - name: designation
+          description: gives the latest designation for the respective talent
+        - name: gender
+          description: stores the gender of the talent
+        - name: status
+          description: Stores status as active if the brand is active in last month. Else inactive
