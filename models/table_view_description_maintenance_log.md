@@ -1809,6 +1809,20 @@
 * Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
 {% enddocs %}
 
+{% docs vw_rpt_cpg_daily_shops_sessions %}
+
+## Implementation Detail
+* Date        : 1/12/2021
+* Version     : 1.0
+* TableName   : vw_rpt_cpg_daily_shops_sessions
+* Schema	  : fds_cpg
+* Contributor : Shihab, Dhanesh
+* Description : WWE Shops Daily Sessions Transaction and Revenue Summary
+
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Shihab, Dhanesh ; Change: Initial Version as a part of Phase 5b Project. 
+{% enddocs %}
+
 
 {% docs vw_rpt_cpg_monthly_shops_sessions %}
 
@@ -1909,4 +1923,254 @@
 * Description : View consists of total views,views for 30 days from uploaded date,video count based on granularity,unique index and popularity index based on total_views and views_30days for individual talents against country on granularity basis                        
 ## Maintenance Log
 * Date : 01/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of  YT viewership by Talent by Country.
+{% enddocs %}
+
+
+{% docs rpt_nplus_viewership_cluster %}
+
+## Implementation Detail
+*   Date        : 2020-12-02
+*   Version     : 1.0
+*   Contributor : Audrey Lee, Jess Williams
+*   Description : This customer segmentation model is based on WWE Network viewership and subscription data. At this time, only data of tier 3 subs is included. This table is at model/user/as_on_date level.It shows the segmentation based on network consumption behavior of each subscriber.
+*   Schema      : fds_nplus
+*   Data growth rate : The final output table will increase by about 20M rows per month
+*   Access needs: Content Analytics Team
+
+## Schedule Detail
+* Frequency : Monthly. This model should be updated at the beginning of each month after all the dependencies are updated with complete prior month's data. Can be scheduled on 2nd or 3rd of each month.
+* Dependencies: fds_nplus.fact_daily_subscription_status_plus, cdm.dim_content_classification_title,fds_nplus.aggr_daily_postshow_rankings, fds_nplus.fact_daily_content_viewership
+
+## Instruction on How to Run the Model
+* Step 1: update as_on_date in dbt_project.yml. By default, if the variable is left blank, it will be set to the end of prior month
+* Step 2: dbt run --models tag:'viewership'
+
+## Maintenance Log
+* Date : 12/10/2020 ; Developer: Audrey Lee ; Change: Initial Version ; Development ticket: PSTA-1606
+
+{% enddocs %}
+
+{% docs vw_rpt_nplus_viewership_cluster %}
+
+## Implementation Detail
+*   Date        : 2020-12-02
+*   Version     : 1.0
+*   Contributor : Audrey Lee, Jess Williams
+*   Description : This customer segmentation model is based on WWE Network viewership and subscription data. At this time, only data of tier 3 subs is included. This table is at model/user/as_on_date level.It shows the segmentation based on network consumption behavior of each subscriber.
+*   Schema      : fds_nplus
+*   Data growth rate : The final output table will increase by about 20M rows per month
+*   Access needs: Content Analytics Team
+
+## Schedule Detail
+* Frequency : Monthly. This model should be updated at the beginning of each month after all the dependencies are updated with complete prior month's data. Can be scheduled on 2nd or 3rd of each month.
+* Dependencies: fds_nplus.fact_daily_subscription_status_plus, cdm.dim_content_classification_title,fds_nplus.aggr_daily_postshow_rankings, fds_nplus.fact_daily_content_viewership
+
+## Instruction on How to Run the Model
+* Step 1: update as_on_date in dbt_project.yml. By default, if the variable is left blank, it will be set to the end of prior month
+* Step 2: dbt run --models tag:'viewership'
+
+## Maintenance Log
+* Date : 12/10/2020 ; Developer: Audrey Lee ; Change: Initial Version ; Development ticket: PSTA-1606
+
+{% enddocs %}
+
+{% docs aggr_cp_daily_storyline_ui_data %}
+## Implementation Detail
+* Date        : 01/29/2021
+* Version     : 1.0
+* TableName    : aggr_cp_daily_storyline_ui_data
+* Schema	  : fds_cp
+* Contributor : Hima Dasan
+* Description : Aggregation based on story,show and date level.This data used to issue weekly storyline report after shows and support adhoc/forcasting analysis on storyline level .
+## Maintenance Log
+* Date : 01/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Storyline UI Data 
+{% enddocs %}
+
+
+{% docs vw_aggr_cp_daily_storyline_ui_data %}
+## Implementation Detail
+* Date        : 01/29/2021
+* Version     : 1.0
+* ViewName   : vw_aggr_cp_daily_storyline_ui_data
+* Schema	  : fds_cp
+* Contributor : Hima Dasan
+* Description : Aggregation based on story,show and date level.This data used to issue weekly storyline report after shows and support adhoc/forcasting analysis on storyline level .
+## Maintenance Log
+* Date : 01/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Storyline UI Data 
+{% enddocs %}
+
+{% docs rpt_le_monthly_local_county_ratings %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   TableName   : rpt_le_monthly_local_county_ratings
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : Local County Ratings Monthly Report Table consist of Nielsen rating details of RAW and SMACKDOWN referencing from Local Market Monthly fact table on monthly-basis
+
+## Schedule Details
+* Frequency : Monthly ; 1st day of every month at 12:30 A.M EST
+* Dependent Jobs (process_name ; process_id) : t_di_nielsen_fact_nl_monthly_local_market_abac ; 12131 (monthly)
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+{% docs vw_rpt_le_monthly_local_county_ratings %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_monthly_local_county_ratings
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : Local County Ratings Monthly Report View consist of Nielsen rating details of RAW and SMACKDOWN referencing from Local County Ratings Monthly Report Table
+
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+{% docs rpt_le_daily_kff_state_regulation %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   TableName   : rpt_le_daily_kff_state_regulation
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : KFF State Regulation Daily Report Table consist of COVID Regulations per state referencing from KFF US State Mitigation table on daily-basis
+
+## Schedule Details
+* Frequency : Daily at 04:00 A.M EST
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+{% docs vw_rpt_le_daily_kff_state_regulation %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_daily_kff_state_regulation
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : KFF State Regulation Daily Report View consist of COVID Regulations per state referencing from KFF State Regulation Daily Report Table
+
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+{% docs rpt_le_daily_routing_county_data %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   TableName   : rpt_le_daily_routing_county_data
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : LE Routing County Data Report Table consist of COVID-related details per county in USA on daily-basis
+
+## Schedule Details
+* Frequency : Daily at 04:00 A.M EST
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+{% docs vw_rpt_le_daily_routing_county_data %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_daily_routing_county_data
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : LE Routing County Data Report View consist of COVID-related details per county in USA on daily-basis
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+{% docs rpt_le_daily_routing_state_data %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   TableName   : rpt_le_daily_routing_state_data
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : LE Routing State Data Report Table consist of COVID-related details per state in USA on daily-basis
+
+## Schedule Details
+* Frequency : Daily at 04:00 A.M EST
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+{% docs vw_rpt_le_daily_routing_state_data %}
+## Implementation Detail
+*   Date        : 02/03/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_daily_routing_state_data
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : LE Routing State Data Report View consist of COVID-related details per state in USA on daily-basis
+
+## Maintenance Log
+* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+{% enddocs %}
+
+
+{% docs rpt_le_daily_advances_ticket %}
+## Implementation Detail
+*   Date        : 02/09/2021
+*   Version     : 1.0
+*   TableName    : rpt_le_daily_advances_ticket
+*   Schema	    : fds_le
+*   Contributor : Hima Dasan
+*   Description : LE Routing Advanced ticket report table consist of domestic and international advance live event details on daily-basis
+
+## Maintenance Log
+* Date : 02/09/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 5a LE advance ticket report project
+{% enddocs %}
+
+{% docs vw_rpt_le_daily_advances_ticket %}
+## Implementation Detail
+*   Date        : 02/09/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_daily_advances_ticket
+*   Schema	    : fds_le
+*   Contributor : Hima Dasan
+*   Description : LE Routing Advanced ticket report view consist of domestic and international advance live event details on daily-basis
+
+## Maintenance Log
+* Date : 02/09/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 5a LE advance ticket report project
+{% enddocs %}
+
+
+
+{% docs rpt_cp_monthly_talent_ranking %}
+## Implementation Detail
+*   Date        : 02/09/2021
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_talent_ranking
+*   Schema	    : fds_cp
+*   Contributor : Sandeep Battula
+*   Description : Monthly Talent Ranking reporting table consists of social consumption, engagemenet, followership data and also merchandise sales data for the talents. Social metrics are fetched for platforms- Youtube Facebook, Instagram and Twitter. It also has corresponding brand, designation and gender details
+
+## Maintenance Log
+* Date : 02/09/2021 ; Developer: Sandeep Battula ; Change: Initial Version as a part of Talent ranking report
+{% enddocs %}
+
+
+{% docs vw_rpt_cp_monthly_talent_ranking %}
+## Implementation Detail
+*   Date        : 02/09/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_cp_monthly_talent_ranking
+*   Schema	    : fds_cp
+*   Contributor : Sandeep Battula
+*   Description : Monthly Talent Ranking reporting table consists of social consumption, engagemenet, followership data and also merchandise sales data for the talents. Social metrics are fetched for platforms- Youtube Facebook, Instagram and Twitter. It also has corresponding brand, designation and gender details
+
+
+## Maintenance Log
+* Date : 02/09/2021 ; Developer: Sandeep Battula ; Change: Initial Version as a part of Talent ranking report
 {% enddocs %}
