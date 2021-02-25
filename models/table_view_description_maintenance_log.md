@@ -58,7 +58,8 @@
 * Date : 07/21/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
 * Date : 8/06/2020  ; Developer: Remya K Nair ; Enhancements program_rating report table -Exclude all the repeats while calculating the live viewership - TAB-2106 
 * Date : 8/14/2020  ; Developer: Remya K Nair ; Enhancements program_rating report table - TAB-2105 
-* Date : 12/07/2020 ; Developer: Remya K Nair ; Enhancement Added 11 columns to program_rating report table - PSTA-1349 
+* Date : 12/07/2020 ; Developer: Remya K Nair ; Enhancement Added 11 columns to program_rating report table - PSTA-1349
+* Date : 02/11/2021 ; Developer: Rahul Chandran ; Removed 'telecast_trackage_name' column as its affecting the roll-up of RAW Programs on a day as per the Enhancement request: PSTA-2478
 {% enddocs %}
 
 

@@ -1,6 +1,6 @@
 {{
     config({
-	"materialized": 'ephemeral',
+	"materialized": 'table',
 	"schema" :'fds_cp'
  })
 }}

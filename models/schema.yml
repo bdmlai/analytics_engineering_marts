@@ -8,6 +8,7 @@ sources:
       - name: dim_nl_series
       - name: dim_nl_broadcast_network
       - name: dim_nl_daypart
+      - name: dim_nl_episode
       - name: fact_nl_timeperiod_viewership_ratings
       - name: fact_nl_weekly_overlap_chart
       - name: fact_nl_weekly_hulu_data
