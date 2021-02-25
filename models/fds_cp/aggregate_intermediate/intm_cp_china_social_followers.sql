@@ -28,9 +28,6 @@ b.cal_year as year,b.cal_mth_num as month
  a.start_date=c.max_Start_date and
  month= c.month and
  year=c.year
- where b.cal_year_mth_num > (select nvl(max (convert(varchar,year)|| case when len(month)=1 then '0'||convert(varchar,month) 
-else convert(varchar,month) end),'190001')
- from fds_cp.rpt_cp_monthly_global_followership_by_platform where platform ='China_social')
  
 
  

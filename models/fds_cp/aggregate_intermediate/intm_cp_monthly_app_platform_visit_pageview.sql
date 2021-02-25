@@ -16,7 +16,7 @@ select trunc(date_trunc('month',date)) as month,
    'NA' as page,
    metric_value as value, 'APP' as platform from {{source('fds_da','dm_digital_kpi_datamart_monthly_topline')}}
    where property = 'WWE App'  and geonetwork_us_v_international='Global' 
-   and device_type='All' and geonetwork_region='All'
+   and device_type='All' and geonetwork_gm_region_wwe_ref ='All'
    and (metric_name='Visits' or lower(metric_name) = 'lifetime downloads' 
          or metric_name='Page Views'
          or metric_name='Total Unique Visitors')

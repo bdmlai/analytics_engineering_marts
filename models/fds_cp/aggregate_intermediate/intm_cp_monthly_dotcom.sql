@@ -21,7 +21,8 @@ sum(case when metric_name= 'Page Views' then metric_value else 0 end) as page_vi
 sum(case when metric_name= 'Video Views' then metric_value else 0 end) as video_views
 from {{source('fds_da','dm_digital_kpi_datamart_monthly_topline')}}
 where (property='WWE.com' ) 
-and geonetwork_country <>'All' and geonetwork_region='All' and device_type='All' and geonetwork_us_v_international='Global'
+and geonetwork_country <>'All' and geonetwork_gm_region_wwe_ref='All' AND geonetwork_super_region_wwe_ref='All'
+and device_type='All' and geonetwork_us_v_international='Global'
 and date<(select date_trunc('month',max(date)) from {{source('fds_da','dm_digital_kpi_datamart_monthly_topline')}})  group by 1,2,3
 ) a 
  full outer join
