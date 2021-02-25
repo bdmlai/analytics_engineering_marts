@@ -4,9 +4,9 @@
   })
 }}
 
-
 select a.region_code, b.talent, a.granularity
 ,round(cast(COALESCE(b.total_views/nullif(a.sum_views,0) ,0)*100 as float),3) as normal_views
+
 from 
 (select region_code, granularity
 ,cast(sum(total_views) as float) as sum_views 

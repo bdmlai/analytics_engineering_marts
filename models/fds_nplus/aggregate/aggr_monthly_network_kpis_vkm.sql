@@ -21,13 +21,15 @@ to_date((cast(year as char(4)) + '-' + cast(month as char(2)) + '-01'),'yyyy-mm-
 sum(nvl(paid_winbacks,0)+nvl(paid_new_with_trial,0)) as paid_winbacks,
 sum(nvl(paid_new_adds,0)-nvl(paid_new_with_trial,0)) as new_paid,sum(trial_adds) as free_trial_subs,
 sum(nvl(paid_losses_actual,0))+sum(nvl(total_trial_loss,0)) as losses 
-from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}}
-where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}})  
+from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}} 
+where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}})
 and payment_method in ('mlbam','apple','roku')
 and official_run_flag='official' 
 and extract(year from (dateadd(month,-1,current_date))) =year
-and extract(month from current_date)-1=month
+and extract(month from (dateadd(month,-1,current_date))) =month
+--and extract(month from current_date)-1=month
 group by 1,2) a
+
 
 left join
 
@@ -46,13 +48,13 @@ from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}} where forecast_
 and payment_method in ('roku')
 and official_run_flag='official' 
 and extract(year from (dateadd(month,-2,current_date))) =year
-and extract(month from current_date)-2=month ) c
+and extract(month from (dateadd(month,-2,current_date)))=month ) c
 on 1=1
 where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}}) 
 and payment_method in ('mlbam','apple','roku')
 and official_run_flag='official' 
 and extract(year from (dateadd(month,-1,current_date))) =year
-and extract(month from current_date)-1=month
+and extract(month from (dateadd(month,-1,current_date))) = month
 group by 1,2 
 ) b
 on a.bill_date = b.bill_date
@@ -72,7 +74,7 @@ on 1=1
 where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}}) 
 and official_run_flag='official' 
 and extract(year from (dateadd(month,-1,current_date))) =year
-and extract(month from current_date)-1=month
+and extract(month from (dateadd(month,-1,current_date))) = month
 group by 1,2
 )c
 on a.bill_date = c.bill_date
@@ -93,7 +95,7 @@ where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_n
 and payment_method in ('mlbam','apple','roku')
 and official_run_flag='official' 
 and extract(year from dateadd(year,-1,(dateadd(month,-1,current_date)))) =year
-and extract(month from current_date)-1=month
+and extract(month from (dateadd(month,-1,current_date))) = month
 group by 1,2
 ) d
 on a.bill_date = d.bill_date
@@ -120,13 +122,13 @@ from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}} where forecast_
 and payment_method in ('roku')
 and official_run_flag='official' 
 and extract(year from dateadd(year,-1,(dateadd(month,-1,current_date)))) =year
-and extract(month from current_date)-2=month) c
+and extract(month from (dateadd(month,-2,current_date))) = month) c
 on 1=1
 where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}}) 
 and payment_method in ('mlbam','apple','roku')
 and official_run_flag='official' 
 and extract(year from dateadd(year,-1,(dateadd(month,-1,current_date)))) =year
-and extract(month from current_date)-1=month
+and extract(month from (dateadd(month,-1,current_date))) = month
 group by 1,2
 ) e
 on a.bill_date = e.bill_date
@@ -143,13 +145,13 @@ left join (select sum(trial_active) as trial_active from (select sum(total_trial
 where as_on_date=date_trunc('month',dateadd(year,-1,current_date)) and payment_method<>'roku_iap'
 and as_on_date>'2019-12-14'
 union all
-select sum(total_trial_active_cnt)-sum(total_iap_trial_active_cnt) trial_active from {{source('fds_nplus','aggr_kpi_hist')}}
+select sum(total_trial_active_cnt)-sum(total_iap_trial_active_cnt) trial_active from fds_nplus.aggr_kpi_hist
 where as_on_date= date_trunc('month',dateadd(year,-1,current_date)) and as_on_Date<='2019-12-14')) b
 on 1=1 
 where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}}) 
 and official_run_flag='official' 
 and extract(year from dateadd(year,-1,(dateadd(month,-1,current_date)))) =year
-and extract(month from current_date)-1=month
+and extract(month from (dateadd(month,-1,current_date))) = month
 group by 1,2
 ) f
 on a.bill_date = f.bill_date
@@ -171,7 +173,7 @@ where forecast_date=date_trunc('month',(dateadd(month,-1,current_date)))
 and payment_method in ('mlbam','apple','roku')
 and official_run_flag='official' 
 and extract(year from (dateadd(month,-1,current_date))) =year
-and extract(month from current_date)-1=month
+and extract(month from (dateadd(month,-1,current_date))) = month
 group by 1,2
 ) g
 on a.bill_date = g.bill_date
@@ -186,8 +188,8 @@ sum(avg_daily_paid_subs) as adp_f
 from {{source('fds_nplus','aggr_nplus_monthly_forcast_output')}}  
 where forecast_date=date_trunc('month',(dateadd(month,-1,current_date)))
 and official_run_flag='official' 
-and extract(year from (dateadd(month,-1,current_date))) =year
-and extract(month from current_date)-1=month
+and extract(year from (dateadd(month,-1,current_date))) = year
+and extract(month from (dateadd(month,-1,current_date))) = month
 group by 1,2
 ) h
 on a.bill_date = h.bill_date
@@ -230,7 +232,7 @@ and program_type_cd='All'
 and subs_tier='95'
 and initial_signup_year = '2099'
 and extract(year from dateadd(year,-1,(dateadd(month,-1,current_date)))) = extract(year from mnth_start_dt)
-and extract(month from current_date)-1=extract(month from mnth_start_dt)
+and extract(month from (dateadd(month,-1,current_date))) = extract(month from mnth_start_dt)
 ) k
 on a.bill_date = k.bill_date
 
@@ -244,7 +246,7 @@ and program_type_cd='All'
 and subs_tier='95'
 and subs_year = '2099'
 and extract(year from dateadd(year,-1,(dateadd(month,-1,current_date)))) = extract(year from mnth_start_dt)
-and extract(month from current_date)-1=extract(month from mnth_start_dt)
+and extract(month from (dateadd(month,-1,current_date))) = extract(month from mnth_start_dt)
 ) l
 on a.bill_date = l.bill_date
 )

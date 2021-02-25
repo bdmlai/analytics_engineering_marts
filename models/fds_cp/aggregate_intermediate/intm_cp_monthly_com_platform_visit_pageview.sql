@@ -15,7 +15,7 @@ select trunc(date_trunc('month',date)) as month,
    'NA' as page,
    metric_value as value, '.COM' as platform from {{source('fds_da','dm_digital_kpi_datamart_monthly_topline')}}
       where property = 'WWE.com'
-    and geonetwork_us_v_international='Global' and device_type='All' and geonetwork_region='All'
+    and geonetwork_us_v_international='Global' and device_type='All' and geonetwork_gm_region_wwe_ref='All'
    and (metric_name='Visits'
          or metric_name='Page Views'
          or metric_name='Total Unique Visitors')

@@ -115,56 +115,105 @@ models:
           description: views by 55 to 64
         - name: age_65_and_above
           description: views by 65 and above
-  - name: rpt_yt_daily_wwe_video
-    description: '{{ doc("rpt_yt_daily_wwe_video") }}'
-    columns:
-        - name: report_date
-          description: Report Date
-        - name: video_id
-          description: The ID of a YouTube video. In the YouTube Data API, this is the value of a video resources idproperty
-        - name: region_code
-          description: Country Code
-        - name: total_views
-          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
-        - name: talent
-          description: List of Talents
-  - name: rpt_yt_daily_wwe_talent
-    description: '{{ doc("rpt_yt_daily_wwe_talent") }}'
-    columns:
-        - name: report_date
-          description: Report Date
-        - name: talent
-          description: List of Talents
-        - name: video_id
-          description: The ID of a YouTube video. In the YouTube Data API, this is the value of a video resources idproperty
-        - name: region_code
-          description: Country Code
-        - name: total_views
-          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
-  - name: rpt_yt_daily_wwe_talent_views
-    description: '{{ doc("rpt_yt_daily_wwe_talent_views") }}'
-    columns:
-        - name: report_date
-          description: Report Date
-        - name: region_code
-          description: Country Code
-        - name: talent
-          description: List of Talents
-        - name: total_views
-          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
-  - name: vw_rpt_yt_daily_wwe_talent
-    description: '{{ doc("vw_rpt_yt_daily_wwe_talent") }}'
+  - name: rpt_yt_daily_wwe_talent_views_pastyear
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_pastyear") }}'
     columns:
         - name: region_code
           description: Country Code
+        - name: region_name
+          description: Country Name
         - name: talent
           description: List of Talents
         - name: granularity
           description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
         - name: total_views
           description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region for past year
+  - name: rpt_yt_daily_wwe_talent_views_pastquarter
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_pastquarter") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region for past quarter
+  - name: rpt_yt_daily_wwe_talent_views_halfyear
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_halfyear") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region for half year
+  - name: rpt_yt_daily_wwe_talent_views_since_upload
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_since_upload") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region since upload
+  - name: vw_rpt_yt_daily_wwe_talent_views_indices
+    description: '{{ doc("vw_rpt_yt_daily_wwe_talent_views_indices") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.        
         - name: video_count
-          description: Total number of videos against a particular talent and region based on granularity.
-         
+          description: Count of videos for each talents against region on granularity basis
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date
+        - name: popularity_index
+          description: popularity index for each talent against country is calculated based on  total views 
+        - name: unique_index
+          description: unique index for each talent against country is calculated based on  total views
+        - name: popularity_index_30days
+          description: popularity index for each talent against country is calculated based on  totalviews for 30 days from uploaded date
+        - name: unique_index_30days
+          description: unique index for each talent against country is calculated based on totalviews for 30 days from uploaded date
+        - name: popularity_index_totalviews_per_video
+          description: popularity index for each talent against country is calculated based on  totalviews and count of video
+        - name: unique_index_totalviews_per_video
+          description: unique index for each talent against country is calculated based on totalviews and count of video
+        - name: popularity_index_views_30days_per_video
+          description: popularity index for each talent against country is calculated based on  totalviews for 30 days from uploaded date and count of video
+        - name: unique_index_views_30days_per_video
+          description: unique index for each talent against country is calculated based on totalviews for 30 days from uploaded date and count of video
 
-        

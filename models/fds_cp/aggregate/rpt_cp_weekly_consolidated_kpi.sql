@@ -7,13 +7,15 @@
 	"--create dates for rollup
 drop table if exists #dim_dates;
 create table #dim_dates as
-select distinct cal_year, --extract('month' from cal_year_mon_week_begin_date) as cal_mth_num, 
-case when cal_year = extract('year' from cal_year_mon_week_begin_date) then extract('month' from cal_year_mon_week_begin_date)
-     when cal_year = extract('year' from cal_year_mon_week_end_date) then extract('month' from cal_year_mon_week_end_date)   
-     end as cal_mth_num,     
-case when cal_year_week_num_mon is null then 1 else cal_year_week_num_mon end as cal_year_week_num_mon,
-cal_year_mon_week_begin_date, cal_year_mon_week_end_date
-from cdm.dim_date where cal_year_mon_week_begin_date >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) and cal_year_mon_week_end_date < date_trunc('week',getdate());
+select extract('year' from cal_year_mon_week_begin_date) as cal_year, 
+       extract('month' from cal_year_mon_week_begin_date) as cal_mth_num, 
+       cal_year_mon_week_begin_date, 
+       cal_year_mon_week_end_date,
+       row_number() over(partition by extract('year' from cal_year_mon_week_begin_date) order by cal_year_mon_week_begin_date) as cal_year_week_num_mon       
+from cdm.dim_date where cal_year_mon_week_begin_date >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) 
+and cal_year_mon_week_end_date < date_trunc('week',getdate())
+group by 1,2,3,4
+order by 4;
 
 --create network weekly dataset
 drop table if exists #dp_wkly_nw;
@@ -52,7 +54,7 @@ left join
         join #dim_dates b
         on a.as_on_date = b.cal_year_mon_week_end_date+1
         where a.as_on_date >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
-        and extract('year' from a.as_on_date) = b.cal_year
+        --and extract('year' from a.as_on_date) = b.cal_year
         group by 1,2) b
         on a.monday_date=b.monday_date
 )  a
@@ -335,6 +337,8 @@ left join
 #dp_wkly b
 on (a.cal_year-1) = b.cal_year and a.cal_year_week_num_mon = b.cal_year_week_num_mon and a.platform = b.platform and a.type=b.type;
 
+
+
 --create monthly dataset
 drop table if exists #dp_mthly;
 create table #dp_mthly as
@@ -369,6 +373,33 @@ left join #dp_wkly1 b
 on a.cal_year = b.cal_year and a.cal_mth_num = b.cal_mth_num and a.cal_year_week_num_mon >= b.cal_year_week_num_mon
  and a.platform = b.platform and a.type=b.type
 group by 1,2,3,4,5,6,7,8,9,10,11,12;
+
+
+--create monthly dataset for hours per tot subs
+drop table if exists #dp_mthly1;
+create table #dp_mthly1 as
+select a.platform, a.type, a.cal_year, a.cal_mth_num, a.cal_year_week_num_mon, a.cal_year_mon_week_begin_date, a.cal_year_mon_week_end_date, 
+a.week, a.prev_cal_year, a.prev_cal_year_week_num_mon, a.prev_cal_year_mon_week_begin_date, a.prev_cal_year_mon_week_end_date,
+b.active_network_subscribers_wk as active_network_subscribers_mtd, a.hours_watched_mtd, a.hours_watched_tier2_mtd, 
+a.hours_watched_mtd/nullif(b.active_network_subscribers_wk,0) as hours_per_tot_subscriber_mtd, 
+a.views_mtd, a.ad_impressions_mtd, a.network_subscriber_adds_mtd, a.new_adds_mtd, a.new_adds_direct_t3_mtd, a.reg_prospects_t2_to_t3_mtd,
+a.winback_adds_t2_to_t3_mtd, a.lp_adds_mtd, a.new_free_version_regns_mtd, a.network_losses_mtd, 
+b.prev_active_network_subscribers_wk as prev_active_network_subscribers_mtd, a.prev_hours_watched_mtd, a.prev_hours_watched_tier2_mtd,
+a.prev_hours_watched_mtd/nullif(b.prev_active_network_subscribers_wk,0) as prev_hours_per_tot_subscriber_mtd, 
+a.prev_views_mtd, a.prev_ad_impressions_mtd, a.prev_network_subscriber_adds_mtd, a.prev_new_adds_mtd, a.prev_new_adds_direct_t3_mtd, a.prev_reg_prospects_t2_to_t3_mtd,
+a.prev_winback_adds_t2_to_t3_mtd, a.prev_lp_adds_mtd, a.prev_new_free_version_regns_mtd, a.prev_network_losses_mtd
+from #dp_mthly a
+left join #dp_wkly1 b
+on a.platform = b.platform
+and a.type = b.type
+and a.cal_year = b.cal_year
+and a.cal_mth_num = b.cal_mth_num
+and a.cal_year_week_num_mon = b.cal_year_week_num_mon
+and a.cal_year_mon_week_begin_date = b.cal_year_mon_week_begin_date
+and a.cal_year_mon_week_end_date = b.cal_year_mon_week_end_date
+and a.week = b.week
+where a.platform = 'Network' and b.platform = 'Network'
+;
 
 --create yearly dataset
 drop table if exists #dp_yrly;
@@ -546,7 +577,7 @@ union all
 select 'MTD' as granularity, platform, type, 'Hours per total Subscriber' as Metric, week, cal_year, cal_mth_num, cal_year_week_num_mon, 
 cal_year_mon_week_begin_date, cal_year_mon_week_end_date, hours_per_tot_subscriber_mtd as value,
 prev_cal_year, prev_cal_year_week_num_mon, prev_cal_year_mon_week_begin_date, prev_cal_year_mon_week_end_date, prev_hours_per_tot_subscriber_mtd as prev_year_value
-from #dp_mthly where platform = 'Network'
+from #dp_mthly1 where platform = 'Network'
 union all
 select 'MTD' as granularity, platform, type, 'Network Subscriber Adds' as Metric, week, cal_year, cal_mth_num, cal_year_week_num_mon, 
 cal_year_mon_week_begin_date, cal_year_mon_week_end_date, network_subscriber_adds_mtd as value,
@@ -792,8 +823,7 @@ and a.year = e.year
 and a.month = e.month
 and a.week = e.week
 and a.start_date = e.start_date
-and a.end_date = e.end_date;
-"]
+and a.end_date = e.end_date;"]
 	})}}
 select *,'DBT_'+TO_CHAR(convert_timezone('AMERICA/NEW_YORK', sysdate),'YYYY_MM_DD_HH_MI_SS')+'_CP' etl_batch_id, 
 'bi_dbt_user_prd' AS etl_insert_user_id,

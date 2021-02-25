@@ -972,11 +972,11 @@ models:
         - name: etl_update_rec_dttm          
           description: Date Time information on when the record was updated
 
-  - name: vw_rpt_cpg_monthly_talent_top25_shop_sales
-    description: '{{ doc("vw_rpt_cpg_monthly_talent_top25_shop_sales") }}'
+  - name: rpt_cpg_monthly_talent_top25_shop_sales
+    description: '{{ doc("rpt_cpg_monthly_talent_top25_shop_sales") }}'
     columns:
-        - name: etl_insert_rec_dttm
-          description: Date Time information on when the record got inserted
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
         - name: dim_shop_site_id
           description: ID to identify shop site details
         - name: date_key
@@ -1007,12 +1007,114 @@ models:
           description: Number of Units ordered in last month
         - name: rank_last_month
           description: Rank based on revenue in last month
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_monthly_talent_top25_shop_sales
+    description: '{{ doc("vw_rpt_cpg_monthly_talent_top25_shop_sales") }}'
+    columns:
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: date_key
+          description: The date on when product ordered
+        - name: month
+          description: The month on when product ordered
+        - name: src_order_type
+          description: Type of Order
+        - name: src_channel_name
+          description: Name of channel via product ordered
+        - name: site_name
+          description: Site Name
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_month_revenue
+          description: Revenue achieved in last month
+        - name: last_month_units
+          description: Number of Units ordered in last month
+        - name: rank_last_month
+          description: Rank based on revenue in last month
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+          
+  - name: rpt_cpg_weekly_talent_top25_shop_sales
+    description: '{{ doc("rpt_cpg_weekly_talent_top25_shop_sales") }}'
+    columns:
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
+        - name: dim_shop_site_id
+          description: ID to identify shop site details
+        - name: date_key
+          description: The date on when product ordered
+        - name: week_start
+          description: The week on when product ordered
+        - name: src_order_type
+          description: Type of Order
+        - name: src_channel_name
+          description: Name of channel via product ordered
+        - name: site_name
+          description: Site Name
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_week_revenue
+          description: Revenue achieved in last week
+        - name: last_week_units
+          description: Number of Units ordered in last week
+        - name: rank_last_week
+          description: Rank based on revenue in last week
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
 
   - name: vw_rpt_cpg_weekly_talent_top25_shop_sales
     description: '{{ doc("vw_rpt_cpg_weekly_talent_top25_shop_sales") }}'
     columns:
-        - name: etl_insert_rec_dttm
-          description: Date Time information on when the record got inserted
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
         - name: dim_shop_site_id
           description: ID to identify shop site details
         - name: date_key
@@ -1043,12 +1145,22 @@ models:
           description: Number of Units ordered in last week
         - name: rank_last_week
           description: Rank based on revenue in last week
-
-  - name: vw_rpt_cpg_monthly_talent_top25_venue_sales
-    description: '{{ doc("vw_rpt_cpg_monthly_talent_top25_venue_sales") }}'
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+          
+  - name: rpt_cpg_monthly_talent_top25_venue_sales
+    description: '{{ doc("rpt_cpg_monthly_talent_top25_venue_sales") }}'
     columns:
-        - name: etl_insert_rec_dttm
-          description: Date Time information on when the record got inserted
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
         - name: date_id
           description: The date on when product ordered
         - name: month
@@ -1071,12 +1183,60 @@ models:
           description: Number of Units ordered in last month
         - name: rank_last_month
           description: Rank based on revenue in last month
-          
-  - name: vw_rpt_cpg_weekly_talent_top25_venue_sales
-    description: '{{ doc("vw_rpt_cpg_weekly_talent_top25_venue_sales") }}'
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_monthly_talent_top25_venue_sales
+    description: '{{ doc("vw_rpt_cpg_monthly_talent_top25_venue_sales") }}'
     columns:
-        - name: etl_insert_rec_dttm
-          description: Date Time information on when the record got inserted
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
+        - name: date_id
+          description: The date on when product ordered
+        - name: month
+          description: The month on when product ordered
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_month_revenue
+          description: Revenue achieved in last month
+        - name: last_month_units
+          description: Number of Units ordered in last month
+        - name: rank_last_month
+          description: Rank based on revenue in last month
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_weekly_talent_top25_venue_sales
+    description: '{{ doc("rpt_cpg_weekly_talent_top25_venue_sales") }}'
+    columns:
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
         - name: date_id
           description: The date on when product ordered
         - name: week_start
@@ -1099,6 +1259,98 @@ models:
           description: Number of Units ordered in last week
         - name: rank_last_week
           description: Rank based on revenue in last week
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+          
+  - name: vw_rpt_cpg_weekly_talent_top25_venue_sales
+    description: '{{ doc("vw_rpt_cpg_weekly_talent_top25_venue_sales") }}'
+    columns:
+        - name: created_timestamp
+          description: Date Time information on when the record got created in source
+        - name: date_id
+          description: The date on when product ordered
+        - name: week_start
+          description: The week on when product ordered
+        - name: talent_description
+          description: Description of the talent
+        - name: src_style_id
+          description: Source Style ID 
+        - name: src_style_description
+          description: Description of Style
+        - name: dim_item_id
+          description: ID to identify the product
+        - name: units
+          description: Number of Units Ordered
+        - name: revenue
+          description: Revenue achieved
+        - name: last_week_revenue
+          description: Revenue achieved in last week
+        - name: last_week_units
+          description: Number of Units ordered in last week
+        - name: rank_last_week
+          description: Rank based on revenue in last week
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: rpt_cpg_daily_talent_brand_achievement
+    description: '{{ doc("rpt_cpg_daily_talent_brand_achievement") }}'
+    columns:
+        - name: talent_description
+          description: Description of the talent
+        - name: entity_type
+          description: Type of Entity
+        - name: brand
+          description: Indicates brand name such as RAW, NXT, SMACKDOWN, etc..
+        - name: achievement_name
+          description: Name of the Achievement
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_daily_talent_brand_achievement
+    description: '{{ doc("vw_rpt_cpg_daily_talent_brand_achievement") }}'
+    columns:
+        - name: talent_description
+          description: Description of the talent
+        - name: entity_type
+          description: Type of Entity
+        - name: brand
+          description: Indicates brand name such as RAW, NXT, SMACKDOWN, etc..
+        - name: achievement_name
+          description: Name of the Achievement
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
 
   - name: rpt_cpg_daily_shop_kpi_orders
     description: '{{ doc("rpt_cpg_daily_shop_kpi_orders") }}'
@@ -1452,50 +1704,6 @@ models:
         - name: etl_update_rec_dttm          
           description: Date Time information on when the record was updated
 
-  - name: rpt_cpg_daily_talent_brand_achievement
-    description: '{{ doc("rpt_cpg_daily_talent_brand_achievement") }}'
-    columns:
-        - name: talent_description
-          description: Description of the talent
-        - name: entity_type
-          description: Type of Entity
-        - name: brand
-          description: Indicates brand name such as RAW, NXT, SMACKDOWN, etc..
-        - name: achievement_name
-          description: Name of the Achievement
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-
-  - name: vw_rpt_cpg_daily_talent_brand_achievement
-    description: '{{ doc("vw_rpt_cpg_daily_talent_brand_achievement") }}'
-    columns:
-        - name: talent_description
-          description: Description of the talent
-        - name: entity_type
-          description: Type of Entity
-        - name: brand
-          description: Indicates brand name such as RAW, NXT, SMACKDOWN, etc..
-        - name: achievement_name
-          description: Name of the Achievement
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-
   - name: rpt_cpg_monthly_royalty
     description: '{{ doc("rpt_cpg_monthly_royalty") }}'
     columns:
@@ -1593,10 +1801,40 @@ models:
           description: Shop name
           tests:
             -  not_null
-        - name: Channel
-          description: Channel name
+        - name: channel_grouping
+          description: Channel Grouping
           tests:
             -  not_null
+        - name: trafficsource_source
+          description: Source of trafficsource
+        - name: sessions
+          description: Session count
+        - name: Transactions
+          description: Transaction count
+        - name: Revenue
+          description: Total Revenue in USD
+        - name: etl_batch_id
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_cpg_daily_shops_sessions
+    description: '{{ doc("vw_rpt_cpg_daily_shops_sessions") }}'
+    columns:
+        - name: date
+          description: Processing Date
+        - name: property
+          description: Shop name
+        - name: channel_grouping
+          description: Channel Grouping
+        - name: trafficsource_source
+          description: Source of trafficsource
         - name: sessions
           description: Session count
         - name: Transactions
@@ -1623,10 +1861,12 @@ models:
           description: Shop name
           tests:
             -  not_null
-        - name: Channel
-          description: Channel name
+        - name: channel_grouping
+          description: Channel Grouping
           tests:
             -  not_null
+        - name: trafficsource_source
+          description: Source of trafficsource
         - name: Sessions
           description: Total Session count
         - name: Conversion
@@ -1643,10 +1883,12 @@ models:
           description: Shop name
           tests:
             -  not_null
-        - name: Channel
-          description: Channel name
+        - name: channel_grouping
+          description: Channel Grouping
           tests:
             -  not_null
+        - name: trafficsource_source
+          description: Source of trafficsource
         - name: Sessions
           description: Total Session count
         - name: Conversion

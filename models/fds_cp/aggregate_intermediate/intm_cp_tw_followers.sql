@@ -24,6 +24,3 @@ on month=h.month and
 year=h.year and
 d.account_name=h.account_name
 and a.dim_date_id=h.last_day
-where b.cal_year_mth_num  > (select  nvl(max(convert(varchar,year)|| case when len(month)=1 then '0'||convert(varchar,month) 
-else convert(varchar,month) end),'190001')
-from fds_cp.rpt_cp_monthly_global_followership_by_platform where platform = 'TW')
