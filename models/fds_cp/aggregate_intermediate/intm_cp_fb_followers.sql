@@ -6,12 +6,15 @@
 
 
 select b.cal_year as year,b.cal_mth_num as month,
-nvl(f.region_nm,'Other') as region_nm,nvl(f.country_nm,'Other') as country_nm,
+nvl(f.region_nm,'Other') as region_nm,
+nvl(regexp_replace(INITCAP(k.country_nm),'[^0-9A-z ,\\.()\\-]',''),'Other') as country_nm,
 d.account_name, g.platform_type,sum(c_followers) as followers
 from {{source('fds_fbk','fact_fb_smfollowership_audience_bycountry')}}  a  left join
 {{source('cdm','dim_smprovider_account')}} d on a.dim_Smprovider_account_id = d.dim_smprovider_account_id
-left join ( select distinct country_nm,dim_country_id,region_nm from {{source('cdm','dim_region_country')}} )f
+left join ( select distinct dim_country_id,region_nm from {{source('cdm','dim_region_country')}}  where ent_map_nm = 'GM Region')f
 on a.dim_country_id = f.dim_Country_id
+left join ( select distinct dim_country_id,src_country_name as country_nm from {{source('cdm','dim_country')}}  ) k
+on a.dim_country_id = k.dim_Country_id
  left join {{source('cdm','dim_platform')}} g on a.dim_platform_id=g.dim_platform_id left join
 {{source('cdm','dim_date')}} b on a.dim_date_id = b.dim_date_id
  join
@@ -28,8 +31,4 @@ YEAR=h.year and
 a.dim_country_id=h.dim_country_id and
 d.account_name=h.account_name
 and a.dim_date_id=h.last_day
-where b.cal_year_mth_num > (select  nvl(max(convert(varchar,year)|| case when len(month)=1 then
- '0'||convert(varchar,month) 
-else convert(varchar,month) end),'190001')
-from fds_cp.rpt_cp_monthly_global_followership_by_platform where platform = 'FB')
 group by 1,2,3,4,5,6

@@ -204,6 +204,3 @@ current_timestamp as etl_insert_rec_dttm, null as etl_update_user_id, cast(null 
 from dataset_royalty_report a
 left outer join dataset_dim_item b on a.item_id=b.item_id
 inner join {{source('cdm','dim_date')}} c on a.report_month=c.full_date
-
-
-

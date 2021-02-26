@@ -14,28 +14,13 @@ union all
         a.adds_days_to_event, a.adds_day_of_week, a.adds_date, b.adds_time - extract(hour from a.event_dttm) as adds_time_to_event,
         b.adds_time, b.total_adds as paid_adds, 0 as trial_adds, b.total_adds
         from dt_prod_support.rpt_ppv_final_table as a
-        inner join (Select  adds_date,	
-	hour as adds_time,
-	count(distinct case when flag = 'Paid' then customerid end) as  paid_adds,
-	count(distinct case when flag = 'Trial' or flag = 'NA' then customerid end) as  trial_adds,(paid_adds+trial_adds)  total_adds from
-           (Select customerid,	
-		(case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0 then 
-		trunc(convert_timezone('AMERICA/NEW_YORK', sysdate-1)) else trunc(convert_timezone('AMERICA/NEW_YORK', sysdate)) end ) as adds_date,	
-            min(extract(hour from CONVERT_TIMEZONE('AMERICA/NEW_YORK', cast(ts as timestamp)))) as hour,	
-            case when payload_data_voucher_code is not null and payload_data_voucher = true and payload_data_price_with_tax_amount =0 and 
-				payload_data_renewal = 'false' then 'Trial'	
-                when payload_data_is_trial='true' or payload_data_price_with_tax_amount =0  then 'Trial'	
-                when payload_data_is_trial='false' then 'Paid' else 'NA' end as flag
-           from udl_nplus.stg_dice_stream_flattened	
-           where payload_data_ta in ('SUCCESSFUL_PURCHASE')	
-           and (payload_data_voucher_code is null or payload_data_voucher_code!='WWE Network VIP')	
-           and (payload_data_renewal !='true' or payload_data_renewal is null)
-		   and payload_data_payment_provider in ('ROKU_IAP','GOOGLE_IAP','APPLE_IAP','PAYPAL','STRIPE','ZERO_BALANCE')
-             and trunc(CONVERT_TIMEZONE('AMERICA/NEW_YORK', cast(ts as timestamp))) = (case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0
-		   then trunc(convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp -1 as timestamp))) else
-		   trunc(convert_timezone('AMERICA/NEW_YORK', sysdate)) end )
-           group by 1,2,4) where hour<(case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0 then 
-		24 else extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp))) end)  group by 1,2) as b on a.adds_date = b.adds_date where a.adds_time is null);",
+        inner join (		select * from 
+		(select date as adds_date,hour adds_time,sum(paid_adds) paid_adds,sum(trial_adds) trial_adds,sum(paid_adds)+sum(trial_adds) total_adds from fds_nplus.drvd_intra_hour_quarter_hour_adds
+		where date=(case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0 then 
+		trunc(convert_timezone('AMERICA/NEW_YORK', sysdate-1)) else trunc(convert_timezone('AMERICA/NEW_YORK', sysdate)) end )
+		group by 1,2) where adds_time<(case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0 then 
+		24 else extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp))) end))
+		as b on a.adds_date = b.adds_date where a.adds_time is null);",
 
 "drop table if exists #estimates_first_part;
 create table #estimates_first_part
@@ -165,8 +150,8 @@ where trunc(bill_date) = date(dateadd('hour',-1,convert_timezone('AMERICA/NEW_YO
 create table #actuals_estimates_forecast_view as
 (select 
 a.*,
-12392.3969 as current_day_forecast,  --b.current_day_forecast
-195672 weekend_forecast            --b.weekend_forecast
+3513  as current_day_forecast,  --b.current_day_forecast
+35007 weekend_forecast            --b.weekend_forecast
 from #actuals_estimates as a 
 left join 
 #forecast_view as b

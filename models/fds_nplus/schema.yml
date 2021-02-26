@@ -1,5 +1,320 @@
 version: 2
+
+sources:
+  - name: cdm_prod
+    database: prod_entdwdb
+    schema: cdm
+    tables:
+      - name: dim_date
+      - name: dim_region_country
+      - name: dim_event
+      - name: dim_content_classification_title
+  
+  - name: fds_nplus_prod
+    database: prod_entdwdb
+    schema: fds_nplus
+    tables:
+       - name: aggr_daily_subscription
+       - name: aggr_nplus_daily_forcast_output
+       - name: fact_daily_subscription_order_status
+       - name: vw_fact_daily_dotcom_viewership
+       - name: aggr_total_subscription
+       - name: aggr_kpi_hist_prod
+       - name: fact_daily_subscription_status_plus 
+       - name: aggr_nplus_monthly_forcast_output
+       - name: aggr_kpi_hist
+       - name: aggr_monthly_program_type_viewership
+       - name: aggr_monthly_subs_cohort_viewership
+       - name: fact_daily_content_viewership
+       - name: aggr_daily_postshow_rankings
+       
+
 models:
+  - name: rpt_nplus_viewership_cluster
+    description: '{{ doc("rpt_nplus_viewership_cluster") }}'
+    columns: 
+      - name: MODEL_NAME
+        description: labels to indicate which model this output is based on
+      - name: AS_ON_DATE
+        description: data cutoff date, indicates what's lastest date of viewership data is used in the model
+      - name: SRC_FAN_ID
+        description: user id
+      - name: ACT_MONTHS
+        description: number of months with active membership for each sub
+      - name: BIG_EVENT
+        description: total consumption on Big Event content
+      - name: BIG_EVENT_MONTHLY
+        description: monthly consumption on Big Event content
+      - name: BIG_EVENT_PCT_WATCHED_CLEAN
+        description: completion rate on Big Event content, capped at 1
+      - name: TIER_1_PPV
+        description: total consumption on Tier 1 PPV content
+      - name: TIER_1_PPV_DUR
+        description: video duration available on debutting Tier 1 PPV content
+      - name: TIER_1_PCT_WATCHED_CLEAN
+        description: completion rate on Tier 1 PPV content, capped at 1
+      - name: TIER_2_PPV
+        description: total consumption on Tier 2 PPV content
+      - name: TIER_2_PPV_DUR
+        description: video duration available on debutting Tier 2 PPV content
+      - name: TIER_2_PCT_WATCHED_CLEAN
+        description: completion rate on Tier 2 PPV content, capped at 1
+      - name: NXT_TAKEOVER
+        description: total consumption on NXT TakeOver content
+      - name: NXT_TAKEOVER_DUR
+        description: video duration available on debutting NXT TakeOver content
+      - name: NXT_TAKEOVER_PCT_WATCHED_CLEAN
+        description: completion rate on NXT TakeOver content, capped at 1
+      - name: NETWORK_IN_RING
+        description: total consumption on Network In-Ring content
+      - name: NETWORK_IN_RING_MONTHLY
+        description: monthly consumption on Network In-Ring content
+      - name: NETWORK_IN_RING_PCT_WATCHED_CLEAN
+        description: completion rate on Network In-Ring content, capped at 1
+      - name: _205_LIVE
+        description: total consumption on 205 Live content
+      - name: _205_LIVE_DUR
+        description: video duration available on debutting 205 Live content
+      - name: _205_LIVE_PCT_WATCHED_CLEAN
+        description: completion rate on 205 Live content, capped at 1
+      - name: NXT
+        description: total consumption on NXT content
+      - name: NXT_DUR
+        description: video duration available on debutting NXT content
+      - name: NXT_PCT_WATCHED_CLEAN
+        description: completion rate on NXT content, capped at 1
+      - name: NXT_UK
+        description: total consumption on NXT UK content
+      - name: NXT_UK_DUR
+        description: video duration available on debutting NXT UK content
+      - name: NXT_UK_PCT_WATCHED_CLEAN
+        description: completion rate on NXT UK content, capped at 1
+      - name: IN_RING_TOURNAMENT
+        description: total consumption on In-Ring Tournament content
+      - name: IN_RING_TOURNAMENT_DUR
+        description: video duration available on debutting In-Ring Tournament content
+      - name: IN_RING_TOURNAMENT_PCT_WATCHED_CLEAN
+        description: completion rate on In-Ring Tournament content, capped at 1
+      - name: IN_RING_SPECIAL
+        description: total consumption on In-Ring Special Event content
+      - name: IN_RING_SPECIAL_DUR
+        description: video duration available on debutting In-Ring Special Event content
+      - name: IN_RING_SPECIAL_PCT_WATCHED_CLEAN
+        description: completion rate on In-Ring Special Event content, capped at 1
+      - name: ORIGINAL
+        description: total consumption on Original content
+      - name: ORIGINAL_MONTHLY
+        description: monthly consumption on Original content
+      - name: HISTORIC_ORIGINAL
+        description: total consumption on Historic Original content
+      - name: NETWORK_HISTORIC_ORIGINAL
+        description: total consumption on Network Historic Original content
+      - name: NETWORK_NEW_ORIGINAL
+        description: total consumption on Network New Original content
+      - name: HISTORIC_IN_RING
+        description: total consumption on Historic In-Ring content
+      - name: HISTORIC_IN_RING_MONTHLY
+        description: monthly consumption on Historic In-Ring content
+      - name: ATTITUDE_ERA
+        description: total consumption on ATTITUDE_ERA content
+      - name: ECW
+        description: total consumption on ECW content
+      - name: GOLDEN_ERA
+        description: total consumption on GOLDEN_ERA content
+      - name: HISTORIC_NETWORK_IN_RING
+        description: total consumption on HISTORIC_NETWORK_IN_RING content
+      - name: INDIE_WRESTLING
+        description: total consumption on INDIE_WRESTLING content
+      - name: NEW_ERA
+        description: total consumption on NEW_ERA content
+      - name: REALITY_ERA
+        description: total consumption on REALITY_ERA content
+      - name: RUTHLESS_AGGRESSION
+        description: total consumption on RUTHLESS_AGGRESSION content
+      - name: THE_NEW_GENERATION_ERA
+        description: total consumption on THE_NEW_GENERATION_ERA content
+      - name: WCW
+        description: total consumption on WCW content
+      - name: ALL_VIEWERSHIP
+        description: total consumption of all categories of content (excluding tossed out and replays)
+      - name: NETWORK_TV_REPLAYS
+        description: total consumption on NETWORK_TV_REPLAYS content
+      - name: TOSS_OUT
+        description: total consumption on content of the tossed out category
+      - name: ALL_VIEWERSHIP_MISC
+        description: total consumption of all categories of content (including tossed out and replays)
+      - name: BIG_EVENT_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Big Events
+      - name: BIG_EVENT_CLASSIFICATION_V2
+        description: viewership segmentation based on sub's consumption behavior on Big Events (another classification method)
+      - name: NETWORK_IN_RING_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Network In-ring content
+      - name: ORIGINAL_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Original Content
+      - name: HISTORIC_IN_RING_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Historic In-Ring Content
+      - name: PREDOMINANT_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption on all categories of content
+      - name: code_run_time
+        description: timestamp when the code is run
+      - name: unique_id
+        description: unique key of the table, a combination of model name, user id and as on date
+        tests:
+        - unique
+        - not_null
+
+  - name: intm_nplus_viewership_cluster_available_content
+    columns:
+    - name: unique_id
+      tests:
+      - unique
+      - not_null
+  
+  - name: intm_nplus_viewership_cluster_user_act_month
+    columns:
+    - name: src_fan_id
+      tests:
+      - unique
+      - not_null
+
+
+  - name: vw_rpt_nplus_viewership_cluster
+    description: '{{ doc("vw_rpt_nplus_viewership_cluster") }}'
+    columns: 
+      - name: MODEL_NAME
+        description: labels to indicate which model this output is based on
+      - name: AS_ON_DATE
+        description: data cutoff date, indicates what's lastest date of viewership data is used in the model
+      - name: SRC_FAN_ID
+        description: user id
+      - name: ACT_MONTHS
+        description: number of months with active membership for each sub
+      - name: BIG_EVENT
+        description: total consumption on Big Event content
+      - name: BIG_EVENT_MONTHLY
+        description: monthly consumption on Big Event content
+      - name: BIG_EVENT_PCT_WATCHED_CLEAN
+        description: completion rate on Big Event content, capped at 1
+      - name: TIER_1_PPV
+        description: total consumption on Tier 1 PPV content
+      - name: TIER_1_PPV_DUR
+        description: video duration available on debutting Tier 1 PPV content
+      - name: TIER_1_PCT_WATCHED_CLEAN
+        description: completion rate on Tier 1 PPV content, capped at 1
+      - name: TIER_2_PPV
+        description: total consumption on Tier 2 PPV content
+      - name: TIER_2_PPV_DUR
+        description: video duration available on debutting Tier 2 PPV content
+      - name: TIER_2_PCT_WATCHED_CLEAN
+        description: completion rate on Tier 2 PPV content, capped at 1
+      - name: NXT_TAKEOVER
+        description: total consumption on NXT TakeOver content
+      - name: NXT_TAKEOVER_DUR
+        description: video duration available on debutting NXT TakeOver content
+      - name: NXT_TAKEOVER_PCT_WATCHED_CLEAN
+        description: completion rate on NXT TakeOver content, capped at 1
+      - name: NETWORK_IN_RING
+        description: total consumption on Network In-Ring content
+      - name: NETWORK_IN_RING_MONTHLY
+        description: monthly consumption on Network In-Ring content
+      - name: NETWORK_IN_RING_PCT_WATCHED_CLEAN
+        description: completion rate on Network In-Ring content, capped at 1
+      - name: _205_LIVE
+        description: total consumption on 205 Live content
+      - name: _205_LIVE_DUR
+        description: video duration available on debutting 205 Live content
+      - name: _205_LIVE_PCT_WATCHED_CLEAN
+        description: completion rate on 205 Live content, capped at 1
+      - name: NXT
+        description: total consumption on NXT content
+      - name: NXT_DUR
+        description: video duration available on debutting NXT content
+      - name: NXT_PCT_WATCHED_CLEAN
+        description: completion rate on NXT content, capped at 1
+      - name: NXT_UK
+        description: total consumption on NXT UK content
+      - name: NXT_UK_DUR
+        description: video duration available on debutting NXT UK content
+      - name: NXT_UK_PCT_WATCHED_CLEAN
+        description: completion rate on NXT UK content, capped at 1
+      - name: IN_RING_TOURNAMENT
+        description: total consumption on In-Ring Tournament content
+      - name: IN_RING_TOURNAMENT_DUR
+        description: video duration available on debutting In-Ring Tournament content
+      - name: IN_RING_TOURNAMENT_PCT_WATCHED_CLEAN
+        description: completion rate on In-Ring Tournament content, capped at 1
+      - name: IN_RING_SPECIAL
+        description: total consumption on In-Ring Special Event content
+      - name: IN_RING_SPECIAL_DUR
+        description: video duration available on debutting In-Ring Special Event content
+      - name: IN_RING_SPECIAL_PCT_WATCHED_CLEAN
+        description: completion rate on In-Ring Special Event content, capped at 1
+      - name: ORIGINAL
+        description: total consumption on Original content
+      - name: ORIGINAL_MONTHLY
+        description: monthly consumption on Original content
+      - name: HISTORIC_ORIGINAL
+        description: total consumption on Historic Original content
+      - name: NETWORK_HISTORIC_ORIGINAL
+        description: total consumption on Network Historic Original content
+      - name: NETWORK_NEW_ORIGINAL
+        description: total consumption on Network New Original content
+      - name: HISTORIC_IN_RING
+        description: total consumption on Historic In-Ring content
+      - name: HISTORIC_IN_RING_MONTHLY
+        description: monthly consumption on Historic In-Ring content
+      - name: ATTITUDE_ERA
+        description: total consumption on ATTITUDE_ERA content
+      - name: ECW
+        description: total consumption on ECW content
+      - name: GOLDEN_ERA
+        description: total consumption on GOLDEN_ERA content
+      - name: HISTORIC_NETWORK_IN_RING
+        description: total consumption on HISTORIC_NETWORK_IN_RING content
+      - name: INDIE_WRESTLING
+        description: total consumption on INDIE_WRESTLING content
+      - name: NEW_ERA
+        description: total consumption on NEW_ERA content
+      - name: REALITY_ERA
+        description: total consumption on REALITY_ERA content
+      - name: RUTHLESS_AGGRESSION
+        description: total consumption on RUTHLESS_AGGRESSION content
+      - name: THE_NEW_GENERATION_ERA
+        description: total consumption on THE_NEW_GENERATION_ERA content
+      - name: WCW
+        description: total consumption on WCW content
+      - name: ALL_VIEWERSHIP
+        description: total consumption of all categories of content (excluding tossed out and replays)
+      - name: NETWORK_TV_REPLAYS
+        description: total consumption on NETWORK_TV_REPLAYS content
+      - name: TOSS_OUT
+        description: total consumption on content of the tossed out category
+      - name: ALL_VIEWERSHIP_MISC
+        description: total consumption of all categories of content (including tossed out and replays)
+      - name: BIG_EVENT_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Big Events
+      - name: BIG_EVENT_CLASSIFICATION_V2
+        description: viewership segmentation based on sub's consumption behavior on Big Events (another classification method)
+      - name: NETWORK_IN_RING_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Network In-ring content
+      - name: ORIGINAL_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Original Content
+      - name: HISTORIC_IN_RING_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption behavior on Historic In-Ring Content
+      - name: PREDOMINANT_CLASSIFICATION
+        description: viewership segmentation based on sub's consumption on all categories of content
+        tests:
+        - not_null
+      - name: code_run_time
+        description: timestamp when the code is run
+      - name: unique_id
+        description: unique key of the table, a combination of model name, user id and as on date
+        tests:
+        - unique
+        - not_null
+
+
+
   - name: vw_aggr_daily_network_adds_and_loss_track
     description: '{{ doc("vw_aggr_daily_network_adds_and_loss_track") }}'
     columns:
@@ -1029,3 +1344,43 @@ models:
           description: Daily count of total involuntary subscriber los
         - name: new_adds
           description: Daily count of new subscriber adds based on payment method
+  - name: vw_nplus_daily_network_adds_and_loss_split
+    description:  '{{ doc("vw_nplus_daily_network_adds_and_loss_split") }}'
+    columns:
+        - name: date
+          description: Date of processing
+        - name: country_cd
+          description: Country Code
+        - name: country_type
+          description: Type of Country such as domestic or international
+        - name: payment_method
+          description: Payment Method
+        - name: order_status
+          description: First Order or Winback
+        - name: cust_type
+          description: Trial or Paid
+        - name: cancel_type
+          description: Involuntary or voluntary
+        - name: ttl_adds
+          description: Indicates total adds
+        - name: ttl_losses
+          description: Indicates total losses
+        - name: losses_split
+          description: Indicates voluntary or involuntary loss count
+  - name: vw_nplus_daily_network_churn_rate
+    description:  '{{ doc("vw_nplus_daily_network_churn_rate") }}'
+    columns:
+        - name: loss_date
+          description: Effective date
+        - name: order_type
+          description: Represents Winback Order or First Order for the customer. First Order will be first paid order or first order for the customer
+        - name: provider
+          description: Represents the netwrok provider
+        - name: country_ind
+          description: Tells whether country is Domestic or International (Dom,Int)
+        - name: mso_group
+          description: Indicates group based on number of paid months
+        - name: up_for_renewal
+          description: Indicates up for renewal count
+        - name: loss
+          description: Indicates loss count
