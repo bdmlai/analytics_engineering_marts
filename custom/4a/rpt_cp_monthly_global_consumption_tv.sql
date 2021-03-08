@@ -17,7 +17,6 @@ Date        : 10/23/2020
    Description : Enhancement is done for Domestic TV platform to get viewing hours for Live+Same day for the dates Live+7 data is not available.  Also updated prehook to delete current month's data for platforms - Domestic TV, PPTV, Hulu SVOD and WWE Network inaddition to current International TV
 *************************************************************************************************************************************************
 */																																		 
-									 
 {{
   config({
 	"schema": 'fds_cp',
@@ -118,7 +117,7 @@ select 'TV' as Platform,
 from
 ((
 select  date_trunc('month',broadcast_date) as month,
-		sum(viewing_minutes_units)/60 hours_watched
+		sum(viewing_hours) hours_watched
 from fds_nl.vw_rpt_nl_daily_wwe_program_ratings a 
 where 	month = date_trunc('month',current_date-30)
 		and src_demographic_group='P2-999'
@@ -127,7 +126,7 @@ group by 1)
 union all
 (
 select  date_trunc('month',broadcast_date) as month,
-		sum(viewing_minutes_units)/60 hours_watched
+		sum(viewing_hours) hours_watched
 from fds_nl.vw_rpt_nl_daily_wwe_program_ratings a 
 where 	broadcast_date between 
 		(select max(broadcast_date) + 1 
@@ -200,7 +199,6 @@ select * from all_data);"
 		c.prev_year_views, 
 		c.prev_year_hours,
 		100001 		 as  etl_batch_id,
-										  
 		sysdate 	 as etl_insert_rec_dttm,
 		'' 			 as etl_update_user_id,
 		sysdate 	 as etl_update_rec_dttm,
@@ -285,7 +283,6 @@ union all
 		c.prev_year_views, 
 		c.prev_year_hours,
 		100001 		 as  etl_batch_id,
-										  
 		sysdate 	 as etl_insert_rec_dttm,
 		'' 			 as etl_update_user_id,
 		sysdate 	 as etl_update_rec_dttm,

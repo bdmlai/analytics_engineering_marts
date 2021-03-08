@@ -1,0 +1,58 @@
+version: 2
+models:
+  - name: rpt_mkt_weekly_owned_media_execution
+    description: '{{ doc("rpt_mkt_weekly_owned_media_execution") }}'
+    columns:
+        - name: week  
+          description: calender week ending Sunday date
+        - name: country  
+          description: Country names grouped as ROW, AUS/NZ, UK/IRE, GERMANY, Global
+        - name: vehicle  
+          description: hierarchy level column which takes the values Owned TV, Owned Youtube, Owned Social
+        - name: level2  
+          description: hierarchy level column which takes the values Owned TV Viewership, EndScreen, Annotations, Cards, Network, Lower Third, Promo Graphic, Promo
+        - name: level3  
+          description: hierarchy level column which takes the values RAW, PPV Kick-Off, SMACKDOWN, PPV, Twitter, Facebook, NXT, Instagram
+        - name: metric  
+          description: name of the metric      
+        - name: exposure  
+          description: value of the metric
+        - name: data_category  
+          description: Hard coded as 'Owned Media'
+        - name: audience  
+          description: Hard coded as 'All'
+        - name: ppv_name  
+          description: name of the ppv event
+        - name: ppv_type  
+          description: ppv event type   
+        
+  - name: rpt_mkt_weekly_paid_media_execution
+    description: '{{ doc("rpt_mkt_weekly_paid_media_execution") }}'
+    columns:
+        - name: week  
+          description: calender week ending Sunday date
+        - name: country  
+          description: Country names grouped as ROW, AUS/NZ, UK/IRE, GERMANY, Global
+        - name: vehicle  
+          description: Hierarchy level column which takes the values Paid Social, Paid Display, Paid Search, Paid Youtube
+        - name: level2  
+          description: Hierarchy level column which takes the values Nurture, Paid Snapchat, Conversion, Youtube Trueview, Paid Facebook, adtheorent, Paid Twitter, Bing, Google
+        - name: level3  
+          description: Hierarchy level column which takes the values adtheorent, captify, draftkings, Facebook, fandom, miq, programmaticmechanics, samba, Snapchat, Twitter, vdx, xaxisdirect, yieldmo
+        - name: metric  
+          description: name of the metric      
+        - name: impressions  
+          description: impressions
+        - name: spend  
+          description: spend
+        - name: clicks  
+          description: clicks
+        - name: data_category
+          description: Hardcoded as 'Paid Media'
+        - name: audience
+          description: Hardcoded as 'All'
+        - name: ppv_name  
+          description: name of the ppv event
+        - name: ppv_type  
+          description: ppv event type
+        
