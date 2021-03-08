@@ -1,0 +1,268 @@
+version: 2
+sources:
+  - name: fds_nl
+    tables:
+      - name: fact_nl_quaterhour_viewership_ratings
+      - name: fact_nl_commercial_viewership_ratings
+      - name: fact_nl_program_viewership_ratings
+      - name: dim_nl_series
+      - name: dim_nl_broadcast_network
+      - name: dim_nl_daypart
+      - name: dim_nl_episode
+      - name: fact_nl_timeperiod_viewership_ratings
+      - name: fact_nl_weekly_overlap_chart
+      - name: fact_nl_weekly_hulu_data
+      - name: fact_nl_minxmin_ratings
+      - name: fact_nl_weekly_live_switching_behavior_destination_dist
+      - name: rpt_nl_weekly_channel_switch
+      - name: fact_nl_weekly_overlap_4_way_oob
+      - name: rpt_nl_weekly_overlap_derived_4_way_oob
+      - name: rpt_nl_daily_minxmin_lite_log_ratings
+      - name: rpt_nl_daily_wwe_program_ratings
+  - name: cdm
+    tables:
+      - name: dim_date
+      - name: dim_region_country
+      - name: dim_event
+      - name: dim_country_population
+      - name: dim_content_classification_title
+      - name: dim_platform
+      - name: dim_smprovider_account
+      - name: dim_country
+      - name: dim_venue
+  - name: fds_yt
+    tables:
+       - name: rpt_yt_wwe_engagement_daily
+       - name: rpt_yt_revenue_daily
+       - name: youtube_video_metadata_direct
+       - name: rpt_yt_demographics_views_daily 
+       - name: rpt_yt_ugc_engagement_daily
+       - name: agg_yt_monetization_summary
+       - name: youtube_annotations
+       - name: youtube_end_screens
+       - name: youtube_cards
+       - name: yt_amg_content_groups
+       - name: rpt_yt_daily_wwe_talent
+       - name: rpt_yt_daily_wwe_video
+       - name: rpt_yt_daily_wwe_talent_views
+  - name: public
+    tables:
+       - name: yt_amg_content_groups
+  - name: fds_nplus
+    tables:
+       - name: aggr_daily_subscription
+       - name: aggr_nplus_daily_forcast_output
+       - name: fact_daily_subscription_order_status
+       - name: vw_fact_daily_dotcom_viewership
+       - name: aggr_total_subscription
+       - name: aggr_kpi_hist_prod
+       - name: fact_daily_subscription_status_plus 
+       - name: aggr_nplus_monthly_forcast_output
+       - name: aggr_kpi_hist
+       - name: aggr_monthly_program_type_viewership
+       - name: aggr_monthly_subs_cohort_viewership
+       - name: fact_daily_content_viewership
+       - name: rpt_network_ppv_liveplusvod
+       - name: fact_daily_viewership
+       - name: AGGR_MONTHLY_DVC_PLATFORM_CNTRY_VIEWERSHIP
+       - name: AGGR_TOTAL_SUBSCRIPTION
+       - name: dim_content_classification_title
+       - name: vw_rpt_network_daily_subscription_kpis
+       - name: aggr_forecast_dice_daily_summary
+       - name: fact_customer_login_and_status
+
+  - name: dwh_read_write
+    tables:
+       - name: raw_da_weekly_ppv_hourly_comps     
+  - name: fds_fbk
+    tables:
+       - name: fact_fb_consumption_parent_video
+       - name: fact_fb_consumption_post
+       - name: fact_fb_smfollowership_audience_bycountry
+       - name: fact_fb_published_post
+       - name: fact_fb_published_video
+       - name: fact_fb_engagement_video
+       - name: vw_rpt_daily_fb_published_video
+       - name: vw_rpt_daily_fb_published_post
+       - name: fact_fb_engagement_post
+  - name: fds_tw
+    tables:
+       - name: fact_tw_consumption_post
+       - name: fact_tw_published_post
+       - name: fact_tw_engagement_post
+       - name: vw_rpt_daily_tw_published_post
+  - name: fds_igm
+    tables:
+       - name: fact_ig_consumption_post
+       - name: fact_ig_consumption_story
+       - name: fact_ig_smfollowership_audience_bycountry
+       - name: fact_ig_published_frame
+       - name: fact_ig_published_post
+       - name: fact_ig_published_story
+       - name: vw_rpt_daily_ig_published_frame
+       - name: fact_ig_engagement_post
+       - name: vw_rpt_daily_ig_published_post
+       - name: fact_ig_consumption_frame
+       - name: fact_ig_engagement_frame
+  - name: fds_sc
+    tables:
+       - name: fact_sc_consumption_story   
+       - name: fact_scd_consumption_frame
+       - name: fact_sc_published_frame
+       - name: fact_sc_published_story
+         
+  - name: udl_nplus
+    tables:
+       - name: drvd_intra_hour_quarter_hour_adds
+       - name: raw_da_weekly_ppv_hourly_comps
+       - name: raw_lite_log
+       - name: raw_post_event_log
+       - name: stg_dice_stream_flattened
+       - name: raw_da_weekly_ppv_hourly_comps_new
+  - name: udl_nl
+    tables:
+       - name: nielsen_finance_yearly_calendar
+  - name: fds_cp
+    tables:
+       - name: agg_cp_weekly_consumption_by_platform
+       - name: fact_co_smfollowership_cumulative_summary
+       - name: vw_rpt_cp_monthly_global_consumption_by_platform
+       - name: vw_rpt_cp_weekly_consolidated_kpi
+       - name: rpt_cp_monthly_social_overview
+  - name: fds_kntr
+    tables:
+       - name: fact_kntr_wwe_telecast_data
+       - name: fact_kntr_annual_profile
+       - name: kantar_static_country_region_tag
+       - name: vw_aggr_kntr_schedule_wca_data
+       - name: rpt_kntr_schedule_vh_data
+  - name: udl_emm
+    tables:
+       - name: emm_weekly_log_reference  
+  - name: udl_tkt
+    tables: 
+       - name: tiktok_weekly_country_consumption
+  - name: fds_cpg
+    tables:
+      - name: dim_cpg_item
+      - name: dim_cpg_kit_item
+      - name: dim_cpg_order_method
+      - name: dim_cpg_shop_site    
+      - name: fact_cpg_sales_detail
+      - name: fact_cpg_sales_detail_kit_component
+      - name: fact_cpg_sales_header
+      - name: aggr_cpg_daily_sales
+      - name: aggr_cpg_daily_venue_sales
+      - name: fact_cpg_inventory
+ 
+  - name: dt_stage
+    tables:
+      - name: prestg_cpg_currency_exchange_rate
+  - name: fds_le
+    tables:
+      - name: brdg_live_event_venue
+      - name: fact_combined_ticket_sale
+      - name: fact_ticket_self_reported
+
+
+  - name: udl_cpg
+    tables:
+      - name: jde_daily_user_defined_codes_f0005
+      - name: jde_daily_business_unit_master_f0006
+      - name: jde_daily_item_master_f4101
+      - name: jde_daily_item_cost_f4105
+      - name: jde_daily_sales_order_history_f42119
+      - name: jde_daily_merch_settlement_header_f55m001
+      - name: jde_daily_merch_settlement_detail_f55m002
+  - name: hive_udl_pii
+    tables:
+      - name: restricted_jde_daily_address_by_date_f0116
+  - name: udl_pii
+    tables: 
+      - name: restricted_cpg_clientbase_monthly_shipment
+      - name: restricted_yougov_weekly_signal_data
+
+  - name: hive_udl_mkt
+    tables:    
+        - name: wavemaker_monthly_display_mmm
+        - name: wavemaker_monthly_search_mmm
+        - name: wavemaker_monthly_youtube_mmm        
+        - name: wavemaker_monthly_facebook_mmm
+        - name: wavemaker_monthly_twitter_mmm
+        - name: wavemaker_monthly_snapchat_mmm
+  - name: fds_mdm
+    tables:
+      - name: alternateid
+      - name: character
+      - name: characterlineage_grouplineage
+      - name: achievement_entity
+      - name: achievement
+      - name: groups
+      
+  - name: fds_emm
+    tables:
+      - name: brand
+      - name: babyface_heel
+  - name: hive_udl_chscl
+    tables:
+      - name: china_weekly_social_data
+  - name: hive_udl_yt
+    tables:
+      - name: youtube_subscribers_full_audiencecountries
+  - name: fds_da
+    tables:
+      - name: dm_digital_kpi_datamart_monthly_topline
+  - name: hive_udl_cp
+    tables:
+      - name: daily_social_account_country_mapping
+      - name: da_monthly_conviva_emm_accounts_mapping
+  - name: hive_udl_voc
+    tables:
+      - name: tweet_tags
+  - name: hive_udl_cpg
+    tables:
+      - name: clientbase_monthly_returns
+      - name: radial_monthly_order_ship
+      - name: radial_monthly_order_return
+      - name: radial_monthly_payment_refund
+      - name: raw_amazon_monthly_payments
+      - name: ga_cpg_daily_sessions
+  - name: hive_udl_nl
+    tables:
+      - name: nielsen_finance_yearly_calendar
+  - name: udl_cp
+    tables:
+      - name: raw_storyline_daily_nielsen_social_litelog
+      
+  - name: sf_fds_nl
+    database: prod_entdwdb
+    schema: fds_nl
+    tables:
+      - name: fact_nl_monthly_local_market
+      
+  - name: sf_udl_nl
+    database: prod_entdwdb
+    schema: udl_nl
+    tables:
+      - name: nielsen_mapping_ziptodma
+
+  - name: sf_cdm
+    database: dev_entdwdb
+    schema: cdm
+    tables:
+      - name: lookup_table
+
+  - name: sf_public
+    database: starschema_aws_us_east_va_covid19_by_starschema_dm
+    schema: public
+    tables:
+      - name: kff_us_state_mitigations
+      - name: nyt_us_covid19
+      - name: demographics
+      - name: goog_global_mobility_report
+      
+  - name: sf_udl_cp
+    database: prod_entdwdb
+    schema: udl_cp
+    tables:
+      - name: le_weekly_us_unemployment_claims_details
