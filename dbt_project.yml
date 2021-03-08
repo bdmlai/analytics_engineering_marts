@@ -4,7 +4,7 @@ version: 1.0
 config-version: 2
 
 
-profile: wwe_profile
+profile: analytics_engineering_marts_profile
 
 
 source-paths: ["models"]      # paths with source code to compile

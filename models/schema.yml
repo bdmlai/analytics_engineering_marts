@@ -16,13 +16,9 @@ sources:
       - name: fact_nl_weekly_live_switching_behavior_destination_dist
       - name: rpt_nl_weekly_channel_switch
       - name: fact_nl_weekly_overlap_4_way_oob
-<<<<<<< HEAD
-      - name: rpt_nl_weekly_overlap_derived_4_way_oob      
-=======
       - name: rpt_nl_weekly_overlap_derived_4_way_oob
       - name: rpt_nl_daily_minxmin_lite_log_ratings
       - name: rpt_nl_daily_wwe_program_ratings
->>>>>>> c50e269ecf33e2ff660e1378bbb01aaf8f267e53
   - name: cdm
     tables:
       - name: dim_date
@@ -59,8 +55,6 @@ sources:
        - name: fact_daily_subscription_order_status
        - name: vw_fact_daily_dotcom_viewership
        - name: aggr_total_subscription
-<<<<<<< HEAD
-=======
        - name: aggr_kpi_hist_prod
        - name: fact_daily_subscription_status_plus 
        - name: aggr_nplus_monthly_forcast_output
@@ -77,7 +71,6 @@ sources:
        - name: aggr_forecast_dice_daily_summary
        - name: fact_customer_login_and_status
 
->>>>>>> c50e269ecf33e2ff660e1378bbb01aaf8f267e53
   - name: dwh_read_write
     tables:
        - name: raw_da_weekly_ppv_hourly_comps     
@@ -122,8 +115,6 @@ sources:
     tables:
        - name: drvd_intra_hour_quarter_hour_adds
        - name: raw_da_weekly_ppv_hourly_comps
-<<<<<<< HEAD
-=======
        - name: raw_lite_log
        - name: raw_post_event_log
        - name: stg_dice_stream_flattened
@@ -131,7 +122,6 @@ sources:
   - name: udl_nl
     tables:
        - name: nielsen_finance_yearly_calendar
->>>>>>> c50e269ecf33e2ff660e1378bbb01aaf8f267e53
   - name: fds_cp
     tables:
        - name: agg_cp_weekly_consumption_by_platform
