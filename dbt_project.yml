@@ -16,6 +16,7 @@ vars:
   # The `start_date` and `end_date` variable will be accessible in all resources
   start_date: '2020-01-01'
   end_date: '2020-01-31'
+  as_on_date: '2021-01-31'
 
 models:
     analytics_engineering_marts :
