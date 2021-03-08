@@ -417,7 +417,7 @@ where a.monday_date < date_trunc('week',current_date)
 )
 
 select 	a.*,
-		'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_CP' AS etl_batch_id, as  etl_batch_id,
+		'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_CP' AS etl_batch_id, 
 		'bi_dbt_user_prd' as etl_insert_user_id,
 		sysdate etl_insert_rec_dttm,
 		'' etl_update_user_id,

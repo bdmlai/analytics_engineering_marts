@@ -6,14 +6,15 @@
 "--create dates for rollup
 drop table if exists #dim_dates;
 create table #dim_dates as
-select distinct cal_year, --extract('month' from cal_year_mon_week_begin_date) as cal_mth_num, 
-case when cal_year = extract('year' from cal_year_mon_week_begin_date) then extract('month' from cal_year_mon_week_begin_date)
-     when cal_year = extract('year' from cal_year_mon_week_end_date) then extract('month' from cal_year_mon_week_end_date)   
-     end as cal_mth_num, 
-case when cal_year_week_num_mon is null then 1 else cal_year_week_num_mon end as cal_year_week_num_mon,
-cal_year_mon_week_begin_date, cal_year_mon_week_end_date
+select extract('year' from cal_year_mon_week_begin_date) as cal_year, 
+       extract('month' from cal_year_mon_week_begin_date) as cal_mth_num, 
+       cal_year_mon_week_begin_date, 
+       cal_year_mon_week_end_date,
+       row_number() over(partition by extract('year' from cal_year_mon_week_begin_date) order by cal_year_mon_week_begin_date) as cal_year_week_num_mon       
 from cdm.dim_date where cal_year_mon_week_begin_date >= trunc(dateadd('year',-2,date_trunc('year',getdate()))) 
-and cal_year_mon_week_end_date < date_trunc('week',getdate());
+and cal_year_mon_week_end_date < date_trunc('week',getdate())
+group by 1,2,3,4
+order by 4;
 
 --create TV weekly dataset
 drop table if exists #tv_wkly_wd;

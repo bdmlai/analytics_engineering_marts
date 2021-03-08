@@ -35,7 +35,7 @@ select  date_trunc('month',to_date(dim_date_id,'yyyymmdd')) as month,
 		dim_smprovider_account_id,
 		(sum(likes)+sum(comments)+sum(shares)) as Value 
 from {{source('fds_fbk','fact_fb_engagement_post')}}
-dim_content_type_id not in ('10236','10003','10230','10234','10257','10260')
+where dim_content_type_id not in ('10236','10003','10230','10234','10257','10260')
 
 {% if is_incremental() %}
   and month = date_trunc('month',current_date-28)

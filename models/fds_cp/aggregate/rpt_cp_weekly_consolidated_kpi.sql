@@ -17,9 +17,9 @@ and cal_year_mon_week_end_date < date_trunc('week',getdate())
 group by 1,2,3,4
 order by 4;
 
---create network weekly dataset
-drop table if exists #dp_wkly_nw;
-create table #dp_wkly_nw as
+--create network weekly dataset - Global
+drop table if exists #dp_wkly_nw_glbl;
+create table #dp_wkly_nw_glbl as
 select b.*, a.hours_watched as hours_watched_wk, a.hours_watched_tier2 as hours_watched_tier2_wk, a.active_network_subscribers as active_network_subscribers_wk, 
 a.hours_per_tot_subscriber as hours_per_tot_subscriber_wk, a.active_viewers as views_wk, 0 as ad_impressions_wk, 
 c.network_subscriber_adds as network_subscriber_adds_wk,
@@ -31,7 +31,7 @@ c.lp_adds as lp_adds_wk,
 c.new_free_version_regns as new_free_version_regns_wk,
 c.network_losses as network_losses_wk,
 'Network' as platform,
-'Network' as type
+'GLOBAL' as type
 from 
 #dim_dates b
 left join 
@@ -74,6 +74,68 @@ group by 1
 ) c
 on trunc(c.monday_date) = b.cal_year_mon_week_begin_date
 ;
+
+--create network weekly dataset for International
+drop table if exists #dp_wkly_nw_intl;
+create table #dp_wkly_nw_intl as
+select b.*, a.hours_watched as hours_watched_wk, a.hours_watched_tier2 as hours_watched_tier2_wk, a.active_network_subscribers as active_network_subscribers_wk, 
+a.hours_per_tot_subscriber as hours_per_tot_subscriber_wk, a.active_viewers as views_wk, 0 as ad_impressions_wk, 
+c.network_subscriber_adds as network_subscriber_adds_wk,
+c.new_adds_direct_t3 + c.reg_prospects_t2_to_t3 as new_adds_wk, 
+c.new_adds_direct_t3 as new_adds_direct_t3_wk,
+c.reg_prospects_t2_to_t3 as reg_prospects_t2_to_t3_wk,
+c.winback_adds_t2_to_t3 as winback_adds_t2_to_t3_wk,
+c.lp_adds as lp_adds_wk,
+c.new_free_version_regns as new_free_version_regns_wk,
+c.network_losses as network_losses_wk,
+'Network' as platform,
+'INTL' as type
+from 
+#dim_dates b
+left join 
+(       
+        select a.monday_date, a.hours_watched, b.active_network_subscribers,
+        a.hours_watched/b.active_network_subscribers as hours_per_tot_subscriber, 
+        a.hours_watched_tier2,a.active_viewers
+        from
+        (select date_trunc('week',stream_start_dttm) as monday_date, 
+        coalesce(round(sum(case when subs_tier = '3' then play_time end )/60),0) as hours_watched,
+        coalesce(round(sum(case when subs_tier = '2' and trunc(stream_start_dttm) >= '2020-06-01' then play_time else 0 end )/60),0) as hours_watched_tier2,
+        count(distinct(case when subs_tier = '2' and trunc(stream_start_dttm) >= '2020-06-01' then src_fan_id else null end)) as active_viewers  
+        from fds_nplus.fact_daily_content_viewership 
+        where trunc(stream_start_dttm) >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+        and country_cd <> 'united states'
+        group by 1) a
+        join
+        (select a.as_on_date,b.cal_year_mon_week_begin_date as monday_date,
+        sum(a.total_active_cnt) as active_network_subscribers
+        from fds_nplus.AGGR_TOTAL_SUBSCRIPTION a
+        join #dim_dates b
+        on a.as_on_date = b.cal_year_mon_week_end_date+1
+        where a.as_on_date >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+        and a.country_type = 'international'
+        --and extract('year' from a.as_on_date) = b.cal_year
+        group by 1,2) b
+        on a.monday_date=b.monday_date
+)  a
+on trunc(a.monday_date) = b.cal_year_mon_week_begin_date
+left join
+(select date_trunc('week',as_on_date-1) as monday_date,
+sum(daily_new_adds_cnt) as network_subscriber_adds,
+sum(first_total_adds_new_to_t3 ) as new_adds_direct_t3,
+sum(first_total_adds_upgrades) as reg_prospects_t2_to_t3,
+sum(case when payment_method not in ('china_pptv', 'osn', 'rogers', 'astro') and order_type = 'winback' then daily_new_adds_cnt else  0 end) as winback_adds_t2_to_t3,
+sum(case when payment_method in ('china_pptv', 'osn', 'rogers', 'astro') then daily_new_adds_cnt  else 0 end) as lp_adds,
+sum(case when as_on_date-1 >= '2020-06-01' then daily_tier2_prospect_loggedin_new_users_cnt else 0 end) as new_free_version_regns,
+sum(daily_loss_cnt) as network_losses
+from fds_nplus.aggr_daily_subscription 
+where as_on_date >= trunc(dateadd('year',-2,date_trunc('year',getdate())))
+and country_type = 'international'
+group by 1
+) c
+on trunc(c.monday_date) = b.cal_year_mon_week_begin_date
+;
+
 
 --create facebook weekly dataset
 drop table if exists #dp_wkly_fb;
@@ -304,7 +366,8 @@ lp_adds_wk::decimal(15,1),
 new_free_version_regns_wk::decimal(15,1),
 network_losses_wk::decimal(15,1)
 from (
-select * from #dp_wkly_nw union all
+select * from #dp_wkly_nw_glbl union all
+select * from #dp_wkly_nw_intl union all
 select * from #dp_wkly_fb union all
 select * from #dp_wkly_dc union all
 select * from #dp_wkly_tw union all
@@ -732,22 +795,27 @@ on a.year = c.year
 drop table if exists #final1;
 create table #final1 as
 select a.granularity, a.platform, a.type, a.metric, a.year, a.month, a.week, a.start_date, a.end_date,
-case when a.granularity = 'MTD' and a.platform = 'Network' and a.metric = 'Active Viewers' then b.cntd_views_mtd
-     when a.granularity = 'YTD' and a.platform = 'Network' and a.metric = 'Active Viewers' then d.cntd_views_ytd
+case when a.granularity = 'MTD' and a.platform = 'Network' and a.type='GLOBAL' and a.metric = 'Active Viewers' then b.cntd_views_mtd
+     when a.granularity = 'MTD' and a.platform = 'Network' and a.type='INTL' and a.metric = 'Active Viewers' then b.cntd_views_mtd_intl
+     when a.granularity = 'YTD' and a.platform = 'Network' and a.type='GLOBAL' and a.metric = 'Active Viewers' then d.cntd_views_ytd
+     when a.granularity = 'YTD' and a.platform = 'Network' and a.type='INTL' and a.metric = 'Active Viewers' then d.cntd_views_ytd_intl
 else a.value end  as value,
 a.prev_year, a.prev_year_week, a.prev_year_start_date, a.prev_year_end_date,
-case when a.granularity = 'MTD' and a.platform = 'Network' and a.metric = 'Active Viewers' then c.prev_cntd_views_mtd
-     when a.granularity = 'YTD' and a.platform = 'Network' and a.metric = 'Active Viewers' then e.prev_cntd_views_ytd
+case when a.granularity = 'MTD' and a.platform = 'Network' and a.type='GLOBAL' and a.metric = 'Active Viewers' then c.prev_cntd_views_mtd
+     when a.granularity = 'MTD' and a.platform = 'Network' and a.type='INTL' and a.metric = 'Active Viewers' then c.prev_cntd_views_mtd_intl
+     when a.granularity = 'YTD' and a.platform = 'Network' and a.type='GLOBAL' and a.metric = 'Active Viewers' then e.prev_cntd_views_ytd
+     when a.granularity = 'YTD' and a.platform = 'Network' and a.type='INTL' and a.metric = 'Active Viewers' then e.prev_cntd_views_ytd_intl
 else a.prev_year_value end as prev_year_value
 from #final a 
 left join 
 (
 select a.granularity, a.platform, a.type, a.metric, a.year, a.month, a.week, a.start_date, a.end_date,
+ count(distinct (case when b.country_cd <> 'united states' then b.src_fan_id else null end)) as cntd_views_mtd_intl,
  count(distinct b.src_fan_id) as cntd_views_mtd
 from #final a
 left join fds_nplus.fact_daily_content_viewership b
 on trunc(b.stream_start_dttm) between a.start_date and a.end_date
-where b.subs_tier = '2' 
+where b.subs_tier = '2' and trunc(b.stream_start_dttm) >= '2020-06-01'
 and a.platform = 'Network'  
 and a.metric = 'Active Viewers' and a.granularity = 'MTD'
 group by 1,2,3,4,5,6,7,8,9
@@ -764,11 +832,12 @@ and a.end_date = b.end_date
 left join 
 (
 select a.granularity, a.platform, a.type, a.metric, a.year, a.month, a.week, a.start_date, a.end_date,
+ count(distinct (case when b.country_cd <> 'united states' then b.src_fan_id else null end)) as prev_cntd_views_mtd_intl,
  count(distinct b.src_fan_id) as prev_cntd_views_mtd
 from #final a
 left join fds_nplus.fact_daily_content_viewership b
 on trunc(b.stream_start_dttm) between a.prev_year_start_date and a.prev_year_end_date
-where b.subs_tier = '2' 
+where b.subs_tier = '2' and trunc(b.stream_start_dttm) >= '2020-06-01'
 and a.platform = 'Network'  
 and a.metric = 'Active Viewers' and a.granularity = 'MTD'
 group by 1,2,3,4,5,6,7,8,9
@@ -785,6 +854,7 @@ and a.end_date = c.end_date
 left join 
 (
 select a.granularity, a.platform, a.type, a.metric, a.year, a.month, a.week, a.start_date, a.end_date,
+ count(distinct (case when b.country_cd <> 'united states' then b.src_fan_id else null end)) as cntd_views_ytd_intl,
  count(distinct b.src_fan_id) as cntd_views_ytd
 from #final a
 left join fds_nplus.fact_daily_content_viewership b
@@ -806,6 +876,7 @@ and a.end_date = d.end_date
 left join 
 (
 select a.granularity, a.platform, a.type, a.metric, a.year, a.month, a.week, a.start_date, a.end_date,
+ count(distinct (case when b.country_cd <> 'united states' then b.src_fan_id else null end)) as prev_cntd_views_ytd_intl,
  count(distinct b.src_fan_id) as prev_cntd_views_ytd
 from #final a
 left join fds_nplus.fact_daily_content_viewership b

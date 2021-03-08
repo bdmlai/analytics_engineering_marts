@@ -1,10 +1,18 @@
-name: analytics_engineering_marts 
+name: analytics_engineering_marts
 version: 1.0
+profile: analytics_engineering_marts_profile
 
 config-version: 2
 
-
-profile: wwe_profile
+vars:
+  ###################################################################
+  ########### VARIABLES FOR VIEWERSHIP CLUSTERING MODEL   ###########
+  ###################################################################
+  # viewership data end date, model run date, should be end of month
+  as_on_date:
+    # The `start_date` and `end_date` variable will be accessible in all resources
+  start_date: '2021-01-19'
+  end_date: '2021-01-31'
 
 
 source-paths: ["models"]      # paths with source code to compile
@@ -12,11 +20,5 @@ target-path: "target"         # path for compiled code
 test-paths: ["tests"]           # where to store test results
 #macro-paths: ["macros"]
 
-vars:
-  # The `start_date` and `end_date` variable will be accessible in all resources
-  start_date: '2020-01-01'
-  end_date: '2020-01-31'
-
 models:
-    analytics_engineering_marts :
-
+    analytics_engineering_marts:    

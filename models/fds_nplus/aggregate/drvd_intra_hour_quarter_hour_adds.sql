@@ -2,9 +2,7 @@
   config({
 	"schema": 'fds_nplus',	
 	"materialized": 'incremental',
-	"pre-hook":["delete  from fds_nplus.drvd_intra_hour_quarter_hour_adds where date < 
-				trunc(convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp))) - 7 
-				or date = (case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0
+	"pre-hook":["delete  from fds_nplus.drvd_intra_hour_quarter_hour_adds where date = (case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0
 				and  extract(minute from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))<15
 				then trunc(convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp -1 as timestamp))) else
 				trunc(convert_timezone('AMERICA/NEW_YORK', sysdate)) end );"]})}}
@@ -38,4 +36,7 @@ with  #derived as
 	trunc(convert_timezone('AMERICA/NEW_YORK', sysdate)) end ) group by 1,2,3,7)
 group by 1,2,3,4,5,6)
 select date, hour, quarter_hour, sum(paid_adds) paid_adds, sum(trial_adds) trial_adds,payload_data_payment_provider as payment_method,
-convert_timezone('AMERICA/NEW_YORK', sysdate) etl_insert_rec_dttm from #derived group by 1,2,3,6
+(case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0
+	and  extract(minute from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))<15
+	then convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp -1 as timestamp)) else
+	convert_timezone('AMERICA/NEW_YORK', sysdate) end ) etl_insert_rec_dttm from #derived group by 1,2,3,6

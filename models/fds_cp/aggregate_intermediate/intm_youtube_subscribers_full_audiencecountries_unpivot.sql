@@ -1,7 +1,6 @@
 {{
     config({
-	"materialized": 'table',
-	"schema" :'fds_cp'
+	"materialized": 'ephemeral'
  })
 }}
 with base as

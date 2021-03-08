@@ -80,7 +80,7 @@ FROM
 	sum(case when order_type='first' then coalesce(daily_new_adds_cnt,0) else null end) as daily_paid_adds_cnt_new,
 	sum(case when order_type='winback' then coalesce(daily_new_adds_cnt,0) else null end) as daily_paid_adds_cnt_winback
 	from {{source('fds_nplus','aggr_daily_subscription')}}
-	where payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource','roku_iap')
+	where payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource','roku_iap','apple_iap','google_iap')
 	group by 1 
 	) b
 on a.full_date=b.as_on_date-1 
@@ -90,7 +90,7 @@ RIGHT JOIN
 	(
                  select trunc(bill_date) as bill_date,                
                  sum(coalesce(paid_winbacks,0))+sum(coalesce(paid_new_with_trial,0))+sum(coalesce(trial_winback_adds,0)) as paid_winbacks,
-                 sum(coalesce(paid_new_adds,0))+sum(coalesce(paid_new_with_Trial,0)) as new_paid,                
+                 sum(nvl(paid_new_adds,0)+nvl(trial_new_adds,0)-nvl(paid_new_with_trial,0)) as new_paid,                 
                  sum(coalesce(trial_adds,0)) as free_trial_subs
                  from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}}
                  where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}})

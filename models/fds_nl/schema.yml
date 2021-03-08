@@ -372,8 +372,6 @@ models:
           description: Special attributes attached to programs that let you select a set of days on which selected programs air and also permit dropping of specials, breakouts, or programs of less than five minutes duration. For syndication, you can also drop long-term programs
         - name: program_aired_weekday
           description: The day of the week during which the program aired (e.g. THURSDAY)
-        - name: telecast_trackage_name
-          description: A unique identifier provided by the client to track each telecast (e.g. NCIS MARA TH 3P tracks airings of NCIS that occurred on Thursdays at 3PM)
         - name: src_episode_id
           description: A unique numerical identifier for an individual episode of a program
         - name: src_episode_number
@@ -417,17 +415,23 @@ models:
         - name: etl_update_rec_dttm          
           description: Date Time information on when the record was updated
 
-  - name: vw_rpt_nl_daily_wwe_live_program_ratings
+  - name: vw_rpt_nl_daily_wwe_program_ratings
     description: A view to display various dimensions and metrics for wwe live programs on daily-basis
     columns:
+        - name: broadcast_date_id
+          description: Broadcast Date ID Field
         - name: broadcast_date
-          description: The date on when program is broadcasted      
+          description: Derived dates based on the viewing period; before 6 am morning hours is the preious date broadcast hour
+        - name: orig_broadcast_date_id
+          description: References dim_date_id    
         - name: broadcast_cal_week_begin_date
           description: Calendar Year Week Begin Date based on Broadcast Date
         - name: broadcast_cal_week_end_date
           description: Calendar Year Week End Date based on Broadcast Date
         - name: broadcast_cal_week_num
           description: Calendar Year Week Number based on Broadcast Date
+        - name: broadcast_cal_month_num
+          description: Calendar Year Month Number based on Broadcast Date
         - name: broadcast_cal_month_nm
           description: Broadcast Calendar Month Name based on Broadcast Date
         - name: broadcast_cal_quarter
@@ -440,6 +444,8 @@ models:
           description: Financial Year Week End Date based on Broadcast Date
         - name: broadcast_fin_week_num
           description: Financial Year Week Number based on Broadcast Date
+        - name: broadcast_fin_month_num
+          description: Financial Month Number based on broadcast date
         - name: broadcast_fin_month_nm
           description: Financial Month Name based on broadcast date
         - name: broadcast_fin_quarter
@@ -455,9 +461,19 @@ models:
         - name: src_demographic_group
           description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
         - name: src_program_id
-          description: A unique numerical identifier for an individual program nam.
+          description: A unique numerical identifier for an individual program name
         - name: src_series_name
-          description: Series name or program name provided by the source
+          description: A unique identifier for an individual program name
+        - name: src_program_attributes
+          description: Special attributes attached to programs that let you select a set of days on which selected programs air and also permit dropping of specials, breakouts, or programs of less than five minutes duration. For syndication, you can also drop long-term programs
+        - name: program_aired_weekday
+          description: The day of the week during which the program aired (e.g. THURSDAY)
+        - name: src_episode_id
+          description: A unique numerical identifier for an individual episode of a program
+        - name: src_episode_number
+          description: The sequential episode number within the program series
+        - name: src_episode_title
+          description: Source provided Title for the episode of a series
         - name: src_daypart_cd
           description: A unique character identifier for an individual daypart
         - name: src_daypart_name
@@ -466,14 +482,34 @@ models:
           description: The start time of the program telecast (HH:MM).
         - name: program_telecast_rpt_endtime
           description: The end time of the program telecast (HH:MM).
+        - name: src_total_duration
+          description: The duration of the program/telecast airing (minutes).
         - name: avg_audience_proj_000
           description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
         - name: avg_audience_pct_nw_cvg_area
           description: Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a network’s coverage area.)
-        - name: viewing_minutes_units          
-          description: Derived Average Viewing Hours in minutes
+        - name: viewing_hours          
+          description: Derived Average Viewing Hours 
+        - name: viewing_hours_000          
+          description: Derived Average persons viewing hours 
+        - name: avg_audience_proj_units          
+          description: Total U.S. Average Audience Projection (Units) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute.)
+        - name: share_pct          
+          description: Total U.S. Share Percentage (The percentage of households tuning or persons viewing that are tuned to a specific program/originator/daypart.)
+        - name: share_pct_nw_cvg_area          
+          description: Coverage Area Share Percent (The percentage of households or persons using television (HUT/PUT) viewing a particular program or time period within a specific coverage area.)
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
           
   - name: vw_aggr_nl_quarterly_timeperiod_ratings
     description: A view to display various dimensions and metrics for  quarterly timeperiod ratings
@@ -1136,3 +1172,37 @@ models:
           description: Previous year calander date representing the end date of the week
         - name: prev_year_value
           description: metric value for previous year
+  - name: rpt_nl_weekly_us_tv_program_ratings
+    description:  '{{ doc("rpt_nl_weekly_us_tv_program_ratings") }}'
+    columns:
+        - name: week
+          description: Financial year week begin date
+        - name: year
+          description: Broadcast Financial year
+        - name: program_type
+          description: represents the the type of program RAW,SD,NXT,AEW
+        - name: src_demographic_group
+          description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
+        - name: src_playback_period_cd
+          description: A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. 
+        - name: avg_audience_proj_000
+          description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
+        - name: avg_audience_pct
+          description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
+  - name: vw_rpt_nl_weekly_us_tv_program_ratings
+    description:  '{{ doc("vw_rpt_nl_weekly_us_tv_program_ratings") }}'
+    columns:
+        - name: week
+          description: Financial year week begin date
+        - name: year
+          description: Broadcast Financial year
+        - name: program_type
+          description: represents the the type of program RAW,SD,NXT,AEW
+        - name: src_demographic_group
+          description: A comma separated list of demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
+        - name: src_playback_period_cd
+          description: A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. 
+        - name: avg_audience_proj_000
+          description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
+        - name: avg_audience_pct
+          description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)

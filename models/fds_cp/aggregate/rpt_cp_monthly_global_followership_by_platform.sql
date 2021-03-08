@@ -3,7 +3,7 @@
 		 'schema': 'fds_cp',	
 		 "pre-hook": ["truncate fds_cp.rpt_cp_monthly_global_followership_by_platform"],
 	     "materialized": 'incremental',"tags": 'cp',"persist_docs": {'relation' : true, 'columns' : true},
-		 "post-hook": "drop table fds_cp.intm_youtube_subscribers_full_audiencecountries_unpivot"
+		 "post-hook": "drop table fds_cp.intm_youtube_subscribers_full_audiencecountries"
         })
 }}
 select 
