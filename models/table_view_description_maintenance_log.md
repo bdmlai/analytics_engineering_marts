@@ -58,7 +58,8 @@
 * Date : 07/21/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
 * Date : 8/06/2020  ; Developer: Remya K Nair ; Enhancements program_rating report table -Exclude all the repeats while calculating the live viewership - TAB-2106 
 * Date : 8/14/2020  ; Developer: Remya K Nair ; Enhancements program_rating report table - TAB-2105 
-* Date : 12/07/2020 ; Developer: Remya K Nair ; Enhancement Added 11 columns to program_rating report table - PSTA-1349 
+* Date : 12/07/2020 ; Developer: Remya K Nair ; Enhancement Added 11 columns to program_rating report table - PSTA-1349
+* Date : 02/11/2021 ; Developer: Rahul Chandran ; Removed 'telecast_trackage_name' column as its affecting the roll-up of RAW Programs on a day as per the Enhancement request: PSTA-2478
 {% enddocs %}
 
 
@@ -2174,3 +2175,139 @@
 ## Maintenance Log
 * Date : 02/09/2021 ; Developer: Sandeep Battula ; Change: Initial Version as a part of Talent ranking report
 {% enddocs %}
+
+
+{% docs rpt_nl_weekly_us_tv_program_ratings %}
+## Implementation Detail
+*   Date        : 02/15/2021
+*   Version     : 1.0
+*   ViewName    : rpt_nl_weekly_us_tv_program_ratings
+*   Schema	    : fds_nl
+*   Contributor : Remya K Nair
+*   Description : Weekly US tv program ratings table consists of RAW,SmackDown,NXT and AEW program rating details .Roll up is based on Monday date of the week. 
+
+
+## Maintenance Log
+* Date : 02/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project
+{% enddocs %}
+
+
+
+{% docs vw_rpt_nl_weekly_us_tv_program_ratings %}
+## Implementation Detail
+*   Date        : 02/15/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_nl_weekly_us_tv_program_ratings
+*   Schema	    : fds_nl
+*   Contributor : Remya K Nair
+*   Description : Weekly US tv program ratings view consists of RAW,SmackDown,NXT and AEW program rating details .Roll up is based on Monday date of the week. 
+
+
+## Maintenance Log
+* Date : 02/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project
+{% enddocs %}
+
+
+{% docs rpt_yt_daily_episodes_by_brand %}
+## Implementation Detail
+*   Date        : 02/19/2021
+*   Version     : 1.0
+*   ViewName    : rpt_yt_daily_episodes_by_brand
+*   Schema	    : fds_yt
+*   Contributor : Remya K Nair
+*   Description : Report table consists of  region split for metrics at video_id level for different brands like RAW,SmackDown Live,NXT and 205 live . 
+
+
+## Maintenance Log
+* Date : 02/19/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Daily YouTube Episodes by Brand report
+{% enddocs %}
+
+
+{% docs vw_rpt_yt_daily_episodes_by_brand %}
+## Implementation Detail
+*   Date        : 02/19/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_yt_daily_episodes_by_brand
+*   Schema	    : fds_yt
+*   Contributor : Remya K Nair
+*   Description : View consists of  region split for metrics at video_id level for different brands like RAW,SmackDown Live,NXT and 205 live . 
+
+
+## Maintenance Log
+* Date : 02/19/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Daily YouTube Episodes by Brand report
+{% enddocs %}
+
+{% docs rpt_nplus_daily_network_adds_and_loss_split %}
+## Implementation Detail
+*   Date        : 02/24/2021
+*   Version     : 1.0
+*   ViewName    : rpt_nplus_daily_network_adds_and_loss_split
+*   Schema	   : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : Table consists of  network primary daily adds and losses split based on cust and cancel type .
+
+
+## Maintenance Log
+* Date : 02/24/2021 ; Developer: Hima Dasan; Change: Initial Version as a part of Network primary daily adds and losses plus country report
+{% enddocs %}
+
+
+{% docs vw_rpt_nplus_daily_network_adds_and_loss_split %}
+## Implementation Detail
+*   Date        : 02/24/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_nplus_daily_network_adds_and_loss_split
+*   Schema	    : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : View consists of  network primary daily adds and losses split based on cust and cancel type .
+
+
+## Maintenance Log
+* Date : 02/24/2021 ; Developer: Hima Dasan; Change: Initial Version as a part of Network primary daily adds and losses plus country report
+{% enddocs %}
+
+
+{% docs vw_nplus_daily_network_churn_rate %}
+## Implementation Detail
+*   Date        : 02/24/2021
+*   Version     : 1.0
+*   ViewName    : vw_nplus_daily_network_churn_rate
+*   Schema	    : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : View consists of  up for renewal and loss count ( for churn rate)
+
+
+## Maintenance Log
+* Date : 02/24/2021 ; Developer: Hima Dasan; Change: Initial Version as a part of Network primary daily adds and losses  plus country report
+{% enddocs %}
+
+
+{% docs rpt_pii_weekly_yougov_country_split %}
+## Implementation Detail
+*   Date        : 03/03/2021
+*   Version     : 1.0
+*   TableName    : rpt_pii_weekly_yougov_country_split
+*   Schema	    : fds_pii
+*   Contributor : Remya K Nair
+*   Description : Report table consists of  yougov details with  country split . 
+
+
+## Maintenance Log
+* Date : 03/03/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Talent Monthly Scorecard 
+{% enddocs %}
+
+
+{% docs vw_rpt_pii_weekly_yougov_country_split %}
+## Implementation Detail
+*   Date        : 03/03/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_pii_weekly_yougov_country_split
+*   Schema	    : fds_pii
+*   Contributor : Remya K Nair
+*   Description : View consists of  yougov details with  country split . 
+
+
+## Maintenance Log
+* Date : 03/03/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Talent Monthly Scorecard 
+{% enddocs %}
+

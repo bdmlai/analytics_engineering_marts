@@ -8,6 +8,7 @@ sources:
       - name: dim_nl_series
       - name: dim_nl_broadcast_network
       - name: dim_nl_daypart
+      - name: dim_nl_episode
       - name: fact_nl_timeperiod_viewership_ratings
       - name: fact_nl_weekly_overlap_chart
       - name: fact_nl_weekly_hulu_data
@@ -17,6 +18,7 @@ sources:
       - name: fact_nl_weekly_overlap_4_way_oob
       - name: rpt_nl_weekly_overlap_derived_4_way_oob
       - name: rpt_nl_daily_minxmin_lite_log_ratings
+      - name: rpt_nl_daily_wwe_program_ratings
   - name: cdm
     tables:
       - name: dim_date
@@ -66,6 +68,9 @@ sources:
        - name: AGGR_TOTAL_SUBSCRIPTION
        - name: dim_content_classification_title
        - name: vw_rpt_network_daily_subscription_kpis
+       - name: aggr_forecast_dice_daily_summary
+       - name: fact_customer_login_and_status
+
   - name: dwh_read_write
     tables:
        - name: raw_da_weekly_ppv_hourly_comps     
@@ -124,6 +129,7 @@ sources:
        - name: vw_rpt_cp_monthly_global_consumption_by_platform
        - name: vw_rpt_cp_weekly_consolidated_kpi
        - name: rpt_cp_monthly_social_overview
+       - name: rpt_cp_monthly_global_consumption_by_platform
   - name: fds_kntr
     tables:
        - name: fact_kntr_wwe_telecast_data
@@ -137,6 +143,7 @@ sources:
   - name: udl_tkt
     tables: 
        - name: tiktok_weekly_country_consumption
+       - name: tiktok_monthly_country_consumption
   - name: fds_cpg
     tables:
       - name: dim_cpg_item
@@ -175,6 +182,8 @@ sources:
   - name: udl_pii
     tables: 
       - name: restricted_cpg_clientbase_monthly_shipment
+      - name: restricted_yougov_weekly_signal_data
+
   - name: hive_udl_mkt
     tables:    
         - name: wavemaker_monthly_display_mmm
@@ -209,6 +218,7 @@ sources:
     tables:
       - name: daily_social_account_country_mapping
       - name: da_monthly_conviva_emm_accounts_mapping
+      - name: twitch_monthly_stream_sessions
   - name: hive_udl_voc
     tables:
       - name: tweet_tags
