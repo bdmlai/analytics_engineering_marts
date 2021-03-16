@@ -129,6 +129,7 @@ sources:
        - name: vw_rpt_cp_monthly_global_consumption_by_platform
        - name: vw_rpt_cp_weekly_consolidated_kpi
        - name: rpt_cp_monthly_social_overview
+       - name: rpt_cp_monthly_global_consumption_by_platform
   - name: fds_kntr
     tables:
        - name: fact_kntr_wwe_telecast_data
@@ -142,6 +143,7 @@ sources:
   - name: udl_tkt
     tables: 
        - name: tiktok_weekly_country_consumption
+       - name: tiktok_monthly_country_consumption
   - name: fds_cpg
     tables:
       - name: dim_cpg_item
@@ -216,6 +218,7 @@ sources:
     tables:
       - name: daily_social_account_country_mapping
       - name: da_monthly_conviva_emm_accounts_mapping
+      - name: twitch_monthly_stream_sessions
   - name: hive_udl_voc
     tables:
       - name: tweet_tags

@@ -1,9 +1,11 @@
 {{
   config({
-		 'schema': 'fds_cp',	
-		 "pre-hook": ["truncate fds_cp.rpt_cp_monthly_global_followership_by_platform"],
-	     "materialized": 'incremental',"tags": 'cp',"persist_docs": {'relation' : true, 'columns' : true},
-		 "post-hook": "drop table fds_cp.intm_youtube_subscribers_full_audiencecountries"
+		 'schema': 'fds_cp',
+	        "materialized": 'table',"tags": 'cp',"persist_docs": {'relation' : true, 'columns' : true},
+               'post-hook': ["grant select on fds_cp.rpt_cp_monthly_global_followership_by_platform to public",
+                           "drop table fds_cp.intm_youtube_subscribers_full_audiencecountries"
+                            ]
+                           	
         })
 }}
 select 
@@ -18,7 +20,7 @@ year,month,region_nm,country_nm,account_name,platform,followers,
 select year,month,region_nm,country_nm,account_name,platform_type as platform,followers from
 {{ ref('intm_cp_fb_followers') }}
 union all
-select year,month,region_nm,country_nm,'N/A' as account_name,platform_type as platform,followers from
+select year,month,region_nm,country_nm,account_name,platform_type as platform,followers from
 {{ ref('intm_cp_ig_followers') }}
 union all
 select year,month,'GlOBAL' as region_nm,'GLOBAL' AS country_nm, account_name, platform,followers from

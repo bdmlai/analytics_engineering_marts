@@ -4,7 +4,7 @@
   })
 }}
 
-select year,month,region_nm,country_nm,platform_type,sum(followers) as followers from (
+
 select b.cal_year as year,b.cal_mth_num as month,
 nvl(f.region_nm,'Other') as region_nm,
 nvl(regexp_replace(INITCAP(k.country_nm),'[^0-9A-z ,\\.()\\-]',''),'Other') as country_nm,
@@ -32,5 +32,3 @@ year=h.year and
 a.dim_country_id=h.dim_country_id  and
 d.account_name=h.account_name
 and a.dim_date_id=h.last_day
-)
-group by 1,2,3,4,5
