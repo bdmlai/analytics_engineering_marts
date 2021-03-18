@@ -1,30 +1,9 @@
-4b code is in fds_nl schema with 3 tables and 18 views
+Code for BIOPS-484,BIOPS-497,TAB-2260
 
-Tables:
-dwh_read_write.rpt_nl_daily_wwe_live_commercial_ratings
-dwh_read_write.rpt_nl_daily_wwe_live_quarterhour_ratings
-dwh_read_write.rpt_nl_daily_wwe_program_ratings
-
-Views:
---dwh_read_write.vw_aggr_nl_quarterly_wwe_live_commercial_ratings
---dwh_read_write.vw_aggr_nl_quarterly_wwe_live_quarterhour_ratings
---dwh_read_write.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings
---dwh_read_write.vw_aggr_nl_monthly_wwe_live_commercial_ratings
---dwh_read_write.vw_aggr_nl_monthly_wwe_live_quarterhour_ratings
+BIOPS-484:
+http://http://10.26.130.12:9003/#!/model/model.analytics_engineering_marts_uat.rpt_pii_weekly_yougov_country_split
+http://10.26.130.12:9003/#!/model/model.analytics_engineering_marts_uat.vw_rpt_pii_weekly_yougov_country_split
 
 
---dwh_read_write.vw_aggr_nl_yearly_wwe_live_commercial_ratings
---dwh_read_write.vw_aggr_nl_yearly_fin_wwe_live_program_ratings
---dwh_read_write.vw_aggr_nl_quarterly_fin_wwe_live_program_ratings
---dwh_read_write.vw_aggr_nl_monthly_fin_wwe_live_program_ratings
---dwh_read_write.vw_aggr_nl_monthly_wwe_live_program_ratings
---dwh_read_write.vw_aggr_nl_quarterly_wwe_live_program_ratings
---dwh_read_write.vw_aggr_nl_yearly_wwe_live_program_ratings 
-
-
---dwh_read_write.vw_aggr_nl_monthly_primetime_ratings
---dwh_read_write.vw_aggr_nl_monthly_timeperiod_ratings
---dwh_read_write.vw_aggr_nl_quarterly_primetime_ratings
---dwh_read_write.vw_aggr_nl_quarterly_timeperiod_ratings
---dwh_read_write.vw_aggr_nl_yearly_primetime_ratings
---dwh_read_write.vw_aggr_nl_yearly_timeperiod_ratings
+BIOPS-497:
+http://10.26.130.12:9003/#!/model/model.analytics_engineering_marts_uat.aggr_cpg_daily_sales
