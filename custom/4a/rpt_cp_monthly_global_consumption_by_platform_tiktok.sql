@@ -9,7 +9,6 @@ with #temp_table as
 (select x.platform,
 		x.type, 
 		'' as type2, 
-		nvl(y.alternate_region_nm,'Global') as Region, 
 		nvl(y.country_nm,'Global') as Country,
 		x.month, 
 		x.views, 
@@ -39,18 +38,18 @@ with #temp_table as
 						 country as Country,
 						 sum(video_views) views, 
 						 sum(play_duration)/3600 hours_watched
-				 from udl_tkt.tiktok_monthly_country_consumption
+				 from {{source('udl_tkt','tiktok_monthly_country_consumption')}}
 				 where 	date_trunc('month',source_as_on_date) = date_trunc('month',current_date) 
-						and as_on_date = (select max(as_on_date) from udl_tkt.tiktok_monthly_country_consumption)
+						and as_on_date = (select max(as_on_date) from {{source('udl_tkt','tiktok_monthly_country_consumption')}})
 				 group by 1,2) a
 				 right outer join
 				(select date_trunc('month',source_as_on_date) as month, 
 						country as Country,
 						sum(video_views) views, 
 						sum(play_duration)/3600 hours_watched
-				 from udl_tkt.tiktok_weekly_country_consumption
+				 from {{source('udl_tkt','tiktok_weekly_country_consumption')}}
 				 where 	date_trunc('month',source_as_on_date) = date_trunc('month',current_date-25) 
-						and as_on_date = (select max(as_on_date) from udl_tkt.tiktok_weekly_country_consumption)
+						and as_on_date = (select max(as_on_date) from {{source('udl_tkt','tiktok_weekly_country_consumption')}})
 				 group by date_trunc('month',source_as_on_date),country) b
 				 on 1=1)
 		) x
@@ -65,7 +64,6 @@ cdm.dim_region_country y
 ((select platform,
 		 type, 
 		 type2, 
-		 region, 
 		 country,
 		 month, 
 		 views, 
@@ -74,15 +72,14 @@ cdm.dim_region_country y
 		 ytd_hours_watched, 
 		 prev_year_views, 
 		 prev_year_hours 
- from fds_cp.rpt_cp_monthly_global_consumption_by_platform
+ from {{source('fds_cp','rpt_cp_monthly_global_consumption_by_platform')}}
  where month between date_trunc('month',add_months(current_date,-14)) and date_trunc('month',current_date-50) and platform ='TikTok')
 union
 (select * from #temp_table))
 
 (select a.platform, 
 		a.type, 
-		'' as type2,  
-		a.Region, 
+		'' as type2, 
 		a.Country, 
 		a.month, 
 		a.views, 
@@ -103,7 +100,6 @@ from
 				month, 
 				type, 
 				Country, 
-				Region, 
 				views, 
 				hours_watched
 		from #temp_table ) as a
@@ -112,7 +108,6 @@ left join
 				month, 
 				type, 
 				Country, 
-				Region, 
 				views as prev_month_views, 
 				hours_watched as prev_month_hours
 		from #all_data ) as b
@@ -120,13 +115,11 @@ left join
 			and a.month=add_months (b.month,1)
 			and a.type=b.type
 			and a.Country=b.Country
-			and a.Region=b.Region
 left join
 		(select platform, 
 				month, 
 				type, 
 				Country, 
-				Region, 
 				ytd_views as prev_year_views, 
 				ytd_hours_watched as prev_year_hours
 		from #all_data) as c
@@ -134,19 +127,16 @@ left join
 			and add_months(a.month,-12)=c.month
 			and a.type=c.type
 			and a.Country=c.Country
-			and a.Region=c.Region
 left join
 		(select platform, 
 				type, 
-				Country, 
-				Region, 
+				Country,  
 				sum(views) ytd_views, 
 				sum(hours_watched) ytd_hours_watched
 		from #all_data
 		where month between date_trunc('year',current_date-25) and date_trunc('month',current_date-25)
-		group by 1,2,3,4) d
+		group by 1,2,3) d
 			on a.Country=d.Country
-			and a.Region=d.Region
 			and a.type=d.type
 			and a.platform=d.platform
 where a.month = date_trunc('month',current_date-25))

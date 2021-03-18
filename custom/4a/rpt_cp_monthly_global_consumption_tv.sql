@@ -22,15 +22,14 @@ Date        : 10/23/2020
 	"schema": 'fds_cp',
 	"materialized": "incremental",
 	"pre-hook": ["delete from fds_cp.rpt_cp_monthly_global_consumption_by_platform where platform='TV' and type='International' and month >= date_trunc('month',current_date-60)",
-	"delete from fds_cp.rpt_cp_monthly_global_consumption_by_platform where platform IN ('WWE Network','PPTV','Hulu SVOD','TV') and month = date_trunc('month',current_date-30)",
-"create table #all_data as select * from 
+	"delete from fds_cp.rpt_cp_monthly_global_consumption_by_platform where platform IN ('WWE Network','PPTV','Hulu SVOD','TV') and month = date_trunc('month',current_date-30)" ,
+	"create table #all_data as select * from 
 (with #nw_global_monthly as (
 select 	'WWE Network' as platform, 
 		'WWE Network' as type, 
 		'' as type2,
 		mnth_start_dt as month, 
 		nvl(c.country_nm, 'NA') as Country, 
-		nvl(c.alternate_region_nm, 'NA') as region,
 		sum(mnthly_view_cnt) views, 
 		sum(mnthly_hours_watched) hours_watched
 from fds_nplus.aggr_monthly_content_location_viewership a
@@ -42,7 +41,7 @@ left join
 where 	month = date_trunc('month',current_date-30) 
 		and stream_type_cd='live+vod' 
 		and subs_tier=95
-group by 1,2,3,4,5,6),
+group by 1,2,3,4,5),
 
 #pptv_global_monthly as (
 select 	'PPTV' as platform, 
@@ -50,13 +49,12 @@ select 	'PPTV' as platform,
 		'' as type2,
 		date_trunc('month',date) as month, 
 		'China' as Country, 
-		'China' as region,
 		sum(total_views) views, 
 		sum(total_mins)/60 hours_watched
 from udl_nplus.raw_pptv_viewership_snp_tbl
 where 	month = date_trunc('month',current_date-30)
 		and as_on_date= (select max(as_on_date) from udl_nplus.raw_pptv_viewership_snp_tbl) 
-group by 1,2,3,4,5,6),
+group by 1,2,3,4,5),
 
 
 #hulu_global_monthly as (
@@ -65,12 +63,11 @@ select  'Hulu SVOD' as Platform,
 		'' as type2, 
 		to_date(('01' || flight_month || flight_year), 'ddmonyyyy') as month,
 		'United States' as Country,
-		'United States ' as region,
 		null as views, 
 		sum(tot_viewing_hours) hours_watched
 from fds_nl.vw_aggr_nl_monthly_hulu_wwe_vh_data a
 where month = date_trunc('month',current_date-30)
-group by 1,2,3,4,5,6),
+group by 1,2,3,4,5),
 
 
 #tv_intl_global_monthly as (
@@ -79,7 +76,6 @@ select 	'TV' as platform,
 		a.broadcast_network_prem_type as type2,
 	    month,
 		nvl(b.country_nm, a.country_nm) as Country, 
-		nvl(b.alternate_region_nm, 'NA') as region,
         null as views,
         sum(hours) as hours_watched
 from
@@ -102,7 +98,7 @@ left join
 			on lower(a.country_nm)=lower(b.country_nm)
 			and src_sys_cd='iso'
 			and ent_map_nm='GM Region'
-group by 1,2,3,4,5,6),
+group by 1,2,3,4,5),
 
 
 #domestic_tv_global_monthly as (
@@ -111,7 +107,6 @@ select 'TV' as Platform,
 		'' as type2, 
 		month,
         'United States' as Country,
-		'United States ' as region,
 		null as views,
         sum(hours_watched) hours_watched
 from
@@ -138,7 +133,7 @@ where 	broadcast_date between
 		and src_demographic_group='P2-999'
 		and src_playback_period_cd='Live+SD'
 group by 1)) a
-group by 1,2,3,4,5,6),
+group by 1,2,3,4,5),
 
 
 #latest_month as 
@@ -158,21 +153,20 @@ from
 		union all
 		select * from #domestic_tv_global_monthly) a
 ),
-all_data as
+##all_data as
 (
 (select platform,
 		type, 
 		type2, 
 		month, 
 		country,
-		region, 
 		views, 
 		hours_watched, 
 		ytd_views, 
 		ytd_hours_watched, 
 		prev_year_views, 
 		prev_year_hours 
-from fds_cp.rpt_cp_monthly_global_consumption_by_platform 
+from fds_cp.rpt_cp_monthly_global_consumption_by_platform  
 where month between date_trunc('month',add_months(current_date,-16)) 
 	  and date_trunc('month',current_date-60)  
 	  and platform in ('WWE Network','PPTV','Hulu SVOD','TV'))
@@ -187,7 +181,6 @@ select * from all_data);"
 (select a.platform, 
 		a.type, 
 		a.type2,  
-		a.Region, 
 		a.Country, 
 		a.month, 
 		a.views, 
@@ -208,36 +201,32 @@ from
 			month, 
 			type, 
 			type2,
-			Country, 
-			Region, 
+			Country,  
 			views, 
-			LAG(views)  over (partition by platform, type, type2, Country, Region order by month) as prev_month_views
+			LAG(views)  over (partition by platform, type, type2, Country order by month) as prev_month_views
 	from #all_data
-	group by platform, month, type, type2, Country, Region, views) as a
+	group by platform, month, type, type2, Country, views) as a
 left join 
 	(select platform, 
 			month, 
 			type, 
 			type2,
 			Country, 
-			Region, 
 			hours_watched, 
-			LAG(hours_watched)  over (partition by platform, type, type2, Country, Region order by month) as prev_month_hours
+			LAG(hours_watched)  over (partition by platform, type, type2, Country order by month) as prev_month_hours
 	from #all_data
-	group by platform, month, type, type2, Country, Region, hours_watched) as b
+	group by platform, month, type, type2, Country, hours_watched) as b
 		on a.platform=b.platform
 		and a.month=b.month
 		and a.type=b.type
 		and coalesce (a.type2, 'NA') = coalesce (b.type2, 'NA')
 		and a.Country=b.Country
-		and a.Region=b.Region
 left join
 	(select platform, 
 			month, 
 			type, 
 			type2,
-			Country, 
-			Region, 
+			Country,  
 			ytd_views as prev_year_views, 
 			ytd_hours_watched as prev_year_hours
 	from #all_data) as c
@@ -246,21 +235,18 @@ left join
 		and a.type=c.type
 		and coalesce (a.type2, 'NA') = coalesce (c.type2, 'NA')
 		and a.Country=c.Country
-		and a.Region=c.Region
 left join
 	(select platform, 
 			type, 
 			type2,
-			Country, 
-			Region, 
+			Country,  
 			sum(views) ytd_views, 
 			sum(hours_watched) ytd_hours_watched
 	from #all_data
 	where month between date_trunc('year',current_date-30) 
 		  and date_trunc('month',current_date-30)
-	group by 1,2,3,4,5) d
+	group by 1,2,3,4) d
 		on a.Country=d.Country
-		and a.Region=d.Region
 		and a.type=d.type
 		and coalesce (a.type2, 'NA') = coalesce (d.type2, 'NA')
 		and a.platform=d.platform
@@ -271,7 +257,6 @@ union all
 (select a.platform, 
 		a.type, 
 		a.type2,  
-		a.Region, 
 		a.Country, 
 		a.month, 
 		a.views, 
@@ -292,36 +277,32 @@ from
 			month, 
 			type, 
 			type2,
-			Country, 
-			Region, 
+			Country,  
 			views, 
-			LAG(views)  over (partition by platform, type, type2, Country, Region order by month) as prev_month_views
+			LAG(views)  over (partition by platform, type, type2, Country order by month) as prev_month_views
 	from #all_data
-	group by platform, month, type, type2, Country, Region, views) as a
+	group by platform, month, type, type2, Country,  views) as a
 left join 
 	(select platform, 
 			month, 
 			type, 
 			type2,
 			Country, 
-			Region, 
 			hours_watched, 
-			LAG(hours_watched)  over (partition by platform, type, type2, Country, Region order by month) as prev_month_hours
+			LAG(hours_watched)  over (partition by platform, type, type2, Country order by month) as prev_month_hours
 	from #all_data
-	group by platform, month, type, type2, Country, Region, hours_watched) as b
+	group by platform, month, type, type2, Country,  hours_watched) as b
 		on a.platform=b.platform
 		and a.month=b.month
 		and a.type=b.type
 		and coalesce (a.type2, 'NA') = coalesce (b.type2, 'NA')
 		and a.Country=b.Country
-		and a.Region=b.Region
 left join
 	(select platform, 
 			month, 
 			type, 
 			type2,
 			Country, 
-			Region, 
 			ytd_views as prev_year_views, 
 			ytd_hours_watched as prev_year_hours
 	from #all_data) as c
@@ -330,24 +311,21 @@ left join
 		and a.type=c.type
 		and coalesce (a.type2, 'NA') = coalesce (c.type2, 'NA')
 		and a.Country=c.Country
-		and a.Region=c.Region
 left join
 	(select platform, 
 			type, 
 			type2,
 			Country, 
-			Region, 
 			sum(views) ytd_views, 
 			sum(hours_watched) ytd_hours_watched
 	from #all_data
 	where month between date_trunc('year',current_date-60) 
 		  and date_trunc('month',current_date-60)
-	group by 1,2,3,4,5) d
+	group by 1,2,3,4) d
 		on a.Country=d.Country
-		and a.Region=d.Region
 		and a.type=d.type
 		and coalesce (a.type2, 'NA') = coalesce (d.type2, 'NA')
 		and a.platform=d.platform
 where (a.platform = 'TV' and a.type='International' and 
 	   a.month = date_trunc('month',current_date-60))
-) 
+)
