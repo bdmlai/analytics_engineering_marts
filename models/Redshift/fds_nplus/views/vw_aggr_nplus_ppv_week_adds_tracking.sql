@@ -64,7 +64,10 @@ FROM
 	sum(case when order_type='winback' then coalesce(daily_new_adds_cnt,0) else null end) as daily_paid_adds_cnt_winback
 	from {{source('fds_nplus','aggr_daily_subscription')}}
 	where payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource','roku_iap','apple_iap','google_iap')
+<<<<<<< HEAD:models/Redshift/fds_nplus/views/vw_aggr_nplus_ppv_week_adds_tracking.sql
          and country_type  in ('international')
+=======
+>>>>>>> 5953fd6c1ab44a6322c2ce05ab98074cd1cb5f63:models/fds_nplus/views/vw_aggr_nplus_PPV_Week_Adds_Tracking.sql
 	group by 1 
 	) b
 on a.full_date=b.as_on_date-1 

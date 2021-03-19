@@ -1,0 +1,53 @@
+version: 2
+models:
+  - name: vw_rpt_daily_fb_published_video
+    description: '{{ doc("vw_rpt_daily_fb_published_video") }}'
+    columns:
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_social_account_id
+          description: Unique Identifier of the social account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_video_id
+          description: Unique Identifier of the video id
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider
+        - name: date_posted
+          description: Date video posted
+        - name: video_title
+          description: Title of the video
+        - name: post_message
+          description: Video description
+        - name: iscrosspost
+          description: False or True. If False it is the parent video. If true it is a child video
+        - name: post_ids_that_reused_the_video
+          description: Crossposted children videos
+        - name: video_length
+          description: The length of the video in HH:MM:SS
+        - name: as_on_date
+          description: Record as-on date          
+  - name: vw_rpt_daily_fb_published_post
+    description: '{{ doc("vw_rpt_daily_fb_published_post") }}'
+    columns:
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_social_account_id
+          description: Unique Identifier of the social account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_video_id
+          description: Unique Identifier of the video id
+        - name: dim_media_id
+          description: Unique Identifier of the social media id
+        - name: dim_content_type_id
+          description: Unique Identifier of the content type published on social media
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider
+        - name: post_date
+          description: Date video posted 
+        - name: post_text
+          description: Post description
+        - name: as_on_date
+          description: Record as-on date
+        

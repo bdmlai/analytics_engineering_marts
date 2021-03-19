@@ -1,0 +1,32 @@
+version: 2
+models:          
+  - name: rpt_pii_weekly_yougov_country_split
+    description: '{{ doc("rpt_pii_weekly_yougov_country_split") }}'
+    columns:
+        - name: date
+          description: Start date
+        - name: title
+          description: title
+        - name: avg_appetite_score
+          description: Average appetite score with country split
+        - name: stddev_appetite_score
+          description: standard deviation scrore with country split
+        - name: country
+          description: Indicates country
+
+  - name: vw_rpt_pii_weekly_yougov_country_split
+    description: '{{ doc("vw_rpt_pii_weekly_yougov_country_split") }}'
+    columns:
+        - name: date
+          description: Start date
+        - name: title
+          description: title
+        - name: avg_appetite_score
+          description: Average appetite score with country split
+        - name: stddev_appetite_score
+          description: standard deviation scrore with country split
+        - name: country
+          description: Indicates country
+
+
+        

@@ -1,0 +1,219 @@
+version: 2
+models:
+  - name: rpt_yt_daily_consumption_bychannel
+    description: '{{ doc("rpt_yt_daily_consumption_bychannel") }}'
+    columns:
+        - name: date
+          description: Report Date
+        - name: report_date
+          description: The date when reports need to generate
+        - name: channel_name
+          description: Name of channel defined in yotube metadata
+        - name: country_code
+          description: The country associated with the metrics in the report row.
+        - name: content_type
+          description: Type 1 or 2 for the video
+        - name: country_name
+          description: Indicates country name
+        - name: region_name
+          description: Indicates region for the country
+        - name: views
+          description: The number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: likes
+          description: The number of times that users indicated that they liked a video by giving it a positive rating.
+        - name: dislikes
+          description: The number of times that users indicated that they disliked a video by giving it a negative rating.
+        - name: watch_time_mins
+          description: The number of minutes that users watched videos for the specified channel, content owner, video, or playlist.
+        - name: subscribers_gained
+          description: The number of times that users subscribed to a channel.
+        - name: subscribers_lost
+          description: The number of times that users unsubscribed from a channel.
+        - name: revenue_views
+          description: Views
+        - name: ad_impressions
+          description: The number of verified ad impressions served.
+        - name: estimated_partner_revenue
+          description: Estimated Partner Revenue
+        - name: estimated_partner_ad_revenue
+          description: Estimated Ad Revenue
+        - name: male
+          description: views by male
+        - name: female
+          description: views by female
+        - name: gender_other
+          description: views by other gender
+        - name: age_13_17
+          description: views by 13 to 17
+        - name: age_18_24
+          description: views by 18 to 24
+        - name: age_25_34
+          description: views by 25 to 34
+        - name: age_35_44
+          description: views by 35 to 44
+        - name: age_45_54
+          description: views by 45 to 54
+        - name: age_55_64
+          description: views by 55 to 64
+        - name: age_65_and_above
+          description: views by 65 and above
+
+  - name: vw_rpt_yt_daily_consumption_bychannel
+    description: '{{ doc("vw_rpt_yt_daily_consumption_bychannel") }}'
+    columns:
+        - name: date
+          description: Report Date
+        - name: report_date
+          description: The date when reports need to generate
+        - name: channel_name
+          description: Name of channel defined in yotube metadata
+        - name: country_code
+          description: The country associated with the metrics in the report row.
+        - name: content_type
+          description: Type 1 or 2 for the video
+        - name: country_name
+          description: Indicates country name
+        - name: region_name
+          description: Indicates region for the country
+        - name: views
+          description: The number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: likes
+          description: The number of times that users indicated that they liked a video by giving it a positive rating.
+        - name: dislikes
+          description: The number of times that users indicated that they disliked a video by giving it a negative rating.
+        - name: watch_time_mins
+          description: The number of minutes that users watched videos for the specified channel, content owner, video, or playlist.
+        - name: subscribers_gained
+          description: The number of times that users subscribed to a channel.
+        - name: subscribers_lost
+          description: The number of times that users unsubscribed from a channel.
+        - name: revenue_views
+          description: Views
+        - name: ad_impressions
+          description: The number of verified ad impressions served.
+        - name: estimated_partner_revenue
+          description: Estimated Partner Revenue
+        - name: estimated_partner_ad_revenue
+          description: Estimated Ad Revenue
+        - name: male
+          description: views by male
+        - name: female
+          description: views by female
+        - name: gender_other
+          description: views by other gender
+        - name: age_13_17
+          description: views by 13 to 17
+        - name: age_18_24
+          description: views by 18 to 24
+        - name: age_25_34
+          description: views by 25 to 34
+        - name: age_35_44
+          description: views by 35 to 44
+        - name: age_45_54
+          description: views by 45 to 54
+        - name: age_55_64
+          description: views by 55 to 64
+        - name: age_65_and_above
+          description: views by 65 and above
+  - name: rpt_yt_daily_wwe_talent_views_pastyear
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_pastyear") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region for past year
+  - name: rpt_yt_daily_wwe_talent_views_pastquarter
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_pastquarter") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region for past quarter
+  - name: rpt_yt_daily_wwe_talent_views_halfyear
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_halfyear") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region for half year
+  - name: rpt_yt_daily_wwe_talent_views_since_upload
+    description: '{{ doc("rpt_yt_daily_wwe_talent_views_since_upload") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date        
+        - name: cnt_video_id
+          description: Count of videos for each talents against region since upload
+  - name: vw_rpt_yt_daily_wwe_talent_views_indices
+    description: '{{ doc("vw_rpt_yt_daily_wwe_talent_views_indices") }}'
+    columns:
+        - name: region_code
+          description: Country Code
+        - name: region_name
+          description: Country Name
+        - name: talent
+          description: List of Talents
+        - name: granularity
+          description: Granularity to find aggragte views ,popularity index,unique index, total number of videos
+        - name: total_views
+          description: Total number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist.        
+        - name: video_count
+          description: Count of videos for each talents against region on granularity basis
+        - name: views_30days
+          description: Total number of views with in 30 days from uploaded date
+        - name: popularity_index
+          description: popularity index for each talent against country is calculated based on  total views 
+        - name: unique_index
+          description: unique index for each talent against country is calculated based on  total views
+        - name: popularity_index_30days
+          description: popularity index for each talent against country is calculated based on  totalviews for 30 days from uploaded date
+        - name: unique_index_30days
+          description: unique index for each talent against country is calculated based on totalviews for 30 days from uploaded date
+        - name: popularity_index_totalviews_per_video
+          description: popularity index for each talent against country is calculated based on  totalviews and count of video
+        - name: unique_index_totalviews_per_video
+          description: unique index for each talent against country is calculated based on totalviews and count of video
+        - name: popularity_index_views_30days_per_video
+          description: popularity index for each talent against country is calculated based on  totalviews for 30 days from uploaded date and count of video
+        - name: unique_index_views_30days_per_video
+          description: unique index for each talent against country is calculated based on totalviews for 30 days from uploaded date and count of video
+
