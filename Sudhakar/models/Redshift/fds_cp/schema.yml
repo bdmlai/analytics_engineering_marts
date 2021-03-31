@@ -47,8 +47,6 @@ models:
           description: platform type where applicable
         - name: type2
           description: network premium type for International TV - Pay or FTA
-        - name: region
-          description: geographical region based on country
         - name: country
           description: country
         - name: month

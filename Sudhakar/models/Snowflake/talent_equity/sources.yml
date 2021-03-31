@@ -1,0 +1,103 @@
+version: 2
+
+sources:
+  - name: sf_fds_mdm
+    database: prod_entdwdb
+    schema: fds_mdm
+    tables:
+      - name: character
+      - name: groups
+      - name: person
+      - name: achievement_entity
+      - name: alternateid
+      - name: characterlineage_grouplineage
+
+  - name: sf_fds_emm
+    database: prod_entdwdb
+    schema: fds_emm
+    tables:
+      - name: brand
+      - name: babyface_heel
+      - name: absence
+
+  - name: sf_fds_cpg
+    database: prod_entdwdb
+    schema: fds_cpg
+    tables:
+      - name: fact_cpg_sales_detail_1
+      - name: dim_cpg_kit_item
+      - name: fact_cpg_sales_header
+      - name: dim_cpg_item
+      - name: fact_cpg_inventory
+      - name: fact_cpg_sales_detail_kit_component
+      - name: aggr_cpg_daily_venue_sales
+
+  - name: sf_cdm
+    database: prod_entdwdb
+    schema: cdm
+    tables:
+      - name: dim_date
+      - name: dim_smprovider_account
+
+  - name: sf_fds_yt
+    database: prod_entdwdb
+    schema: fds_yt
+    tables:
+      - name: rpt_yt_wwe_engagement_daily
+      - name: yt_amg_content_groups
+
+  - name: sf_udl_cp
+    database: prod_entdwdb
+    schema: udl_cp
+    tables:
+      - name: drvd_emm_nplus_weekly_talent_breakout
+      - name: da_monthly_conviva_emm_accounts_mapping
+
+  - name: sf_udl_nplus
+    database: prod_entdwdb
+    schema: udl_nplus
+    tables:
+      - name: raw_lite_log
+
+  - name: sf_fds_fbk
+    database: prod_entdwdb
+    schema: fds_fbk
+    tables:
+      - name: fact_fb_engagement_post 
+
+  - name: sf_fds_tw
+    database: prod_entdwdb
+    schema: fds_tw
+    tables:
+      - name: fact_tw_engagement_post
+          
+
+  - name: sf_fds_igm
+    database: prod_entdwdb
+    schema: fds_igm
+    tables:
+      - name: fact_ig_engagement_post 
+
+  - name: sf_fds_nl
+    database: prod_entdwdb
+    schema: fds_nl
+    tables:
+      - name: vw_rpt_nl_daily_minxmin_lite_log_ratings
+
+  - name: sf_fds_voc
+    database: prod_entdwdb
+    schema: fds_voc
+    tables:
+      - name: aggr_voc_daily_mentions_count
+
+  - name: sf_udl_tw
+    database: prod_entdwdb
+    schema: udl_tw
+    tables:
+      - name: twitter_static_mentions_talent_tag
+
+  - name: sf_fds_cp
+    database: prod_entdwdb
+    schema: fds_cp
+    tables:
+      - name: fact_co_smfollowership_cumulative_summary

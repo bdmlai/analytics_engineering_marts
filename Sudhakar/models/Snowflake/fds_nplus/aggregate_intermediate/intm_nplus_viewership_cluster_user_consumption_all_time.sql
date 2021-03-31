@@ -10,7 +10,7 @@
     config(
         materialized='table',
         tags=['viewership','viewership_model','all_time'],
-		schema='fds_nplus'
+		schema='dt_stage'
     )
 }}
 

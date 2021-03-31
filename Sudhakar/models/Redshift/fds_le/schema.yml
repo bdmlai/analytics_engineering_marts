@@ -754,4 +754,81 @@ models:
         - name: maxeventdate
           description: event date
         - name: orders
-          description: Indicate order          
+          description: Indicate order
+
+  - name: rpt_le_daily_thunderdome_status
+    description: '{{ doc("rpt_le_daily_thunderdome_status") }}'
+    columns:
+        - name: event_id
+          description: ID of the event
+        - name: event_date
+          description: The date on when event has happened
+        - name: reg_date
+          description: The date on when user registered
+        - name: user_id
+          description: ID of the user
+        - name: email
+          description: Email address of the user
+        - name: country
+          description: User's country
+        - name: region
+          description: User's region; If user is from 'united states' treat as Domestic otherwise, International
+        - name: virtual_seat_attended
+          description: The flag to indicate whether virtual seat attended or not
+        - name: as_on_date 
+          description: As on date from the source
+        - name: etl_batch_id_source
+          description: ETL Batch ID at the source 
+        - name: fan_status
+          description: Indicates the status of the User
+        - name: attempted_to_attend_flag
+          description: The flag indicates whether user attempted to attend or not
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_le_daily_thunderdome_status
+    description:  '{{ doc("vw_rpt_le_daily_thunderdome_status") }}'
+    columns:
+        - name: event_id
+          description: ID of the event
+        - name: event_date
+          description: The date on when event has happened
+        - name: reg_date
+          description: The date on when user registered
+        - name: user_id
+          description: ID of the user
+        - name: email
+          description: Email address of the user
+        - name: country
+          description: User's country
+        - name: region
+          description: User's region; If user is from 'united states' treat as Domestic otherwise, International
+        - name: virtual_seat_attended
+          description: The flag to indicate whether virtual seat attended or not
+        - name: as_on_date 
+          description: As on date from the source
+        - name: etl_batch_id_source
+          description: ETL Batch ID at the source 
+        - name: fan_status
+          description: Indicates the status of the User
+        - name: attempted_to_attend_flag
+          description: The flag indicates whether user attempted to attend or not
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+          

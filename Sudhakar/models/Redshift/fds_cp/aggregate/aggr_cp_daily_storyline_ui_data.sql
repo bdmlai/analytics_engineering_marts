@@ -1,8 +1,8 @@
 {{
   config({
 		'schema': 'fds_cp',
-		"pre-hook": "truncate fds_cp.aggr_cp_daily_storyline_ui_data",
-		"materialized": 'incremental','tags': "Content","persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'table','tags': "aggr_cp_daily_storyline_ui_data","persist_docs": {'relation' : true, 'columns' : true} ,
+                "post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

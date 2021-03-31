@@ -1,8 +1,8 @@
  {{
   config({
-	"schema": 'fds_nplus',	
+	"schema": 'dt_prod_support',	
 	"materialized": 'incremental',
-	"pre-hook":["delete  from fds_nplus.drvd_intra_hour_quarter_hour_adds where date = (case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0
+	"pre-hook":["delete  from dt_prod_support.drvd_intra_hour_quarter_hour_adds where date = (case when extract(hour from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))=0
 				and  extract(minute from convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp as timestamp)))<15
 				then trunc(convert_timezone('AMERICA/NEW_YORK', cast(current_timestamp -1 as timestamp))) else
 				trunc(convert_timezone('AMERICA/NEW_YORK', sysdate)) end );"]})}}

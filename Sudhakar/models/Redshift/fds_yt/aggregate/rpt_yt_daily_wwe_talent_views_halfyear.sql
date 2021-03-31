@@ -7,6 +7,7 @@
 
   })
 }}
+
 select region_code, initcap(country_nm) as region_name,talent, 'half year' as granularity,
 sum(ttl_views) as total_views, sum(views_30days) as views_30days, 
 count(distinct video_id) as cnt_video_id,

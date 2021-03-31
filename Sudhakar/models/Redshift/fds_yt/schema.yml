@@ -216,4 +216,82 @@ models:
           description: popularity index for each talent against country is calculated based on  totalviews for 30 days from uploaded date and count of video
         - name: unique_index_views_30days_per_video
           description: unique index for each talent against country is calculated based on totalviews for 30 days from uploaded date and count of video
+  - name: rpt_yt_daily_episodes_by_brand
+    description: '{{ doc("rpt_yt_daily_episodes_by_brand") }}'
+    columns:
+        - name: channel_id
+          description: Channel id
+        - name: channel_name
+          description: Name of channel
+        - name: video_id
+          description: The ID of a YouTube video
+        - name: title
+          description: Short content about the video
+        - name: country_code
+          description: The country associated with the metrics
+        - name: time_uploaded
+          description: Video uploaded time
+        - name: report_date_dt
+          description: The date when reports need to generate
+        - name: views
+          description: The number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist
+        - name: comments
+          description: The number of comments for  a video 
+        - name: likes
+          description: The number of times that users indicated that they liked a video by giving it a positive rating
+        - name: dislikes
+          description: The number of times that users indicated that they disliked a video by giving it a negative rating
+        - name: shares
+          description: The number of times that users shared a video through the Share button
+        - name: brand
+          description: Program type like RAW,SD,NXT and 205 Live
+        - name: playlist_title
+          description: Customized value based on title 
+        - name: day_uploaded
+          description: derived value from time_uploaded
+        - name: episode_air_date
+          description: uploaded date
+        - name: week_uploaded
+          description: week derived from time_uploaded
+  - name: vw_rpt_yt_daily_episodes_by_brand
+    description: '{{ doc("vw_rpt_yt_daily_episodes_by_brand") }}'
+    columns:
+        - name: channel_id
+          description: Channel id
+        - name: channel_name
+          description: Name of channel
+        - name: video_id
+          description: The ID of a YouTube video
+        - name: title
+          description: Short content about the video
+        - name: country_code
+          description: The country associated with the metrics
+        - name: time_uploaded
+          description: Video uploaded time
+        - name: report_date_dt
+          description: The date when reports need to generate
+        - name: views
+          description: The number of times that a video was viewed. In a playlist report, the metric indicates the number of times that a video was viewed in the context of a playlist
+        - name: comments
+          description: The number of comments for  a video 
+        - name: likes
+          description: The number of times that users indicated that they liked a video by giving it a positive rating
+        - name: dislikes
+          description: The number of times that users indicated that they disliked a video by giving it a negative rating
+        - name: shares
+          description: The number of times that users shared a video through the Share button
+        - name: brand
+          description: Program type like RAW,SD,NXT and 205 Live
+        - name: playlist_title
+          description: Customized value based on title 
+        - name: day_uploaded
+          description: derived value from time_uploaded
+        - name: episode_air_date
+          description: uploaded date
+        - name: week_uploaded
+          description: week derived from time_uploaded
+  
+        
+
+
 

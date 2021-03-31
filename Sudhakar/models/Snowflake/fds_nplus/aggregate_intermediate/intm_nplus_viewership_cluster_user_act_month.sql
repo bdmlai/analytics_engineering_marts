@@ -8,7 +8,7 @@
     config(
         materialized='table',
         tags=['viewership','viewership_base'],
-		schema='fds_nplus'
+		schema='dt_stage'
     )
 }}
 
@@ -19,10 +19,7 @@ base as (
     
     select 
     
-        src_fan_id, 
-        order_id, 
-        initial_order_date as start_date,
-        exprd_entlmnt_date as end_date
+        *
     
     from {{ source('fds_nplus_prod', 'fact_daily_subscription_status_plus') }}
     where as_on_date in (select max(as_on_date) from {{ source('fds_nplus_prod', 'fact_daily_subscription_status_plus') }})
@@ -33,7 +30,10 @@ renamed as (
 
     select 
     
-        *,
+        src_fan_id, 
+        order_id, 
+        initial_order_date as start_date,
+        exprd_entlmnt_date as end_date,
         ifnull(nullif('{{var("as_on_date")}}','None'),date_trunc(month,current_date)-1) as as_on_date,   --convert to string so that script can be replaced by another date using python wrapper
         dateadd(mon,-3,as_on_date) as prev_3_month,   
         dateadd(mon,-12,as_on_date) as prev_12_month  
@@ -59,7 +59,7 @@ with_periods as (
                 
         case 
             when end_date >= as_on_date
-                then as_on_date
+                then dateadd(d,-1,as_on_date)
             else end_date 
         end as st_end,
                 
@@ -72,7 +72,7 @@ with_periods as (
         
         case 
             when end_date >= prev_3_month
-                then prev_3_month
+                then dateadd(d,-1,prev_3_month)
             else end_date 
         end as mt_end,
         
@@ -85,7 +85,7 @@ with_periods as (
         
         case 
             when end_date >= prev_12_month
-                then prev_12_month
+                then dateadd(d,-1,prev_12_month)
             else end_date 
         end as lt_end,
         
@@ -98,7 +98,7 @@ with_periods as (
         
         case 
             when end_date >= as_on_date
-                then as_on_date
+                then dateadd(d,-1,as_on_date)
             else end_date 
         end as all_time_end,
         
@@ -111,11 +111,12 @@ with_periods as (
         
         case 
             when end_date >= as_on_date
-                then as_on_date
+                then dateadd(d,-1,as_on_date)
             else end_date 
         end as ly_end                     
  
     from renamed
+    
 ),
 
 -- calculate active months for each order for each time window
@@ -228,4 +229,3 @@ cleaned as (
 ) 
 
 select * from cleaned
-
