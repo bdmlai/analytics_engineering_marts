@@ -823,7 +823,7 @@ models:
           description: Derived viewing hours 
          
   - name: vw_rpt_nl_weekly_overlap_chart
-    description:  '{{ doc("vw_rpt_nl_weekly_overlap_chart") }}'
+    description: '{{ doc("vw_rpt_nl_weekly_overlap_chart") }}'
     columns:
         - name: as_on_date
           description: Record as-on date
@@ -855,7 +855,7 @@ models:
           description: Overlap reach  will be calculated  based on Secondary schedule name
 
   - name: rpt_nl_weekly_overlap_derived_4_way_oob
-    description:  '{{ doc("rpt_nl_weekly_overlap_derived_4_way_oob") }}'
+    description: '{{ doc("rpt_nl_weekly_overlap_derived_4_way_oob") }}'
     columns:
         - name: week_starting_date
           description: References dim_date_id primary key
@@ -879,7 +879,7 @@ models:
           description: Customized value for each Schedules both Straight Neilsen and Derived
         
   - name: vw_rpt_nl_weekly_overlap_derived_4_way_oob
-    description:  '{{ doc("vw_rpt_nl_weekly_overlap_derived_4_way_oob") }}'
+    description: '{{ doc("vw_rpt_nl_weekly_overlap_derived_4_way_oob") }}'
     columns:
         - name: week_starting_date
           description: References dim_date_id primary key
@@ -901,7 +901,6 @@ models:
           description: Custom Calculation based on  AA_Reac_Proj_000
         - name: overlap_description
           description: Customized value for each Schedules both Straight Neilsen and Derived
-
 
   - name: rpt_nl_daily_minxmin_lite_log_ratings
     description: '{{ doc("rpt_nl_daily_minxmin_lite_log_ratings") }}'
@@ -1180,6 +1179,8 @@ models:
           description: Financial year week begin date
         - name: year
           description: Broadcast Financial year
+        - name: week_number
+          description: Broadcast Financial year week number
         - name: program_type
           description: represents the the type of program RAW,SD,NXT,AEW
         - name: src_demographic_group
@@ -1197,6 +1198,8 @@ models:
           description: Financial year week begin date
         - name: year
           description: Broadcast Financial year
+        - name: week_number
+          description: Broadcast Financial year week number
         - name: program_type
           description: represents the the type of program RAW,SD,NXT,AEW
         - name: src_demographic_group

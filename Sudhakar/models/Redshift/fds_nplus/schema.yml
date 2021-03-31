@@ -506,6 +506,12 @@ models:
     columns:
         - name: bill_date
           description: report date
+        - name: country_region
+          description: Indicates region
+        - name: new_adds_budget
+          description: Total new adds budget for the month
+        - name: winback_adds_budget
+          description: Total  winback adds budget for the month
         - name: free_adds_budget
           description: Total trial adds budget for the month
         - name: paid_adds_budget
@@ -513,7 +519,11 @@ models:
         - name: free_disconnects_budget
           description: Budget for Total trial losses for the month
         - name: paid_disconnects_budget
-          description: Budget for Total Paid Losses for the month 
+          description: Budget for Total Paid Losses for the months
+        - name: new_adds_actuals
+          description: Total new adds actuals for the month
+        - name: winback_adds_actuals
+          description: Total  winback adds actuals for the month
         - name: free_adds_actuals
           description: Total trial adds for the month
         - name: paid_adds_actuals
@@ -524,6 +534,10 @@ models:
           description: Total Paid Losses for the month
         - name: eop_subs
           description: end of period total subscriptions
+        - name: new_adds_FYE
+          description: Total new adds forecasted for the month
+        - name: winback_adds_FYE
+          description: Total  winback adds forecasted for the month
         - name: free_adds_FYE
           description: Total trial adds for the month forecasted
         - name: paid_adds_FYE
@@ -1029,3 +1043,112 @@ models:
           description: Daily count of total involuntary subscriber los
         - name: new_adds
           description: Daily count of new subscriber adds based on payment method
+  - name: rpt_nplus_daily_network_adds_and_loss_split
+    description:  '{{ doc("rpt_nplus_daily_network_adds_and_loss_split") }}'
+    columns:
+        - name: payment_status
+          description: Indicates payment status whether paid or trial
+        - name: country_cd
+          description: Country Code
+        - name: order_type
+          description: Indicates type of order like first,winback etc
+        - name: payment_method
+          description: Payment Method
+        - name: date
+          description: Date of processing
+        - name: add_flag
+          description: Indicates whether its a PROSPECT,WINBACK or NEW TO T3
+        - name: loss_reason
+          description: Reason for the order loss
+        - name: metric_type
+          description: Indicates whether ADDS or LOSSES
+        - name: fan_count
+          description: Indicates total count of customer
+  - name: vw_rpt_nplus_daily_network_adds_and_loss_split
+    description:  '{{ doc("vw_rpt_nplus_daily_network_adds_and_loss_split") }}'
+    columns:
+        - name: payment_status
+          description: Indicates payment status whether paid or trial
+        - name: country_cd
+          description: Country Code
+        - name: order_type
+          description: Indicates type of order like first,winback etc
+        - name: payment_method
+          description: Payment Method
+        - name: date
+          description: Date of processing
+        - name: add_flag
+          description: Indicates whether its a PROSPECT,WINBACK or NEW TO T3
+        - name: loss_reason
+          description: Reason for the order loss
+        - name: metric_type
+          description: Indicates whether ADDS or LOSSES
+        - name: fan_count
+          description: Indicates total count of customer 
+  - name: vw_nplus_daily_network_churn_rate
+    description:  '{{ doc("vw_nplus_daily_network_churn_rate") }}'
+    columns:
+        - name: loss_date
+          description: Effective date
+        - name: order_type
+          description: Represents Winback Order or First Order for the customer. First Order will be first paid order or first order for the customer
+        - name: provider
+          description: Represents the netwrok provider
+        - name: country_ind
+          description: Tells whether country is Domestic or International (Dom,Int)
+        - name: mso_group
+          description: Indicates group based on number of paid months
+        - name: up_for_renewal
+          description: Indicates up for renewal count
+        - name: loss
+          description: Indicates loss count
+  - name: rpt_nplus_daily_network_ad_impression_ad_type
+    description:  '{{ doc("rpt_nplus_daily_network_ad_impression_ad_type") }}'
+    columns:
+        - name: start_date
+          description: Starting date
+        - name: start_time
+          description: Indicates start time
+        - name: content_id
+          description: Indicates content id
+        - name: content_description
+          description: Content description
+        - name: duration
+          description: Indicates duration
+        - name: end_time
+          description: Indicates end time of the show
+        - name: ad_abbreviation
+          description: Indicates ad abbreviation like Litelog,WWPR etc
+        - name: ad_category
+          description: Indicates ad category like Litelog Promo Graphic,Litelog Promo etc
+        - name: ad_type
+          description: Indicates ad type like Litelog,WWE Promos etc
+        - name: audience_type
+          description: Indicates audience type
+        - name: concurrent_plays
+          description: Indicates count of concurent plays
+  - name: vw_rpt_nplus_daily_network_ad_impression_ad_type
+    description:  '{{ doc("vw_rpt_nplus_daily_network_ad_impression_ad_type") }}'
+    columns:
+        - name: start_date
+          description: Starting date
+        - name: start_time
+          description: Indicates start time
+        - name: content_id
+          description: Indicates content id
+        - name: content_description
+          description: Content description
+        - name: duration
+          description: Indicates duration
+        - name: end_time
+          description: Indicates end time of the show
+        - name: ad_abbreviation
+          description: Indicates ad abbreviation like Litelog,WWPR etc
+        - name: ad_category
+          description: Indicates ad category like Litelog Promo Graphic,Litelog Promo etc
+        - name: ad_type
+          description: Indicates ad type like Litelog,WWE Promos etc
+        - name: audience_type
+          description: Indicates audience type
+        - name: concurrent_plays
+          description: Indicates count of concurent plays

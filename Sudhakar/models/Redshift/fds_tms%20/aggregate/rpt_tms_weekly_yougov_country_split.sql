@@ -1,17 +1,22 @@
 {{
   config({
-		"schema": 'fds_pii',
+		"schema": 'fds_tms',
 		"materialized": 'table','tags': "Content", "persist_docs": {'relation' : true, 'columns' : true},
-	        'post-hook': 'grant select on fds_pii.rpt_pii_weekly_yougov_country_split to public'
+	        'post-hook': 'grant select on {{ this }} to public'
                 
   })
 }}
 
-select date,title,avg_appetite_score,stddev_appetite_score,country,
-'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
- 'bi_dbt_user_prd' as etl_insert_user_id, 
-current_timestamp as etl_insert_rec_dttm, 
-null as etl_update_user_id, cast(null as timestamp) as etl_update_rec_dttm
+select date
+	,title
+	,avg_appetite_score
+	,stddev_appetite_score
+	,country,
+	'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id
+	,'bi_dbt_user_prd' as etl_insert_user_id
+	, current_timestamp as etl_insert_rec_dttm
+	, null as etl_update_user_id
+	, cast(null as timestamp) as etl_update_rec_dttm
 from
 (
 select start_date as date,title,avg_appetite_score_us as avg_appetite_score,

@@ -1,0 +1,365 @@
+version: 2
+
+models:
+
+    - name: base_daily_talent_table
+      description: '{{ doc("base_daily_talent_table_documentation") }}'    
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null
+          - name: source_string
+            description: Talent Description column for CPG
+          - name: entity_type
+            description: Denotes whether if the entity is a character(single talent) or a group(tag team)
+          - name: gender
+            description: Denotes if a talent is Male/Female
+
+    - name: rpt_daily_talent_equity_centralized_table
+      description: '{{ doc("rpt_daily_talent_equity_centralized_table_documentation") }}'    
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null
+          - name: entity_type
+            description: Denotes whether if the entity is a character(single talent) or a group(tag team)
+          - name: gender
+            description: Denotes if a talent is Male/Female
+          - name: brand
+            description: Denotes the brand(RAW/SmackDown etc), the talent is affiliated to
+          - name: heel_face
+            description: Denotes the designation(heel/face) of the talent
+          - name: absence
+            description: Denotes if the talent was absent in the roster
+          - name: achievement
+            description: Denotes if the talent is holding a championship title or not
+          - name: title
+            description: Denotes the title of the show
+          - name: typeofshow
+            description: Denotes the type of show - ppv/weekly etc.
+          - name: segmenttype
+            description: Denotes the segment of the show - In arena/match/backstage
+          - name: matchtype
+            description: Denotes the type of match - single/tag team etc
+          - name: duration
+            description: Denotes the total screentime(derived measure) of the talent for the respective day
+          - name: role
+            description: Denotes the role of talent (Match Participant/Additional Talent) 
+          - name: dim_business_unit_id
+            description: Denotes if the mode of CPG Product sale is through Shop/Venue
+          - name: src_style_description
+            description: Denotes the style description of CPG Product
+          - name: src_category_description
+            description: Denotes the category description of CPG Product
+          - name: demand_units
+            description: Denotes the units of CPG Products sold
+          - name: demand_sales
+            description: Denotes the sales amount in USD
+          - name: tv_rating
+            description: Denotes the average TV US audience in '000s
+          - name: tot_eng
+            description: Denotes the total engagement of Youtube videos at talent level
+          - name: tot_views
+            description:  Denotes the total views of Youtube videos at talent level           
+          - name: tot_min_wat
+            description:  Denotes the total minutes watched of Youtube videos at talent level           
+          - name: tot_yt_vids
+            description:  Denotes the total number of Youtube videos at talent level           
+          - name: tot_fb_post
+            description:  Denotes the total number of FB post at talent level          
+          - name: tot_eng_fb_post
+            description:  Denotes the total engagement of FB post at talent level           
+          - name: tot_ig_post
+            description:  Denotes the total number of IG post at talent level           
+          - name: tot_eng_ig_post
+            description:  Denotes the total engagement of IG post at talent level   
+          - name: tot_tw_post
+            description:  Denotes the total number of TW post at talent level           
+          - name: tot_eng_tw_post
+            description:  Denotes the total engagement of TW post at talent level           
+          - name: tot_fb_vids
+            description:  Denotes the total number of FB vids at talent level           
+          - name: tot_eng_fb_vids
+            description:  Denotes the total engagement of FB vids at talent level           
+          - name: tot_mins_fb_vids
+            description:  Denotes the total minutes watched of FB vids at talent level
+          - name: tot_views_FB_vids
+            description:  Denotes the total views of FB vids at talent level
+          - name: tot_ig_vids
+            description:  Denotes the total number of IG vids at talent level           
+          - name: tot_eng_ig_vids
+            description:  Denotes the total engagement of IG vids at talent level           
+          - name: tot_mins_ig_vids
+            description:  Denotes the total minutes watched of IG vids at talent level
+          - name: tot_views_ig_vids
+            description:  Denotes the total views of IG vids at talent level
+          - name: tot_tw_vids
+            description:  Denotes the total number of TW vids at talent level           
+          - name: tot_eng_tw_vids
+            description:  Denotes the total engagement of TW vids at talent level           
+          - name: tot_mins_tw_vids
+            description:  Denotes the total minutes watched of TW vids at talent level
+          - name: tot_views_tw_vids
+            description:  Denotes the total views of TW vids at talent level
+          - name: fb_fol
+            description:  Denotes the FB followers at talent level
+          - name: ig_fol
+            description:  Denotes the IG followers at talent level            
+          - name: tw_fol
+            description:  Denotes the TW followers at talent level
+          - name: mentions
+            description:  Denotes the twitter mentions at talent level
+    - name: base_daily_talent_appearance_table
+      description: '{{ doc("base_daily_talent_appearance_table_documentation") }}'                
+    - name: intm_daily_talent_appearance_table
+      description: '{{ doc("intm_daily_talent_appearance_table_documentation") }}'   
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null             
+    - name: base_daily_talent_achievement_table
+      description: '{{ doc("base_daily_talent_achievement_table_documentation") }}'                
+    - name: intm_daily_talent_achievement_table
+      description: '{{ doc("intm_daily_talent_achievement_table_documentation") }}' 
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null               
+    - name: intm_daily_talent_brand_designation_table
+      description: '{{ doc("intm_daily_talent_brand_designation_table_documentation") }}' 
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null               
+    - name: base_daily_talent_cpg_shop_table
+      description: '{{ doc("base_daily_talent_cpg_shop_table_documentation") }}'                
+    - name: base_daily_talent_cpg_venue_table
+      description: '{{ doc("base_daily_talent_cpg_venue_table_documentation") }}'                
+    - name: intm_daily_talent_cpg_table
+      description: '{{ doc("intm_daily_talent_cpg_table_documentation") }}'   
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null        
+    - name: base_daily_talent_fb_post_table
+      description: '{{ doc("base_daily_talent_fb_post_table_documentation") }}'                
+    - name: base_daily_talent_fb_vids_table
+      description: '{{ doc("base_daily_talent_fb_vids_table_documentation") }}'                
+    - name: base_daily_talent_ig_post_table
+      description: '{{ doc("base_daily_talent_ig_post_table_documentation") }}'                
+    - name: base_daily_talent_ig_vids_table
+      description: '{{ doc("base_daily_talent_ig_vids_table_documentation") }}'                
+    - name: base_daily_talent_tw_post_table
+      description: '{{ doc("base_daily_talent_tw_post_table_documentation") }}'                
+    - name: base_daily_talent_tw_vids_table
+      description: '{{ doc("base_daily_talent_tw_vids_table_documentation") }}'                
+    - name: intm_daily_talent_fb_post_table
+      description: '{{ doc("intm_daily_talent_fb_post_table_documentation") }}'  
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null              
+    - name: intm_daily_talent_fb_vids_table
+      description: '{{ doc("intm_daily_talent_fb_vids_table_documentation") }}'   
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null             
+    - name: intm_daily_talent_ig_post_table
+      description: '{{ doc("intm_daily_talent_ig_post_table_documentation") }}'   
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null             
+    - name: intm_daily_talent_ig_vids_table
+      description: '{{ doc("intm_daily_talent_ig_vids_table_documentation") }}'   
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null             
+    - name: intm_daily_talent_tw_post_table
+      description: '{{ doc("intm_daily_talent_tw_post_table_documentation") }}'   
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null             
+    - name: intm_daily_talent_tw_vids_table
+      description: '{{ doc("intm_daily_talent_tw_vids_table_documentation") }}'   
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null             
+    - name: base_daily_talent_sm_followership_table
+      description: '{{ doc("base_daily_talent_sm_followership_table_documentation") }}'                
+    - name: intm_daily_talent_sm_followership_table
+      description: '{{ doc("intm_daily_talent_sm_followership_table_documentation") }}' 
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null               
+    - name: base_daily_talent_tv_rating_table
+      description: '{{ doc("base_daily_talent_tv_rating_table_documentation") }}'                
+    - name: intm_daily_talent_tv_rating_table
+      description: '{{ doc("intm_daily_talent_tv_rating_table_documentation") }}'  
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null              
+    - name: base_daily_talent_absence_table
+      description: '{{ doc("base_daily_talent_absence_table_documentation") }}'                
+    - name: base_daily_talent_brand_table
+      description: '{{ doc("base_daily_talent_brand_table_documentation") }}'                
+    - name: base_daily_talent_heelface_table
+      description: '{{ doc("base_daily_talent_heelface_table_documentation") }}'                
+    - name: base_daily_talent_twitter_mentions_table
+      description: '{{ doc("base_daily_talent_twitter_mentions_table_documentation") }}'                
+    - name: intm_daily_talent_twitter_mentions_table
+      description: '{{ doc("intm_daily_talent_twitter_mentions_table_documentation") }}'  
+      columns:
+          - name: date
+            description: Date
+            tests:
+              - not_null
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null              
+    - name: base_daily_talent_yt_viewership_table
+      description: '{{ doc("base_daily_talent_yt_viewership_table_documentation") }}'                
+    - name: summ_daily_talent_yt_viewership_table
+      description: '{{ doc("summ_daily_talent_yt_viewership_table_documentation") }}'  
+      columns:          
+          - name: lineage_name
+            description: Lineage Name
+            tests:
+              - not_null
+          - name: lineage_wweid
+            description: Lineage ID
+            tests:
+              - not_null              
+    - name: intm_daily_talent_yt_split_table
+      description: '{{ doc("intm_daily_talent_yt_split_table_documentation") }}'                
+    - name: summ_daily_talent_yt_split_table
+      description: '{{ doc("summ_daily_talent_yt_split_table_documentation") }}'                
