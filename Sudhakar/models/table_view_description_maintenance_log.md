@@ -193,15 +193,15 @@
 
 
 
-{% docs vw_rpt_nl_weekly_overlap_derived_4_way_oob  %}
+{% docs vw_rpt_nl_weekly_overlap_derived_4_way_oob %}
 
 ## Implementation Detail
 * Date        : 06/19/2020
 * Version     : 1.0
-* ViewName    : vw_rpt_nl_weekly_overlap_derived_4_way_oob 
+* ViewName    : vw_rpt_nl_weekly_overlap_derived_4_way_oob
 * Schema	  : fds_nl
 * Contributor : Remya K Nair
-* Description : vw_rpt_nl_weekly_overlap_derived_4_way_oob  view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs
+* Description : vw_rpt_nl_weekly_overlap_derived_4_way_oob view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs
  
 ## Maintenance Log
 * Date : 06/19/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
@@ -606,15 +606,15 @@
 
 {% docs vw_rpt_nplus_monthly_marketing_subs %}
 ## Implementation Detail
-*   Date        : 08/14/2020
+*   Date        : 03/15/2021
 *   Version     : 1.0
 *   TableName   : vw_rpt_nplus_monthly_marketing_subs
 *   Schema      : fds_nplus
 *   Contributor : Hima Dasan
-*   Description : vw_rpt_nplus_monthly_marketing_subs view consist of Actuals,forecast and Budget for adds and Disconnects For Roku,Apple and mlbam (Monthly)
+*   Description : vw_rpt_nplus_monthly_marketing_subs view consist of Actuals,forecast and Budget for adds and Disconnects For Roku,Apple,google iap and mlbam (Monthly)
 
 ## Maintenance Log
-* Date : 08/14/2020 ; Developer: Hima Dasan; Change: Initial Version
+* Date : 03/15/2021 ; Developer: Hima Dasan; Change: Initial Version
 {% enddocs %}
 
 {% docs rpt_nl_daily_minxmin_lite_log_ratings %}
@@ -1658,6 +1658,7 @@
 
 ## Maintenance Log
 * Date : 11/13/2020 ; PSTA-1812 Developer: Sandeep Battula ; Change: Initial Version as a part of Monthly Social reporting.
+* Date : 16/02/2021 ; PSTA-2365 Developer: Enhancements done to the Monthly Social reporting table to add new metric - Engagement_per_1k for social platforms - Facebook, Instagram and Twitter.
 {% enddocs %}
 
 {% docs vw_rpt_cp_weekly_social_followers_by_account %}
@@ -2283,12 +2284,12 @@
 {% enddocs %}
 
 
-{% docs rpt_pii_weekly_yougov_country_split %}
+{% docs rpt_tms_weekly_yougov_country_split %}
 ## Implementation Detail
 *   Date        : 03/03/2021
 *   Version     : 1.0
-*   TableName    : rpt_pii_weekly_yougov_country_split
-*   Schema	    : fds_pii
+*   TableName    : rpt_tms_weekly_yougov_country_split
+*   Schema	    : fds_tms 
 *   Contributor : Remya K Nair
 *   Description : Report table consists of  yougov details with  country split . 
 
@@ -2298,12 +2299,12 @@
 {% enddocs %}
 
 
-{% docs vw_rpt_pii_weekly_yougov_country_split %}
+{% docs vw_rpt_tms_weekly_yougov_country_split %}
 ## Implementation Detail
 *   Date        : 03/03/2021
 *   Version     : 1.0
-*   ViewName    : vw_rpt_pii_weekly_yougov_country_split
-*   Schema	    : fds_pii
+*   ViewName    : vw_rpt_tms_weekly_yougov_country_split
+*   Schema	    : fds_tms 
 *   Contributor : Remya K Nair
 *   Description : View consists of  yougov details with  country split . 
 
@@ -2311,3 +2312,58 @@
 ## Maintenance Log
 * Date : 03/03/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Talent Monthly Scorecard 
 {% enddocs %}
+
+{% docs rpt_le_daily_thunderdome_status %}
+## Implementation Detail
+*   Date        : 03/12/2021
+*   Version     : 1.0
+*   TableName   : rpt_le_daily_thunderdome_status
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : Daily Thunderdome Status Report Table provides details of customers who registed, attended and attempted to attend for Thunderdome
+
+## Maintenance Log
+* Date : 03/12/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A Thunderdome Project.
+{% enddocs %}
+
+{% docs vw_rpt_le_daily_thunderdome_status %}
+## Implementation Detail
+*   Date        : 03/12/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_daily_thunderdome_status
+*   Schema	    : fds_voc
+*   Contributor : Rahul Chandran
+*   Description : Daily Thunderdome Status Report view provides details of customers who registed, attended and attempted to attend for Thunderdome referencing from Daily Thunderdome Status Report Table
+
+## Maintenance Log
+* Date : 03/12/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A Thunderdome Project.
+{% enddocs %}
+
+{% docs rpt_nplus_daily_network_ad_impression_ad_type %}
+## Implementation Detail
+*   Date        : 03/29/2021
+*   Version     : 1.0
+*   TableName    : rpt_nplus_daily_network_ad_impression_ad_type
+*   Schema	    : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : Daily network ad impression by ad type table provides details on start date ,start time ,end time ,ad type ,ad category ,audience type and concurent plays of the program.
+
+## Maintenance Log
+* Date : 03/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 9 Network ad impression by ad type.
+{% enddocs %}
+
+{% docs vw_rpt_nplus_daily_network_ad_impression_ad_type %}
+## Implementation Detail
+*   Date        : 03/29/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_nplus_daily_network_ad_impression_ad_type
+*   Schema	    : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : Daily network ad impression by ad type view provides details on start date ,start time ,end time ,ad type ,ad category ,audience type and concurent plays of the program.
+
+## Maintenance Log
+* Date : 03/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 9 Network ad impression by ad type.
+{% enddocs %}
+
+
+

@@ -1,7 +1,7 @@
 version: 2
 models:          
-  - name: rpt_pii_weekly_yougov_country_split
-    description: '{{ doc("rpt_pii_weekly_yougov_country_split") }}'
+  - name: rpt_tms_weekly_yougov_country_split
+    description: '{{ doc("rpt_tms_weekly_yougov_country_split") }}'
     columns:
         - name: date
           description: Start date
@@ -14,8 +14,8 @@ models:
         - name: country
           description: Indicates country
 
-  - name: vw_rpt_pii_weekly_yougov_country_split
-    description: '{{ doc("vw_rpt_pii_weekly_yougov_country_split") }}'
+  - name: vw_rpt_tms_weekly_yougov_country_split
+    description: '{{ doc("vw_rpt_tms_weekly_yougov_country_split") }}'
     columns:
         - name: date
           description: Start date

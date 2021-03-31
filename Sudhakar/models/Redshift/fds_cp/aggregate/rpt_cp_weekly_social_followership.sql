@@ -21,12 +21,12 @@
 
 with #latest_emm_brand as 
 (select * from (select character_wweid, designation, row_number() over (partition by character_wweid order by start_date desc) as row_num
-from fds_emm.brand where (current_date - 6) between start_date and coalesce (end_date, current_date))
+from {{source('fds_emm','brand')}} where (current_date - 6) between start_date and coalesce (end_date, current_date))
 where row_num=1),
 
 #latest_emm_designation as 
 (select * from (select character_wweid, designation, row_number() over (partition by character_wweid order by start_date desc) as row_num
-from fds_emm.babyface_heel where (current_date - 6) between start_date and coalesce (end_date, current_date))
+from {{source('fds_emm','babyface_heel')}} where (current_date - 6) between start_date and coalesce (end_date, current_date))
 where row_num=1),
 
 #latest_week_social as 
@@ -38,8 +38,8 @@ coalesce(F.designation, 'Other') as brand,
 coalesce(E.designation, 'Other') as designation,
 coalesce(D.gender, 'Unavailable') as gender,
 G.full_date as as_on_date
-from fds_cp.fact_co_smfollowership_cumulative_summary A
-left join cdm.dim_smprovider_account B
+from {{source('fds_cp','fact_co_smfollowership_cumulative_summary')}} A
+left join {{source('cdm','dim_smprovider_account')}} B
 on A.dim_smprovider_account_id = B.dim_smprovider_account_id
 left join hive_udl_cp.da_monthly_conviva_emm_accounts_mapping C
 on B.account_name = C.all_conviva_accounts
@@ -67,12 +67,12 @@ coalesce(F.designation, 'Other') as brand,
 coalesce(E.designation, 'Other') as designation,
 coalesce(D.gender, 'Unavailable') as gender,
 G.full_date as as_on_date
-from fds_cp.fact_co_smfollowership_cumulative_summary A
-left join cdm.dim_smprovider_account B
+from {{source('fds_cp','fact_co_smfollowership_cumulative_summary')}} A
+left join {{source('cdm','dim_smprovider_account')}} B
 on A.dim_smprovider_account_id = B.dim_smprovider_account_id
-left join hive_udl_cp.da_monthly_conviva_emm_accounts_mapping C
+left join {{source('hive_udl_cp','da_monthly_conviva_emm_accounts_mapping')}} C
 on B.account_name = C.all_conviva_accounts
-left join fds_mdm.character D
+left join {{source('fds_mdm','character')}} D
 on coalesce (C.character_lineage,'NA') = coalesce (D.character_lineage_name,'NA')
 and C.character_lineage <> ' '
 and D.characters_name=C.all_conviva_accounts
@@ -146,8 +146,8 @@ and to_date(A.as_on_date,'yyyymmdd') >= current_date - 7
 
 union all
 
-
-select distinct
+-- Instagram data is not Friday but Monday. When should we refresh.
+select 
 A.platform,
 A.followers,
 A.account_name as account,
@@ -170,8 +170,7 @@ on A.source_as_on_date = to_date(G.dim_date_id,'yyyymmdd')
 where platform='Instagram' 
 and A.followers != 0
 and G.day_of_week_nm = 'friday'
-and A.as_on_date = (select max(as_on_date) from hive_udl_cp.social_daily_followship_metrics)
-and A.source_as_on_date >= current_date - 7
+and to_date(A.source_as_on_date,'yyyymmdd') >= current_date - 7
 
 union all
 
@@ -191,7 +190,6 @@ on A.source_as_on_date = to_date(B.dim_date_id,'yyyymmdd')
 where A.followers != 0
 and platform IN ('Snapchat','TikTok')
 and B.day_of_week_nm = 'friday'
-and A.as_on_date = (select max(as_on_date) from hive_udl_cp.social_daily_followship_metrics)
 and source_as_on_date >= current_date - 7
 
 union all

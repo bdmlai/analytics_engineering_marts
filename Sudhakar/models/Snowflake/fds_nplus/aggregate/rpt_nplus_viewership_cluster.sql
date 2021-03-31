@@ -15,29 +15,29 @@
         unique_key= 'unique_id',
         tags=['viewership','viewership_model'],
 		schema='fds_nplus',
-		post_hook=["drop table fds_nplus.intm_nplus_viewership_cluster_available_content;  
-					  drop table fds_nplus.intm_nplus_viewership_cluster_content_duration_all_time;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_all_time;           
-					  drop table fds_nplus.intm_nplus_viewership_cluster_content_duration_lt;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_lt;           
-					  drop table fds_nplus.intm_nplus_viewership_cluster_content_duration_ly;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_ly;           
-					  drop table fds_nplus.intm_nplus_viewership_cluster_content_duration_mt;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_mt;           
-					  drop table fds_nplus.intm_nplus_viewership_cluster_content_duration_st;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_st;                
-					  drop table fds_nplus.intm_nplus_viewership_cluster_user_act_month;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_sub_rules_all_time;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_user_consumption_all_time;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_sub_rules_lt;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_user_consumption_lt;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_sub_rules_ly;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_user_consumption_ly;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_sub_rules_mt;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_user_consumption_mt;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_clustering_sub_rules_st;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_user_consumption_st;
-					  drop table fds_nplus.intm_nplus_viewership_cluster_content_cluster;"]
+		post_hook=["drop table dt_stage.intm_nplus_viewership_cluster_available_content;  
+					  drop table dt_stage.intm_nplus_viewership_cluster_content_duration_all_time;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_all_time;           
+					  drop table dt_stage.intm_nplus_viewership_cluster_content_duration_lt;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_lt;           
+					  drop table dt_stage.intm_nplus_viewership_cluster_content_duration_ly;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_ly;           
+					  drop table dt_stage.intm_nplus_viewership_cluster_content_duration_mt;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_mt;           
+					  drop table dt_stage.intm_nplus_viewership_cluster_content_duration_st;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_st;                
+					  drop table dt_stage.intm_nplus_viewership_cluster_user_act_month;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_sub_rules_all_time;
+					  drop table dt_stage.intm_nplus_viewership_cluster_user_consumption_all_time;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_sub_rules_lt;
+					  drop table dt_stage.intm_nplus_viewership_cluster_user_consumption_lt;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_sub_rules_ly;
+					  drop table dt_stage.intm_nplus_viewership_cluster_user_consumption_ly;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_sub_rules_mt;
+					  drop table dt_stage.intm_nplus_viewership_cluster_user_consumption_mt;
+					  drop table dt_stage.intm_nplus_viewership_cluster_clustering_sub_rules_st;
+					  drop table dt_stage.intm_nplus_viewership_cluster_user_consumption_st;
+					  drop table dt_stage.intm_nplus_viewership_cluster_content_cluster;"]
     )
 }}
 
