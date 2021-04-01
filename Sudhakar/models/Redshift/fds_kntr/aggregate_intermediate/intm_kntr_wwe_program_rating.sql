@@ -5,9 +5,9 @@
   })
 }}
 select  week_start_date,
- extract(month from week_Start_date)  as month,
-        extract(quarter from week_Start_date) as quarter,
-        extract(year from week_Start_date) as year,
+ extract(month from week_Start_date+6)  as month,
+        extract(quarter from week_Start_date+6) as quarter,
+        extract(year from week_Start_date+6) as year,
  src_country,src_channel,
 series_name,src_demographic_group,src_demographic_age,hd_flag ,
 (sum(rat_value*duration_mins))/(nullif(sum(nvl2(rat_value,duration_mins,null)),0)) as rat_value,

@@ -70,6 +70,7 @@ sources:
        - name: vw_rpt_network_daily_subscription_kpis
        - name: aggr_forecast_dice_daily_summary
        - name: fact_customer_login_and_status
+       - name: aggr_nplus_daily_ppv_language_viewership
 
   - name: dwh_read_write
     tables:
@@ -119,7 +120,8 @@ sources:
        - name: raw_post_event_log
        - name: stg_dice_stream_flattened
        - name: raw_da_weekly_ppv_hourly_comps_new
-
+       - name: raw_famousgroup_customer_rpt_tbl_extended
+       - name: encompass_as_run
   - name: udl_nl
     tables:
        - name: nielsen_finance_yearly_calendar
@@ -206,6 +208,10 @@ sources:
     tables:
       - name: brand
       - name: babyface_heel
+      
+  - name: fds_pii
+    tables:
+      - name: fc_fan_variables_consolidated
 
   - name: hive_udl_chscl
     tables:
@@ -236,6 +242,11 @@ sources:
   - name: hive_udl_nl
     tables:
       - name: nielsen_finance_yearly_calendar
+
+  - name: hive_udl_le
+    tables:
+      - name: ga_le_daily_hits
+      - name: ga_le_daily_sessions
 
   - name: udl_cp
     tables:
@@ -273,3 +284,7 @@ sources:
     schema: udl_cp
     tables:
       - name: le_weekly_us_unemployment_claims_details
+  - name: hive_udl_ads
+    tables:
+      - name: conviva_daily_pulse
+
