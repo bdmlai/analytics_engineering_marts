@@ -1,7 +1,8 @@
 {{
   config({
 		 'schema': 'fds_cp',	
-	     "materialized": 'view',"tags": 'Content',"persist_docs": {'relation' : true, 'columns' : true}
+	     "materialized": 'view',"tags": 'cp_monthly_global_followership_by_platform',"persist_docs": {'relation' : true, 'columns' : true},
+		 'post-hook': ["grant select on {{ this }} to public"]
         })
 }}
 

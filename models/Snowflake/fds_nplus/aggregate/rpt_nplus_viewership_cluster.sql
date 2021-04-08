@@ -75,27 +75,31 @@ all_time as (
     
 )
 
-(select *, 
-        CURRENT_TIMESTAMP(0) as code_run_time, 
+select *,'DBT_'||TO_CHAR(SYSDATE(),'YYYY_MM_DD_HH_MI_SS')||'_viewership' as etl_batch_id
+	, 'bi_dbt_user_prd' as etl_insert_user_id
+	, current_timestamp as etl_insert_rec_dttm
+	, null as etl_update_user_id
+	, cast(null as timestamp) as etl_update_rec_dttm from 
+((select *,
         {{  dbt_utils.surrogate_key(['as_on_date','model_name','src_fan_id']) }} as unique_id
    from ly)
 union
-(select *, 
-        CURRENT_TIMESTAMP(0) as code_run_time,
+(select * ,
+											  
         {{  dbt_utils.surrogate_key(['as_on_date','model_name','src_fan_id']) }} as unique_id 
    from st)
 union
-(select *, 
-        CURRENT_TIMESTAMP(0) as code_run_time,
+(select *,
+											  
         {{  dbt_utils.surrogate_key(['as_on_date','model_name','src_fan_id']) }} as unique_id  
    from mt)
 union
-(select *, 
-        CURRENT_TIMESTAMP(0) as code_run_time,
+(select *,
+											  
         {{  dbt_utils.surrogate_key(['as_on_date','model_name','src_fan_id']) }} as unique_id 
    from lt)
 union
-(select *, 
-        CURRENT_TIMESTAMP(0) as code_run_time,
+(select *,
+											  
         {{  dbt_utils.surrogate_key(['as_on_date','model_name','src_fan_id']) }} as unique_id 
-   from all_time)
+   from all_time))

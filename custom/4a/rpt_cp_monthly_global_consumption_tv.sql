@@ -153,7 +153,7 @@ from
 		union all
 		select * from #domestic_tv_global_monthly) a
 ),
-##all_data as
+#all_data as
 (
 (select platform,
 		type, 
@@ -173,7 +173,7 @@ where month between date_trunc('month',add_months(current_date,-16))
 union
 (select * from #latest_month)
 )
-select * from all_data);"
+select * from #all_data);"
 	]
   })
 }}

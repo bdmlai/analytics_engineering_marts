@@ -17,7 +17,11 @@ with
 
 base as (
     
-    select * from {{ source('fds_nplus_prod', 'fact_daily_subscription_status_plus') }}
+    select         src_fan_id, 
+        order_id, 
+        initial_order_date as start_date,
+        exprd_entlmnt_date as end_date 
+    from {{ source('fds_nplus_prod', 'fact_daily_subscription_status_plus') }}
     where as_on_date in (select max(as_on_date) from {{ source('fds_nplus_prod', 'fact_daily_subscription_status_plus') }})
 ),
 
@@ -31,11 +35,7 @@ cluster as (
 orders as (
     
     select 
-    
-        src_fan_id, 
-        order_id, 
-        initial_order_date as start_date,
-        exprd_entlmnt_date as end_date,
+        *,
         to_date(to_date(to_char(ifnull(nullif('{{var("as_on_date")}}','None'),date_trunc(month,current_date)-1)),'yyyy-mm-dd')) as as_on_date,   --convert to string so that script can be replaced by another date using python wrapper
         dateadd(mon,-3,as_on_date) as prev_3_month,   
         dateadd(mon,-12,as_on_date) as prev_12_month
@@ -137,4 +137,5 @@ with_id as (
 )
 
 select * from with_id
+
  

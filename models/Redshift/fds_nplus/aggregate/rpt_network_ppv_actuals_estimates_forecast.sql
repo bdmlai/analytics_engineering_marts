@@ -132,10 +132,10 @@ dateadd(day,-2,event_date) as forecast_start_dt
 from udl_nplus.raw_da_weekly_ppv_hourly_comps_new where event_type='current_ppv'
 and as_on_date=(select max(as_on_date) from udl_nplus.raw_da_weekly_ppv_hourly_comps_new)
 and  update_date=(select max(update_date) from udl_nplus.raw_da_weekly_ppv_hourly_comps_new)) b
-where forecast_date=(select max(forecast_date) from fds_nplus.aggr_nplus_daily_forcast_output)
+where forecast_date=(select max(forecast_date) from fds_nplus.aggr_nplus_daily_forcast_output where country_region not in ('united states') )
 and UPPER(payment_method) in ('MLBAM','ROKU') and Upper(official_run_flag)='OFFICIAL'  --'ROKU''APPLE'
 and trunc(bill_date) >= b.forecast_start_dt
-and trunc(bill_date) <= b.forecast_event_dt
+and trunc(bill_date) <= b.forecast_event_dt and country_region not in ('united states') 
 group by bill_date,forecast_event_dt);",
 
 
@@ -150,8 +150,8 @@ where trunc(bill_date) = date(dateadd('hour',-1,convert_timezone('AMERICA/NEW_YO
 create table #actuals_estimates_forecast_view as
 (select 
 a.*,
-27151   as current_day_forecast,  --b.current_day_forecast
-35007 weekend_forecast            --b.weekend_forecast
+b.current_day_forecast   as current_day_forecast,  --b.current_day_forecast
+b.weekend_forecast weekend_forecast            --b.weekend_forecast
 from #actuals_estimates as a 
 left join 
 #forecast_view as b

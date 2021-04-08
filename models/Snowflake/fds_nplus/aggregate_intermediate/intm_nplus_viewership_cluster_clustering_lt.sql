@@ -25,8 +25,7 @@ act_month as (
     
     select src_fan_id,
            lt_act_mo_clean as act_months
-     from {{ ref('intm_nplus_viewership_cluster_user_act_month') }}
-    where lt_act_mo_clean >= 0.5    
+     from {{ ref('intm_nplus_viewership_cluster_user_act_month') }} 
 ),
 
 base_2 as (

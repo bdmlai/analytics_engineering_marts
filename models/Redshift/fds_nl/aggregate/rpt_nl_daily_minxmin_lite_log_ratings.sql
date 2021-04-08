@@ -18,11 +18,11 @@ b.additionaltalent, b.announcers, b.matchtitle, b.venuelocation, b.venuename, b.
 'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_4B' as etl_batch_id, 'bi_dbt_user_prd' as etl_insert_user_id, 
 current_timestamp as etl_insert_rec_dttm, null as etl_update_user_id, cast(null as timestamp) as etl_update_rec_dttm
 from {{source('fds_nl','fact_nl_minxmin_ratings')}} a
-join {{ref('intm_nl_lite_log_est_modified')}} b on trunc(a.broadcast_date) = b.airdate
+left join {{ref('intm_nl_lite_log_est_modified')}} b on trunc(a.broadcast_date) = b.airdate
 and lower(trim(a.mxm_source)) = lower(trim(b.title)) and 
 (dateadd(min, (a.min_of_pgm_value - 1), (trunc(a.broadcast_date) || ' ' || trim(a.program_telecast_rpt_starttime))::timestamp))
 >= b.modified_inpoint and 
 (dateadd(min, (a.min_of_pgm_value - 1), (trunc(a.broadcast_date) || ' ' || trim(a.program_telecast_rpt_starttime))::timestamp)) 
-< b.modified_outpoint 
+<= b.modified_outpoint 
 where a.min_of_pgm_value is not null and a.program_telecast_rpt_starttime is not null 
 and a.program_telecast_rpt_starttime <> ' '

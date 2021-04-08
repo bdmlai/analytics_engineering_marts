@@ -3,13 +3,14 @@
 		"materialized": 'ephemeral'
   })
 }}
+
 Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
       ,dim_order_method_id  
       ,src_order_type   
       ,Date_Key  
-      ,dim_item_id 
-      ,sum(Other_Amount) as Other_Amount 
-      ,0 as src_unit_cost  
+     ,dim_item_id 
+     ,sum(Other_Amount) as Other_Amount 
+     ,0 as src_unit_cost  
       ,0 as src_current_retail_price  
       ,0 as src_units_ordered  
       ,0 as src_units_shipped  
@@ -29,75 +30,74 @@ Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from
       ,0 as "Demand_Selling_Margin$"  
       ,0 as "Shipped_Selling_Margin$"  
       ,0 as "Net_Selling_Margin$" 
-from 
-(SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+     
+            from       
+   (SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-	 ,src_order_type         
+    ,src_order_type         
      ,order_date_id as Date_Key  
-     ,(select dim_item_id 
-		from {{source('fds_cpg','dim_cpg_item')}} 
-		where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
      ,Sum(src_sales_tax) Other_Amount  
      ,0 as SPECIALCHG  
-FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-		left join 
-		(select src_channel_id,dim_order_method_id as dm_order_method_id 
-		from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
-		on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where  order_date_id>=0 and src_order_type='I' and src_channel_id<>'R'  
-			and (isnull(src_order_origin_code,'AA')<>'GR' or isnull(src_prepay_code,'A')<>'F')  
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}} left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
+    and (isnull(src_order_origin_code,'AA')<>'GR' or isnull(src_prepay_code,'A')<>'F')  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id  
-Union All  
-SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id  
-     ,case src_order_type when 'I'  then 'G' else 'G' end src_order_type         
+   Union All  
+    SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+     ,dim_order_method_id  
+    ,case src_order_type when 'I'  then 'G' else 'G' end src_order_type         
      ,order_date_id as Date_Key  
-     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} 
-		where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
      ,Sum(src_sales_tax) Other_Amount  
      ,0 as SPECIALCHG  
-FROM {{source('fds_cpg','fact_cpg_sales_header')}}
-	left join 
-	(select src_channel_id,dim_order_method_id as dm_order_method_id 
-	from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}} left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
 	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R' and isnull(src_order_origin_code,'AA')='GR'  
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
+    and isnull(src_order_origin_code,'AA')='GR'  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, case src_order_type when 'I'  then 'G' else 'G' end ,order_date_id  
-Union All  
-SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+   Union All  
+    SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-     ,case src_order_type when 'I'  then 'F' else 'F' end src_order_type  
+    ,case src_order_type when 'I'  then 'F' else 'F' end src_order_type  
      ,order_date_id as Date_Key  
-     ,(select dim_item_id 
-		from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
      ,Sum(src_sales_tax) Other_Amount  
      ,0 as SPECIALCHG  
-FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-    left join 
-	(select src_channel_id,dim_order_method_id as dm_order_method_id 
-	from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
+    left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
 	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R' and (isnull(src_prepay_code,'A')='F' 
-			and isnull(src_order_origin_code,'AA')<>'GR')  
+	where
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
+    and (isnull(src_prepay_code,'A')='F' and isnull(src_order_origin_code,'AA')<>'GR')  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, case src_order_type when 'I'  then 'F' else 'F' end ,order_date_id  
-Union All  
-SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+   Union All  
+    SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-     ,src_order_type  
+    ,src_order_type  
      ,order_date_id as Date_Key  
-     ,(select dim_item_id 
-	 from {{source('fds_cpg','dim_cpg_item')}} 
-	 where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='TAX' and active_flag='Y') AS dim_item_id  
      ,Sum(src_sales_tax) Other_Amount  
      ,0 as SPECIALCHG  
-FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-	left join 
-	(select src_channel_id,dim_order_method_id as dm_order_method_id 
-	from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}} left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
 	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where  order_date_id>=0 and src_channel_id='R'   
+	where  
+    order_date_id>19000101 and  
+    src_channel_id='R'   
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id  
     ) Tab_Tax  
-group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id,src_order_type,Date_Key,dim_item_id   
+group by  
+  dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+      ,dim_order_method_id  
+      ,src_order_type    
+      ,Date_Key,  
+      dim_item_id   
 Union All  
 ---Spceial Charges-----  
 Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
@@ -106,7 +106,7 @@ Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from
       ,Date_Key  
       ,dim_item_id  
       ,sum(Other_Amount) as Other_Amount  
-      ,0 as src_unit_cost  
+       ,0 as src_unit_cost  
       ,0 as src_current_retail_price  
       ,0 as src_units_ordered  
       ,0 as src_units_shipped  
@@ -126,77 +126,81 @@ Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from
       ,0 as "Demand_Selling_Margin$"  
       ,0 as "Shipped_Selling_Margin$"  
       ,0 as "Net_Selling_Margin$" 
-from       
+       --,current_date as create_timestamp
+       -- ,'ETL' as created_by
+       -- ,null as update_timestamp
+       -- ,null as updated_by
+        --,null as venue_key
+        --,null as venue_flag
+           from       
    (SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-     ,src_order_type         
+    ,src_order_type         
      ,order_date_id as Date_Key  
-     ,(select dim_item_id 
-	 from {{source('fds_cpg','dim_cpg_item')}} 
-	 where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
-     ,SUM(src_special_charges) Other_Amount  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
+    ,SUM(src_special_charges) Other_Amount  
      ,0 as SPECIALCHG  
-    FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-		left join 
-		(select src_channel_id,dim_order_method_id as dm_order_method_id 
-		from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
-		on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R'  
-		and (isnull(src_order_origin_code,'AA')<>'GR' or isnull(src_prepay_code,'A')<>'F')  
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}}
+	left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
+    and (isnull(src_order_origin_code,'AA')<>'GR' or isnull(src_prepay_code,'A')<>'F')  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id  
-Union All  
-SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+   Union All  
+    SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-     ,case src_order_type when 'I'  then 'G' else 'G' end src_order_type         
+    ,case src_order_type when 'I'  then 'G' else 'G' end src_order_type         
      ,order_date_id as Date_Key  
-    ,(select dim_item_id 
-	from {{source('fds_cpg','dim_cpg_item')}} 
-	where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
+    ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
     ,SUM(src_special_charges) Other_Amount  
-    ,0 as SPECIALCHG  
-FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-	left join 
-	(select src_channel_id,dim_order_method_id as dm_order_method_id 
-	from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+     ,0 as SPECIALCHG  
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}} left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
 	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R' and isnull(src_order_origin_code,'AA')='GR'  
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
+    and isnull(src_order_origin_code,'AA')='GR'  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, case src_order_type when 'I'  then 'G' else 'G' end ,order_date_id  
-Union All  
-SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+   Union All  
+    SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-     ,case src_order_type when 'I'  then 'F' else 'F' end src_order_type  
+    ,case src_order_type when 'I'  then 'F' else 'F' end src_order_type  
      ,order_date_id as Date_Key  
-     ,(select dim_item_id 
-	 from {{source('fds_cpg','dim_cpg_item')}} 
-	 where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
     ,SUM(src_special_charges) Other_Amount  
-    ,0 as SPECIALCHG  
-FROM {{source('fds_cpg','fact_cpg_sales_header')}}
-	left join 
-	(select src_channel_id,dim_order_method_id as dm_order_method_id 
-	from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+     ,0 as SPECIALCHG  
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}}
+left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
 	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R'  
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
     and (isnull(src_prepay_code,'A')='F' and isnull(src_order_origin_code,'AA')<>'GR')  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, case src_order_type when 'I'  then 'F' else 'F' end ,order_date_id  
-Union All  
-SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+   Union All  
+    SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-     ,src_order_type  
+    ,src_order_type  
      ,order_date_id as Date_Key  
-     ,(select dim_item_id 
-	 from {{source('fds_cpg','dim_cpg_item')}} 
-	 where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='SPECIALCHG' and active_flag='Y') AS dim_item_id  
     ,SUM(src_special_charges) Other_Amount  
-    ,0 as SPECIALCHG  
-FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-	left join 
-	(select src_channel_id,dim_order_method_id as dm_order_method_id 
-	from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+     ,0 as SPECIALCHG  
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}}
+	left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
 	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-where order_date_id>=0 and src_channel_id='R'   
-    group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id) Tab_Tax  
-group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id,src_order_type,Date_Key,dim_item_id   
+	where  
+    order_date_id>19000101 and  
+    src_channel_id='R'   
+    group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id  
+    ) Tab_Tax  
+group by  
+  dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
+      ,dim_order_method_id  
+      ,src_order_type    
+      ,Date_Key,  
+      dim_item_id   
 Union All  
 ---- Freight ----------  
 Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
@@ -205,7 +209,7 @@ Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from
       ,Date_Key  
       ,dim_item_id  
       ,sum(Other_Amount) as Other_Amount
-      ,0 as src_unit_cost  
+       ,0 as src_unit_cost  
       ,0 as src_current_retail_price  
       ,0 as src_units_ordered  
       ,0 as src_units_shipped  
@@ -225,73 +229,74 @@ Select dim_business_unit_id,dim_shop_site_id,src_currency_code_from
       ,0 as "Demand_Selling_Margin$"  
       ,0 as "Shipped_Selling_Margin$"  
       ,0 as "Net_Selling_Margin$"   
-from       
+      -- ,current_date as create_timestamp
+      --  ,'ETL' as created_by
+      --  ,null as update_timestamp
+      --  ,null as updated_by
+      --  ,null as venue_key
+      --  ,null as venue_flag
+           from       
    (SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-     ,src_order_type         
+    ,src_order_type         
      ,order_date_id as Date_Key  
-     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} 
-	 where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
      ,Sum(src_carrier_shipping_charges) Other_Amount  
      ,0 as SPECIALCHG  
-    FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-		left join 
-		(select src_channel_id,dim_order_method_id as dm_order_method_id 
-		from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
-		on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R'  
-		and (isnull(src_order_origin_code,'AA')<>'GR' or isnull(src_prepay_code,'A')<>'F')  
+    FROM {{source('fds_cpg','fact_cpg_sales_header')}} left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
+	
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
+    and (isnull(src_order_origin_code,'AA')<>'GR' or isnull(src_prepay_code,'A')<>'F')  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id  
-	Union All  
+   Union All  
     SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
     ,case src_order_type when 'I'  then 'G' else 'G' end src_order_type         
-    ,order_date_id as Date_Key  
-    ,(select dim_item_id 
-	from {{source('fds_cpg','dim_cpg_item')}} 
-	where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
+     ,order_date_id as Date_Key  
+    ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
     ,Sum(src_carrier_shipping_charges) Other_Amount  
-    ,0 as SPECIALCHG  
+     ,0 as SPECIALCHG  
     FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-		left join 
-		(select src_channel_id,dim_order_method_id as dm_order_method_id 
-		from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
-		on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R' and isnull(src_order_origin_code,'AA')='GR'  
+	left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'  
+    and isnull(src_order_origin_code,'AA')='GR'  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, case src_order_type when 'I'  then 'G' else 'G' end ,order_date_id  
-	Union All  
+   Union All  
     SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
     ,case src_order_type when 'I'  then 'F' else 'F' end src_order_type  
-    ,order_date_id as Date_Key  
-    ,(select dim_item_id 
-	from {{source('fds_cpg','dim_cpg_item')}} 
-	where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
+     ,order_date_id as Date_Key  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
     ,Sum(src_carrier_shipping_charges) Other_Amount  
-    ,0 as SPECIALCHG  
+     ,0 as SPECIALCHG  
     FROM {{source('fds_cpg','fact_cpg_sales_header')}} 
-		left join 
-		(select src_channel_id,dim_order_method_id as dm_order_method_id 
-		from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
-		on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where order_date_id>=0 and src_order_type='I' and src_channel_id<>'R'   
-		and (isnull(src_prepay_code,'A')='F' and isnull(src_order_origin_code,'AA')<>'GR')  
+	left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
+	where  
+    order_date_id>19000101 and  
+    src_order_type='I' and src_channel_id<>'R'   
+    and (isnull(src_prepay_code,'A')='F' and isnull(src_order_origin_code,'AA')<>'GR')  
     group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, case src_order_type when 'I'  then 'F' else 'F' end ,order_date_id  
    Union All  
     SELECT dim_business_unit_id,dim_shop_site_id,src_currency_code_from  
      ,dim_order_method_id  
-	 ,src_order_type  
+    ,src_order_type  
      ,order_date_id as Date_Key  
-     ,(select dim_item_id 
-	 from {{source('fds_cpg','dim_cpg_item')}} 
-	 where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
-     ,Sum(src_carrier_shipping_charges) Other_Amount  
+     ,(select dim_item_id from {{source('fds_cpg','dim_cpg_item')}} where src_item_id='FREIGHT' and active_flag='Y') AS dim_item_id  
+    ,Sum(src_carrier_shipping_charges) Other_Amount  
      ,0 as SPECIALCHG  
     FROM {{source('fds_cpg','fact_cpg_sales_header')}}
-		left join 
-		(select src_channel_id,dim_order_method_id as dm_order_method_id 
-		from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
-		on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
-	where order_date_id>=0 and src_channel_id='R'   
-    group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id) Tab_Tax  
-group by  dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id,src_order_type,Date_Key,dim_item_id
+left join (select src_channel_id,dim_order_method_id as dm_order_method_id from {{source('fds_cpg','dim_cpg_order_method')}}) dim_cpg_order_method
+	on fact_cpg_sales_header.dim_order_method_id= dim_cpg_order_method.dm_order_method_id 
+	where  
+    order_date_id>19000101 and  
+    src_channel_id='R'   
+    group by dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id, src_order_type ,order_date_id  
+    ) Tab_Tax  
+group by  dim_business_unit_id,dim_shop_site_id,src_currency_code_from,dim_order_method_id  ,src_order_type    ,Date_Key,  dim_item_id

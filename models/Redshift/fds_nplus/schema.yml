@@ -1029,3 +1029,62 @@ models:
           description: Daily count of total involuntary subscriber los
         - name: new_adds
           description: Daily count of new subscriber adds based on payment method
+  - name: rpt_nplus_daily_network_adds_and_loss_split
+    description:  '{{ doc("rpt_nplus_daily_network_adds_and_loss_split") }}'
+    columns:
+        - name: payment_status
+          description: Indicates payment status whether paid or trial
+        - name: country_cd
+          description: Country Code
+        - name: order_type
+          description: Indicates type of order like first,winback etc
+        - name: payment_method
+          description: Payment Method
+        - name: date
+          description: Date of processing
+        - name: add_flag
+          description: Indicates whether its a PROSPECT,WINBACK or NEW TO T3
+        - name: loss_reason
+          description: Reason for the order loss
+        - name: metric_type
+          description: Indicates whether ADDS or LOSSES
+        - name: fan_count
+          description: Indicates total count of customer
+  - name: vw_rpt_nplus_daily_network_adds_and_loss_split
+    description:  '{{ doc("vw_rpt_nplus_daily_network_adds_and_loss_split") }}'
+    columns:
+        - name: payment_status
+          description: Indicates payment status whether paid or trial
+        - name: country_cd
+          description: Country Code
+        - name: order_type
+          description: Indicates type of order like first,winback etc
+        - name: payment_method
+          description: Payment Method
+        - name: date
+          description: Date of processing
+        - name: add_flag
+          description: Indicates whether its a PROSPECT,WINBACK or NEW TO T3
+        - name: loss_reason
+          description: Reason for the order loss
+        - name: metric_type
+          description: Indicates whether ADDS or LOSSES
+        - name: fan_count
+          description: Indicates total count of customer 
+  - name: vw_nplus_daily_network_churn_rate
+    description:  '{{ doc("vw_nplus_daily_network_churn_rate") }}'
+    columns:
+        - name: loss_date
+          description: Effective date
+        - name: order_type
+          description: Represents Winback Order or First Order for the customer. First Order will be first paid order or first order for the customer
+        - name: provider
+          description: Represents the netwrok provider
+        - name: country_ind
+          description: Tells whether country is Domestic or International (Dom,Int)
+        - name: mso_group
+          description: Indicates group based on number of paid months
+        - name: up_for_renewal
+          description: Indicates up for renewal count
+        - name: loss
+          description: Indicates loss count

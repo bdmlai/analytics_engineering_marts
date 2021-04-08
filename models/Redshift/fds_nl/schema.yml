@@ -854,10 +854,10 @@ models:
         - name:  Overlap_Reach_Proj000
           description: Overlap reach  will be calculated  based on Secondary schedule name
 
-  - name: rpt_nl_weekly_overlap_program_4_way_oob
-    description:  '{{ doc("rpt_nl_weekly_overlap_program_4_way_oob") }}'
+  - name: rpt_nl_weekly_overlap_derived_4_way_oob
+    description:  '{{ doc("rpt_nl_weekly_overlap_derived_4_way_oob") }}'
     columns:
-        - name: dim_date_id
+        - name: week_starting_date
           description: References dim_date_id primary key
         - name: input_type
           description: Input Type is a customized column with value as staright Neilsen and Derived for schedules
@@ -867,40 +867,41 @@ models:
           description: Identified Market break category by the broadcast nework
         - name: demographic_group
           description: A comma separated list of demographic group
-        - name: playback_period
+        - name: playback_period_cd
           description: A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. Live (Live - Includes viewing that occurred during the live airing). Live+SD (Live + Same Day -Includes all playback that occurred within the same day of the liveairing). Live+3 (Live + 3 Days - Includes all playback that occurred within three days of the live airing). Live+7 (Live + 7 Days - Includes all playback that occurred within seven days of the live airing).
-        - name: schedule_name
+        - name: program_combination
           description: NPOWER - identifier for primary program/daypart selection as input within Nielsen report
-        - name: AA_Reac_Proj_000
+        - name: p2_total_unique_reach_proj
           description: Unique Audience/impressions
-        - name: P2_Total_Unique_Reach_Percent
+        - name: p2_total_unique_reach_percent
           description: Custom Calculation based on  AA_Reac_Proj_000
-        - name: Overlap_Description
+        - name: overlap_description
           description: Customized value for each Schedules both Straight Neilsen and Derived
         
-  - name: vw_rpt_nl_weekly_overlap_program_4_way_oob
-    description:  '{{ doc("vw_rpt_nl_weekly_overlap_program_4_way_oob") }}'
+  - name: vw_rpt_nl_weekly_overlap_derived_4_way_oob
+    description:  '{{ doc("vw_rpt_nl_weekly_overlap_derived_4_way_oob") }}'
     columns:
-        - name: dim_date_id
+        - name: week_starting_date
           description: References dim_date_id primary key
         - name: input_type
           description: Input Type is a customized column with value as staright Neilsen and Derived for schedules
         - name: coverage_area
           description: NPOWER- Coverage Area
-        - name: src_market_break
+        - name: market_break
           description: Identified Market break category by the broadcast nework
         - name: demographic_group
           description: A comma separated list of demographic group
-        - name:  playback_period
+        - name: playback_period_cd
           description: A comma separated list of data streams. Time-shifted viewing from DVR Playback or On-demand content with the same commercial load. Live (Live - Includes viewing that occurred during the live airing). Live+SD (Live + Same Day -Includes all playback that occurred within the same day of the liveairing). Live+3 (Live + 3 Days - Includes all playback that occurred within three days of the live airing). Live+7 (Live + 7 Days - Includes all playback that occurred within seven days of the live airing).
-        - name: schedule_name
+        - name: program_combination
           description: NPOWER - identifier for primary program/daypart selection as input within Nielsen report
-        - name: AA_Reac_Proj_000
+        - name: p2_total_unique_reach_proj
           description: Unique Audience/impressions
-        - name: P2_Total_Unique_Reach_Percent
+        - name: p2_total_unique_reach_percent
           description: Custom Calculation based on  AA_Reac_Proj_000
-        - name: Overlap_Description
+        - name: overlap_description
           description: Customized value for each Schedules both Straight Neilsen and Derived
+
 
   - name: rpt_nl_daily_minxmin_lite_log_ratings
     description: '{{ doc("rpt_nl_daily_minxmin_lite_log_ratings") }}'

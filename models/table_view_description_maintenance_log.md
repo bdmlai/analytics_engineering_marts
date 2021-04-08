@@ -171,15 +171,15 @@
 {% enddocs %}
 
 
-{% docs rpt_nl_weekly_overlap_program_4_way_oob %}
+{% docs rpt_nl_weekly_overlap_derived_4_way_oob  %}
 
 ## Implementation Detail
 * Date        : 06/19/2020
 * Version     : 1.0
-* ViewName    : rpt_nl_weekly_overlap_program_4_way_oob
+* ViewName    : rpt_nl_weekly_overlap_derived_4_way_oob 
 * Schema	  : fds_nl
 * Contributor : Remya K Nair
-* Description :vw_rpt_nl_weekly_overlap_program_4_way_oob view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs 
+* Description :rpt_nl_weekly_overlap_derived_4_way_oob  table consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs 
 
 ## Schedule Details
 * Frequency : Daily ; 10:00 P.M EST 
@@ -193,15 +193,15 @@
 
 
 
-{% docs vw_rpt_nl_weekly_overlap_program_4_way_oob %}
+{% docs vw_rpt_nl_weekly_overlap_derived_4_way_oob  %}
 
 ## Implementation Detail
 * Date        : 06/19/2020
 * Version     : 1.0
-* ViewName    : vw_rpt_nl_weekly_overlap_program_4_way_oob
+* ViewName    : vw_rpt_nl_weekly_overlap_derived_4_way_oob 
 * Schema	  : fds_nl
 * Contributor : Remya K Nair
-* Description : vw_rpt_nl_weekly_overlap_program_4_way_oob view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs
+* Description : vw_rpt_nl_weekly_overlap_derived_4_way_oob  view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs
  
 ## Maintenance Log
 * Date : 06/19/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
@@ -658,6 +658,7 @@
 
 ## Maintenance Log
 * Date : 08/28/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5b Project.
+* Date : 16/03/2021 ; Developer: Hima Dasan  ; Change: Demand, shipped and net selling margin is made zero when ever src_unit_cost is null or zero
 {% enddocs %}
 
 {% docs vw_aggr_cpg_daily_sales %}

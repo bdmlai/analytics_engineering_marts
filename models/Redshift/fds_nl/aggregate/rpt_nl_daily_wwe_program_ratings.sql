@@ -1,7 +1,8 @@
 {{
   config({
 		'schema': 'fds_nl',
-	    "materialized": 'table',"tags": 'Phase4B'
+		"pre-hook": ["truncate fds_nl.rpt_nl_daily_wwe_program_ratings"],
+	    "materialized": 'incremental',"tags": 'Phase4B'
   })
 }}
 select a.broadcast_date_id, a.broadcast_date, a.orig_broadcast_date_id, d.cal_year_week_begin_date as broadcast_cal_week_begin_date, 

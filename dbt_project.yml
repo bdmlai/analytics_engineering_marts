@@ -4,10 +4,6 @@ profile: analytics_engineering_marts_profile
 
 config-version: 2
 
-<<<<<<< HEAD
-
-profile: analytics_engineering_marts_profile
-=======
 vars:
   ###################################################################
   ########### VARIABLES FOR VIEWERSHIP CLUSTERING MODEL   ###########
@@ -17,7 +13,6 @@ vars:
     # The `start_date` and `end_date` variable will be accessible in all resources
   start_date: '2021-01-19'
   end_date: '2021-01-31'
->>>>>>> 5953fd6c1ab44a6322c2ce05ab98074cd1cb5f63
 
 
 source-paths: ["models"]      # paths with source code to compile
@@ -25,14 +20,5 @@ target-path: "target"         # path for compiled code
 test-paths: ["tests"]           # where to store test results
 #macro-paths: ["macros"]
 
-<<<<<<< HEAD
-vars:
-  # The `start_date` and `end_date` variable will be accessible in all resources
-  start_date: '2020-01-01'
-  end_date: '2020-01-31'
-  as_on_date: '2021-01-31'
-
-=======
->>>>>>> 5953fd6c1ab44a6322c2ce05ab98074cd1cb5f63
 models:
-    analytics_engineering_marts:    
+    analytics_engineering_marts:

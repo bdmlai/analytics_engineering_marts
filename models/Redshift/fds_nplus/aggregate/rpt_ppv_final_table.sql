@@ -54,13 +54,14 @@ SELECT  ordr_dt,
         case when trial_start_dttm is not null then 'Trial' else 'Paid' end as add_type,
         count(distinct order_id) add_cnt
  from fds_nplus.fact_daily_subscription_order_status 
- where trunc(initial_order_dttm) in (select distinct adds_date from #full_list where event_type!='current_ppv')
+ where trunc(initial_order_dttm) in (select distinct adds_date from #full_list)-- where event_type!='current_ppv')
+ and billing_country_cd not in ('usd','us') --and billing_sku_country_cd not in ('ca','us')
  --and payment_method in ('cybersource','stripe','incomm','paypal','roku_iap','google_iap') --,'roku_iap'
  group by 1,2,3
  )
   group by 1,2
-  ))
-  union all
+  ));
+ /* union all
 Select  adds_date,hour as adds_time,count(distinct case when flag = 'Trial' or flag = 'NA' then customerid end) as  trial_adds,
 	count(distinct case when flag = 'Paid' then customerid end) as  paid_adds,(paid_adds+trial_adds)  total_adds from
  (Select customerid,	
@@ -77,7 +78,7 @@ Select  adds_date,hour as adds_time,count(distinct case when flag = 'Trial' or f
 		   --and payload_data_payment_provider in ('ROKU_IAP','GOOGLE_IAP','APPLE_IAP','PAYPAL','STRIPE','ZERO_BALANCE')
              and trunc(CONVERT_TIMEZONE('AMERICA/NEW_YORK', cast(ts as timestamp))) in 
 			 (select adds_date from #full_list where event_type='current_ppv')
-           group by 1,2,4) group by 1,2 ;  
+           group by 1,2,4) group by 1,2 ;  */
 
 
 
@@ -273,5 +274,6 @@ select a.adds_day_of_week,a.adds_time,a.ag_sum_pct,b.day_pct from #t1_hourly_com
 #t3_comps_ghw_hour_pct b on a.adds_day_of_week=b.adds_day_of_week and a.adds_time=b.adds_time;
 
 insert into  dt_prod_support.rpt_ppv_hourly_pct(gwh_pct,gwh_pct_day)
-select tot_pct,adds_day_of_week from #forcst_ghw_pct_avg;"]})}}
+select tot_pct,adds_day_of_week from #forcst_ghw_pct_avg;
+"]})}}
 select *,convert_timezone('AMERICA/NEW_YORK', sysdate) as etl_insert_dtmm  from #final_table_up

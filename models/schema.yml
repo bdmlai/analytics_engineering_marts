@@ -1,3 +1,4 @@
+
 version: 2
 sources:
   - name: fds_nl
@@ -70,6 +71,10 @@ sources:
        - name: vw_rpt_network_daily_subscription_kpis
        - name: aggr_forecast_dice_daily_summary
        - name: fact_customer_login_and_status
+       - name: aggr_daily_content_linear_viewership
+       - name: aggr_monthly_content_vod_viewership
+       - name: aggr_daily_content_vod_viewership
+       - name: aggr_weekly_content_vod_viewership
 
   - name: dwh_read_write
     tables:
@@ -249,11 +254,11 @@ sources:
     tables:
       - name: nielsen_mapping_ziptodma
 
-  - name: sf_cdm
-    database: dev_entdwdb
-    schema: cdm
-    tables:
-      - name: lookup_table
+                
+                         
+               
+           
+                          
 
   - name: sf_public
     database: starschema_aws_us_east_va_covid19_by_starschema_dm

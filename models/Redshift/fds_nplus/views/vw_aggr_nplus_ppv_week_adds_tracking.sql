@@ -40,18 +40,21 @@ select date,ppv_event_nm,ppv_nm,
 FROM
         (		
           select trunc(event_dttm) as date,
-               ppv_event_nm,ppv_nm,
+              ppv_nm ppv_event_nm,ppv_nm,
                trunc(DATEADD(day, -6, date)) as start_date, 
                trunc(DATEADD(day,2, date)) as end_date,
                EXTRACT(YEAR FROM date) as year,
-               CONCAT(ppv_event_nm,TO_CHAR(year,'9999')) as event
+                EXTRACT(Month FROM date) as month,
+               CONCAT(ppv_nm,TO_CHAR(year,'9999')) as event ,
+	row_number() over (partition by ppv_event_nm,ppv_nm,year,month order by date desc) as n
           from {{source('cdm','dim_event')}}
 		  
-          where ppv_event_nm <> '' 
+          where ppv_nm <> '' 
            and event_status='Published'
          )
          left join {{source('cdm','dim_date')}}
                 on start_date<=full_date and end_date>=full_date
+	where n=1
     )a
     
   LEFT JOIN 
@@ -64,10 +67,7 @@ FROM
 	sum(case when order_type='winback' then coalesce(daily_new_adds_cnt,0) else null end) as daily_paid_adds_cnt_winback
 	from {{source('fds_nplus','aggr_daily_subscription')}}
 	where payment_method in ('incomm' ,'paypal' ,'stripe' ,'unknown' ,'cybersource','roku_iap','apple_iap','google_iap')
-<<<<<<< HEAD:models/Redshift/fds_nplus/views/vw_aggr_nplus_ppv_week_adds_tracking.sql
          and country_type  in ('international')
-=======
->>>>>>> 5953fd6c1ab44a6322c2ce05ab98074cd1cb5f63:models/fds_nplus/views/vw_aggr_nplus_PPV_Week_Adds_Tracking.sql
 	group by 1 
 	) b
 on a.full_date=b.as_on_date-1 
@@ -81,7 +81,7 @@ RIGHT JOIN
                  sum(coalesce(trial_adds,0)) as free_trial_subs
                  from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}}
                  where forecast_date=(select max(forecast_date) from {{source('fds_nplus','aggr_nplus_daily_forcast_output')}})
-                 and payment_method in ('mlbam','roku','apple') 
+                 and payment_method in ('mlbam','roku','apple','google iap') 
                  and official_run_flag='official'   and country_region not in ('united states') 
                  and bill_date>'2019-12-20'
                  group by 1 

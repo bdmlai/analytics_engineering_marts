@@ -10,7 +10,8 @@
 */
 {{
   config({
-	'schema': 'fds_nl',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_nl',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true},
+	 'post_hook' : "grant select on {{ this }} to public"
 	})
 }}
 select * from {{ref('rpt_nl_daily_wwe_program_ratings')}}

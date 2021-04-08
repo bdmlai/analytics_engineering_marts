@@ -27,7 +27,7 @@ and as_on_date = trunc(convert_timezone('AMERICA/NEW_YORK', sysdate));",
   where data_level = 'Live+VOD' and event_brand in (select distinct event_brand from #live_plus_vod_manual) and event in (select distinct prev_year_event from #live_plus_vod_manual)) as b
   on a.platform=b.platform
   and a.event_brand = b.event_brand
-  where a.platform <> 'Total';",
+  where a.platform not in ('Total','Social');",
   "drop table if exists #live_plusvod_manual_base;
 select a.*,b.prev_month_views,b.prev_year_views,
 case when a.platform = 'YouTube' then round(a.views*0.23)
@@ -130,9 +130,25 @@ sum(prev_month_views) as prev_month_views,
 sum(prev_year_views) as prev_year_views,
 sum(us_views) as us_views
 from #live_plusvod_manual_base1
+where platform <> 'Social'
 group by 
 report_name,event,event_name,event_brand,series_name,event_date,start_timestamp,end_timestamp,
-prev_month_event,prev_year_event,data_level);",
+prev_month_event,prev_year_event,data_level
+union all
+select report_name,event,event_name,event_brand,series_name,event_date,start_timestamp,end_timestamp,
+prev_month_event,prev_year_event,'Social' as platform,data_level,
+'' as content_wwe_id,'' as production_id,'' as account,'' as url,'' as asset_id,
+sum(views) as views,
+sum(minutes) as minutes,
+sum(prev_month_views) as prev_month_views,
+sum(prev_year_views) as prev_year_views,
+sum(us_views) as us_views
+from #live_plusvod_manual_base1
+where platform in ('Facebook','YouTube','Twitter','Twitch')
+group by 
+report_name,event,event_name,event_brand,series_name,event_date,start_timestamp,end_timestamp,
+prev_month_event,prev_year_event,data_level
+);",
 "drop table if exists #live_plusvod_consolidation;
 select * into #live_plusvod_consolidation from
 (select report_name,event,event_name,event_brand,series_name,event_date,start_timestamp as start_time,end_timestamp as end_time,

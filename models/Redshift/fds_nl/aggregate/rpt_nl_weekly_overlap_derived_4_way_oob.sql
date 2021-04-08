@@ -1,19 +1,10 @@
-/*
-*************************************************************************************************************************************************
-   Date        : 06/19/2020
-   Version     : 1.0
-   TableName   : rpt_nl_weekly_overlap_derived_4_way_oob
-   Schema	   : fds_nl
-   Contributor : Remya K Nair
-   Description : rpt_nl_weekly_overlap_derived_4_way_oob view consists of weekly  overlap program schedules and unique reach for each time period 
-********
-*/
 
 {{
   config({
 		'schema': 'fds_nl',
 		"pre-hook": ["delete from fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob where etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_weekly_overlap_4_way_oob)"],
-	     "materialized": 'incremental','tags': "Phase4B", "persist_docs": {'relation' : true, 'columns' : true}
+                "materialized": 'incremental',"tags": 'Phase4B',"persist_docs": {'relation' : true, 'columns' : true}
+
   })
 }}
 
@@ -187,15 +178,16 @@
 
 with first_15_schedules as 
 (select dim_date_id,coverage_area,src_market_break,src_demographic_group,src_playback_period_cd,
-sum(case when schedule_name like '%A | SmackDown (FOX)%' then aa_reach_proj000 end) A,
-sum(case when schedule_name like '%B | Raw (USA)%' then aa_reach_proj000 end) B,
-sum(case when schedule_name like '%C | NXT (USA)%' then aa_reach_proj000 end) C,
-sum(case when schedule_name like '%D | AEW (TNT)%' then aa_reach_proj000 end) D,
+sum(case when schedule_name like '%A | SmackDown %' then aa_reach_proj000 end) A,
+sum(case when schedule_name like '%B | Raw %' then aa_reach_proj000 end) B,
+sum(case when schedule_name like '%C | NXT %' then aa_reach_proj000 end) C,
+sum(case when schedule_name like '%D | AEW %' then aa_reach_proj000 end) D,
 {% for schedule_name,j in descript %}
 sum(case when schedule_name = '{{schedule_name}}' then aa_reach_proj000 end) {{schedule_name}},
 {% endfor %}
 max(aa_reach_proj000) as Max_AA_Reac_Proj_000 
-FROM   fds_nl.fact_nl_weekly_overlap_4_way_oob a
+FROM   {{source('fds_nl','fact_nl_weekly_overlap_4_way_oob')}} a
+
 where a.etl_insert_rec_dttm  >  coalesce ((select max(etl_insert_rec_dttm) from {{this}}), '1900-01-01 00:00:00') 
 GROUP BY 1,2,3,4,5),
  total_schedules as 
@@ -213,14 +205,14 @@ SELECT a.dim_date_id,
        a.schedule_name,
        sum(a.aa_reach_proj000) as AA_Reac_Proj_000,
        cast( Round(( cast(AA_Reac_Proj_000 as decimal(18,2))/nullif(cast(b.Max_AA_Reac_Proj_000 as decimal(18,2)),0))*100) as varchar)+'%' as P2_Total_Unique_Reach_Percent,
-	   case when schedule_name like '%A | SmackDown (FOX)%' then 'Total Unique SmackDown'
-			when schedule_name like '%B | Raw (USA)%' then 'Total Unique Raw'
-			when schedule_name like '%C | NXT (USA)%' then 'Total Unique NXT'
-			when schedule_name like '%D | AEW (TNT)%' then 'Total Unique AEW'
+	   case when schedule_name like '%A | SmackDown %' then 'Total Unique SmackDown'
+			when schedule_name like '%B | Raw %' then 'Total Unique Raw'
+			when schedule_name like '%C | NXT %' then 'Total Unique NXT'
+			when schedule_name like '%D | AEW %' then 'Total Unique AEW'
 			{% for schedule_nm,description in descript %}
 			when schedule_name='{{schedule_nm}}' then '{{description}}'
 			{% endfor %} end as Overlap_Description
-FROM     fds_nl.fact_nl_weekly_overlap_4_way_oob a join first_15_schedules b on a.dim_date_id=b.dim_date_id
+FROM     {{source('fds_nl','fact_nl_weekly_overlap_4_way_oob')}} a join first_15_schedules b on a.dim_date_id=b.dim_date_id
  and a.src_demographic_group=b.src_demographic_group
  and a.coverage_area=b.coverage_area
  and a.src_market_break=b.src_market_break
