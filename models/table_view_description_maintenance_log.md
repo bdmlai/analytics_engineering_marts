@@ -1986,6 +1986,8 @@
 * Description : Aggregation based on story,show and date level.This data used to issue weekly storyline report after shows and support adhoc/forcasting analysis on storyline level .
 ## Maintenance Log
 * Date : 01/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Storyline UI Data 
+* Date : 04/05/2021 ; Developer: Hima Dasan ; Change: Change 'appeared' data format from 24HR to 12HR ,Jira : PSTA-2949
+
 {% enddocs %}
 
 
