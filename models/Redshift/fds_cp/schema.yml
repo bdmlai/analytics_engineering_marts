@@ -801,7 +801,7 @@ models:
           description: indicates the talent involved in the storyline
         - name: comments
           description: indicates the comments for the storyline
-        - name: appeared
+        - name: appeared_est
           description: indicates the inpoint and outpoint est time related to the storyline
         - name: average_viewers_p18_49
           description: Indicates  average viewers for  src_demographic_group in Persons 18 - 49
