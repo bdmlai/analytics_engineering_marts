@@ -56,7 +56,7 @@ FROM
             s.dim_item_id = i.dim_item_id
         AND s.dim_order_method_id = c.dim_order_method_id
         AND s.dim_shop_site_id = ss.dim_shop_site_id
-        AND week_start = TRUNC(date_trunc('week',(CURRENT_DATE - 35)))
+        AND week_start = TRUNC(date_trunc('week',(CURRENT_DATE - 7)))
         GROUP BY
             s.etl_insert_rec_dttm,
             s.dim_shop_site_id,
@@ -100,7 +100,7 @@ LEFT JOIN
                     {{source('fds_cpg','aggr_cpg_daily_sales')}} s,
                     {{source('fds_cpg','dim_cpg_item')}} i
                 WHERE
-                    week_start = TRUNC(date_trunc('week',(CURRENT_DATE - 42)))
+                    week_start = TRUNC(date_trunc('week',(CURRENT_DATE - 14)))
                 AND s.dim_item_id = i.dim_item_id
                 AND s.src_units_ordered > 0
                 AND src_talent_description NOT IN ('WWE',
@@ -156,7 +156,7 @@ LEFT JOIN
                 WHERE
                     s.dim_item_id = i.dim_item_id
                 AND TRUNC(date_trunc('week',CAST(CAST(s.date_key AS VARCHAR(10)) AS DATE))) = TRUNC
-                    (date_trunc('week',(CURRENT_DATE - 35)))
+                    (date_trunc('week',(CURRENT_DATE - 7)))
                 GROUP BY
                     talent_description,
                     i.src_style_id,
