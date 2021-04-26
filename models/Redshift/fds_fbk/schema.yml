@@ -1,4 +1,12 @@
 version: 2
+sources:
+  - name: fds_fbk
+    tables:
+      - name: vw_aggr_fb_daily_consumption_engagement_by_video_todate
+
+  - name: cdm
+    tables:
+      - name: dim_video
 models:
   - name: vw_rpt_daily_fb_published_video
     description: '{{ doc("vw_rpt_daily_fb_published_video") }}'
@@ -50,4 +58,89 @@ models:
           description: Post description
         - name: as_on_date
           description: Record as-on date
-        
+  - name: fbk_amg_content_group
+    description: "Table - Facebook AMG Content Group"
+    columns:
+          - name: dim_video_id
+            description: "It defines the Video ID"
+            tests:
+                - unique
+                - not_null
+          - name: title
+            description: "It defines the Title of Videos"
+            tests:
+                - unique
+                - not_null
+          - name: duration
+            description: "It defines the Duration of Videos"
+            tests:
+                - unique
+                - not_null
+          - name: dim_smprovider_account_id
+            description: "It defines the SM Provider Account ID"
+            tests:
+                - unique
+                - not_null
+          - name: channel_name
+            description: "It defines the Channel Name"
+            tests:
+                - unique
+                - not_null
+          - name: series_name
+            description: "It defines the Series name"
+            tests:
+                - unique
+                - not_null
+          - name: min_duration
+            description: "It defines the Minimum Duration of Videos Watched"
+            tests:
+                - unique
+                - not_null
+          - name: amg_content_group
+            description: "It defines the AMG Content Group of Videos for Facebook"
+            tests:
+                - unique
+                - not_null
+  - name: vw_fbk_amg_content_group
+    description: "View - Facebook AMG Content Group"
+    columns:
+          - name: dim_video_id
+            description: "It defines the Video ID"
+            tests:
+                - unique
+                - not_null
+          - name: title
+            description: "It defines the Title of Videos"
+            tests:
+                - unique
+                - not_null
+          - name: duration
+            description: "It defines the Duration of Videos"
+            tests:
+                - unique
+                - not_null
+          - name: dim_smprovider_account_id
+            description: "It defines the SM Provider Account ID"
+            tests:
+                - unique
+                - not_null
+          - name: channel_name
+            description: "It defines the Channel Name"
+            tests:
+                - unique
+                - not_null
+          - name: series_name
+            description: "It defines the Series name"
+            tests:
+                - unique
+                - not_null
+          - name: min_duration
+            description: "It defines the Minimum Duration of Videos Watched"
+            tests:
+                - unique
+                - not_null
+          - name: amg_content_group
+            description: "It defines the AMG Content Group of Videos for Facebook"
+            tests:
+                - unique
+                - not_null
