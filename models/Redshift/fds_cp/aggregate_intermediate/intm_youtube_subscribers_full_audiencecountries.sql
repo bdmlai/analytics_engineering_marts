@@ -1,6 +1,6 @@
 {{
     config({
-        "materialized": 'table',"tags": 'cp_monthly_global_followership_by_platform',
+        "materialized": 'table',"tags": 'rpt_cp_monthly_global_followership_by_platform',
 	"schema" :'fds_cp'
          })
 			

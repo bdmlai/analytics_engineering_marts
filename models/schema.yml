@@ -1,4 +1,3 @@
-
 version: 2
 sources:
   - name: fds_nl
@@ -31,6 +30,7 @@ sources:
       - name: dim_smprovider_account
       - name: dim_country
       - name: dim_venue
+      - name: lookup_table
   - name: fds_yt
     tables:
        - name: rpt_yt_wwe_engagement_daily
@@ -71,10 +71,15 @@ sources:
        - name: vw_rpt_network_daily_subscription_kpis
        - name: aggr_forecast_dice_daily_summary
        - name: fact_customer_login_and_status
-       - name: aggr_daily_content_linear_viewership
-       - name: aggr_monthly_content_vod_viewership
+       - name: aggr_nplus_daily_ppv_language_viewership
        - name: aggr_daily_content_vod_viewership
+       - name: aggr_monthly_content_vod_viewership
        - name: aggr_weekly_content_vod_viewership
+       - name: aggr_daily_content_linear_viewership
+       - name: aggr_monthly_class_viewership
+       - name: aggr_monthly_seriesgroup_viewership
+       - name: aggr_monthly_class_debutyear_viewership
+       - name: aggr_monthly_seriesgroup_debutyear_viewership
 
   - name: dwh_read_write
     tables:
@@ -124,6 +129,8 @@ sources:
        - name: raw_post_event_log
        - name: stg_dice_stream_flattened
        - name: raw_da_weekly_ppv_hourly_comps_new
+       - name: raw_famousgroup_customer_rpt_tbl_extended
+       - name: encompass_as_run
   - name: udl_nl
     tables:
        - name: nielsen_finance_yearly_calendar
@@ -133,6 +140,7 @@ sources:
        - name: fact_co_smfollowership_cumulative_summary
        - name: vw_rpt_cp_monthly_global_consumption_by_platform
        - name: vw_rpt_cp_weekly_consolidated_kpi
+       - name: vw_aggr_cp_weekly_consumption_by_platform
        - name: rpt_cp_monthly_social_overview
        - name: rpt_cp_monthly_global_consumption_by_platform
   - name: fds_kntr
@@ -161,6 +169,7 @@ sources:
       - name: aggr_cpg_daily_sales
       - name: aggr_cpg_daily_venue_sales
       - name: fact_cpg_inventory
+      - name: rpt_daily_talent_equity_centralized
  
   - name: dt_stage
     tables:
@@ -210,6 +219,11 @@ sources:
     tables:
       - name: brand
       - name: babyface_heel
+      
+  - name: fds_pii
+    tables:
+      - name: fc_fan_variables_consolidated
+
   - name: hive_udl_chscl
     tables:
       - name: china_weekly_social_data
@@ -235,32 +249,39 @@ sources:
       - name: radial_monthly_payment_refund
       - name: raw_amazon_monthly_payments
       - name: ga_cpg_daily_sessions
+      
   - name: hive_udl_nl
     tables:
       - name: nielsen_finance_yearly_calendar
+
+  - name: hive_udl_le
+    tables:
+      - name: ga_le_daily_hits
+      - name: ga_le_daily_sessions
+
   - name: udl_cp
     tables:
       - name: raw_storyline_daily_nielsen_social_litelog
       
-  - name: sf_fds_nl
+  - name: prod_entdwdb.fds_nl
     database: prod_entdwdb
     schema: fds_nl
     tables:
       - name: fact_nl_monthly_local_market
       
-  - name: sf_udl_nl
+  - name: prod_entdwdb.udl_nl
     database: prod_entdwdb
     schema: udl_nl
     tables:
       - name: nielsen_mapping_ziptodma
 
-                
-                         
-               
-           
-                          
+  - name: prod_entdwdb.cdm
+    database: prod_entdwdb
+    schema: cdm
+    tables:
+      - name: lookup_table
 
-  - name: sf_public
+  - name: prod_entdwdb.public
     database: starschema_aws_us_east_va_covid19_by_starschema_dm
     schema: public
     tables:
@@ -269,8 +290,12 @@ sources:
       - name: demographics
       - name: goog_global_mobility_report
       
-  - name: sf_udl_cp
+  - name: prod_entdwdb.udl_cp
     database: prod_entdwdb
     schema: udl_cp
     tables:
       - name: le_weekly_us_unemployment_claims_details
+  - name: hive_udl_ads
+    tables:
+      - name: conviva_daily_pulse
+

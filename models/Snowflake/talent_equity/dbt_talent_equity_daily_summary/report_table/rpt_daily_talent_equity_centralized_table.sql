@@ -56,6 +56,6 @@ group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27
 
 select *,'DBT_'||TO_CHAR(SYSDATE(),'YYYY_MM_DD_HH_MI_SS')||'_Talent' as etl_batch_id
 	, 'bi_dbt_user_prd' as etl_insert_user_id
-	, current_timestamp as etl_insert_rec_dttm
+	, SYSDATE() as etl_insert_rec_dttm
 	, null as etl_update_user_id
 	, cast(null as timestamp) as etl_update_rec_dttm from source_data 

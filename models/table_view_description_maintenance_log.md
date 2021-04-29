@@ -193,15 +193,15 @@
 
 
 
-{% docs vw_rpt_nl_weekly_overlap_derived_4_way_oob  %}
+{% docs vw_rpt_nl_weekly_overlap_derived_4_way_oob %}
 
 ## Implementation Detail
 * Date        : 06/19/2020
 * Version     : 1.0
-* ViewName    : vw_rpt_nl_weekly_overlap_derived_4_way_oob 
+* ViewName    : vw_rpt_nl_weekly_overlap_derived_4_way_oob
 * Schema	  : fds_nl
 * Contributor : Remya K Nair
-* Description : vw_rpt_nl_weekly_overlap_derived_4_way_oob  view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs
+* Description : vw_rpt_nl_weekly_overlap_derived_4_way_oob view consists of  Schedule (Both Staright Neilsen Run and Derived) details  and calculations for Overlap data for  WWE, AEW and other wrestling programs
  
 ## Maintenance Log
 * Date : 06/19/2020 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project.
@@ -229,10 +229,10 @@
 * Version     : 1.0
 * ViewName    : vw_rpt_network_daily_subscription_kpis
 * Schema	  : fds_nl
-* Contributor : Lakshman Murugeshan
+* Contributor : Lakshmanan Murugesan
 * Description : vw_rpt_network_daily_subscription_kpis view consists of network daily kpi information
 ## Maintenance Log
-* Date : 06/29/2020 ; Developer: Lakshman Murugeshan DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
+* Date : 06/29/2020 ; Developer: Lakshmanan Murugesan DBT: Sudhakar ; Change: Initial Version as a part of network dashboards.
 {% enddocs %}
 
 
@@ -523,11 +523,11 @@
 *   Version     : 1.0
 *   ViewName    : aggr_monthly_network_kpis_vkm
 *   Schema	: fds_nplus
-*   Contributor : Lakshman Murugeshan
+*   Contributor : Lakshmanan Murugesan
 *   Description : monthly VKM network kpis
 
 ## Maintenance Log
-* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version
+* Date : 07/28/2020 ; Developer: Lakshmanan Murugesan ; DBT : Sudhakar Change: Initial Version
 {% enddocs %}
 
 
@@ -537,11 +537,11 @@
 *   Version     : 1.0
 *   ViewName    : vw_aggr_monthly_network_kpis_vkm
 *   Schema	: fds_nplus
-*   Contributor : Lakshman Murugeshan
+*   Contributor : Lakshmanan Murugesan
 *   Description : monthly VKM network kpis
 
 ## Maintenance Log
-* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT : Sudhakar Change: Initial Version
+* Date : 07/28/2020 ; Developer: Lakshmanan Murugesan ; DBT : Sudhakar Change: Initial Version
 {% enddocs %}
 
 
@@ -551,11 +551,11 @@
 *   Version     : 1.0
 *   ViewName    : rpt_network_ppv_liveplusvod
 *   Schema	: fds_nplus
-*   Contributor : Lakshman Murugeshan
+*   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to Live NXT and HOF evenet
 
 ## Maintenance Log
-* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT & Python Automation: Sudhakar; Change: Initial Version
+* Date : 07/28/2020 ; Developer: Lakshmanan Murugesan ; DBT & Python Automation: Sudhakar; Change: Initial Version
 {% enddocs %}
 
 
@@ -565,11 +565,11 @@
 *   Version     : 1.0
 *   ViewName    : vw_rpt_network_ppv_liveplusvod
 *   Schema	: fds_nplus
-*   Contributor : Lakshman Murugeshan
+*   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to Live NXT and HOF evenet
 
 ## Maintenance Log
-* Date : 07/28/2020 ; Developer: Lakshman Murugeshan ; DBT & Python Automation: Sudhakar; Change: Initial Version
+* Date : 07/28/2020 ; Developer: Lakshmanan Murugesan ; DBT & Python Automation: Sudhakar; Change: Initial Version
 {% enddocs %}
 
 
@@ -606,15 +606,15 @@
 
 {% docs vw_rpt_nplus_monthly_marketing_subs %}
 ## Implementation Detail
-*   Date        : 08/14/2020
+*   Date        : 03/15/2021
 *   Version     : 1.0
 *   TableName   : vw_rpt_nplus_monthly_marketing_subs
 *   Schema      : fds_nplus
 *   Contributor : Hima Dasan
-*   Description : vw_rpt_nplus_monthly_marketing_subs view consist of Actuals,forecast and Budget for adds and Disconnects For Roku,Apple and mlbam (Monthly)
+*   Description : vw_rpt_nplus_monthly_marketing_subs view consist of Actuals,forecast and Budget for adds and Disconnects For Roku,Apple,google iap and mlbam (Monthly)
 
 ## Maintenance Log
-* Date : 08/14/2020 ; Developer: Hima Dasan; Change: Initial Version
+* Date : 03/15/2021 ; Developer: Hima Dasan; Change: Initial Version
 {% enddocs %}
 
 {% docs rpt_nl_daily_minxmin_lite_log_ratings %}
@@ -766,10 +766,10 @@
 * Version     : 1.0
 * ViewName    : rpt_mkt_weekly_owned_media_execution
 * Schema	  : fds_mkt
-* Contributor : Lakshman Murugeshan
+* Contributor : Lakshmanan Murugesan
 * Description : Reporting table for marketing team owned media execution. This is a weekly aggregate table containing the metrics Impressions, Viewership and Promos for the channels Owned YouTube, Owned Facebook, Owned Twitter, Owned Instagram, Owned TV US, Owned TV Promos, Owned TV Non US and Owned TV PPV.
 ## Maintenance Log
-* Date : 09/23/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+* Date : 09/23/2020 ; Developer: Lakshmanan Murugesan ; Change: Initial Version 
 ## Maintenance Log
 * Date : 11/04/2020 ; Developer: Hima Dasan ; Change: For Owned viewership data for USA , included smackdown program - 'WWE SMACKDOWN' to include all smackdown data.
 
@@ -782,23 +782,24 @@
 * Version     : 1.0
 * ViewName    : rpt_mkt_weekly_paid_media_execution
 * Schema	  : fds_mkt
-* Contributor : Lakshman Murugeshan
+* Contributor : Lakshmanan Murugesan
 * Description : Reporting table for marketing team paid media execution. This is a weekly aggregate table containing the metrics Impressions, Spend and Clicks for the channels Display, Search, YouTube, Twitter, Facebook and Snap chat.
 ## Maintenance Log
-* Date : 09/23/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+* Date : 09/23/2020 ; Developer: Lakshmanan Murugesan ; Change: Initial Version 
 {% enddocs %}
 
 
 {% docs rpt_cp_weekly_consolidated_kpi %}
 ## Implementation Detail
 * Date        : 10/13/2020
-* Version     : 1.0
+* Version     : 1.1
 * ViewName    : rpt_cp_weekly_consolidated_kpi
 * Schema	  : fds_cp
-* Contributor : Lakshman Murugeshan
+* Contributor : Lakshman Murugesan
 * Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
 ## Maintenance Log
-* Date : 10/13/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+* Date : 10/13/2020 ; Developer: Lakshman Murugesan ; Change: Initial Version 
+* Date : 04/14/2021 ; Developer: Lakshman Murugesan ; Change: Removed pre-hook from the code and added intermediates
 {% enddocs %}
 
 
@@ -808,10 +809,10 @@
 * Version     : 1.0
 * ViewName    : vw_rpt_cp_weekly_consolidated_kpi
 * Schema	  : fds_cp
-* Contributor : Lakshman Murugeshan
+* Contributor : Lakshmanan Murugesan
 * Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
 ## Maintenance Log
-* Date : 10/13/2020 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+* Date : 10/13/2020 ; Developer: Lakshmanan Murugesan ; Change: Initial Version 
 {% enddocs %}
 
 
@@ -1658,6 +1659,7 @@
 
 ## Maintenance Log
 * Date : 11/13/2020 ; PSTA-1812 Developer: Sandeep Battula ; Change: Initial Version as a part of Monthly Social reporting.
+* Date : 16/02/2021 ; PSTA-2365 Developer: Enhancements done to the Monthly Social reporting table to add new metric - Engagement_per_1k for social platforms - Facebook, Instagram and Twitter.
 {% enddocs %}
 
 {% docs vw_rpt_cp_weekly_social_followers_by_account %}
@@ -1861,10 +1863,11 @@
 * Version     : 1.0
 * ViewName    : rpt_tv_weekly_consolidated_kpi
 * Schema	  : fds_nl
-* Contributor : Lakshman Murugeshan
+* Contributor : Lakshmanan Murugesan
 * Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
 ## Maintenance Log
-* Date : 1/12/2021 ; Developer: Lakshman Murugeshan ; Change: Initial Version 
+* Date : 1/12/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version 
+* Date : 4/21/2021 ; Developer: Lakshmanan Murugesan ; Change: Removed DBT Pre-hook from the model 
 {% enddocs %}
 
 {% docs rpt_yt_daily_wwe_talent_views_pastyear %}
@@ -1987,7 +1990,6 @@
 ## Maintenance Log
 * Date : 01/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Storyline UI Data 
 * Date : 04/05/2021 ; Developer: Hima Dasan ; Change: Change 'appeared' data format from 24HR to 12HR ,Jira : PSTA-2949
-
 {% enddocs %}
 
 
@@ -2005,7 +2007,7 @@
 
 {% docs rpt_le_monthly_local_county_ratings %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   TableName   : rpt_le_monthly_local_county_ratings
 *   Schema	    : fds_le
@@ -2017,12 +2019,12 @@
 * Dependent Jobs (process_name ; process_id) : t_di_nielsen_fact_nl_monthly_local_market_abac ; 12131 (monthly)
 
 ## Maintenance Log
-* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+* Date : 04/21/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
 {% enddocs %}
 
 {% docs vw_rpt_le_monthly_local_county_ratings %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   ViewName    : vw_rpt_le_monthly_local_county_ratings
 *   Schema	    : fds_le
@@ -2031,12 +2033,12 @@
 
 
 ## Maintenance Log
-* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+* Date : 04/21/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
 {% enddocs %}
 
 {% docs rpt_le_daily_kff_state_regulation %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   TableName   : rpt_le_daily_kff_state_regulation
 *   Schema	    : fds_le
@@ -2044,15 +2046,15 @@
 *   Description : KFF State Regulation Daily Report Table consist of COVID Regulations per state referencing from KFF US State Mitigation table on daily-basis
 
 ## Schedule Details
-* Frequency : Daily at 04:00 A.M EST
+* Frequency : Daily at 09:00 A.M EST
 
 ## Maintenance Log
-* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+* Date : 04/21/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
 {% enddocs %}
 
 {% docs vw_rpt_le_daily_kff_state_regulation %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   ViewName    : vw_rpt_le_daily_kff_state_regulation
 *   Schema	    : fds_le
@@ -2061,12 +2063,12 @@
 
 
 ## Maintenance Log
-* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+* Date : 04/21/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
 {% enddocs %}
 
 {% docs rpt_le_daily_routing_county_data %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   TableName   : rpt_le_daily_routing_county_data
 *   Schema	    : fds_le
@@ -2074,7 +2076,7 @@
 *   Description : LE Routing County Data Report Table consist of COVID-related details per county in USA on daily-basis
 
 ## Schedule Details
-* Frequency : Daily at 04:00 A.M EST
+* Frequency : Daily at 09:00 A.M EST
 
 ## Maintenance Log
 * Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
@@ -2082,7 +2084,7 @@
 
 {% docs vw_rpt_le_daily_routing_county_data %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   ViewName    : vw_rpt_le_daily_routing_county_data
 *   Schema	    : fds_le
@@ -2090,12 +2092,12 @@
 *   Description : LE Routing County Data Report View consist of COVID-related details per county in USA on daily-basis
 
 ## Maintenance Log
-* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+* Date : 04/21/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
 {% enddocs %}
 
 {% docs rpt_le_daily_routing_state_data %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   TableName   : rpt_le_daily_routing_state_data
 *   Schema	    : fds_le
@@ -2103,15 +2105,15 @@
 *   Description : LE Routing State Data Report Table consist of COVID-related details per state in USA on daily-basis
 
 ## Schedule Details
-* Frequency : Daily at 04:00 A.M EST
+* Frequency : Daily at 09:00 A.M EST
 
 ## Maintenance Log
-* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+* Date : 04/21/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
 {% enddocs %}
 
 {% docs vw_rpt_le_daily_routing_state_data %}
 ## Implementation Detail
-*   Date        : 02/03/2021
+*   Date        : 04/21/2021
 *   Version     : 1.0
 *   ViewName    : vw_rpt_le_daily_routing_state_data
 *   Schema	    : fds_le
@@ -2119,7 +2121,7 @@
 *   Description : LE Routing State Data Report View consist of COVID-related details per state in USA on daily-basis
 
 ## Maintenance Log
-* Date : 02/03/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
+* Date : 04/21/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A LE Routing Project.
 {% enddocs %}
 
 
@@ -2285,12 +2287,12 @@
 {% enddocs %}
 
 
-{% docs rpt_pii_weekly_yougov_country_split %}
+{% docs rpt_tms_weekly_yougov_country_split %}
 ## Implementation Detail
 *   Date        : 03/03/2021
 *   Version     : 1.0
-*   TableName    : rpt_pii_weekly_yougov_country_split
-*   Schema	    : fds_pii
+*   TableName    : rpt_tms_weekly_yougov_country_split
+*   Schema	    : fds_tms 
 *   Contributor : Remya K Nair
 *   Description : Report table consists of  yougov details with  country split . 
 
@@ -2300,12 +2302,12 @@
 {% enddocs %}
 
 
-{% docs vw_rpt_pii_weekly_yougov_country_split %}
+{% docs vw_rpt_tms_weekly_yougov_country_split %}
 ## Implementation Detail
 *   Date        : 03/03/2021
 *   Version     : 1.0
-*   ViewName    : vw_rpt_pii_weekly_yougov_country_split
-*   Schema	    : fds_pii
+*   ViewName    : vw_rpt_tms_weekly_yougov_country_split
+*   Schema	    : fds_tms 
 *   Contributor : Remya K Nair
 *   Description : View consists of  yougov details with  country split . 
 
@@ -2314,3 +2316,245 @@
 * Date : 03/03/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Talent Monthly Scorecard 
 {% enddocs %}
 
+{% docs rpt_le_daily_thunderdome_status %}
+## Implementation Detail
+*   Date        : 03/12/2021
+*   Version     : 1.0
+*   TableName   : rpt_le_daily_thunderdome_status
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : Daily Thunderdome Status Report Table provides details of customers who registed, attended and attempted to attend for Thunderdome
+
+## Maintenance Log
+* Date : 03/12/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A Thunderdome Project.
+{% enddocs %}
+
+{% docs vw_rpt_le_daily_thunderdome_status %}
+## Implementation Detail
+*   Date        : 03/12/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_daily_thunderdome_status
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : Daily Thunderdome Status Report view provides details of customers who registed, attended and attempted to attend for Thunderdome referencing from Daily Thunderdome Status Report Table
+
+## Maintenance Log
+* Date : 03/12/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A Thunderdome Project.
+{% enddocs %}
+
+{% docs rpt_nplus_daily_network_ad_impression_ad_type %}
+## Implementation Detail
+*   Date        : 03/29/2021
+*   Version     : 1.0
+*   TableName    : rpt_nplus_daily_network_ad_impression_ad_type
+*   Schema	    : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : Daily network ad impression by ad type table provides details on start date ,start time ,end time ,ad type ,ad category ,audience type and concurent plays of the program.
+
+## Maintenance Log
+* Date : 03/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 9 Network ad impression by ad type.
+{% enddocs %}
+
+{% docs vw_rpt_nplus_daily_network_ad_impression_ad_type %}
+## Implementation Detail
+*   Date        : 03/29/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_nplus_daily_network_ad_impression_ad_type
+*   Schema	    : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : Daily network ad impression by ad type view provides details on start date ,start time ,end time ,ad type ,ad category ,audience type and concurent plays of the program.
+
+## Maintenance Log
+* Date : 03/29/2021 ; Developer: Hima Dasan ; Change: Initial Version as a part of Phase 9 Network ad impression by ad type.
+{% enddocs %}
+
+
+
+
+{% docs vw_aggr_monthly_program_type_viewership %}
+## Implementation Detail
+*   Date        : 04/01/2021
+*   Version     : 1.0
+*   ViewName    : vw_aggr_monthly_program_type_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly WWE Network Viewership KPIs - Post launch.
+
+## Maintenance Log
+* Date : 04/01/2021 ; Developer: Lakshman M ; Change: Initial Version .
+{% enddocs %}
+
+
+{% docs vw_aggr_monthly_subs_cohort_viewership %}
+## Implementation Detail
+*   Date        : 03/29/2021
+*   Version     : 1.0
+*   ViewName    : vw_aggr_monthly_subs_cohort_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly WWE Network Viewership KPIs - Post launch.
+
+## Maintenance Log
+* Date : 04/01/2021 ; Developer: Lakshman M ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_aggr_monthly_class_viewership %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   ViewName    : vw_aggr_monthly_class_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly Network Unique Viewers and Hours Consumed - Post launch.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_aggr_monthly_seriesgroup_viewership %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   ViewName    : vw_aggr_monthly_seriesgroup_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly Network Unique Viewers and Hours Consumed - Post launch.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_aggr_monthly_class_debutyear_viewership %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   ViewName    : vw_aggr_monthly_class_debutyear_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly Network Unique Viewers and Hours Consumed - Post launch.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_aggr_monthly_seriesgroup_debutyear_viewership %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   ViewName    : vw_aggr_monthly_seriesgroup_debutyear_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly Network Unique Viewers and Hours Consumed - Post launch.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_rpt_daily_talent_equity_centralized_new %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_talent_equity_centralized_new
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly Talent Scorecard - View to remove custom sql in the report.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_rpt_daily_talent_equity_centralized_title %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_talent_equity_centralized_title
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly Talent Scorecard - View to remove custom sql in the report.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_rpt_daily_talent_equity_centralized_screentime %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_daily_talent_equity_centralized_screentime
+*   Schema	    : fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : Monthly Talent Scorecard - View to remove custom sql in the report.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version .
+{% enddocs %}
+
+{% docs aggr_nplus_weekly_ppv_language_viewership %}
+## Implementation Detail
+*   Date        : 03/15/2021
+*   Version     : 1.0
+*   TableName   : aggr_nplus_weekly_ppv_language_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Sandeep Battula
+*   Description : This table aggregates the viewership data for Pay per view (PPV) Events based on the
+language and country. The metrics generated are Linear viewership, same day viewership, 3 day, 7
+day and 30 day viewership
+
+## Maintenance Log
+* Date : 03/15/2021 ; Developer: Sandeep Battula ; Change: Initial Version .
+{% enddocs %}
+
+{% docs rpt_nplus_weekly_ppv_language_vod_viewership %}
+## Implementation Detail
+*   Date        : 04/20/2021
+*   Version     : 1.0
+*   TableName   : rpt_nplus_weekly_ppv_language_vod_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Sandeep Battula
+*   Description : This table aggregates the viewership data for Pay per view (PPV) Events based on the
+time of the day, language and country. The metrics generated are viewership by time of day for debut day,
+Debut +1 day to Debut+7 days.
+
+## Maintenance Log
+* Date : 04/20/2021 ; Developer: Sandeep Battula ; Change: Initial Version .
+{% enddocs %}
+
+{% docs rpt_nplus_weekly_ppv_lang_overlap_viewership %}
+## Implementation Detail
+*   Date        : 04/01/2021
+*   Version     : 1.0
+*   TableName   : rpt_nplus_weekly_ppv_lang_overlap_viewership
+*   Schema	    : fds_nplus
+*   Contributor : Sandeep Battula
+*   Description : This table stores the overlap viewership data for unique viewers who viewed the content in english
+and another language for Pay per view (PPV) Events.
+
+## Maintenance Log
+* Date : 04/01/2021 ; Developer: Sandeep Battula ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_rpt_kntr_monthly_india_wca_data %}
+## Implementation Detail
+*   Date        : 04/22/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_kntr_monthly_india_wca_data
+*   Schema	    : fds_kntr
+*   Contributor : Bharath Sainath
+*   Description : This view contains month level Average Weekly Cumulative,Telecast Hours and Viewer Hours for program types sourced from fact_kntr_wwe_telecast_data for India
+
+## Maintenance Log
+* Date : 04/22/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
+{% enddocs %}
+
+{% docs vw_rpt_kntr_monthly_india_ppv_wca_data %}
+## Implementation Detail
+*   Date        : 04/22/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_kntr_monthly_india_ppv_wca_data
+*   Schema	    : fds_kntr
+*   Contributor : Bharath Sainath
+*   Description : This view contains month level Average Weekly Cumulative,Telecast Hours and Viewer Hours for PPV event for India.
+
+## Maintenance Log
+* Date : 04/22/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
+{% enddocs %}

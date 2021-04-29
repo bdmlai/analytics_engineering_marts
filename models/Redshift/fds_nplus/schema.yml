@@ -506,6 +506,12 @@ models:
     columns:
         - name: bill_date
           description: report date
+        - name: country_region
+          description: Indicates region
+        - name: new_adds_budget
+          description: Total new adds budget for the month
+        - name: winback_adds_budget
+          description: Total  winback adds budget for the month
         - name: free_adds_budget
           description: Total trial adds budget for the month
         - name: paid_adds_budget
@@ -513,7 +519,11 @@ models:
         - name: free_disconnects_budget
           description: Budget for Total trial losses for the month
         - name: paid_disconnects_budget
-          description: Budget for Total Paid Losses for the month 
+          description: Budget for Total Paid Losses for the months
+        - name: new_adds_actuals
+          description: Total new adds actuals for the month
+        - name: winback_adds_actuals
+          description: Total  winback adds actuals for the month
         - name: free_adds_actuals
           description: Total trial adds for the month
         - name: paid_adds_actuals
@@ -524,6 +534,10 @@ models:
           description: Total Paid Losses for the month
         - name: eop_subs
           description: end of period total subscriptions
+        - name: new_adds_FYE
+          description: Total new adds forecasted for the month
+        - name: winback_adds_FYE
+          description: Total  winback adds forecasted for the month
         - name: free_adds_FYE
           description: Total trial adds for the month forecasted
         - name: paid_adds_FYE
@@ -1088,3 +1102,134 @@ models:
           description: Indicates up for renewal count
         - name: loss
           description: Indicates loss count
+  - name: rpt_nplus_daily_network_ad_impression_ad_type
+    description:  '{{ doc("rpt_nplus_daily_network_ad_impression_ad_type") }}'
+    columns:
+        - name: start_date
+          description: Starting date
+        - name: start_time
+          description: Indicates start time
+        - name: content_id
+          description: Indicates content id
+        - name: content_description
+          description: Content description
+        - name: duration
+          description: Indicates duration
+        - name: end_time
+          description: Indicates end time of the show
+        - name: ad_abbreviation
+          description: Indicates ad abbreviation like Litelog,WWPR etc
+        - name: ad_category
+          description: Indicates ad category like Litelog Promo Graphic,Litelog Promo etc
+        - name: ad_type
+          description: Indicates ad type like Litelog,WWE Promos etc
+        - name: audience_type
+          description: Indicates audience type
+        - name: concurrent_plays
+          description: Indicates count of concurent plays
+  - name: vw_rpt_nplus_daily_network_ad_impression_ad_type
+    description:  '{{ doc("vw_rpt_nplus_daily_network_ad_impression_ad_type") }}'
+    columns:
+        - name: start_date
+          description: Starting date
+        - name: start_time
+          description: Indicates start time
+        - name: content_id
+          description: Indicates content id
+        - name: content_description
+          description: Content description
+        - name: duration
+          description: Indicates duration
+        - name: end_time
+          description: Indicates end time of the show
+        - name: ad_abbreviation
+          description: Indicates ad abbreviation like Litelog,WWPR etc
+        - name: ad_category
+          description: Indicates ad category like Litelog Promo Graphic,Litelog Promo etc
+        - name: ad_type
+          description: Indicates ad type like Litelog,WWE Promos etc
+        - name: audience_type
+          description: Indicates audience type
+        - name: concurrent_plays
+          description: Indicates count of concurent plays
+  - name: vw_aggr_monthly_program_type_viewership
+    description:  '{{ doc("vw_aggr_monthly_program_type_viewership") }}'
+  - name: vw_aggr_monthly_subs_cohort_viewership
+    description:  '{{ doc("vw_aggr_monthly_subs_cohort_viewership") }}'
+  - name: aggr_nplus_weekly_ppv_language_viewership
+    description:  '{{ doc("aggr_nplus_weekly_ppv_language_viewership") }}'   
+    columns:
+        - name: production_id
+          description: Indicates Production id of PPV
+        - name: episode_nm
+          description: Holds the name of PPV
+        - name: debut_date
+          description: Indicates date of debut
+        - name: language
+          description: language of viewership
+        - name: country_cd
+          description: Indicates country code
+        - name: tier
+          description: Indicates PPV Tier
+        - name: view_date
+          description: Indicates view date
+        - name: dim_country_id
+          description: Indicates country id-numeric
+        - name: live_unique_viewer_cnt
+          description: Indicates live unique viewer count
+        - name: same_day_unique_viewer_cnt
+          description: Indicates debut day unique viewer count
+        - name: _3_day_unique_viewer_cnt
+          description: Indicates unique viewer count till debut day +3 days
+        - name: _7_day_unique_viewer_cnt
+          description: Indicates unique viewer count till debut day +7 days
+        - name: _30_day_unique_viewer_cnt
+          description: Indicates unique viewer count till debut day +30 days
+        - name: to_date_unique_viewer_cnt
+          description: Indicates unique viewer count till date (view_date)
+  - name: rpt_nplus_weekly_ppv_language_vod_viewership
+    description:  '{{ doc("rpt_nplus_weekly_ppv_language_vod_viewership") }}'  
+    columns:
+        - name: production_id
+          description: Indicates Production id of PPV
+        - name: episode_nm
+          description: Holds the name of PPV
+        - name: debut_date
+          description: Indicates date of debut
+        - name: language
+          description: language of viewership
+        - name: country_cd
+          description: Indicates country code
+        - name: tier
+          description: Indicates PPV Tier
+        - name: as_on_date
+          description: Indicates date as of which metrics are updated
+        - name: dim_country_id
+          description: Indicates country id-numeric
+        - name: time_slot
+          description: Indicates time slot of viewership 
+        - name: view_day
+          description: Indicates day of viewership
+        - name: unique_viewer_cnt
+          description: Indicates unique viewer count corresponding to the view day
+  - name: rpt_nplus_weekly_ppv_lang_overlap_viewership
+    description:  '{{ doc("rpt_nplus_weekly_ppv_lang_overlap_viewership") }}'   
+    columns:
+        - name: production_id
+          description: Indicates Production id of PPV
+        - name: episode_nm
+          description: Holds the name of PPV
+        - name: debut_date
+          description: Indicates date of debut
+        - name: alternate_language
+          description: Alternate language of viewership along with English
+        - name: country_cd
+          description: Indicates country code
+        - name: tier
+          description: Indicates PPV Tier
+        - name: as_on_date
+          description: Indicates date as of which metrics are updated
+        - name: dim_country_id
+          description: Indicates country id-numeric
+        - name: overlap_viewers
+          description: Indicates viewer count who viewed the PPV in English and in the alternate language
