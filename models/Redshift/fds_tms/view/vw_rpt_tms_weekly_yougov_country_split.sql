@@ -1,6 +1,6 @@
 {{
   config({
-	'schema': 'fds_tms',"materialized": 'view','tags': "Content","persist_docs": {'relation' : true, 'columns' : true},
+	'schema': 'fds_tms',"materialized": 'view','tags': "rpt_tms_weekly_yougov_country_split","persist_docs": {'relation' : true, 'columns' : true},
           'post-hook': 'grant select on {{ this }} to public'
        
 	})
