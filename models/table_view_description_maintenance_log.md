@@ -1859,15 +1859,27 @@
 
 {% docs rpt_tv_weekly_consolidated_kpi %}
 ## Implementation Detail
-* Date        : 1/12/2022
+* Date        : 1/12/2021
 * Version     : 1.0
 * ViewName    : rpt_tv_weekly_consolidated_kpi
 * Schema	  : fds_nl
 * Contributor : Lakshmanan Murugesan
-* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to TV ratings. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
 ## Maintenance Log
 * Date : 1/12/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version 
 * Date : 4/21/2021 ; Developer: Lakshmanan Murugesan ; Change: Removed DBT Pre-hook from the model 
+{% enddocs %}
+
+{% docs rpt_le_weekly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 4/28/2021
+* Version     : 1.0
+* ViewName    : rpt_le_weekly_consolidated_kpi
+* Schema	  : fds_nl
+* Contributor : Lakshmanan Murugesan
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Live Events. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 4/28/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version 
 {% enddocs %}
 
 {% docs rpt_yt_daily_wwe_talent_views_pastyear %}
@@ -2257,21 +2269,6 @@
 {% enddocs %}
 
 
-{% docs vw_rpt_nplus_daily_network_adds_and_loss_split %}
-## Implementation Detail
-*   Date        : 02/24/2021
-*   Version     : 1.0
-*   ViewName    : vw_rpt_nplus_daily_network_adds_and_loss_split
-*   Schema	    : fds_nplus
-*   Contributor : Hima Dasan
-*   Description : View consists of  network primary daily adds and losses split based on cust and cancel type .
-
-
-## Maintenance Log
-* Date : 02/24/2021 ; Developer: Hima Dasan; Change: Initial Version as a part of Network primary daily adds and losses plus country report
-{% enddocs %}
-
-
 {% docs vw_nplus_daily_network_churn_rate %}
 ## Implementation Detail
 *   Date        : 02/24/2021
@@ -2557,4 +2554,56 @@ and another language for Pay per view (PPV) Events.
 
 ## Maintenance Log
 * Date : 04/22/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
+{% enddocs %}
+
+{% docs rpt_le_daily_stubhub_events_data %}
+## Implementation Detail
+*   Date        : 04/23/2021
+*   Version     : 1.0
+*   TableName   : rpt_le_daily_stubhub_events_data
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : Daily StubHub Events Data Report Table provides details of NON-WWE StubHub Events
+
+## Maintenance Log
+* Date : 04/23/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A StubHub Non-WWE Events Project.
+{% enddocs %}
+
+{% docs vw_rpt_le_daily_stubhub_events_data %}
+## Implementation Detail
+*   Date        : 04/23/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_le_daily_stubhub_events_data
+*   Schema	    : fds_le
+*   Contributor : Rahul Chandran
+*   Description : Daily StubHub Events Data Report view provides details of cof NON-WWE StubHub Events referencing from Daily StubHub Events Data Report Table
+
+## Maintenance Log
+* Date : 04/23/2021 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 5A StubHub Non-WWE Events Project.
+{% enddocs %}
+
+{% docs vw_rpt_nplus_daily_network_adds_and_loss_split %}
+## Implementation Detail
+*   Date        : 02/24/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_nplus_daily_network_adds_and_loss_split
+*   Schema	   : fds_nplus
+*   Contributor : Hima Dasan
+*   Description : Table consists of  network primary daily adds and losses split based on cust and cancel type .
+
+
+## Maintenance Log
+* Date : 02/24/2021 ; Developer: Hima Dasan; Change: Initial Version as a part of Network primary daily adds and losses plus country report
+{% enddocs %}
+
+{% docs rpt_cpg_weekly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 4/28/2021
+* Version     : 1.0
+* ViewName    : rpt_cpg_weekly_consolidated_kpi
+* Schema	  : fds_cpg
+* Contributor : Smitha Acharya
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom, CPG. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 1/12/2021 ; Developer: Smitha Acharya ; Change: Initial Version 
 {% enddocs %}
