@@ -1,6 +1,7 @@
 {{
   config({
-	'schema': 'fds_nl',"materialized": 'view','tags': "rpt_nl_weekly_us_tv_program_ratings","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_nl',"materialized": 'view','tags': "rpt_nl_weekly_us_tv_program_ratings","persist_docs": {'relation' : true, 'columns' : true},
+	'post-hook': 'grant select on {{ this }} to public'
        
 	})
 }}

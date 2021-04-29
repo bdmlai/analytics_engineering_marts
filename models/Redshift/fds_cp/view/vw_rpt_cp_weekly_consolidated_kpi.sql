@@ -1,7 +1,9 @@
 {{
   config({
 	"schema": 'fds_cp',
-    "materialized": "view"
+    "materialized": "view",
+	"tags": 'rpt_cp_weekly_consolidated_kpi',
+	'post-hook': ["grant select on {{this}} to public"]
   })
 }}
 SELECT granularity, platform, type, metric, year, month, week, start_date, end_date, value, prev_year, 
