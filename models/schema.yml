@@ -82,7 +82,7 @@ sources:
        - name: aggr_monthly_seriesgroup_viewership
        - name: aggr_monthly_class_debutyear_viewership
        - name: aggr_monthly_seriesgroup_debutyear_viewership
-
+        
   - name: dwh_read_write
     tables:
        - name: raw_da_weekly_ppv_hourly_comps     
@@ -305,4 +305,15 @@ sources:
   - name: hive_udl_ads
     tables:
       - name: conviva_daily_pulse
-
+  - name: hive_udl_sb
+    tables:
+      - name: sb_daily_social_platform_profile
+      - name: sb_daily_facebook_page_insights
+      - name: sb_daily_facebook_page_metrics
+      - name: sb_daily_facebook_post_insights
+      - name: sb_daily_instagram_page_metrics
+      - name: sb_daily_instagram_page_insights
+      - name: sb_daily_instagram_post_insights
+      - name: sb_daily_twitter_page_metrics
+      - name: sb_daily_youtube_page_metrics
+      - name: sb_daily_youtube_post_metrics      
