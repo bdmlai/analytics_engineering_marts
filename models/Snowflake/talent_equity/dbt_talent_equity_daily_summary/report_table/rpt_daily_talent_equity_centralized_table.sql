@@ -9,17 +9,49 @@
    1.0          02/10/2021      schakrab             PSTA-2456
 
 *************************************************************************************************************************************************
+PSTA-3117 05/03/2021 Remove Intermediate tables for Talent Centralized Table
 */
 
-{{ config(materialized = 'table',
+{{ config(materialized = 'table',schema='fds_cpg',
             enabled = true, 
                 tags = ['talent_equity','daily',
                         'youtube','centralized table'],
-                    post_hook = "grant select on {{ this }} to DA_SCHAKRABORTY_USER_ROLE"
- ) }}
-
+					post_hook=["grant select on {{ this }} to DA_SCHAKRABORTY_USER_ROLE;
+					drop table dt_stage.base_daily_talent_absence_table;      
+					drop table dt_stage.base_daily_talent_fb_post_table;          
+					drop table dt_stage.base_daily_talent_table;
+					drop table dt_stage.base_daily_talent_achievement_table;  
+					drop table dt_stage.base_daily_talent_fb_vids_table;          
+					drop table dt_stage.base_daily_talent_tv_rating_table;
+					drop table dt_stage.base_daily_talent_appearance_table;   
+					drop table dt_stage.base_daily_talent_heelface_table;         
+					drop table dt_stage.base_daily_talent_tw_post_table;
+					drop table dt_stage.base_daily_talent_brand_table;        
+					drop table dt_stage.base_daily_talent_ig_post_table;          
+					drop table dt_stage.base_daily_talent_tw_vids_table;
+					drop table dt_stage.base_daily_talent_cpg_shop_table;     
+					drop table dt_stage.base_daily_talent_ig_vids_table;          
+					drop table dt_stage.base_daily_talent_twitter_mentions_table;
+					drop table dt_stage.base_daily_talent_cpg_venue_table;    
+					drop table dt_stage.base_daily_talent_sm_followership_table;  
+					drop table dt_stage.base_daily_talent_yt_viewership_table;
+					drop table dt_stage.intm_daily_talent_achievement_table;        
+					drop table dt_stage.intm_daily_talent_fb_vids_table;          
+					drop table dt_stage.intm_daily_talent_tw_post_table;
+					drop table dt_stage.intm_daily_talent_appearance_table;         
+					drop table dt_stage.intm_daily_talent_ig_post_table;          
+					drop table dt_stage.intm_daily_talent_tw_vids_table;
+					drop table dt_stage.intm_daily_talent_brand_designation_table;  
+					drop table dt_stage.intm_daily_talent_ig_vids_table;          
+					drop table dt_stage.intm_daily_talent_twitter_mentions_table;
+					drop table dt_stage.intm_daily_talent_cpg_table;                
+					drop table dt_stage.intm_daily_talent_sm_followership_table;  
+					drop table dt_stage.intm_daily_talent_yt_split_table;
+					drop table dt_stage.intm_daily_talent_fb_post_table;            
+					drop table dt_stage.intm_daily_talent_tv_rating_table;
+					drop table dt_stage.summ_daily_talent_yt_split_table;  
+					drop table dt_stage.summ_daily_talent_yt_viewership_table;"])}}
 with source_data as
-
 (
 SELECT a.date, a.lineage_name, a.lineage_wweid, a.gender, a.entity_type,
 b.brand,b.heel_face,b.absence,
