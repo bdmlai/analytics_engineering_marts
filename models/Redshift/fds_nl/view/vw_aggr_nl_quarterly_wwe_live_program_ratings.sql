@@ -13,7 +13,7 @@
 
  {{
   config({
-	'schema': 'fds_nl',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_nl',"materialized": 'view',"tags": 'rpt_nl_daily_wwe_program_ratings',"persist_docs": {'relation' : true, 'columns' : true},'post-hook': 'grant select on {{ this }} to public'
 	})
 }}
 
@@ -26,5 +26,5 @@ src_broadcast_network_id, src_playback_period_cd, src_demographic_group, src_pro
 sum(viewing_hours) as tot_viewing_minutes, count(*) as number_of_airings
 FROM {{ref('rpt_nl_daily_wwe_program_ratings')}}
 WHERE (src_broadcast_network_id, src_program_id)
-   IN ((5, 296881), (5, 339681), (5, 436999), (81, 898521), (10433, 1000131))
+   IN ((5, 296881), (5, 339681), (5, 436999), (81, 898521), (10433, 1000131),(22,201245))
 GROUP BY 1,2,3,4,5,6,7 
