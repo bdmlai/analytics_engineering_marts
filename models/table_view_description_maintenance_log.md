@@ -2607,3 +2607,75 @@ and another language for Pay per view (PPV) Events.
 ## Maintenance Log
 * Date : 1/12/2021 ; Developer: Smitha Acharya ; Change: Initial Version 
 {% enddocs %}
+
+{% docs rpt_nplus_daily_trial_converts %}
+## Implementation Detail
+* Date        : 4/30/2021
+* Version     : 1.0
+* ViewName    : rpt_nplus_daily_trial_converts
+* Schema	  : fds_nplus
+* Contributor : Bharath Sainath
+* Description : The reporting table contains number of trial converts and adds at country level.
+## Maintenance Log
+* Date : 4/30/2021 ; Developer: Bharath Sainath; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_nplus_daily_trial_converts %}
+## Implementation Detail
+* Date        : 4/30/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_nplus_daily_trial_converts
+* Schema	  : fds_nplus
+* Contributor : Bharath Sainath
+* Description : The reporting table contains number of trial converts and adds at country level.
+## Maintenance Log
+* Date : 4/30/2021 ; Developer: Bharath Sainath; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_talent_equity_centralized %}
+## Implementation Detail
+* Date        : 5/4/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_cpg_daily_talent_equity_centralized
+* Schema	  : fds_cpg
+* Contributor : Lakshmanan Murugesan
+* Description : CPG View for Monthly Talent Scorecard
+## Maintenance Log
+* Date : 5/4/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_talent_equity_centralized_new %}
+## Implementation Detail
+* Date        : 5/4/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_cpg_daily_talent_equity_centralized_new
+* Schema	  : fds_cpg
+* Contributor : Lakshmanan Murugesan
+* Description : CPG View for Monthly Talent Scorecard
+## Maintenance Log
+* Date : 5/4/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_talent_equity_centralized_title %}
+## Implementation Detail
+* Date        : 5/4/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_cpg_daily_talent_equity_centralized_title
+* Schema	  : fds_cpg
+* Contributor : Lakshmanan Murugesan
+* Description : CPG View for Monthly Talent Scorecard
+## Maintenance Log
+* Date : 5/4/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_cpg_daily_talent_equity_centralized_screentime_appearance %}
+## Implementation Detail
+* Date        : 5/4/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_cpg_daily_talent_equity_centralized_screentime_appearance
+* Schema	  : fds_cpg
+* Contributor : Lakshmanan Murugesan
+* Description : CPG View for Monthly Talent Scorecard
+## Maintenance Log
+* Date : 5/4/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+{% enddocs %}
