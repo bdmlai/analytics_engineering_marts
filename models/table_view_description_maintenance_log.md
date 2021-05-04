@@ -60,6 +60,7 @@
 * Date : 8/14/2020  ; Developer: Remya K Nair ; Enhancements program_rating report table - TAB-2105 
 * Date : 12/07/2020 ; Developer: Remya K Nair ; Enhancement Added 11 columns to program_rating report table - PSTA-1349
 * Date : 02/11/2021 ; Developer: Rahul Chandran ; Removed 'telecast_trackage_name' column as its affecting the roll-up of RAW Programs on a day as per the Enhancement request: PSTA-2478
+* Date : 05/04/2021 ; Developer: Remya K Nair ; Enhancement - PSTA-3235- Include wwe episodes from new series BIOGRAPHY.There is a new program series airing on A&E Network in the Nielsen API datasets called Biography which will air 8 episodes of WWE related content but there are other episodes which are non-WWE related.
 {% enddocs %}
 
 
