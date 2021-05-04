@@ -11,7 +11,8 @@
 
 {{
   config({
-	'schema': 'fds_nl',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_nl',"materialized": 'view',"tags": 'rpt_nl_daily_wwe_program_ratings',"persist_docs": {'relation' : true, 'columns' : true},
+	'post-hook': 'grant select on {{ this }} to public'
 	})
 }}
 
@@ -23,5 +24,5 @@ select broadcast_fin_year, src_broadcast_network_id, src_playback_period_cd, src
 sum(viewing_hours) as tot_viewing_minutes, count(*) as number_of_airings
 from {{ref('rpt_nl_daily_wwe_program_ratings')}}
 where broadcast_fin_year is not null and
-(src_broadcast_network_id, src_program_id) in ((5, 296881), (5, 339681), (5, 436999), (81, 898521), (10433, 1000131))
+(src_broadcast_network_id, src_program_id) in ((5, 296881), (5, 339681), (5, 436999), (81, 898521), (10433, 1000131),(22,201245))
 group by 1,2,3,4,5,6
