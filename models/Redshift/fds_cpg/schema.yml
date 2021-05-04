@@ -1895,3 +1895,101 @@ models:
           description: Conversion Ratio
         - name: AOV
           description: Average Order Value
+          
+   
+  - name: rpt_cpg_weekly_consolidated_kpi
+    description: '{{ doc("rpt_cpg_weekly_consolidated_kpi") }}'
+    columns:
+        - name: granularity
+          description: represents the cadence i.e. Weekly or MTD or YTD
+        - name: platform
+          description: represents the platform name like CPG
+        - name: type
+          description: represents content type like CPG
+        - name: metric
+          description: represents the metric name
+        - name: year
+          description: indicates the calendar year
+        - name: month
+          description: indicates the calendar month
+        - name: week
+          description: indicates the calendar week
+        - name: start_date
+          description: calendar date representing the start date of the week
+        - name: end_date
+          description: calendar date representing the end date of the week
+        - name: value
+          description: indicates the metric value for current year
+        - name: prev_year
+          description: indicates the previous calendar year
+        - name: prev_year_week
+          description: indicates the week of previous calendar year
+        - name: prev_year_start_date
+          description: calendar date representing the previous year start date of the week
+        - name: prev_year_end_date
+          description: calendar date representing the previous year end date of the week
+        - name: prev_year_value
+          description: indicates the metric value for previous year
+          
+
+  - name: vw_rpt_cpg_daily_talent_equity_centralized
+    description: '{{ doc("vw_rpt_cpg_daily_talent_equity_centralized") }}'
+    columns:
+        - name: date
+          description: Processing Date
+        - name: lineage_name
+          description: name of the wrestler
+        - name: brand
+          description: name of the brand
+        - name: demand_sales
+          description: sales amount
+          
+ 
+  - name: vw_rpt_cpg_daily_talent_equity_centralized_new
+    description: '{{ doc("vw_rpt_cpg_daily_talent_equity_centralized_new") }}'
+    columns:
+        - name: date
+          description: Processing Date
+        - name: lineage_name
+          description: name of the wrestler
+        - name: brand
+          description: name of the brand
+        - name: tot_views
+          description: total views
+        - name: tot_yt_vids
+          description: total youtube videos          
+        - name: tot_eng_fb_post
+          description: total facebook posts
+        - name: tot_eng_fb_vids
+          description: total facebook videos  
+        - name: tot_eng_tw_post
+          description: total twitter posts
+        - name: tot_eng_tw_vids
+          description: total twitter videos          
+                   
+
+  - name: vw_rpt_cpg_daily_talent_equity_centralized_title
+    description: '{{ doc("vw_rpt_cpg_daily_talent_equity_centralized_title") }}'
+    columns:
+        - name: date
+          description: Processing Date
+        - name: lineage_name
+          description: name of the wrestler
+        - name: lineage wweid
+          description: wwe id of the wrestler
+        - name: achievement
+          description: championship name
+
+
+  - name: vw_rpt_cpg_daily_talent_equity_centralized_screentime_appearance
+    description: '{{ doc("vw_rpt_cpg_daily_talent_equity_centralized_screentime_appearance") }}'
+    columns:
+        - name: date
+          description: Processing Date
+        - name: lineage_name
+          description: name of the wrestler
+        - name: lineage wweid
+          description: wwe id of the wrestler
+        - name: screentime
+          description: screentime
+                     
