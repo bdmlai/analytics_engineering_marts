@@ -1,8 +1,9 @@
 {{
   config({
 		'schema': 'fds_nl',
-		"pre-hook": ["truncate fds_nl.rpt_nl_daily_wwe_program_ratings"],
-	    "materialized": 'incremental',"tags": 'Phase4B'
+	        "materialized": 'table',"tags": 'rpt_nl_daily_wwe_program_ratings', "persist_docs": {'relation' : true, 'columns' : true},
+                "post-hook": ['grant select on {{this}} to public']
+
   })
 }}
 select a.broadcast_date_id, a.broadcast_date, a.orig_broadcast_date_id, d.cal_year_week_begin_date as broadcast_cal_week_begin_date, 
@@ -56,6 +57,27 @@ where src_program_id <> 296881 and src_program_attributes <> '(R)'
 {% if is_incremental() %}
 	and b.etl_insert_rec_dttm  >  coalesce((select max(etl_insert_rec_dttm) from {{this}}), '1900-01-01 00:00:00') 
 {% endif %}
+union
+
+select broadcast_date_id, broadcast_date, orig_broadcast_date_id, dim_nl_broadcast_network_id, 
+b.src_broadcast_network_id, src_playback_period_cd, src_demographic_group, b.src_program_id, d.src_series_name, dim_source_sys_id,
+src_program_attributes, program_aired_weekday, dim_nl_episode_id, b.src_episode_id, src_episode_number, dim_nl_daypart_id, 
+src_daypart_cd, program_telecast_rpt_starttime, program_telecast_rpt_endtime,
+src_total_duration, avg_audience_proj_000, avg_audience_pct, avg_audience_pct_nw_cvg_area, avg_viewing_hours_units,
+avg_viewing_hours_persons, avg_audience_proj_units, share_pct, share_pct_nw_cvg_area
+from {{source('fds_nl','fact_nl_program_viewership_ratings')}} b
+join (select distinct src_broadcast_network_id,src_program_id,src_episode_id,src_series_name 
+     from  {{source('fds_nl','dim_nl_wwe_series_episode')}}  where wwe_series_qualifier='WWE'
+     ) d
+on  b.src_program_id=d.src_program_id
+and b.src_episode_id=d.src_episode_id
+and b.src_broadcast_network_id=d.src_broadcast_network_id
+where  src_program_attributes <> '(R)'
+{% if is_incremental() %}
+	and b.etl_insert_rec_dttm  >  coalesce((select max(etl_insert_rec_dttm) from {{this}}), '1900-01-01 00:00:00') 
+{% endif %}
+
+
 )a
 left join {{source('cdm','dim_date')}} d on a.broadcast_date_id = d.dim_date_id
 left join 
