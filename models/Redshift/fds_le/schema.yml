@@ -1,685 +1,5 @@
 version: 2
 models:
-  - name: rpt_le_monthly_local_county_ratings
-    description: '{{ doc("rpt_le_monthly_local_county_ratings") }}'
-    columns:
-        - name: interval_start_date
-          description: Interval Month
-        - name: state
-          description: State within US where metrics are taken
-        - name: geography
-          description: Geographic Location where metrics are taken
-        - name: dma_name
-          description: Designated Mark Area where metrics are taken
-        - name: county_name
-          description: Name of the county where metrics are taken
-        - name: src_series_name
-          description: WWE Series Name like WWE Entertainment, WWE SmackDown
-        - name: brand_name
-          description: WWE Brand Name such as RAW, SmackDown
-        - name: zip_code_count
-          description: Count of Zip Codes associated with DMA
-        - name: rtg_percent 
-          description: Rating Percentage
-        - name: ue
-          description: Nielsen Universe Estimate projection
-        - name: imp
-          description: Viewers among all TV households within market
-        - name: avg_audience_pct
-          description: Average Audience Percentage
-        - name: index
-          description: Index value calculated by Rating Percentage/ Average Audience Percentage
-        - name: viewers_3m_avg
-          description: Viewers 3 Months Moving Average 
-        - name: raw_index_3day_moving_avg
-          description: 3 Day Moving Average RAW Index
-        - name: SD_index
-          description: Index value of SmackDown
-        - name: RAW_index
-          description: Index value of RAW
-        - name: wave_flag
-          description: Flag to indicate whether Period Month <= Feb 2020 or not
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-
-  - name: vw_rpt_le_monthly_local_county_ratings
-    description:  '{{ doc("vw_rpt_le_monthly_local_county_ratings") }}'
-    columns:
-        - name: interval_start_date
-          description: Interval Month
-        - name: state
-          description: State within US where metrics are taken
-        - name: geography
-          description: Geographic Location where metrics are taken
-        - name: dma_name
-          description: Designated Mark Area where metrics are taken
-        - name: county_name
-          description: Name of the county where metrics are taken
-        - name: src_series_name
-          description: WWE Series Name like WWE Entertainment, WWE SmackDown
-        - name: brand_name
-          description: WWE Brand Name such as RAW, SmackDown
-        - name: zip_code_count
-          description: Count of Zip Codes associated with DMA
-        - name: rtg_percent 
-          description: Rating Percentage
-        - name: ue
-          description: Nielsen Universe Estimate projection
-        - name: imp
-          description: Viewers among all TV households within market
-        - name: avg_audience_pct
-          description: Average Audience Percentage
-        - name: index
-          description: Index value calculated by Rating Percentage/ Average Audience Percentage
-        - name: viewers_3m_avg
-          description: Viewers 3 Months Moving Average 
-        - name: raw_index_3day_moving_avg
-          description: 3 Day Moving Average RAW Index
-        - name: SD_index
-          description: Index value of SmackDown
-        - name: RAW_index
-          description: Index value of RAW
-        - name: wave_flag
-          description: Flag to indicate whether Period Month <= Feb 2020 or not
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-
-  - name: rpt_le_daily_kff_state_regulation
-    description: '{{ doc("rpt_le_daily_kff_state_regulation") }}'
-    columns:
-        - name: state_regulation_update_date
-          description: The date on when state regulation updated
-        - name: state
-          description: state within us where regulations are shown
-        - name: status_of_reopening
-          description: Status of Reopening
-        - name: stay_at_home_order
-          description: Stay at Home Order status
-        - name: mandatory_quarantine_for_travelers
-          description: Mandatroy Quarantine for Travelers Status
-        - name: non_essential_business_closures
-          description: Non-essential business closure status
-        - name: large_gatherings_ban
-          description: Status of Large Gathering Ban
-        - name: large_gatherings_ban_bucket_group
-          description: Large Gatherings Ban Bucket Group
-        - name: restaurant_limits 
-          description: Limits applied to Restaurants 
-        - name: bar_closures
-          description: Bar Closure Status
-        - name: face_covering_requirement
-          description: Requirement of Face Covering
-        - name: face_covering_requirement_bucket_group
-          description: Face covering requirement bucket group
-        - name: primary_election_postponement
-          description: Whether primary election postponed or not
-        - name: emergency_declaration
-          description: Emergency declaration status
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-
-  - name: vw_rpt_le_daily_kff_state_regulation
-    description: '{{ doc("vw_rpt_le_daily_kff_state_regulation") }}'
-    columns:
-        - name: state_regulation_update_date
-          description: The date on when state regulation updated
-        - name: state
-          description: state within us where regulations are shown
-        - name: status_of_reopening
-          description: Status of Reopening
-        - name: stay_at_home_order
-          description: Stay at Home Order status
-        - name: mandatory_quarantine_for_travelers
-          description: Mandatroy Quarantine for Travelers Status
-        - name: non_essential_business_closures
-          description: Non-essential business closure status
-        - name: large_gatherings_ban
-          description: Status of Large Gathering Ban
-        - name: large_gatherings_ban_bucket_group
-          description: Large Gatherings Ban Bucket Group
-        - name: restaurant_limits 
-          description: Limits applied to Restaurants 
-        - name: bar_closures
-          description: Bar Closure Status
-        - name: face_covering_requirement
-          description: Requirement of Face Covering
-        - name: face_covering_requirement_bucket_group
-          description: Face covering requirement bucket group
-        - name: primary_election_postponement
-          description: Whether primary election postponed or not
-        - name: emergency_declaration
-          description: Emergency declaration status
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-
-  - name: rpt_le_daily_routing_county_data
-    description: '{{ doc("rpt_le_daily_routing_county_data") }}'
-    columns:
-        - name: date
-          description: The date on when metrics are reporting
-        - name: country_code
-          description: Country Code from where metrics are taken
-        - name: state_code
-          description: State Code from where metrics are taken
-        - name: state
-          description: Name of the state from where metrics are taken
-        - name: county_name
-          description: Name fo the county from where metrics are taken
-        - name: county_fips
-          description: County FIPS from where metrics are taken
-        - name: total_cases
-          description: Total cases reported in the county to date
-        - name: total_deaths
-          description: Total Deaths reported in the county to date
-        - name: population 
-          description: Total Population of the County
-        - name: total_male_population
-          description: Total male population in the county
-        - name: total_female_population
-          description: Total female population in the county
-        - name: grocery_and_pharmacy_percent_change_from_baseline
-          description: Grocery and Pharmacy percent change from baseline
-        - name: parks_percent_change_from_baseline
-          description: Parks percent change from baseline
-        - name: residential_percent_change_from_baseline
-          description: Residential percent change from baseline
-        - name: retail_and_recreation_percent_change_from_baseline
-          description: Retail and Recreation percent change from baseline
-        - name: transit_stations_percent_change_from_baseline
-          description: Transit stations percent change from baseline
-        - name: workplaces_percent_change_from_baseline
-          description: Workplaces percent change from baseline
-        - name: status_of_reopening
-          description: Status of reopening
-        - name: stay_at_home_order
-          description: Status of stay at home order
-        - name: mandatory_quarantine_for_travelers
-          description: Status of mandatory quarantine for travelers
-        - name: non_essential_business_closures 
-          description: Status of non-essential business closures
-        - name: large_gatherings_ban
-          description: Status of large gatherings ban
-        - name: restaurant_limits
-          description: Status of restaurant limits
-        - name: bar_closures
-          description: Status of bar closures
-        - name: face_covering_requirement
-          description: Status of face covering requirement
-        - name: large_gatherings_ban_bucket_group
-          description: Large gathering ban bucket group
-        - name: face_covering_requirement_bucket_group
-          description: Face covering requirement bucket group
-        - name: date_rank
-          description: Rank given for counties based on descending order of reported date
-        - name: prev_day_deaths
-          description: The count of previous day deaths reported in the county
-        - name: prev_day_cases
-          description: The count of previous day cases reported in the county
-        - name: new_deaths
-          description: The count of new deaths reported in the county
-        - name: new_cases
-          description: The count of new cases reported in the county
-        - name: total_deaths_14day_prior 
-          description: The count of total deaths reported prior to 14 days
-        - name: total_cases_14day_prior
-          description: The count of total cases reported prior to 14 days
-        - name: total_deaths_14day_prior_diff
-          description: The difference between total deaths reported to date and prior to 14 days
-        - name: total_cases_14day_prior_diff
-          description: The difference between total cases reported to date and prior to 14 days
-        - name: retail_and_recreation_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day Moving Average of Retail and Recreation percent change from baseline
-        - name: grocery_and_pharmacy_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of grocery and pharmacy percent change from baseline
-        - name: parks_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of parks percent change from baseline
-        - name: transit_stations_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of transit stations percent change from baseline
-        - name: workplaces_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of workplaces percent change from baseline
-        - name: residential_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of residential percent change from baseline
-        - name: total_deaths_14day_moving_avg
-          description: The 14-day moving average of total deaths
-        - name: total_cases_14day_moving_avg
-          description: The 14-day moving average of total cases
-        - name: new_deaths_14day_moving_avg 
-          description: The 14-day moving average of new deaths
-        - name: new_cases_14day_moving_avg
-          description: The 14-day moving average of new cases
-        - name: total_deaths_3day_moving_avg
-          description: The 3-day moving average of total deaths
-        - name: total_cases_3day_moving_avg
-          description: The 3-day moving average of total cases
-        - name: new_deaths_7day_moving_avg
-          description: The 7-day moving average of new deaths
-        - name: new_cases_7day_moving_avg
-          description: The 7-day moving average of new cases
-        - name: new_deaths_5day_moving_avg
-          description: The 5-day moving average of new deaths
-        - name: new_cases_5day_moving_avg
-          description: The 5-day moving average of new cases
-        - name: new_deaths_3day_moving_avg
-          description: The 3-day moving average of new deaths
-        - name: new_cases_3day_moving_avg
-          description: The 3-day moving average of new cases
-        - name: week_num
-          description: Week Number based on reporting date
-        - name: year_num
-          description: Year Number based on reporting date
-        - name: covid_growth_indicator
-          description: Covid Growth Indicator
-        - name: state_covid_growth_rank
-          description: Covid Growth Rank of the State
-        - name: initial_claims
-          description: Initial claims of Unemployment
-        - name: continued_claims
-          description: Continued claims of Unemployment
-        - name: covered_employment
-          description: Covered employment
-        - name: insured_unemployment_rate
-          description: Insured unemployment rate
-        - name: initial_claims_14day_prior
-          description: The initial claims of unemployment reported prior to 14 days
-        - name: continued_claims_14day_prior 
-          description: The continued claims of unemployment reported prior to 14 days
-        - name: initial_claims_latest_week
-          description: The initial claims of unemployment reported in the latest week
-        - name: continued_claim_latest_week
-          description: The continued claims of unemployment reported in the latest week
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-          
-  - name: vw_rpt_le_daily_routing_county_data
-    description: '{{ doc("vw_rpt_le_daily_routing_county_data") }}'
-    columns:
-        - name: date
-          description: The date on when metrics are reporting
-        - name: country_code
-          description: Country Code from where metrics are taken
-        - name: state_code
-          description: State Code from where metrics are taken
-        - name: state
-          description: Name of the state from where metrics are taken
-        - name: county_name
-          description: Name fo the county from where metrics are taken
-        - name: county_fips
-          description: County FIPS from where metrics are taken
-        - name: total_cases
-          description: Total cases reported in the county to date
-        - name: total_deaths
-          description: Total Deaths reported in the county to date
-        - name: population 
-          description: Total Population of the County
-        - name: total_male_population
-          description: Total male population in the county
-        - name: total_female_population
-          description: Total female population in the county
-        - name: grocery_and_pharmacy_percent_change_from_baseline
-          description: Grocery and Pharmacy percent change from baseline
-        - name: parks_percent_change_from_baseline
-          description: Parks percent change from baseline
-        - name: residential_percent_change_from_baseline
-          description: Residential percent change from baseline
-        - name: retail_and_recreation_percent_change_from_baseline
-          description: Retail and Recreation percent change from baseline
-        - name: transit_stations_percent_change_from_baseline
-          description: Transit stations percent change from baseline
-        - name: workplaces_percent_change_from_baseline
-          description: Workplaces percent change from baseline
-        - name: status_of_reopening
-          description: Status of reopening
-        - name: stay_at_home_order
-          description: Status of stay at home order
-        - name: mandatory_quarantine_for_travelers
-          description: Status of mandatory quarantine for travelers
-        - name: non_essential_business_closures 
-          description: Status of non-essential business closures
-        - name: large_gatherings_ban
-          description: Status of large gatherings ban
-        - name: restaurant_limits
-          description: Status of restaurant limits
-        - name: bar_closures
-          description: Status of bar closures
-        - name: face_covering_requirement
-          description: Status of face covering requirement
-        - name: large_gatherings_ban_bucket_group
-          description: Large gathering ban bucket group
-        - name: face_covering_requirement_bucket_group
-          description: Face covering requirement bucket group
-        - name: date_rank
-          description: Rank given for counties based on descending order of reported date
-        - name: prev_day_deaths
-          description: The count of previous day deaths reported in the county
-        - name: prev_day_cases
-          description: The count of previous day cases reported in the county
-        - name: new_deaths
-          description: The count of new deaths reported in the county
-        - name: new_cases
-          description: The count of new cases reported in the county
-        - name: total_deaths_14day_prior 
-          description: The count of total deaths reported prior to 14 days
-        - name: total_cases_14day_prior
-          description: The count of total cases reported prior to 14 days
-        - name: total_deaths_14day_prior_diff
-          description: The difference between total deaths reported to date and prior to 14 days
-        - name: total_cases_14day_prior_diff
-          description: The difference between total cases reported to date and prior to 14 days
-        - name: retail_and_recreation_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day Moving Average of Retail and Recreation percent change from baseline
-        - name: grocery_and_pharmacy_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of grocery and pharmacy percent change from baseline
-        - name: parks_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of parks percent change from baseline
-        - name: transit_stations_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of transit stations percent change from baseline
-        - name: workplaces_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of workplaces percent change from baseline
-        - name: residential_percent_change_from_baseline_14day_moving_avg
-          description: The 14-day moving average of residential percent change from baseline
-        - name: total_deaths_14day_moving_avg
-          description: The 14-day moving average of total deaths
-        - name: total_cases_14day_moving_avg
-          description: The 14-day moving average of total cases
-        - name: new_deaths_14day_moving_avg 
-          description: The 14-day moving average of new deaths
-        - name: new_cases_14day_moving_avg
-          description: The 14-day moving average of new cases
-        - name: total_deaths_3day_moving_avg
-          description: The 3-day moving average of total deaths
-        - name: total_cases_3day_moving_avg
-          description: The 3-day moving average of total cases
-        - name: new_deaths_7day_moving_avg
-          description: The 7-day moving average of new deaths
-        - name: new_cases_7day_moving_avg
-          description: The 7-day moving average of new cases
-        - name: new_deaths_5day_moving_avg
-          description: The 5-day moving average of new deaths
-        - name: new_cases_5day_moving_avg
-          description: The 5-day moving average of new cases
-        - name: new_deaths_3day_moving_avg
-          description: The 3-day moving average of new deaths
-        - name: new_cases_3day_moving_avg
-          description: The 3-day moving average of new cases
-        - name: week_num
-          description: Week Number based on reporting date
-        - name: year_num
-          description: Year Number based on reporting date
-        - name: covid_growth_indicator
-          description: Covid Growth Indicator
-        - name: state_covid_growth_rank
-          description: Covid Growth Rank of the State
-        - name: initial_claims
-          description: Initial claims of Unemployment
-        - name: continued_claims
-          description: Continued claims of Unemployment
-        - name: covered_employment
-          description: Covered employment
-        - name: insured_unemployment_rate
-          description: Insured unemployment rate
-        - name: initial_claims_14day_prior
-          description: The initial claims of unemployment reported prior to 14 days
-        - name: continued_claims_14day_prior 
-          description: The continued claims of unemployment reported prior to 14 days
-        - name: initial_claims_latest_week
-          description: The initial claims of unemployment reported in the latest week
-        - name: continued_claim_latest_week
-          description: The continued claims of unemployment reported in the latest week
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-          
-  - name: rpt_le_daily_routing_state_data
-    description: '{{ doc("rpt_le_daily_routing_state_data") }}'
-    columns:
-        - name: state
-          description: Name of the state from where metrics are taken
-        - name: date
-          description: The date on when metrics are reporting
-        - name: status_of_reopening
-          description: Status of reopening
-        - name: stay_at_home_order
-          description: Status of stay at home order
-        - name: mandatory_quarantine_for_travelers
-          description: Status of mandatory quarantine for travelers
-        - name: non_essential_business_closures 
-          description: Status of non-essential business closures
-        - name: large_gatherings_ban
-          description: Status of large gatherings ban
-        - name: restaurant_limits
-          description: Status of restaurant limits
-        - name: bar_closures
-          description: Status of bar closures
-        - name: face_covering_requirement
-          description: Status of face covering requirement
-        - name: face_covering_requirement_bucket_group
-          description: Face covering requirement bucket group
-        - name: large_gatherings_ban_bucket_group
-          description: Large gathering ban bucket group
-        - name: population 
-          description: Total Population of the State
-        - name: state_total_deaths
-          description: Total deaths reported in the state to date
-        - name: state_total_cases
-          description: Total cases reported in the state to date
-        - name: state_new_deaths
-          description: The count of new deaths reported in the state
-        - name: state_new_cases
-          description: The count of new cases reported in the state
-        - name: no_of_county_data_available
-          description: Number of county data available for the state
-        - name: avg_retail_and_recreation_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day Moving Average of Retail and Recreation percent change from baseline of counties
-        - name: avg_grocery_and_pharmacy_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of grocery and pharmacy percent change from baseline of counties
-        - name: avg_parks_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of parks percent change from baseline of counties
-        - name: avg_transit_stations_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of transit stations percent change from baseline of counties
-        - name: avg_workplaces_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of workplaces percent change from baseline of counties
-        - name: avg_residential_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of residential percent change from baseline of counties
-        - name: new_cases_3day_moving_avg
-          description: The 3-day moving average of new cases in the state
-        - name: new_cases_14day_moving_avg
-          description: The 14-day moving average of new cases in the state
-        - name: new_deaths_3day_moving_avg
-          description: The 3-day moving average of new deaths in the state
-        - name: new_deaths_14day_moving_avg 
-          description: The 14-day moving average of new deaths in the state
-        - name: new_cases_5day_moving_avg
-          description: The 5-day moving average of new cases in the state
-        - name: new_cases_7day_moving_avg
-          description: The 7-day moving average of new cases in the state
-        - name: new_deaths_5day_moving_avg
-          description: The 5-day moving average of new deaths in the state
-        - name: new_deaths_7day_moving_avg
-          description: The 7-day moving average of new deaths in the state
-        - name: total_cases_14day_moving_avg
-          description: The 14-day moving average of total cases in the state
-        - name: initial_claims
-          description: Initial claims of Unemployment
-        - name: continued_claims
-          description: Continued claims of Unemployment
-        - name: covered_employment
-          description: Covered employment
-        - name: insured_unemployment_rate
-          description: Insured unemployment rate
-        - name: initial_claims_14day_prior
-          description: The initial claims of unemployment reported prior to 14 days
-        - name: continued_claims_14day_prior 
-          description: The continued claims of unemployment reported prior to 14 days    
-        - name: state_covid_growth_rank
-          description: Covid Growth Rank of the State
-        - name: large_gatherings_ban_previous
-          description: The large gathering ban previously applied in the state
-        - name: large_gatherings_change_date
-          description: The date on when last gatherings ban changed in the state
-        - name: face_covering_requirement_previous
-          description: The face covering requirement previously applied in the state
-        - name: face_covering_requirement_change_date
-          description: The date on when last face covering requirement changed in the state
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-
-  - name: vw_rpt_le_daily_routing_state_data
-    description: '{{ doc("vw_rpt_le_daily_routing_state_data") }}'
-    columns:
-        - name: state
-          description: Name of the state from where metrics are taken
-        - name: date
-          description: The date on when metrics are reporting
-        - name: status_of_reopening
-          description: Status of reopening
-        - name: stay_at_home_order
-          description: Status of stay at home order
-        - name: mandatory_quarantine_for_travelers
-          description: Status of mandatory quarantine for travelers
-        - name: non_essential_business_closures 
-          description: Status of non-essential business closures
-        - name: large_gatherings_ban
-          description: Status of large gatherings ban
-        - name: restaurant_limits
-          description: Status of restaurant limits
-        - name: bar_closures
-          description: Status of bar closures
-        - name: face_covering_requirement
-          description: Status of face covering requirement
-        - name: face_covering_requirement_bucket_group
-          description: Face covering requirement bucket group
-        - name: large_gatherings_ban_bucket_group
-          description: Large gathering ban bucket group
-        - name: population 
-          description: Total Population of the State
-        - name: state_total_deaths
-          description: Total deaths reported in the state to date
-        - name: state_total_cases
-          description: Total cases reported in the state to date
-        - name: state_new_deaths
-          description: The count of new deaths reported in the state
-        - name: state_new_cases
-          description: The count of new cases reported in the state
-        - name: no_of_county_data_available
-          description: Number of county data available for the state
-        - name: avg_retail_and_recreation_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day Moving Average of Retail and Recreation percent change from baseline of counties
-        - name: avg_grocery_and_pharmacy_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of grocery and pharmacy percent change from baseline of counties
-        - name: avg_parks_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of parks percent change from baseline of counties
-        - name: avg_transit_stations_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of transit stations percent change from baseline of counties
-        - name: avg_workplaces_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of workplaces percent change from baseline of counties
-        - name: avg_residential_percent_change_from_baseline_14day_moving_avg
-          description: The Average of 14-day moving average of residential percent change from baseline of counties
-        - name: new_cases_3day_moving_avg
-          description: The 3-day moving average of new cases in the state
-        - name: new_cases_14day_moving_avg
-          description: The 14-day moving average of new cases in the state
-        - name: new_deaths_3day_moving_avg
-          description: The 3-day moving average of new deaths in the state
-        - name: new_deaths_14day_moving_avg 
-          description: The 14-day moving average of new deaths in the state
-        - name: new_cases_5day_moving_avg
-          description: The 5-day moving average of new cases in the state
-        - name: new_cases_7day_moving_avg
-          description: The 7-day moving average of new cases in the state
-        - name: new_deaths_5day_moving_avg
-          description: The 5-day moving average of new deaths in the state
-        - name: new_deaths_7day_moving_avg
-          description: The 7-day moving average of new deaths in the state
-        - name: total_cases_14day_moving_avg
-          description: The 14-day moving average of total cases in the state
-        - name: initial_claims
-          description: Initial claims of Unemployment
-        - name: continued_claims
-          description: Continued claims of Unemployment
-        - name: covered_employment
-          description: Covered employment
-        - name: insured_unemployment_rate
-          description: Insured unemployment rate
-        - name: initial_claims_14day_prior
-          description: The initial claims of unemployment reported prior to 14 days
-        - name: continued_claims_14day_prior 
-          description: The continued claims of unemployment reported prior to 14 days    
-        - name: state_covid_growth_rank
-          description: Covid Growth Rank of the State
-        - name: large_gatherings_ban_previous
-          description: The large gathering ban previously applied in the state
-        - name: large_gatherings_change_date
-          description: The date on when last gatherings ban changed in the state
-        - name: face_covering_requirement_previous
-          description: The face covering requirement previously applied in the state
-        - name: face_covering_requirement_change_date
-          description: The date on when last face covering requirement changed in the state
-        - name: etl_batch_id          
-          description: Unique ID of DBT Job used to insert the record
-        - name: etl_insert_user_id          
-          description: Unique ID of the DBT user that was used to insert the record
-        - name: etl_insert_rec_dttm          
-          description: Date Time information on when the DBT inserted the record
-        - name: etl_update_user_id          
-          description: Unique ID of the DBT user which was used to update the record manually
-        - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-          
   - name: rpt_le_daily_advances_ticket
     description:  '{{ doc("rpt_le_daily_advances_ticket") }}'
     columns:
@@ -754,4 +74,458 @@ models:
         - name: maxeventdate
           description: event date
         - name: orders
-          description: Indicate order    
+          description: Indicate order
+
+  - name: rpt_le_daily_thunderdome_status
+    description: '{{ doc("rpt_le_daily_thunderdome_status") }}'
+    columns:
+        - name: event_id
+          description: ID of the event
+        - name: event_date
+          description: The date on when event has happened
+        - name: reg_date
+          description: The date on when user registered
+        - name: user_id
+          description: ID of the user
+        - name: email
+          description: Email address of the user
+        - name: country
+          description: User's country
+        - name: region
+          description: User's region; If user is from 'united states' treat as Domestic otherwise, International
+        - name: virtual_seat_attended
+          description: The flag to indicate whether virtual seat attended or not
+        - name: as_on_date 
+          description: As on date from the source
+        - name: etl_batch_id_source
+          description: ETL Batch ID at the source 
+        - name: fan_status
+          description: Indicates the status of the User
+        - name: attempted_to_attend_flag
+          description: The flag indicates whether user attempted to attend or not
+        - name: full_visitor_id
+          description: Represents visitor id corresponds to the session
+        - name: visit_id
+          description: Represents visit id corresponds to the session
+        - name: total_time_on_site
+          description: Gives total time spent on site
+        - name: trafficsource_campaign
+          description: Traffic Source Campaign Detail
+        - name: device_devicecategory
+          description: Device cateogry detail used to access the site
+        - name: geonetwork_country
+          description: Geo network country detail corresponds to the session
+        - name: as_on_date_ga
+          description: The as on date corresponds to session details from google analytics
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_le_daily_thunderdome_status
+    description:  '{{ doc("vw_rpt_le_daily_thunderdome_status") }}'
+    columns:
+        - name: event_id
+          description: ID of the event
+        - name: event_date
+          description: The date on when event has happened
+        - name: reg_date
+          description: The date on when user registered
+        - name: user_id
+          description: ID of the user
+        - name: email
+          description: Email address of the user
+        - name: country
+          description: User's country
+        - name: region
+          description: User's region; If user is from 'united states' treat as Domestic otherwise, International
+        - name: virtual_seat_attended
+          description: The flag to indicate whether virtual seat attended or not
+        - name: as_on_date 
+          description: As on date from the source
+        - name: etl_batch_id_source
+          description: ETL Batch ID at the source 
+        - name: fan_status
+          description: Indicates the status of the User
+        - name: attempted_to_attend_flag
+          description: The flag indicates whether user attempted to attend or not
+        - name: full_visitor_id
+          description: Represents visitor id corresponds to the session
+        - name: visit_id
+          description: Represents visit id corresponds to the session
+        - name: total_time_on_site
+          description: Gives total time spent on site
+        - name: trafficsource_campaign
+          description: Traffic Source Campaign Detail
+        - name: device_devicecategory
+          description: Device cateogry detail used to access the site
+        - name: geonetwork_country
+          description: Geo network country detail corresponds to the session
+        - name: as_on_date_ga
+          description: The as on date corresponds to session details from google analytics
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+          
+  - name: rpt_le_daily_stubhub_events_data
+    description: '{{ doc("rpt_le_daily_stubhub_events_data") }}'
+    columns:
+        - name: id
+          description: ID of the event
+        - name: status
+          description: Indicate the status of the event
+        - name: locale
+          description: Gives locale detail
+        - name: name
+          description: Name of the event
+        - name: description
+          description: Description of the event
+        - name: weburi
+          description: weburi of the event
+        - name: eventdatelocal
+          description: Event date in local timezone
+        - name: eventdateutc
+          description: Event date in UTC
+        - name: createddate 
+          description: Created date
+        - name: lastupdateddate
+          description: Last updated date
+        - name: hideeventdate
+          description: Indicates whether event date is hidden or not 
+        - name: hideeventtime
+          description: Indicates whether event time is hidden or not
+        - name: venue_id
+          description: Id of the event's venue
+        - name: venue_name
+          description: Name of the venue
+        - name: venue_city
+          description: Venue City
+        - name: venue_state
+          description: Venue State
+        - name: venue_postalcode
+          description:  Venue postal code
+        - name: venue_country
+          description: Venue Country
+        - name: venue_venueconfigid
+          description: Venue config id
+        - name: venue_venueconfigname
+          description: Venue config name
+        - name: venue_latitude
+          description: Latitude of the venue
+        - name: venue_longitude
+          description: Longitude of the venue
+        - name: timezone
+          description: Timezone detail
+        - name: performers_0_id
+          description: Performer's id
+        - name: performers_0_name
+          description: Performer's name
+        - name: ancestors_categories_0_id
+          description: Category ID
+        - name: ancestors_categories_0_name
+          description: Category name
+        - name: ancestors_categories_1_id 
+          description: Sub-Category ID
+        - name: ancestors_categories_1_name
+          description: Sub-Category Name
+        - name: ancestors_groupings
+          description: Ancestor Groupings
+        - name: ancestors_performers_0_id
+          description: Ancestors performer's id
+        - name: ancestors_performers_0_name
+          description: Ancestors performer's name
+        - name: categoriescollection_categories_0_id
+          description: Category collection ID
+        - name: categoriescollection_categories_0_name
+          description: Category Collection Name
+        - name: currencycode
+          description: Currency Code
+        - name: ticketinfo_minprice
+          description: Ticket Minimum Price
+        - name: ticketinfo_minlistprice
+          description: Ticket Minimum List Price
+        - name: ticketinfo_maxlistprice
+          description: Ticket Maximum List Price
+        - name: ticketinfo_totaltickets
+          description: Total Tickets Count
+        - name: ticketinfo_totallistings
+          description: Total Listings
+        - name: ancestors_groupings_0_id
+          description: Ancestor grouping's id
+        - name: ancestors_groupings_0_name
+          description: Ancestor grouping's name
+        - name: categoriescollection_categories_1_id
+          description: Category collection subset ID
+        - name: categoriescollection_categories_1_name
+          description: Category collection subset name
+        - name: categoriescollection_categories_2_id
+          description: Category collection sub ID
+        - name: categoriescollection_categories_2_name
+          description: Category collection sub name
+        - name: performers_1_id
+          description: Performer's sub id
+        - name: performers_1_name
+          description: Performer's sub name
+        - name: performers_1_role 
+          description: Performer's sub role
+        - name: performers_0_role
+          description: Performer's role 
+        - name: ancestors_groupings_1_id
+          description: Ancestor grouping's sub id
+        - name: ancestors_groupings_1_name
+          description: Ancestor grouping's sub name
+        - name: report_date
+          description: Reporting date
+        - name: file_name
+          description: File name
+        - name: etl_batch_id_source
+          description: ETL Batch ID at source
+        - name: etl_insert_rec_dttm_source
+          description: ETL insert record timestamp at source
+        - name: etl_insert_user_id_source
+          description: ETL insert user id at source
+        - name: etl_update_rec_dttm_source
+          description: ETL Update record timestamp at source
+        - name: etl_update_user_id_source
+          description: ETL Update user id at source
+        - name: as_on_date
+          description: As on date
+        - name: event_year
+          description: Event year
+        - name: event_month
+          description: Event Month
+        - name: event_day
+          description: Event Day
+        - name: eventdatelocal_2 
+          description: Event Local Date
+        - name: as_on_date_2
+          description: As on date in date format
+        - name: as_on_date_rank
+          description: As on date rank
+        - name: event_dropped_flag
+          description: Indicates whether event got dropped or not
+        - name: event_added_flag
+          description: Indicates whether event got added or not
+        - name: last_updated_within_15_days_flag
+          description: Indicates whether event record updated within 15 days or not
+        - name: total_listings_changed_flag
+          description: Indicates whether event's total listing changed or not
+        - name: last_updated_date_changed_flag
+          description: Indicates whether last updated date of event got changed or not
+        - name: event_created_for_parking_flag
+          description: Indicates whether event created for parking or not
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+
+  - name: vw_rpt_le_daily_stubhub_events_data
+    description:  '{{ doc("vw_rpt_le_daily_stubhub_events_data") }}'
+    columns:
+        - name: id
+          description: ID of the event
+        - name: status
+          description: Indicate the status of the event
+        - name: locale
+          description: Gives locale detail
+        - name: name
+          description: Name of the event
+        - name: description
+          description: Description of the event
+        - name: weburi
+          description: weburi of the event
+        - name: eventdatelocal
+          description: Event date in local timezone
+        - name: eventdateutc
+          description: Event date in UTC
+        - name: createddate 
+          description: Created date
+        - name: lastupdateddate
+          description: Last updated date
+        - name: hideeventdate
+          description: Indicates whether event date is hidden or not 
+        - name: hideeventtime
+          description: Indicates whether event time is hidden or not
+        - name: venue_id
+          description: Id of the event's venue
+        - name: venue_name
+          description: Name of the venue
+        - name: venue_city
+          description: Venue City
+        - name: venue_state
+          description: Venue State
+        - name: venue_postalcode
+          description:  Venue postal code
+        - name: venue_country
+          description: Venue Country
+        - name: venue_venueconfigid
+          description: Venue config id
+        - name: venue_venueconfigname
+          description: Venue config name
+        - name: venue_latitude
+          description: Latitude of the venue
+        - name: venue_longitude
+          description: Longitude of the venue
+        - name: timezone
+          description: Timezone detail
+        - name: performers_0_id
+          description: Performer's id
+        - name: performers_0_name
+          description: Performer's name
+        - name: ancestors_categories_0_id
+          description: Category ID
+        - name: ancestors_categories_0_name
+          description: Category name
+        - name: ancestors_categories_1_id 
+          description: Sub-Category ID
+        - name: ancestors_categories_1_name
+          description: Sub-Category Name
+        - name: ancestors_groupings
+          description: Ancestor Groupings
+        - name: ancestors_performers_0_id
+          description: Ancestors performer's id
+        - name: ancestors_performers_0_name
+          description: Ancestors performer's name
+        - name: categoriescollection_categories_0_id
+          description: Category collection ID
+        - name: categoriescollection_categories_0_name
+          description: Category Collection Name
+        - name: currencycode
+          description: Currency Code
+        - name: ticketinfo_minprice
+          description: Ticket Minimum Price
+        - name: ticketinfo_minlistprice
+          description: Ticket Minimum List Price
+        - name: ticketinfo_maxlistprice
+          description: Ticket Maximum List Price
+        - name: ticketinfo_totaltickets
+          description: Total Tickets Count
+        - name: ticketinfo_totallistings
+          description: Total Listings
+        - name: ancestors_groupings_0_id
+          description: Ancestor grouping's id
+        - name: ancestors_groupings_0_name
+          description: Ancestor grouping's name
+        - name: categoriescollection_categories_1_id
+          description: Category collection subset ID
+        - name: categoriescollection_categories_1_name
+          description: Category collection subset name
+        - name: categoriescollection_categories_2_id
+          description: Category collection sub ID
+        - name: categoriescollection_categories_2_name
+          description: Category collection sub name
+        - name: performers_1_id
+          description: Performer's sub id
+        - name: performers_1_name
+          description: Performer's sub name
+        - name: performers_1_role 
+          description: Performer's sub role
+        - name: performers_0_role
+          description: Performer's role 
+        - name: ancestors_groupings_1_id
+          description: Ancestor grouping's sub id
+        - name: ancestors_groupings_1_name
+          description: Ancestor grouping's sub name
+        - name: report_date
+          description: Reporting date
+        - name: file_name
+          description: File name
+        - name: etl_batch_id_source
+          description: ETL Batch ID at source
+        - name: etl_insert_rec_dttm_source
+          description: ETL insert record timestamp at source
+        - name: etl_insert_user_id_source
+          description: ETL insert user id at source
+        - name: etl_update_rec_dttm_source
+          description: ETL Update record timestamp at source
+        - name: etl_update_user_id_source
+          description: ETL Update user id at source
+        - name: as_on_date
+          description: As on date
+        - name: event_year
+          description: Event year
+        - name: event_month
+          description: Event Month
+        - name: event_day
+          description: Event Day
+        - name: eventdatelocal_2 
+          description: Event Local Date
+        - name: as_on_date_2
+          description: As on date in date format
+        - name: as_on_date_rank
+          description: As on date rank
+        - name: event_dropped_flag
+          description: Indicates whether event got dropped or not
+        - name: event_added_flag
+          description: Indicates whether event got added or not
+        - name: last_updated_within_15_days_flag
+          description: Indicates whether event record updated within 15 days or not
+        - name: total_listings_changed_flag
+          description: Indicates whether event's total listing changed or not
+        - name: last_updated_date_changed_flag
+          description: Indicates whether last updated date of event got changed or not
+        - name: event_created_for_parking_flag
+          description: Indicates whether event created for parking or not
+        - name: etl_batch_id          
+          description: Unique ID of DBT Job used to insert the record
+        - name: etl_insert_user_id          
+          description: Unique ID of the DBT user that was used to insert the record
+        - name: etl_insert_rec_dttm          
+          description: Date Time information on when the DBT inserted the record
+        - name: etl_update_user_id          
+          description: Unique ID of the DBT user which was used to update the record manually
+        - name: etl_update_rec_dttm          
+          description: Date Time information on when the record was updated
+  - name: rpt_le_weekly_consolidated_kpi
+    description: '{{ doc("rpt_le_weekly_consolidated_kpi") }}'
+    columns:
+        - name: granularity
+          description: represents the cadence i.e. Weekly or MTD or YTD
+        - name: platform
+          description: represents the platform name i.e. 'Live Events'
+        - name: type
+          description: represents the type i.e. 'Live Events'
+        - name: metric
+          description: represents the metric name
+        - name: year
+          description: indicates the calendar year
+        - name: month
+          description: indicates the calendar month
+        - name: week
+          description: indicates the calendar week
+        - name: start_date
+          description: calander date representing the start date of the week
+        - name: end_date
+          description: calander date representing the end date of the week
+        - name: value
+          description: indicates the metric value for current year
+        - name: prev_year
+          description: indicates the previous calendar year
+        - name: prev_year_week
+          description: indicates the week of previous calendar year
+        - name: prev_year_start_date
+          description: calander date representing the previous year start date of the week
+        - name: prev_year_end_date
+          description: calander date representing the previous year end date of the week
+        - name: prev_year_value
+          description: indicates the metric value for previous year
+          

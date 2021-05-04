@@ -1,7 +1,7 @@
 {{
   config({
 		"schema": 'fds_nplus',
-                
+                "pre-hook": ["delete from {{this}} where date >= to_Date(Add_months(current_date,-6),'yyyy-mm-01') - 1"],
 		"materialized": 'incremental','tags': "rpt_nplus_daily_network_adds_and_loss_split" ,"persist_docs": {'relation' : true, 'columns' : true},
 	        "post-hook" : 'grant select on {{this}} to public' 
 
