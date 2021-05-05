@@ -1975,7 +1975,7 @@ models:
           description: Processing Date
         - name: lineage_name
           description: name of the wrestler
-        - name: lineage wweid
+        - name: lineage_wweid
           description: wwe id of the wrestler
         - name: achievement
           description: championship name
@@ -1988,7 +1988,7 @@ models:
           description: Processing Date
         - name: lineage_name
           description: name of the wrestler
-        - name: lineage wweid
+        - name: lineage_wweid
           description: wwe id of the wrestler
         - name: screentime
           description: screentime

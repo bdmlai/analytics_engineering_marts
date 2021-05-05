@@ -6,7 +6,28 @@
         })
 }}
 
-select date,lineage_name,brand,sum(demand_sales) as demand_sales from(
-select date,lineage_name,brand,src_style_description,demand_units,demand_sales
-from {{source('fds_cpg', 'rpt_daily_talent_equity_centralized')}} 
-group by 1,2,3,4,5,6) group by 1,2,3
+SELECT  date 
+       ,lineage_name 
+       ,brand 
+       ,SUM(demand_sales) AS demand_sales
+FROM 
+(
+	SELECT  date 
+	       ,lineage_name 
+	       ,brand 
+	       ,src_style_description 
+	       ,demand_units 
+	       ,demand_sales
+	FROM {{source 
+	('fds_cpg', 'rpt_daily_talent_equity_centralized' 
+	)}}
+	GROUP BY  1 
+	         ,2 
+	         ,3 
+	         ,4 
+	         ,5 
+	         ,6 
+)
+GROUP BY  1 
+         ,2 
+         ,3
