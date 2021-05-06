@@ -11,7 +11,6 @@
 *************************************************************************************************************************************************
 PSTA-3117 05/03/2021 Remove Intermediate tables for Talent Centralized Table
 */
-
 {{ config(materialized = 'table',schema='fds_cpg',
             enabled = true, 
                 tags = ['talent_equity','daily',
