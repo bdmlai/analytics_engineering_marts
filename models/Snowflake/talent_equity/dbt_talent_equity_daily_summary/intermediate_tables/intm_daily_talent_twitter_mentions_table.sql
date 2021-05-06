@@ -11,7 +11,7 @@
 
 *************************************************************************************************************************************************
 */
-{{ config(materialized = 'table',
+{{ config(materialized = 'table',schema='dt_stage',
             enabled = true, 
                 tags = ['talent equity','Twitter','daily',
                         'centralized table'],
