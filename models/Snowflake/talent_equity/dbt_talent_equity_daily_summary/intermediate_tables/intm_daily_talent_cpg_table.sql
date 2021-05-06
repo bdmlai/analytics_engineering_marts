@@ -11,7 +11,7 @@
 
 *************************************************************************************************************************************************
 */
-{{ config(materialized = 'table',
+{{ config(materialized = 'table',schema='dt_stage',
             enabled = true, 
                 tags = ['talent equity','cpg','shop','venue','daily','merch'
                         'centralized table'],

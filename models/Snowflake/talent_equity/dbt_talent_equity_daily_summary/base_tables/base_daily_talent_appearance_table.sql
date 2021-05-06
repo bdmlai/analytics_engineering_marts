@@ -10,7 +10,7 @@
 
 *************************************************************************************************************************************************
 */
-{{ config(materialized = 'table',
+{{ config(materialized = 'table',schema='dt_stage',
             enabled = true, 
                 tags = ['talent equity','screentime','show','daily','centralized table'],
                     post_hook = "grant select on {{ this }} to DA_YYANG_USER_ROLE"
