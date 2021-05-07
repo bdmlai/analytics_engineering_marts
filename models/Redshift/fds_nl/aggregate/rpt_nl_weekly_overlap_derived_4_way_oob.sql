@@ -3,7 +3,8 @@
   config({
 		'schema': 'fds_nl',
 		"pre-hook": ["delete from fds_nl.rpt_nl_weekly_overlap_derived_4_way_oob where etl_insert_rec_dttm > (select max(etl_insert_rec_dttm) from fds_nl.fact_nl_weekly_overlap_4_way_oob)"],
-                "materialized": 'incremental',"tags": 'Phase4B',"persist_docs": {'relation' : true, 'columns' : true}
+                "materialized": 'incremental',"tags": 'Phase4B',"persist_docs": {'relation' : true, 'columns' : true},
+				"post-hook" : 'grant select on {{this}} to public'
 
   })
 }}

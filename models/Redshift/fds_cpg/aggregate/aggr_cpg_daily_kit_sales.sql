@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["delete from fds_cpg.aggr_cpg_daily_kit_sales"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B",
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 with #fact_aggregated_kit_sales_temp1 as 

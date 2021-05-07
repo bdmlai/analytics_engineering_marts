@@ -174,7 +174,8 @@ union
 (select * from #latest_month)
 )
 select * from #all_data);"
-	]
+	],
+	"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

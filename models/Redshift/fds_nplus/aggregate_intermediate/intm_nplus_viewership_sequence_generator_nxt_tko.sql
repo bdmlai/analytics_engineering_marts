@@ -28,7 +28,6 @@ seq as (
 ),
 
 #series as 
-
 (select num from seq where num <= datediff('m', ((select substring(getdate()-7,1,11)||'00:00:02')::TIMESTAMP ), (getdate()::TIMESTAMP))/5+1),
 
 inter AS 
@@ -67,32 +66,6 @@ inter
 WHERE (inter.intvl_dttm > llog.enddate and inter.intvl_dttm < llog.nxt_seg_begindate)),
 
 #T9 as 
-( select  premiere_date ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
-	  move ,finishtype ,additionaltalent ,venuelocation ,venuename ,state ,begindate ,enddate ,
-nxt_seg_begindate ,intvl_dttm ,
-	 
-	  case when time_interval - lag(time_interval) over(partition by external_id order by time_interval)=0
-	    then (lag(dateadd(sec,-1,time_interval), 1) OVER (partition by external_id order by time_interval asc ))
-	    else time_interval end as time_interval
-	 
-    , (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc )) as prev_time_interval
-        from #T8),
-#T10 as
- (select premiere_date ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
-	  move ,finishtype ,additionaltalent ,venuelocation ,venuename ,state ,begindate ,enddate ,
-         nxt_seg_begindate ,intvl_dttm ,time_interval,
-          case when prev_time_interval-lead(time_interval) over(partition by external_id order by time_interval)=0
-	       then (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc ))
-	   else prev_time_interval end as prev_time_interval
-         
-      from #T9) ,
-  #T11 as
-  (select premiere_date ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
-	  move ,finishtype ,additionaltalent ,venuelocation ,venuename ,state ,begindate ,enddate ,
-         nxt_seg_begindate ,intvl_dttm ,time_interval,
-          case when prev_time_interval-lag(prev_time_interval) over(partition by external_id order by time_interval)=0
-	       then (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc ))
-	   else prev_time_interval end as prev_time_interval
-         
-  from #T10)		
- select * from #T11
+( select *, (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc )) as prev_time_interval
+        from #T8)
+ select * from #T9

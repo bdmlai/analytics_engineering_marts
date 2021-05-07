@@ -1,6 +1,7 @@
 {{
   config({
-	'schema': 'fds_kntr',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_kntr',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true},
+	"post-hook" : 'grant select on {{this}} to public'
 	})
 }}
 select week_start_date, src_country, region, broadcast_network_prem_type, src_channel, demographic_type, 

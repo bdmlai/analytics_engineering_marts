@@ -23,7 +23,8 @@
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_commercial_ratings.natl_comm_clockmts_avg_audience_proj_000 IS 'National Commercial Clock Minute Average Audience Projection (000) (The projected number of households tuned or persons viewing the average qualified commercial minute of the selected program within the total U.S., expressed in thousands.)';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_commercial_ratings.natl_comm_clockmts_avg_audience_proj_pct IS 'National Commercial Clock Minute Average Audience Percentage (The percentage of the target demographic viewing the average qualified commercial minute of the selected program within the total U.S.)';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_commercial_ratings.natl_comm_clockmts_cvg_area_avg_audience_proj_pct IS 'National Commercial Clock Minute Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average qualified commercial minute of a selected program within a network’s coverage area.)';  
-					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_commercial_ratings.tot_viewing_minutes IS 'Derived Average Viewing Hours in munites ';"]
+					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_commercial_ratings.tot_viewing_minutes IS 'Derived Average Viewing Hours in munites ';
+					grant select on {{this}} to public;"]
 	})
 }}
 

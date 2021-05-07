@@ -2,7 +2,7 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["delete from fds_cpg.rpt_cpg_monthly_royalty"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B","post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

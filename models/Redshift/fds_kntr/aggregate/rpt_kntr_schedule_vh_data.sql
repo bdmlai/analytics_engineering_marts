@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_kntr',
 		"pre-hook": "truncate fds_kntr.rpt_kntr_schedule_vh_data",
-		"materialized": 'incremental','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'incremental','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select a.*, b.regional_viewing_hours,

@@ -1,6 +1,7 @@
 {{
   config({
-	'schema': 'fds_kntr',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_kntr',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true},
+	"post-hook" : 'grant select on {{this}} to public'
 	})
 }}
 select dim_date_id, broadcast_date, src_weekday, month_name, month_num, modified_month, year, src_country, region, 

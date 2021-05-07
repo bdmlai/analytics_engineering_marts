@@ -2,7 +2,7 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["truncate fds_cpg.rpt_cpg_monthly_talent_overall_shop_sales"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B","post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select a.*, py_styles_selling, py_revenue, py_margin, 

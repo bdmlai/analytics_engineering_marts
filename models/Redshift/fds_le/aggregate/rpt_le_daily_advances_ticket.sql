@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_le',
 		"pre-hook": "truncate fds_le.rpt_le_daily_advances_ticket",
-		"materialized": 'incremental',"tags": 'Phase 5a',"persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'incremental',"tags": 'Phase 5a',"persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 
