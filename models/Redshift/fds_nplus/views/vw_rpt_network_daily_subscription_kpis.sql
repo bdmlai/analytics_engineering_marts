@@ -1,7 +1,7 @@
  {{
   config({
 	"schemas": 'fds_nplus',	
-	"materialized": 'view'
+	"materialized": 'view',"post-hook" : 'grant select on {{this}} to public'
 		})
 }}
 SELECT c.country_nm,a.*, 

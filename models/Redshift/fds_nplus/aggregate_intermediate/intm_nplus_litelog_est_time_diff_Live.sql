@@ -17,15 +17,15 @@ from
 from {{source('udl_nplus','raw_post_event_log')}}
 where title like '%205%' and issegmentmarker='TRUE' and comment is not null
         and segmenttype not in ('Signature','Match Milestone','Set Shot','Sponsor Element','Promo Graphic') 
-        and airdate in ( select airdate from {{ref('intm_nplus_content_Live')}}) 
+        and airdate in ( select airdate from {{ref('intm_nplus_content_205_Live')}}) 
  and showdbid is not null and showdbid <> 0 and inpoint is not null 
 and inpoint <> ' ' and segmenttype is not null 
-and episodenumber in (select episodenumber from {{ref('intm_nplus_content_Live')}})
+and episodenumber in (select episodenumber from {{ref('intm_nplus_content_205_Live')}})
 group by 1) a
 join {{source('udl_nplus','raw_post_event_log')}} b
 on a.showdbid = b.showdbid and a.min_inpoint = b.inpoint) c
 join {{source('udl_emm','emm_weekly_log_reference')}} d 
 on c.airdate = d.air_date and
 lower(trim(c.logname)) = lower(trim(d.logname))
-where airdate in (select airdate from {{ref('intm_nplus_content_Live')}})
+where airdate in (select airdate from {{ref('intm_nplus_content_205_Live')}})
  and d.start_time_eastern is not null and d.start_time_eastern not in ('0', ' ')

@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_cp',
 		"pre-hook": "truncate fds_cp.rpt_cp_daily_int_kpi_ranking_network",
-		"materialized": 'incremental','tags': "Content","persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'incremental','tags': "Content","persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

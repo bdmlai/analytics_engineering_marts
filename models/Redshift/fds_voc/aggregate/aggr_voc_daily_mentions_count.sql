@@ -1,6 +1,7 @@
 {{
   config({
-		'schema': 'fds_voc',"materialized": 'incremental','tags': "Phase 8","persist_docs": {'relation' : true, 'columns' : true}
+		'schema': 'fds_voc',"materialized": 'incremental','tags': "Phase 8","persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select substring(postedtimeest, 1, 10)::date as posted_date, "tag" as mentions, count(distinct id) as count_tweets,

@@ -2,7 +2,7 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["truncate fds_cpg.rpt_cpg_monthly_talent_top25_venue_sales"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B","post-hook" : 'grant select on {{this}} to public'
         })
 }}
 select a.*, b.revenue as last_month_revenue, b.units as last_month_units, b.rank_last_month,
