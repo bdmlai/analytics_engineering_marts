@@ -1,7 +1,8 @@
 {{
   config({
 		 'schema': 'fds_kntr',	
-	     "materialized": 'view',"tags": 'Phase4B',"persist_docs": {'relation' : true, 'columns' : true}
+	     "materialized": 'view',"tags": 'Phase4B',"persist_docs": {'relation' : true, 'columns' : true},
+		 "post-hook" : 'grant select on {{this}} to public'
         })
 }}
 select substring(broadcast_month_year, 5, 2) as broadcast_month,

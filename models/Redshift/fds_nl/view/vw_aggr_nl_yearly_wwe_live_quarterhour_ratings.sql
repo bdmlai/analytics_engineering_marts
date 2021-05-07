@@ -25,6 +25,7 @@
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_audience_pct IS 'Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)';
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.avg_pct_nw_cvg_area IS 'Coverage Area Average Audience Percent (The percentage of the target demographic viewing the average minute of a selected program or time period within a networkâ€™s coverage area.)';  
 					COMMENT ON COLUMN fds_nl.vw_aggr_nl_yearly_wwe_live_quarterhour_ratings.tot_viewing_minutes IS 'Derived Average Viewing Hours in minutes';
+					grant select on {{this}} to public;
 					"]
 	})
 }}

@@ -2,7 +2,8 @@
   config({
 	"schema": 'fds_mkt',	
 	"materialized": 'incremental',
-	"pre-hook":"delete from fds_mkt.rpt_mkt_weekly_paid_media_execution"
+	"pre-hook":"delete from fds_mkt.rpt_mkt_weekly_paid_media_execution",
+	"post-hook" : 'grant select on {{this}} to public'
 		})
 }}
 

@@ -4,7 +4,8 @@
   config({
 	"schema": 'fds_cp',
     "pre-hook": "delete from fds_cp.aggr_cp_weekly_consumption_by_platform where monday_date >= date_trunc('week',current_date-14)",
-    "materialized": "incremental"
+    "materialized": "incremental",
+	"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

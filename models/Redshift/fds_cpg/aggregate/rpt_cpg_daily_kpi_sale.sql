@@ -2,7 +2,7 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["truncate fds_cpg.rpt_cpg_daily_kpi_sale"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B","post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select z.src_category_description, z.src_major_category_description, 

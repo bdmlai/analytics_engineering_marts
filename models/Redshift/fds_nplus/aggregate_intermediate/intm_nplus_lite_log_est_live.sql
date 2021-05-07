@@ -16,11 +16,11 @@ segmenttype, comment as milestone, matchtype, talentactions, move, finishtype, a
 upper(right(trim(venuelocation),2)) as state, rank() over (partition by airdate order by inpoint) as seg_num
 FROM {{source('udl_nplus','raw_post_event_log')}} a 
 join {{ref('intm_nplus_litelog_est_time_diff_Live')}} b on a.showdbid = b.showdbid
-and a.airdate in (select airdate from {{ref('intm_nplus_content_Live')}})
+and a.airdate in (select airdate from {{ref('intm_nplus_content_205_Live')}})
 where  airdate is not null and inpoint is not null and duration is not null
 and inpoint <> ' ' and duration <> ' ' 
 and title like '%205%' and issegmentmarker='TRUE' and comment is not null
 --and title like '%205%' and issegmentmarker='TRUE' and comment is not null
 and segmenttype not in ('Signature','Match Milestone','Set Shot','Sponsor Element','Promo Graphic')  
  and a.showdbid is not null and a.showdbid <> 0  and segmenttype is not null 
-and episodenumber in (select episodenumber from {{ref('intm_nplus_content_Live')}})
+and episodenumber in (select episodenumber from {{ref('intm_nplus_content_205_Live')}})
