@@ -1,9 +1,9 @@
 {{
-  config(
-    schemas='fds_nplus',	
-	materialized='view'
-    
-  )
+  config({
+	'schema': 'fds_nplus',	
+	"materialized": 'view',
+	"post-hook" : 'grant select on {{this}} to public'
+	})
 }}
 
 with ap as ( select * from (select order_id, extract (month from org_billing_dttm) as dt_mon,

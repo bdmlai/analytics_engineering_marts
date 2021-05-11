@@ -1,6 +1,7 @@
 {{
   config({
-	'schema': 'fds_nl',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_nl',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true},
+	"post-hook" : 'grant select on {{this}} to public'
 	})
 }}
 select broadcast_date_id, broadcast_date, src_broadcast_network_name, src_program_name, src_playback_period_cd, 

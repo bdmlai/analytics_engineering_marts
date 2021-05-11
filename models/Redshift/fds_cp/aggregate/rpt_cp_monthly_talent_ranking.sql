@@ -13,7 +13,8 @@
   config({
 		'schema': 'fds_cp',
 		"pre-hook": "delete from fds_cp.rpt_cp_monthly_talent_ranking where month = date_trunc('month', current_date-28)",
-		"materialized": 'incremental'
+		"materialized": 'incremental',
+		"post-hook" : 'grant select on {{this}} to public'
 		})
 }}
 

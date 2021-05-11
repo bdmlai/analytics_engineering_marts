@@ -14,7 +14,8 @@ Date : 11/04/2020 ; Developer: Sandeep Battula ; Change: Initial Version as a pa
 {{
   config({
 	"schema": 'fds_cp',
-    "materialized": "view"
+    "materialized": "view",
+	"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select a.platform,a.as_on_date, a.account, a.followers, 

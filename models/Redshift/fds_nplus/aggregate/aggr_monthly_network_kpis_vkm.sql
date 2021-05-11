@@ -1,7 +1,8 @@
  {{
   config({
 	"schema": 'fds_nplus',	
-	"materialized": 'incremental',"persist_docs": {'relation' : true, 'columns' : true}
+	"materialized": 'incremental',"persist_docs": {'relation' : true, 'columns' : true},
+	"post-hook" : 'grant select on {{this}} to public'
 	})
 }}
 select a.bill_date,a.paid_winbacks, a.new_paid, a.free_trial_subs, a.losses,

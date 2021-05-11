@@ -1,9 +1,9 @@
 {{
-  config(
-	schema='fds_nplus',	
-	materialized='view'
-    
-  )
+  config({
+	'schema': 'fds_nplus',	
+	"materialized": 'view',
+	"post-hook" : 'grant select on {{this}} to public'
+	})
 }}
 
 

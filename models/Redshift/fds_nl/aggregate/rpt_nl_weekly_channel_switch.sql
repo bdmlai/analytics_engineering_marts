@@ -15,7 +15,8 @@
   config({
 		"schema": 'fds_nl',
 		"pre-hook": ["truncate fds_nl.rpt_nl_weekly_channel_switch"],
-		"materialized": 'incremental','tags': 'Phase4B', "persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'incremental','tags': 'Phase4B', "persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

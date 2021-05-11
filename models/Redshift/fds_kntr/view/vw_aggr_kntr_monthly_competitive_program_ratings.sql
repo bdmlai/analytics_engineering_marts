@@ -1,6 +1,7 @@
 {{
   config({
-	'schema': 'fds_kntr',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_kntr',"materialized": 'view','tags': "Phase4B","persist_docs": {'relation' : true, 'columns' : true},
+	"post-hook" : 'grant select on {{this}} to public'
 	})
 }}
 select month, year, src_country, src_channel, src_property, demographic, hd_flag, sum(duration_hours) as duration_hours,

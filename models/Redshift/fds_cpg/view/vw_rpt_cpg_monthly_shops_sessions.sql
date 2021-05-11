@@ -1,7 +1,8 @@
 {{
   config({
 		'schema': 'fds_cpg',
-		"materialized": 'view','tags': "Phase 5B"
+		"materialized": 'view','tags': "Phase 5B",
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

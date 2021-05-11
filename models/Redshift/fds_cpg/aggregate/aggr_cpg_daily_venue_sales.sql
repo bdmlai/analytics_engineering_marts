@@ -258,7 +258,8 @@
 		#stg_fact_cpg_aggregated_venue_sales sf
 		on sf.dim_agg_sales_id = df.dim_agg_sales_id and lower(df.active_flag) = 'y'  ;
 		"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B",
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 SELECT
