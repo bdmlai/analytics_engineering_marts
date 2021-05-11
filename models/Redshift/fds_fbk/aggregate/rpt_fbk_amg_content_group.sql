@@ -1,13 +1,14 @@
 {{
   config({
-		'schema': 'fds_fbk',"tags": 'fbk_amg_content_group',
+		'schema': 'fds_fbk',
 		"materialized": 'table', "persist_docs": {'relation' : true, 'columns' : true},
-		'post-hook': 'grant select on {{this}} to public'		
+		'post-hook': 'grant select on fds_fbk.rpt_fbk_amg_content_group to public'		
   })
 }}
+
 {% set descript = [("kickoff","Kickoff"),("pre-show","Kickoff"),("red carpet","Kickoff"),("backlash","PPV Clip"),("battlegrounds","PPV Clip"),("battleground","PPV Clip"),("clash of champions","PPV Clip"),("elimination chamber","PPV Clip"),("extreme rules","PPV Clip"), ("fastlane","PPV Clip"),("royal rumble","PPV Clip"),("hell in a cell","PPV Clip"),("money in the bank","PPV Clip"),("no mercy","PPV Clip"),(" wwe payback ","PPV Clip"),(" wwe payback: ","PPV Clip"),("stomping grounds","PPV Clip"),("summerslam","PPV Clip"),("super showdown","PPV Clip"),("survivor series","PPV Clip"),(" wwe tlc ","PPV Clip"),("wrestlemania","PPV Clip"),(" crown jewel ","PPV Clip"),(" crown jewel: ","PPV Clip")] %}
 
-select *, duration*1.00/60 as min_duration,
+select distinct dim_video_id, title, duration, dim_smprovider_account_id, channel_name, series_name, duration*1.00/60 as min_duration,
     case   
 		when channel_name='WWE Performance Center' then 'WWE Performance Center'
 		when channel_name in ('Total Bellas (WWE)', 'Nikki Bella', 'Brie Bella') then 'The Bella Twins'
@@ -34,5 +35,10 @@ select *, duration*1.00/60 as min_duration,
 		when series_name in ('Raw') then 'Raw'
 		when series_name in ('NXT') then 'NXT'
 		when series_name in ('SmackDown') then 'SmackDown'
-	else 'Misc' end as amg_content_group
+	else 'Misc' end as amg_content_group,
+	current_date as as_on_date,
+	convert_timezone(('America/New_York'::character varying)::text,getdate()) as etl_insert_rec_dttm,
+	'etluser_4a' as etl_insert_user_id,
+	convert_timezone(('America/New_York'::character varying)::text,getdate()) as etl_update_rec_dttm,
+	'etluser_4a' as etl_update_user_id
 from  {{ref('intm_fbk_amg_cnt_grp_3')}}
