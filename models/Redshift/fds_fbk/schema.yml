@@ -58,7 +58,7 @@ models:
           description: Post description
         - name: as_on_date
           description: Record as-on date
-  - name: fbk_amg_content_group
+  - name: rpt_fbk_amg_content_group
     description: "Table - Facebook AMG Content Group"
     columns:
           - name: dim_video_id
@@ -101,7 +101,20 @@ models:
             tests:
                 - unique
                 - not_null
-  - name: vw_fbk_amg_content_group
+          - name: as_on_date
+            description: "It defines the Date of the data loaded"
+            tests:
+                - unique
+                - not_null
+          - name: etl_insert_rec_dttm
+            description: "ETL Column"
+          - name: etl_insert_user_id
+            description: "ETL Column"
+          - name: etl_update_rec_dttm
+            description: "ETL Column"
+          - name: etl_update_user_id
+            description: "ETL Column"
+  - name: vw_rpt_fbk_amg_content_group
     description: "View - Facebook AMG Content Group"
     columns:
           - name: dim_video_id
@@ -144,3 +157,16 @@ models:
             tests:
                 - unique
                 - not_null
+          - name: as_on_date
+            description: "It defines the Date of the data loaded"
+            tests:
+                - unique
+                - not_null
+          - name: etl_insert_rec_dttm
+            description: "ETL Column"
+          - name: etl_insert_user_id
+            description: "ETL Column"
+          - name: etl_update_rec_dttm
+            description: "ETL Column"
+          - name: etl_update_user_id
+            description: "ETL Column"
