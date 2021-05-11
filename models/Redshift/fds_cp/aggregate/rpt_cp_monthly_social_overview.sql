@@ -12,7 +12,8 @@
   config({
 		'schema': 'fds_cp',
 		"pre-hook": "delete from fds_cp.rpt_cp_monthly_social_overview where month=trunc(date_add('month',-1,date_trunc('month',current_date)))",
-		"materialized": 'incremental','tags': "Content"
+		"materialized": 'incremental','tags': "Content",
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 with #fb_post_volume_monthly as 

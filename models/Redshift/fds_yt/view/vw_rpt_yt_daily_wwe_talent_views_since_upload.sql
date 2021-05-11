@@ -1,6 +1,7 @@
 {{
   config({
-	'schema': 'fds_yt',"materialized": 'view','tags': "Content","persist_docs": {'relation' : true, 'columns' : true}
+	'schema': 'fds_yt',"materialized": 'view','tags': "Content","persist_docs": {'relation' : true, 'columns' : true},
+	"post-hook" : 'grant select on {{this}} to public'
          
 	})
 }}

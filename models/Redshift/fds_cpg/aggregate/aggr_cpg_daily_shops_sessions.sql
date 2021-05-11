@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["delete from fds_cpg.aggr_cpg_daily_shops_sessions where date >= '{{ var(\"start_date\") }}' and  date <= '{{ var(\"end_date\") }}'"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B",
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

@@ -3,7 +3,8 @@
   config({
 		'schema': 'fds_yt',
 		"pre-hook": "delete from fds_yt.rpt_yt_daily_consumption_bychannel where date between current_date - 52 and current_date - 1 ",
-		"materialized": 'incremental','tags': "Content","persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'incremental','tags': "Content","persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 

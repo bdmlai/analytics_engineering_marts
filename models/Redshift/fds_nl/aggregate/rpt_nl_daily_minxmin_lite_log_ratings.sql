@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_nl',
 		"pre-hook": ["truncate fds_nl.rpt_nl_daily_minxmin_lite_log_ratings"],
-		"materialized": 'incremental','tags': "Phase4B"
+		"materialized": 'incremental','tags': "Phase4B",
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select broadcast_date_id, broadcast_date, src_broadcast_network_name, src_program_name, 

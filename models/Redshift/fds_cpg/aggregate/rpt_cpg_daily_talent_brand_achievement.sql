@@ -2,7 +2,7 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["truncate fds_cpg.rpt_cpg_daily_talent_brand_achievement"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B","post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select distinct x.talent_description, x.entity_type, x.brand, c.achievement_name, 

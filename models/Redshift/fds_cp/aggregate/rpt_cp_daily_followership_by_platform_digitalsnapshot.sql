@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_cp',
 		"pre-hook": "truncate fds_cp.rpt_cp_daily_followership_by_platform_digitalsnapshot",
-		"materialized": 'incremental','tags': "Content"
+		"materialized": 'incremental','tags': "Content",
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select month,country country_name,metric content_type,page,values as followers_count,platform,

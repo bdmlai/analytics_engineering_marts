@@ -2,7 +2,7 @@
   config({
 		'schema': 'fds_cpg',
 		"pre-hook": ["truncate fds_cpg.rpt_cpg_weekly_talent_overall_shop_sales"],
-		"materialized": 'incremental','tags': "Phase 5B"
+		"materialized": 'incremental','tags': "Phase 5B","post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select a.gender_description_product, a.style_category, a.product_category, a.talent_description, a.active_inactive_flag,

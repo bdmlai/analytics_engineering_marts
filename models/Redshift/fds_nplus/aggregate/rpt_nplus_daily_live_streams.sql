@@ -2,7 +2,8 @@
   config({
 		"schema": 'fds_nplus',
                 "pre-hook": ["delete from fds_nplus.rpt_nplus_daily_live_streams where airdate >= current_date -7"],
-		"materialized": 'incremental','tags': "Content", "persist_docs": {'relation' : true, 'columns' : true}
+		"materialized": 'incremental','tags': "Content", "persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook" : 'grant select on {{this}} to public'
   })
 }}
 select *,
