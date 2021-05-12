@@ -1,6 +1,8 @@
 {{
   config({
-		"materialized": 'ephemeral'
+		"schema": 'fds_nplus',
+		"materialized": 'table','tags': "rpt_nplus_daily_live_streams", 
+		'post-hook': 'grant select on {{ this }} to public'
   })
 }}
 
@@ -27,7 +29,7 @@ seq as (
     order by 1        
 ),
 
-#series as 
+#series as
 
 (select num from seq where num <= datediff('m', ((select substring(getdate()-7,1,11)||'00:00:02')::TIMESTAMP ), (getdate()::TIMESTAMP))/5+1),
 
@@ -41,11 +43,11 @@ inter AS
        
        
 llog AS (
-        select premiere_date,external_id,title,segmenttype,content_duration, seg_num, milestone,matchtype,
+        select airdate,external_id,series_episode as title,segmenttype,content_duration, seg_num, milestone,matchtype,
 		talentactions,move,finishtype,additionaltalent, venuelocation,venuename,state,   
 		in_time_est :: timestamp as begindate, out_time_est :: timestamp as enddate,
          (lead(in_time_est, 1) OVER (partition by external_id order by in_time_est asc )) as nxt_seg_begindate
-        from {{ref('intm_nplus_event_lite_log_data')}}
+        from {{ref('intm_nplus_event_litelog_live')}}
         ),
  
  #T8 as 		
@@ -67,34 +69,33 @@ inter
 WHERE (inter.intvl_dttm > llog.enddate and inter.intvl_dttm < llog.nxt_seg_begindate)),
 
 #T9 as 
-( 
-select  premiere_date ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
+(
+select  airdate ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
 	  move ,finishtype ,additionaltalent ,venuelocation ,venuename ,state ,begindate ,enddate ,
-nxt_seg_begindate ,intvl_dttm ,
+ nxt_seg_begindate ,intvl_dttm ,
 	 
 	  case when time_interval - lag(time_interval) over(partition by external_id order by time_interval)=0
 	    then (lag(dateadd(sec,-1,time_interval), 1) OVER (partition by external_id order by time_interval asc ))
-
-	    else time_interval end as time_interval
-	 
-    , (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc )) as prev_time_interval
-        from #T8),
-  #T10 as
- (select premiere_date ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
+	    else time_interval end as time_interval,
+	     (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc )) as prev_time_interval
+ from #T8),
+ #T10 as
+ (select airdate ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
 	  move ,finishtype ,additionaltalent ,venuelocation ,venuename ,state ,begindate ,enddate ,
          nxt_seg_begindate ,intvl_dttm ,time_interval,
           case when prev_time_interval-lead(time_interval) over(partition by external_id order by time_interval)=0
 	       then (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc ))
 	   else prev_time_interval end as prev_time_interval
          
-      from #T9) ,
+  from #T9) ,
   #T11 as
-  (select premiere_date ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
+  (select airdate ,external_id ,title ,segmenttype ,content_duration ,seg_num ,milestone ,matchtype ,talentactions ,
 	  move ,finishtype ,additionaltalent ,venuelocation ,venuename ,state ,begindate ,enddate ,
          nxt_seg_begindate ,intvl_dttm ,time_interval,
           case when prev_time_interval-lag(prev_time_interval) over(partition by external_id order by time_interval)=0
 	       then (lag(time_interval, 1) OVER (partition by external_id order by time_interval asc ))
 	   else prev_time_interval end as prev_time_interval
          
-  from #T10)
- select * from #T11
+  from #T10) 
+  select * from #T11    
+ 
