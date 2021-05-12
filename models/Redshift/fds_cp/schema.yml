@@ -876,3 +876,47 @@ models:
           description: stores the gender of the talent
         - name: status
           description: Stores status as active if the brand is active in last month. Else inactive
+
+  - name: rpt_cp_daily_competitive_followership
+    description: '{{ doc("rpt_cp_daily_competitive_followership") }}'
+    columns:
+        - name: platform
+          description: stores the name of platform
+        - name: brand
+          description: gives the name of the account or profile/page
+        - name: as_on_date
+          description: represents the date corresponding
+        - name: country_cd
+          description: stores country code
+        - name: country_nm
+          description: stores country name
+        - name: region_nm
+          description: stores the region name
+        - name: followers
+          description: Stores the cumulative followership count for the platform
+  - name: rpt_cp_daily_competitive_engagements
+    description: '{{ doc("rpt_cp_daily_competitive_engagements") }}'
+    columns:
+        - name: platform
+          description: stores the name of platform
+        - name: brand
+          description: gives the name of the account or profile/page
+        - name: as_on_date
+          description: represents the date corresponding
+        - name: engagements
+          description: Stores the sum of engagements 
+  - name: rpt_cp_daily_competitive_viewership
+    description: '{{ doc("rpt_cp_daily_competitive_viewership") }}'
+    columns:
+        - name: platform
+          description: stores the name of platform
+        - name: brand
+          description: gives the name of the account or profile/page
+        - name: as_on_date
+          description: represents the date corresponding
+        - name: category
+          description: name of category - sports or regular 
+        - name: view_time
+          description: watch time duration 
+        - name: views
+          description: sum of views 
