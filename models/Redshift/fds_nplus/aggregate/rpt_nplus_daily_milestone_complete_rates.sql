@@ -10,7 +10,7 @@
 select    type,
 	  external_id,
 	  title,
-	  premiere_date,
+	  cast(premiere_date as date) premiere_date,
 	  complete_rate,
 	  viewers_count,
 	  'DBT_'+TO_CHAR(SYSDATE,'YYYY_MM_DD_HH_MI_SS')+'_content' as etl_batch_id,
