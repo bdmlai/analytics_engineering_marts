@@ -33,6 +33,8 @@ sources:
       - name: dim_country
       - name: dim_venue
       - name: lookup_table
+      - name: dim_media
+
   - name: fds_yt
     tables:
        - name: rpt_yt_wwe_engagement_daily
@@ -66,6 +68,8 @@ sources:
        - name: aggr_monthly_subs_cohort_viewership
        - name: fact_daily_content_viewership
        - name: rpt_network_ppv_liveplusvod
+       - name: rpt_network_weekly_bump_history
+       - name: rpt_network_weekly_bump_live
        - name: fact_daily_viewership
        - name: AGGR_MONTHLY_DVC_PLATFORM_CNTRY_VIEWERSHIP
        - name: AGGR_TOTAL_SUBSCRIPTION
@@ -82,6 +86,7 @@ sources:
        - name: aggr_monthly_seriesgroup_viewership
        - name: aggr_monthly_class_debutyear_viewership
        - name: aggr_monthly_seriesgroup_debutyear_viewership
+       - name: fact_daily_subscriber_status
         
   - name: dwh_read_write
     tables:
@@ -146,6 +151,9 @@ sources:
        - name: rpt_cp_monthly_social_overview
        - name: rpt_cp_monthly_global_consumption_by_platform
        - name: rpt_cp_weekly_consolidated_kpi
+       - name: rpt_cp_daily_competitive_viewership
+       - name: rpt_cp_daily_competitive_followership
+       - name: rpt_cp_daily_competitive_engagements
   - name: fds_kntr
     tables:
        - name: fact_kntr_wwe_telecast_data
@@ -199,6 +207,24 @@ sources:
   - name: hive_udl_pii
     tables:
       - name: restricted_jde_daily_address_by_date_f0116
+      
+  - name: hive_udl_fb
+    tables:
+      - name: facebook_post_full_analytics      
+      - name: facebook_video_full_analytics
+      
+  - name: hive_udl_tw
+    tables:
+      - name: twitter_post_metrics_tweets_full_analytics
+      
+  - name: hive_udl_ig
+    tables:
+      - name: instagram_post_full_analytics   
+      
+  - name: hive_udl_co
+    tables:
+      - name: cross_channel_full_overview        
+      
   - name: udl_pii
     tables: 
       - name: restricted_cpg_clientbase_monthly_shipment
@@ -254,6 +280,7 @@ sources:
       - name: radial_monthly_order_return
       - name: radial_monthly_payment_refund
       - name: raw_amazon_monthly_payments
+      - name: cpg_shopify_daily_order_refunds
       - name: ga_cpg_daily_sessions
       
   - name: hive_udl_nl
@@ -269,6 +296,7 @@ sources:
   - name: udl_cp
     tables:
       - name: raw_storyline_daily_nielsen_social_litelog
+      - name: live_daily_bump_shows
       
   - name: prod_entdwdb.fds_nl
     database: prod_entdwdb
@@ -305,6 +333,7 @@ sources:
   - name: hive_udl_ads
     tables:
       - name: conviva_daily_pulse
+      - name: ads_daily_sponsorship_campaign
   - name: hive_udl_sb
     tables:
       - name: sb_daily_social_platform_profile
@@ -316,4 +345,7 @@ sources:
       - name: sb_daily_instagram_post_insights
       - name: sb_daily_twitter_page_metrics
       - name: sb_daily_youtube_page_metrics
-      - name: sb_daily_youtube_post_metrics      
+      - name: sb_daily_youtube_post_metrics
+  - name: hive_ml_clu_sum
+    tables:
+      - name: process_data      

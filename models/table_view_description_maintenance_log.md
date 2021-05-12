@@ -1620,6 +1620,8 @@
 
 ## Maintenance Log
 * Date : 12/07/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of cpg royalty report finance.
+
+* Date : 05/10/2021 ; Developer: Rahul Chandran ; Change: Added the changes to support SHOPIFY records.
 {% enddocs %}
 
 {% docs vw_rpt_cpg_monthly_royalty %}
@@ -1660,7 +1662,7 @@
 
 ## Maintenance Log
 * Date : 11/13/2020 ; PSTA-1812 Developer: Sandeep Battula ; Change: Initial Version as a part of Monthly Social reporting.
-* Date : 16/02/2021 ; PSTA-2365 Developer: Enhancements done to the Monthly Social reporting table to add new metric - Engagement_per_1k for social platforms - Facebook, Instagram and Twitter.
+* Date : 05/05/2021 ; PSTA-2365 Developer: Enhancements done to the Monthly Social reporting table to add new metric - Engagement_per_1k for social platforms - Facebook, Instagram and Twitter.
 {% enddocs %}
 
 {% docs vw_rpt_cp_weekly_social_followers_by_account %}
@@ -2680,3 +2682,78 @@ and another language for Pay per view (PPV) Events.
 ## Maintenance Log
 * Date : 5/4/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
 {% enddocs %}
+
+{% docs rpt_tw_daily_ml_clu_sum_process_data %}
+## Implementation Detail
+* Date        : 5/4/2021
+* Version     : 1.0
+* ViewName    : rpt_tw_daily_ml_clu_sum_process_data
+* Schema	  : fds_tw
+* Contributor : Remya K Nair
+* Description : Table created for Show conversation report
+## Maintenance Log
+* Date : 5/4/2021 ; Developer: Remya K Nair; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_tw_daily_ml_clu_sum_process_data %}
+## Implementation Detail
+* Date        : 5/4/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_tw_daily_ml_clu_sum_process_data
+* Schema	  : fds_tw
+* Contributor : Remya K Nair
+* Description : View created for Show conversation report
+## Maintenance Log
+* Date : 5/4/2021 ; Developer: Remya K Nair; Change: Initial Version 
+{% enddocs %}
+
+{% docs rpt_cp_daily_competitive_followership %}
+## Implementation Detail
+* Date        : 04/29/2021
+* Version     : 1.0
+* TableName   : rpt_cp_daily_competitive_followership
+* Schema   	: fds_cp
+* Contributor : Sandeep Battula
+* Description : This table has the followership data for competitibve brands from platforms - facebook , instagram,
+*  twitter and youtube
+## Maintenance Log
+* Date : 4/29/2021 ; Developer: Sandeep Battula; Change: Initial Version 
+{% enddocs %}
+
+{% docs rpt_cp_daily_competitive_viewership %}
+## Implementation Detail
+* Date        : 04/29/2021
+* Version     : 1.0
+* TableName   : rpt_cp_daily_competitive_viewership
+* Schema   	: fds_cp
+* Contributor : Sandeep Battula
+* Description : This table has the viewership data for competitibve brands from platforms - facebook , instagram  and youtube
+## Maintenance Log
+* Date : 4/29/2021 ; Developer: Sandeep Battula; Change: Initial Version 
+{% enddocs %} 
+
+{% docs rpt_cp_daily_competitive_engagements %}
+## Implementation Detail
+* Date        : 04/29/2021
+* Version     : 1.0
+* TableName   : rpt_cp_daily_competitive_engagements
+* Schema   	: fds_cp
+* Contributor : Sandeep Battula
+* Description : This table has the engagement data for competitibve brands from platforms - facebook , instagram, twitter and youtube
+## Maintenance Log
+* Date : 4/29/2021 ; Developer: Sandeep Battula; Change: Initial Version 
+{% enddocs %} 
+
+{% docs rpt_network_weekly_bump_live %}
+## Implementation Detail
+* Date        : 05/11/2021
+* Version     : 1.0
+* TableName   : rpt_network_weekly_bump_live
+* Schema   	: fds_nplus
+* Contributor : Lakshmanan Murugesan
+* Description : This table has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
+## Maintenance Log
+* Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+{% enddocs %} 
+
+
