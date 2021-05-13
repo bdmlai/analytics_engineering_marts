@@ -8,7 +8,7 @@
 SELECT t1.*,
          t2.filter_name AS audience_type,
         t2.plays_upp AS concurrent_plays
-FROM {{ref('intm_nplus_aa_impressions_raweventlog_encompass_join_time')}} t1
+FROM {{ref('intm_nplus_aa_impressions_raweventlog_encompass')}} t1
 LEFT JOIN 
     (SELECT filter_name,
         concurrent_plays,

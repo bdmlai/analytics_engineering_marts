@@ -9,7 +9,11 @@
 
 
 SELECT *,
-         'DBT_'+To_char(sysdate,'YYYY_MM_DD_HH_MI_SS')+'_NPLUS' AS etl_batch_id, 'bi_dbt_user_prd' AS etl_insert_user_id, sysdate etl_insert_rec_dttm, '' etl_update_user_id, sysdate etl_update_rec_dttm
+         'DBT_'+To_char(sysdate,'YYYY_MM_DD_HH_MI_SS')+'_NPLUS' AS etl_batch_id,
+	 'bi_dbt_user_prd' AS etl_insert_user_id,
+	 sysdate etl_insert_rec_dttm, 
+	 '' etl_update_user_id,
+	 sysdate etl_update_rec_dttm
 FROM 
     (SELECT start_date,
          start_time,
