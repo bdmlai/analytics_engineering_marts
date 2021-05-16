@@ -3,16 +3,16 @@
 		"schema": 'fds_nplus',
 		"materialized": 'incremental','tags': "rpt_nplus_daily_live_streams", "persist_docs": {'relation' : true, 'columns' : true},
 		"post-hook": ['grant select on {{this}} to public', 
-        'drop table fds_nplus.intm_nplus_viewershipdata_with_externalid_live',
-		'drop table fds_nplus.intm_nplus_event_litelog_live',		
-		'drop table fds_nplus.intm_nplus_daily_viewership_sequence_generator_live',
-		'drop table fds_nplus.intm_nplus_timeintervals_minmaxtime_live',
-		'drop table fds_nplus.intm_nplus_fans_first_section_live',
-		'drop table fds_nplus.intm_nplus_fans_second_section_live',
-		'drop table fds_nplus.intm_nplus_fans_in_both_section_live',
-		'drop table fds_nplus.intm_nplus_count_all_fans_first_section_live',
-		'drop table fds_nplus.intm_nplus_users_added_live',
-		'drop table fds_nplus.intm_nplus_live_streams_users_metrics']
+        'drop table dt_prod_support.intm_nplus_viewershipdata_with_externalid_live',
+		'drop table dt_prod_support.intm_nplus_event_litelog_live',		
+		'drop table dt_prod_support.intm_nplus_daily_viewership_sequence_generator_live',
+		'drop table dt_prod_support.intm_nplus_timeintervals_minmaxtime_live',
+		'drop table dt_prod_support.intm_nplus_fans_first_section_live',
+		'drop table dt_prod_support.intm_nplus_fans_second_section_live',
+		'drop table dt_prod_support.intm_nplus_fans_in_both_section_live',
+		'drop table dt_prod_support.intm_nplus_count_all_fans_first_section_live',
+		'drop table dt_prod_support.intm_nplus_users_added_live',
+		'drop table dt_prod_support.intm_nplus_live_streams_users_metrics']
   })
 }}
 
