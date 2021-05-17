@@ -2,7 +2,7 @@
   config({
 		"schema": 'fds_nplus',
 		"materialized": 'incremental','tags': "rpt_nplus_daily_nxt_tko_streams", "persist_docs": {'relation' : true, 'columns' : true},
-		"post-hook": ['grant select on {{this}} to public', 'drop table fds_nplus.intm_nplus_nxt_tko_streams_users_metrics']
+		"post-hook": ['grant select on {{this}} to public', 'drop table dt_prod_support.intm_nplus_nxt_tko_streams_users_metrics']
   })
 }}
 select premiere_date ,

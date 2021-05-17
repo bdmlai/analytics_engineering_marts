@@ -13,6 +13,7 @@ where a.external_id = c.external_id and (c.min_time <= a.time_interval)
 
 (select users_added from {{ref('intm_nplus_live_streams_users_metrics')}} b where a.external_id = b.external_id
   and a.time_interval=b.time_interval
+  and a.prev_time_interval=b.prev_time_interval
 )as users_added,
 
 	
