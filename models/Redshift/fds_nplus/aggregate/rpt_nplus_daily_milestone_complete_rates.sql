@@ -3,8 +3,8 @@
 		"schema": 'fds_nplus',               
 		"materialized": 'incremental','tags': "rpt_nplus_daily_milestone_complete_rates", "persist_docs": {'relation' : true, 'columns' : true},
 		"post-hook": ['grant select on {{this}} to public',
-		'drop table fds_nplus.intm_nplus_viewershipdata_with_externalid_live',
-		'drop table fds_nplus.intm_nplus_event_litelog_live']
+		'drop table dt_prod_support.intm_nplus_viewershipdata_with_externalid_live',
+		'drop table dt_prod_support.intm_nplus_event_litelog_live']
   })
 }}
 select    type,

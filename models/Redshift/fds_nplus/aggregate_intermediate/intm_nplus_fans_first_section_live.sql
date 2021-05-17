@@ -1,6 +1,6 @@
 {{
   config({
-		"schema": 'fds_nplus',
+		"schema": 'dt_prod_support',
 		"materialized": 'table','tags': "rpt_nplus_daily_live_streams", 
 		'post-hook': 'grant select on {{ this }} to public'
   })
