@@ -2321,7 +2321,7 @@
 *   Date        : 03/12/2021
 *   Version     : 1.0
 *   TableName   : rpt_le_daily_thunderdome_status
-*   Schema	    : fds_le
+*   Schema	    : fds_pii
 *   Contributor : Rahul Chandran
 *   Description : Daily Thunderdome Status Report Table provides details of customers who registed, attended and attempted to attend for Thunderdome
 
@@ -2334,7 +2334,7 @@
 *   Date        : 03/12/2021
 *   Version     : 1.0
 *   ViewName    : vw_rpt_le_daily_thunderdome_status
-*   Schema	    : fds_le
+*   Schema	    : fds_pii
 *   Contributor : Rahul Chandran
 *   Description : Daily Thunderdome Status Report view provides details of customers who registed, attended and attempted to attend for Thunderdome referencing from Daily Thunderdome Status Report Table
 
@@ -2546,6 +2546,19 @@ and another language for Pay per view (PPV) Events.
 * Date : 04/22/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
 {% enddocs %}
 
+{% docs rpt_kntr_monthly_india_wca_data %}
+## Implementation Detail
+*   Date        : 05/13/2021
+*   Version     : 1.0
+*   ViewName    : rpt_kntr_monthly_india_wca_data
+*   Schema	    : fds_kntr
+*   Contributor : Bharath Sainath
+*   Description : This view contains month level Average Weekly Cumulative,Telecast Hours and Viewer Hours for program types sourced from fact_kntr_wwe_telecast_data for India
+
+## Maintenance Log
+* Date : 05/13/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
+{% enddocs %}
+
 {% docs vw_rpt_kntr_monthly_india_ppv_wca_data %}
 ## Implementation Detail
 *   Date        : 04/22/2021
@@ -2557,6 +2570,19 @@ and another language for Pay per view (PPV) Events.
 
 ## Maintenance Log
 * Date : 04/22/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
+{% enddocs %}
+
+{% docs rpt_kntr_monthly_india_ppv_wca_data %}
+## Implementation Detail
+*   Date        : 05/13/2021
+*   Version     : 1.0
+*   ViewName    : rpt_kntr_monthly_india_ppv_wca_data
+*   Schema	    : fds_kntr
+*   Contributor : Bharath Sainath
+*   Description : This view contains month level Average Weekly Cumulative,Telecast Hours and Viewer Hours for PPV event for India.
+
+## Maintenance Log
+* Date : 05/13/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
 {% enddocs %}
 
 {% docs rpt_le_daily_stubhub_events_data %}

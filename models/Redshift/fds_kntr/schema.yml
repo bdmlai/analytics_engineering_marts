@@ -32,8 +32,7 @@ models:
         - name: count_telecast
           description: Total count of telecast
         - name: average_weekly_cumulative_audience_000
-          description: Monthly cumulative Average Rating (of specific demographic selected)
-          
+          description: Monthly cumulative Average Rating (of specific demographic selected)          
   - name: vw_aggr_kntr_quarterly_wwe_program_rating_schedule
     description: '{{ doc("vw_aggr_kntr_quarterly_wwe_program_rating_schedule") }}'
     columns:
@@ -66,8 +65,7 @@ models:
         - name: count_telecast
           description: Total count of telecast
         - name: average_weekly_cumulative_audience_000
-          description: Quarterly cumulative Average Rating (of specific demographic selected)
-          
+          description: Quarterly cumulative Average Rating (of specific demographic selected)          
   - name: vw_aggr_kntr_yearly_wwe_program_rating_schedule
     description: '{{ doc("vw_aggr_kntr_yearly_wwe_program_rating_schedule") }}'
     columns:
@@ -99,7 +97,6 @@ models:
           description: Total count of telecast
         - name: average_weekly_cumulative_audience_000
           description: Yearly cumulative Average Rating (of specific demographic selected)
-
   - name: vw_aggr_kntr_weekly_wwe_program_rating
     description: '{{ doc("vw_aggr_kntr_weekly_wwe_program_rating") }}'
     columns:
@@ -127,7 +124,6 @@ models:
           description: Total count of telecast
         - name: average_weekly_cumulative_audience_000
           description: Monthly cumulative Average Rating (of specific demographic selected)
-
   - name: vw_aggr_kntr_monthly_wwe_program_rating
     description: '{{ doc("vw_aggr_kntr_monthly_wwe_program_rating") }}'
     columns:
@@ -156,9 +152,7 @@ models:
         - name: count_telecast
           description: Total count of telecast
         - name: average_weekly_cumulative_audience_000
-          description: Monthly cumulative Average Rating (of specific demographic selected)
-
-          
+          description: Monthly cumulative Average Rating (of specific demographic selected)          
   - name: vw_aggr_kntr_quarterly_wwe_program_rating
     description: '{{ doc("vw_aggr_kntr_quarterly_wwe_program_rating") }}'
     columns:
@@ -187,8 +181,7 @@ models:
         - name: count_telecast
           description: Total count of telecast
         - name: average_weekly_cumulative_audience_000
-          description: Quarterly cumulative Average Rating (of specific demographic selected)
-          
+          description: Quarterly cumulative Average Rating (of specific demographic selected)          
   - name: vw_aggr_kntr_yearly_wwe_program_rating
     description: '{{ doc("vw_aggr_kntr_yearly_wwe_program_rating") }}'
     columns:
@@ -216,7 +209,6 @@ models:
           description: Total count of telecast
         - name: average_weekly_cumulative_audience_000
           description: Yearly cumulative Average Rating (of specific demographic selected)
-
   - name: aggr_kntr_weekly_competitive_program_ratings
     description: '{{ doc("aggr_kntr_weekly_competitive_program_ratings") }}'
     columns:     
@@ -271,8 +263,7 @@ models:
         - name: etl_update_user_id          
           description: Unique ID of the DBT user which was used to update the record manually
         - name: etl_update_rec_dttm          
-          description: Date Time information on when the record was updated
-          
+          description: Date Time information on when the record was updated          
   - name: vw_aggr_kntr_weekly_competitive_program_ratings
     description: '{{ doc("vw_aggr_kntr_weekly_competitive_program_ratings") }}'
     columns:     
@@ -298,7 +289,6 @@ models:
           description: Count of Telecasts of competitive program on weekly-basis
         - name: average_weekly_cumulative_audience_000
           description: The weekly cumulative Audience who watched the competitive program
-
   - name: vw_aggr_kntr_monthly_competitive_program_ratings
     description: '{{ doc("vw_aggr_kntr_monthly_competitive_program_ratings") }}'
     columns:     
@@ -326,7 +316,6 @@ models:
           description: Count of Telecasts of competitive program on monthly-basis
         - name: average_weekly_cumulative_audience_000
           description: The average weekly cumulative Audience who watched the competitive program on monthly-basis
-
   - name: vw_aggr_kntr_quarterly_competitive_program_ratings
     description: '{{ doc("vw_aggr_kntr_quarterly_competitive_program_ratings") }}'
     columns:     
@@ -354,7 +343,6 @@ models:
           description: Count of Telecasts of competitive program on quarterly-basis
         - name: average_weekly_cumulative_audience_000
           description: The average weekly cumulative Audience who watched the competitive program on quarterly-basis
-
   - name: vw_aggr_kntr_yearly_competitive_program_ratings
     description: '{{ doc("vw_aggr_kntr_yearly_competitive_program_ratings") }}'
     columns:     
@@ -379,8 +367,7 @@ models:
         - name: telecasts_count
           description: Count of Telecasts of competitive program on yearly-basis
         - name: average_weekly_cumulative_audience_000
-          description: The average weekly cumulative Audience who watched the competitive program on yearly-basis
-          
+          description: The average weekly cumulative Audience who watched the competitive program on yearly-basis          
   - name: rpt_kntr_schedule_vh_data
     description: '{{ doc("rpt_kntr_schedule_vh_data") }}'
     columns:     
@@ -458,7 +445,6 @@ models:
           description: Unique ID of the DBT user which was used to update the record manually
         - name: etl_update_rec_dttm          
           description: Date Time information on when the record was updated
-
   - name: vw_rpt_kntr_schedule_vh_data
     description: '{{ doc("vw_rpt_kntr_schedule_vh_data") }}'
     columns:     
@@ -518,7 +504,6 @@ models:
           description: The viewing hours of WWE program by specified demographic group
         - name: regional_viewing_hours
           description: The regional viewing hours of the demographic group on monthly-basis
-
   - name: vw_aggr_kntr_schedule_wca_data
     description: '{{ doc("vw_aggr_kntr_schedule_wca_data") }}'
     columns:     
@@ -575,4 +560,74 @@ models:
           description: Broad descriptor for Age Demos (ie P2+, P2-17, P50-99, etc) and Gender Split Demos (ie M2+, F2+)
         - name: viewing_hours
           description: Average monthly viewing Hours by specified demographic group
-        
+  - name: rpt_kntr_monthly_india_wca_data
+    description: '{{ doc("rpt_kntr_monthly_india_wca_data") }}'
+    columns:
+        - name: src_country
+          description: The country from where the WWE program is telecasted
+        - name: series_name
+          description: Indicates WWE series name
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: rpt_yr
+          description: Year based on week ending date
+        - name: rpt_mn
+          description: Month based on week_ending_date
+        - name: live_flag
+          description: Indicates whether the series was live or not_null
+        - name: metric
+          description: Contains AWCA, Telecast Hours and Viewer Hours
+        - name: value
+          description: Contains value associated with the metric  
+  - name: vw_rpt_kntr_monthly_india_wca_data
+    description: '{{ doc("vw_rpt_kntr_monthly_india_wca_data") }}'
+    columns:
+        - name: src_country
+          description: The country from where the WWE program is telecasted
+        - name: series_name
+          description: Indicates WWE series name
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: rpt_yr
+          description: Year based on week ending date
+        - name: rpt_mn
+          description: Month based on week_ending_date
+        - name: live_flag
+          description: Indicates whether the series was live or not_null
+        - name: metric
+          description: Contains AWCA, Telecast Hours and Viewer Hours
+        - name: value
+          description: Contains value associated with the metric 
+  - name: rpt_kntr_monthly_india_ppv_wca_data 
+    description: '{{ doc("rpt_kntr_monthly_india_ppv_wca_data") }}'
+    columns:
+        - name: src_country
+          description: The country from where the WWE program is telecasted
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: rpt_yr
+          description: Year based on week ending date
+        - name: rpt_mn
+          description: Month based on week_ending_date
+        - name: metric
+          description: Contains AWCA, Telecast Hours and Viewer Hours
+        - name: value
+          description: Contains value associated with the metric          
+  - name: vw_rpt_kntr_monthly_india_ppv_wca_data 
+    description: '{{ doc("vw_rpt_kntr_monthly_india_ppv_wca_data") }}'
+    columns:
+        - name: src_country
+          description: The country from where the WWE program is telecasted
+        - name: broadcast_network_prem_type
+          description: Indicates whether the channel is Pay / Free To Air
+        - name: rpt_yr
+          description: Year based on week ending date
+        - name: rpt_mn
+          description: Month based on week_ending_date
+        - name: metric
+          description: Contains AWCA, Telecast Hours and Viewer Hours
+        - name: value
+          description: Contains value associated with the metric
+  
+          
+         
