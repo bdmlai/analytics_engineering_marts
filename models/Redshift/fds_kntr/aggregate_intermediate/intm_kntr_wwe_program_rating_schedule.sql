@@ -7,9 +7,9 @@
 }}
 
 select  week_Start_date,
-        extract(month from week_Start_date) as cal_month,
-        extract(quarter from week_Start_date) as cal_quarter,
-        extract(year from week_Start_date) as cal_year,
+        extract(month from week_Start_date+6) as cal_month,
+        extract(quarter from week_Start_date+6) as cal_quarter,
+        extract(year from week_Start_date+6) as cal_year,
         src_country,
         src_channel,
         series_name,

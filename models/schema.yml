@@ -87,6 +87,7 @@ sources:
        - name: aggr_monthly_class_debutyear_viewership
        - name: aggr_monthly_seriesgroup_debutyear_viewership
        - name: fact_daily_subscriber_status
+       - name: drvd_intra_hour_quarter_hour_adds
         
   - name: dwh_read_write
     tables:
@@ -334,6 +335,7 @@ sources:
     tables:
       - name: conviva_daily_pulse
       - name: ads_daily_sponsorship_campaign
+      - name: ads_daily_csr_campaign
   - name: hive_udl_sb
     tables:
       - name: sb_daily_social_platform_profile
