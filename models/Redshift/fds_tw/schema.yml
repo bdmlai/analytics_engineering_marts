@@ -25,3 +25,38 @@ models:
           description: content published post time seconds
         - name: as_on_date
           description: Record as-on date
+  - name: rpt_tw_daily_ml_clu_sum_process_data
+    description: '{{ doc("rpt_tw_daily_ml_clu_sum_process_data") }}'
+    columns:
+        - name: show_date
+          description: Event Date
+        - name: show_name
+          description: Event Name 
+        - name: segment_name
+          description: Segements available for each event
+        - name: theme
+          description: Name of the theme
+        - name: tweet_count
+          description: total count of tweets against segment and theme
+        - name: reaction_count
+          description: count of reaction_speculation when its value will be recation
+        - name: speculation_count
+          description: count of reaction_speculation when its value will be speculation
+  - name: vw_rpt_tw_daily_ml_clu_sum_process_data
+    description: '{{ doc("vw_rpt_tw_daily_ml_clu_sum_process_data") }}'
+    columns:
+        - name: show_date
+          description: Event Date
+        - name: show_name
+          description: Event Name 
+        - name: segment_name
+          description: Segements available for each event
+        - name: theme
+          description: Name of the theme
+        - name: tweet_count
+          description: total count of tweets against segment and theme
+        - name: reaction_count
+          description: count of reaction_speculation when its value will be recation
+        - name: speculation_count
+          description: count of reaction_speculation when its value will be speculation      
+        
