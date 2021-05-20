@@ -1,0 +1,19 @@
+{{
+  config({
+		"materialized": 'ephemeral'
+  })
+}}
+SELECT
+    *
+FROM
+    {{ref('intm_le_stubhub_events_prior_day')}}
+UNION
+SELECT
+    *
+FROM
+    {{ref('intm_le_stubhub_events_current_day')}}
+UNION
+SELECT
+    *
+FROM
+    {{ref('stg_le_daily_stubhub_events_data')}}
