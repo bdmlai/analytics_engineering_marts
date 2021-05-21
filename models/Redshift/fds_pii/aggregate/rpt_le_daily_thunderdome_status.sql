@@ -1,12 +1,22 @@
 {{
   config({
 		'schema': 'fds_pii',
-		"materialized": 'table','tags': "Phase 5A","persist_docs": {'relation' : true, 'columns' : true},
-		"post-hook": 'grant select on {{this}} to public'
+		"materialized": 'table','tags': "Phase 5A","persist_docs": {'relation' : true, 'columns' : true}
   })
 }}
 select distinct
-    a.*,
+    a.event_id,
+	a.event_name,
+	a.event_date,
+	a.reg_date,
+	a.user_id,
+	a.email,
+	a.country,
+	a.region,
+	a.virtual_seat_attended,
+	a.as_on_date,
+	a.etl_batch_id_source,
+	a.fan_status,
     case
         when b.uid_hit is null
         then 'false'
