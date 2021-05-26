@@ -434,8 +434,419 @@ models:
           description: unique identifier for the event
         - name: data_level
           description: identifier for Live data and Live+VOD data
-  - name: vw_rpt_network_ppv_liveplusvod
-    description: '{{ doc("vw_rpt_network_ppv_liveplusvod") }}'
+          
+  - name: rpt_network_ppv_live
+    description: '{{ doc("rpt_network_ppv_live") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data
+
+  - name: rpt_network_ppv_live_vod
+    description: '{{ doc("rpt_network_ppv_live_vod") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data
+
+  - name: rpt_network_nxt_live
+    description: '{{ doc("rpt_network_nxt_live") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data
+
+  - name: rpt_network_nxt_live_vod
+    description: '{{ doc("rpt_network_nxt_live_vod") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data
+
+  - name: rpt_network_hof_live
+    description: '{{ doc("rpt_network_hof_live") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data
+
+  - name: rpt_network_hof_live_vod
+    description: '{{ doc("rpt_network_hof_live_vod") }}'
+    columns:
+        - name: asset_id
+          description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
+        - name: production_id
+          description: Unique content version level id
+        - name: event
+          description: Event name and year
+        - name: event_name
+          description: Event name
+        - name: event_date
+          description: Date of the event
+        - name: start_time
+          description: start timestamp of the event
+        - name: end_time
+          description: end timestamp of the event
+        - name: platform
+          description: platform name i.e. Facebook, Youtube, etc
+        - name: views
+          description: number of views for the event
+        - name: us_views
+          description: number of views in US for the event
+        - name: minutes
+          description: number of minutes watched
+        - name: per_us_views
+          description: percentage of views in US against overall views
+        - name: prev_month_views
+          description: previous month views
+        - name: prev_month_event
+          description: previous month event name
+        - name: prev_year_views
+          description: previous year views
+        - name: prev_year_event
+          description: previous year event name
+        - name: monthly_per_change_views
+          description: monthly percentage changes in the number of views
+        - name: yearly_per_change_views
+          description: yearly percentage changes in the number of views
+        - name: duration
+          description: duration of the event
+        - name: overall_rank
+          description: overall rank of the event based on the views
+        - name: yearly_rank
+          description: yearly rank of the event based on the views
+        - name: tier
+          description: event tier
+        - name: monthly_color
+          description: color metric for the month
+        - name: yearly_color
+          description: color metric for the year
+        - name: choose_ppv
+          description: prior or most recent ppv
+        - name: event_brand
+          description: event brand i.e. PPV, NXT or Hall of Fame
+        - name: report_name
+          description: name of the report i.e. Kickoff show, The Bump etc
+        - name: series_name
+          description: name of the series
+        - name: account
+          description: account name of the platform
+        - name: url
+          description: platform url of the event 
+        - name: content_wweid
+          description: unique identifier for the event
+        - name: data_level
+          description: identifier for Live data and Live+VOD data
+
+
+          
+  - name: vw_rpt_network_ppv_kickoffshow
+    description: '{{ doc("vw_rpt_network_ppv_kickoffshow") }}'
     columns:
         - name: asset_id
           description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
@@ -1233,3 +1644,124 @@ models:
           description: Indicates country id-numeric
         - name: overlap_viewers
           description: Indicates viewer count who viewed the PPV in English and in the alternate language
+  - name: rpt_nplus_daily_trial_converts
+    description:  '{{ doc("rpt_nplus_daily_trial_converts") }}'   
+    columns:
+        - name: order_date
+          description: Initial order date
+        - name: order_type
+          description: Represents Winback Order or First Order for the customer
+        - name: add_type
+          description: The status of order whether it is 'trial' or 'paid'
+        - name: region
+          description: Indicated region name
+        - name: country
+          description: Indicated country name
+        - name: currency
+          description: Indicates currency code of that country
+        - name: adds
+          description: Total Count of order ID
+        - name: trial_converts
+          description: Count of order ID which has trial start date and first charged date
+  - name: vw_rpt_nplus_daily_trial_converts
+    description:  '{{ doc("vw_rpt_nplus_daily_trial_converts") }}'       
+  - name: rpt_network_weekly_bump_live
+    description:  '{{ doc("rpt_network_weekly_bump_live") }}'   
+    columns:
+        - name: event
+          description: event
+        - name: event_name
+          description: name of the event
+        - name: event_brand
+          description: brand of the event
+        - name: report_name
+          description: name of the report
+        - name: series_name
+          description: name of the series
+        - name: event_date
+          description: date when event happenned
+        - name: start_time
+          description: time when the event started
+        - name: end_time
+          description: time when the event ended
+        - name: platform
+          description: platform name
+        - name: views
+          description: number of views
+        - name: minutes
+          description: number of minutes
+        - name: peak_concurrents
+          description: peak concurrents for facebook and youtube
+        - name: prev_week_views
+          description: previous week views
+        - name: prev_week_event
+          description: previous week event name
+        - name: weekly_per_change_views
+          description: percentage change week over week in views
+        - name: duration
+          description: duration of the event in mins
+        - name: overall_rank
+          description: overall rank of views by platform
+        - name: weekly_color
+          description: color code for the event week
+        - name: choose_event
+          description: denotes the most recent or prior event flag          
+        - name: production_id
+          description: production_id     
+        - name: content_wweid
+          description: content_wweid   
+        - name: data_level
+          description: denotes if its a Live or Live+7 data             
+        - name: weekly_flag
+          description: Indicates if its a regular weekly bump show or a weekend special show
+
+  - name: vw_rpt_network_weekly_bump_live
+    description:  '{{ doc("vw_rpt_network_weekly_bump_live") }}'   
+    columns:
+        - name: event
+          description: event
+        - name: event_name
+          description: name of the event
+        - name: event_brand
+          description: brand of the event
+        - name: report_name
+          description: name of the report
+        - name: series_name
+          description: name of the series
+        - name: event_date
+          description: date when event happenned
+        - name: start_time
+          description: time when the event started
+        - name: end_time
+          description: time when the event ended
+        - name: platform
+          description: platform name
+        - name: views
+          description: number of views
+        - name: minutes
+          description: number of minutes
+        - name: peak_concurrents
+          description: peak concurrents for facebook and youtube
+        - name: prev_week_views
+          description: previous week views
+        - name: prev_week_event
+          description: previous week event name
+        - name: weekly_per_change_views
+          description: percentage change week over week in views
+        - name: duration
+          description: duration of the event in mins
+        - name: overall_rank
+          description: overall rank of views by platform
+        - name: weekly_color
+          description: color code for the event week
+        - name: choose_event
+          description: denotes the most recent or prior event flag          
+        - name: production_id
+          description: production_id     
+        - name: content_wweid
+          description: content_wweid   
+        - name: data_level
+          description: denotes if its a Live or Live+7 data             
+        - name: weekly_flag
+          description: Indicates if its a regular weekly bump show or a weekend special show
+
