@@ -58,6 +58,7 @@ sources:
        - name: aggr_daily_subscription
        - name: aggr_nplus_daily_forcast_output
        - name: fact_daily_subscription_order_status
+       - name: fact_uniques_customer_summary
        - name: vw_fact_daily_dotcom_viewership
        - name: aggr_total_subscription
        - name: aggr_kpi_hist_prod
@@ -68,10 +69,19 @@ sources:
        - name: aggr_monthly_subs_cohort_viewership
        - name: fact_daily_content_viewership
        - name: rpt_network_ppv_liveplusvod
+       - name: vw_rpt_network_ppv_kickoffshow
+       - name: rpt_network_ppv_live
+       - name: rpt_network_ppv_live_vod
+       - name: rpt_network_nxt_live
+       - name: rpt_network_nxt_live_vod
+       - name: rpt_network_hof_live
+       - name: rpt_network_hof_live_vod
        - name: rpt_network_weekly_bump_history
        - name: rpt_network_weekly_bump_live
+       - name: vw_rpt_network_weekly_bump_live
        - name: fact_daily_viewership
        - name: AGGR_MONTHLY_DVC_PLATFORM_CNTRY_VIEWERSHIP
+       - name: FACT_DAILY_SUBSCRIPTION_STATUS_PLUS
        - name: AGGR_TOTAL_SUBSCRIPTION
        - name: dim_content_classification_title
        - name: vw_rpt_network_daily_subscription_kpis
@@ -133,6 +143,8 @@ sources:
     tables:
        - name: drvd_intra_hour_quarter_hour_adds
        - name: raw_da_weekly_ppv_hourly_comps
+       - name: raw_conviva_pulse_realtime
+       - name: raw_da_weekly_live_vod_kickoff_show_dashboard
        - name: raw_lite_log
        - name: raw_post_event_log
        - name: stg_dice_stream_flattened
@@ -266,6 +278,9 @@ sources:
   - name: fds_da
     tables:
       - name: dm_digital_kpi_datamart_monthly_topline
+      - name: dm_digital_kpi_datamart_monthly_website
+      - name: dm_digital_kpi_datamart_monthly_website_scroll
+      - name: dm_digital_kpi_datamart_monthly_website_uniques
   - name: hive_udl_cp
     tables:
       - name: daily_social_account_country_mapping
