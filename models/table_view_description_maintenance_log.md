@@ -560,17 +560,95 @@
 {% enddocs %}
 
 
-{% docs vw_rpt_network_ppv_liveplusvod %}
+{% docs vw_rpt_network_ppv_kickoffshow %}
 ## Implementation Detail
-*   Date        : 07/28/2020
+*   Date        : 05/19/2021
 *   Version     : 1.0
-*   ViewName    : vw_rpt_network_ppv_liveplusvod
-*   Schema	: fds_nplus
+*   ViewName    : vw_rpt_network_ppv_kickoffshow
+*   Schema		: fds_nplus
 *   Contributor : Lakshmanan Murugesan
-*   Description : View contains the information related to Live NXT and HOF evenet
+*   Description : View contains the information related to PPV, NXT and HOF kickoff show viewership
 
 ## Maintenance Log
-* Date : 07/28/2020 ; Developer: Lakshmanan Murugesan ; DBT & Python Automation: Sudhakar; Change: Initial Version
+* Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_network_ppv_live %}
+## Implementation Detail
+*   Date        : 05/19/2021
+*   Version     : 1.0
+*   ViewName    : rpt_network_ppv_live
+*   Schema		: fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : View contains the information related to PPV Live kickoff show viewership
+
+## Maintenance Log
+* Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_network_ppv_live_vod %}
+## Implementation Detail
+*   Date        : 05/19/2021
+*   Version     : 1.0
+*   ViewName    : rpt_network_ppv_live_vod
+*   Schema		: fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : View contains the information related to PPV Live+VOD kickoff show viewership
+
+## Maintenance Log
+* Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_network_nxt_live %}
+## Implementation Detail
+*   Date        : 05/19/2021
+*   Version     : 1.0
+*   ViewName    : rpt_network_nxt_live
+*   Schema		: fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : View contains the information related to NXT Live kickoff show viewership
+
+## Maintenance Log
+* Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_network_nxt_live_vod %}
+## Implementation Detail
+*   Date        : 05/19/2021
+*   Version     : 1.0
+*   ViewName    : rpt_network_nxt_live_vod
+*   Schema		: fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : View contains the information related to NXT Live+VOD kickoff show viewership
+
+## Maintenance Log
+* Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_network_hof_live %}
+## Implementation Detail
+*   Date        : 05/19/2021
+*   Version     : 1.0
+*   ViewName    : rpt_network_hof_live
+*   Schema		: fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : View contains the information related to Hall of Fame Live kickoff show viewership
+
+## Maintenance Log
+* Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_network_hof_live_vod %}
+## Implementation Detail
+*   Date        : 05/19/2021
+*   Version     : 1.0
+*   ViewName    : rpt_network_hof_live_vod
+*   Schema		: fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : View contains the information related to Hall of Fame Live+VOD kickoff show viewership
+
+## Maintenance Log
+* Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
 {% enddocs %}
 
 
@@ -2570,6 +2648,7 @@ and another language for Pay per view (PPV) Events.
 
 ## Maintenance Log
 * Date : 04/22/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
+* Date : 05/24/2021 ; Developer: Bharath Sainath ; Change: Enhancement to change source table to get ppv records from dim_event table.
 {% enddocs %}
 
 {% docs rpt_kntr_monthly_india_ppv_wca_data %}
@@ -2582,7 +2661,8 @@ and another language for Pay per view (PPV) Events.
 *   Description : This view contains month level Average Weekly Cumulative,Telecast Hours and Viewer Hours for PPV event for India.
 
 ## Maintenance Log
-* Date : 05/13/2021 ; Developer: Bharath Sainath ; Change: Initial Version .
+* Date : 05/13/2021 ; Developer: Bharath Sainath ; Change: Initial Version.
+* Date : 05/24/2021 ; Developer: Bharath Sainath ; Change: Enhancement to change source table to get ppv records from dim_event table.
 {% enddocs %}
 
 {% docs rpt_le_daily_stubhub_events_data %}
@@ -2780,6 +2860,30 @@ and another language for Pay per view (PPV) Events.
 * Description : This table has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
 ## Maintenance Log
 * Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+{% enddocs %} 
+
+{% docs vw_rpt_network_weekly_bump_live %}
+## Implementation Detail
+* Date        : 05/11/2021
+* Version     : 1.0
+* TableName   : vw_rpt_network_weekly_bump_live
+* Schema   	: fds_nplus
+* Contributor : Lakshmanan Murugesan
+* Description : This view has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
+## Maintenance Log
+* Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+{% enddocs %} 
+
+{% docs rpt_digital_monthly_wwe_com_website_kpis %}
+## Implementation Detail
+* Date        : 05/20/2021
+* Version     : 1.0
+* TableName   : rpt_digital_monthly_wwe_com_website_kpis
+* Schema   	: fds_da
+* Contributor : Smitha Acharya
+* Description : This table has wwe.com website traffic and engagement metrics
+## Maintenance Log
+* Date : 5/20/2021 ; Developer: Smitha Acharya; Change: Initial Version 
 {% enddocs %} 
 
 
