@@ -11,4 +11,4 @@ FROM
         SELECT DISTINCT
             to_date(as_on_date, 'yyyymmdd') AS as_on_date_2
         FROM
-            {{source('hive_udl_le','le_stubhub_all_events')}})
+            {{source('hive_udl_le','le_daily_stubhub_all_events')}})
