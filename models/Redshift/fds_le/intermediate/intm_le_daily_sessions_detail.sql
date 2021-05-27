@@ -19,7 +19,7 @@ from
 		uid_hit,
 		visit_id_calc
 	 from 
-		{{ref('intm_pii_daily_hit_sessions')}}
+		{{ref('intm_le_daily_hit_sessions')}}
 	 where rank_session = 1) a
 left join
 	{{source('hive_udl_le','ga_le_daily_sessions')}} b

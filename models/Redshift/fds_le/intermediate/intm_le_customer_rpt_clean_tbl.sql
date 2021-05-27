@@ -14,17 +14,22 @@ select
     reg_date,
     user_id,
     email,
+	d.dim_mkt_fan_email_library_id,
     country,
     region,
     virtual_seat_attended,
-    as_on_date,
+    a.as_on_date,
     etl_batch_id_source
 from
-    {{ref('intm_pii_customer_rpt_tbl')}} a
+    {{ref('intm_le_customer_rpt_tbl')}} a
 join
     {{source('cdm','dim_date')}} b
 on
     a.event_date = b.full_date
+join
+    {{source('fds_pii','dim_mkt_fan_email_library')}} d
+on
+    lower(trim(a.email)) = lower(trim(d.fan_email_id))
 left join
 	(select distinct lkp_code, lkp_description
 	 from {{source('cdm','lookup_table')}}

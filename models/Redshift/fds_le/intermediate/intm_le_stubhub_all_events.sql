@@ -12,7 +12,7 @@ SELECT
     b.as_on_date_2,
     b.as_on_date_rank
 FROM
-    {{source('hive_udl_le','le_stubhub_all_events')}} a
+    {{source('hive_udl_le','le_daily_stubhub_all_events')}} a
 LEFT JOIN
     {{ref('intm_le_stubhub_as_on_date_rank')}} b
 ON

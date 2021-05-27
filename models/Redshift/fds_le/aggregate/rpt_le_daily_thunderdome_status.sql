@@ -1,7 +1,9 @@
 {{
   config({
-		'schema': 'fds_pii',
-		"materialized": 'table','tags': "Phase 5A","persist_docs": {'relation' : true, 'columns' : true}
+		'schema': 'fds_le',
+		"materialized": 'table','tags': "Phase 5A",
+		"persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook": 'grant select on {{this}} to public'
   })
 }}
 select distinct
@@ -10,7 +12,7 @@ select distinct
 	a.event_date,
 	a.reg_date,
 	a.user_id,
-	a.email,
+	a.dim_mkt_fan_email_library_id,
 	a.country,
 	a.region,
 	a.virtual_seat_attended,
@@ -32,12 +34,12 @@ select distinct
     ('DBT_' || to_char(sysdate, 'YYYY_MM_DD_HH_MI_SS') || '_5A') as etl_batch_id,
     'bi_dbt_user_prd'                                            as etl_insert_user_id,
     sysdate                                                      as etl_insert_rec_dttm,
-    null                                                         as etl_update_user_id,
+    cast(null as varchar(15))                                    as etl_update_user_id,
     cast(null as timestamp)                                      as etl_update_rec_dttm
 from
-    {{ref('intm_pii_fan_status_rpt')}} a
+    {{ref('intm_le_fan_status_rpt')}} a
 left join
-    {{ref('intm_pii_daily_sessions_detail')}} b
+    {{ref('intm_le_daily_sessions_detail')}} b
 on
     a.event_date = b.date
 and a.user_id    = b.uid_hit
