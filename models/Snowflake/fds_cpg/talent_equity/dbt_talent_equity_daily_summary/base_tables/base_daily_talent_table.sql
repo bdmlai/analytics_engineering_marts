@@ -45,8 +45,8 @@ with source_data AS
         'character_lineages' AS entity_type, character_lineage_id AS entity_id,gender
                 FROM {{source('sf_fds_mdm','character')}}
                 WHERE enabled=true --PSTA-3481 enabled
-                UNION
-                allSELECT group_name,
+                UNION all
+                SELECT group_name,
         character_lineage_name,
         character_lineage_wweid,
         'group_lineages' AS entity_type, character_lineage_mdmid AS entity_id,null AS gender
