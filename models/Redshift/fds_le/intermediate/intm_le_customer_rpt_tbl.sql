@@ -55,6 +55,7 @@ on
 and a.as_on_date = b.as_on_date
 where
     a.created_timestamp is not null and
+	trim(lower(a.email)) not like 'gdpr_r%' and
     lower(trim(a.event_id))not like '%test%' and
 	lower(trim(a.event_id))not like '%mock%' and
 	lower(trim(a.event_id))not like '%integration%' and

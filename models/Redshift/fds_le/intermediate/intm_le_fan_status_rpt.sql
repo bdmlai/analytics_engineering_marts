@@ -21,7 +21,7 @@ select
         else '04. Non-Network User - Present in database'
     end as fan_status
 from
-    {{ref('intm_pii_customer_rpt_clean_tbl')}} a
+    {{ref('intm_le_customer_rpt_clean_tbl')}} a
 left join
     {{source('fds_pii','fc_fan_variables_consolidated')}} b
 on
