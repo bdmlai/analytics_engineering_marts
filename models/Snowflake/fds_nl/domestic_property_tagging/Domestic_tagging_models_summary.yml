@@ -1,0 +1,318 @@
+version: 2
+
+models:
+
+    - name: base_weekly_domestic_tagging
+      description: Gives all the TV information needed for domestic tagging   
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+            tests:               
+            - not_null
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+            tests:
+            - not_null 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day              
+
+    - name: intm_weekly_domestic_tagging_nascar
+      description: gives data related to NASCAR with other attributes(calendardayofweekname,season etc)    
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day 
+          - name: ATT_SHOULDER
+            description: Tells you weather its a shoulder program or non-shoulder program 
+          - name: ATT_CUP
+            description: Gives the information on Cup 
+          - name: ATT_SEASON
+            description: Gives the information on weather ites a post season or regular season   
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to  
+        
+    - name: intm_weekly_domestic_tagging_nba
+      description: gives data related to NBA with other attributes(calendardayofweekname,season etc)    
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day 
+          - name: ATT_SHOULDER
+            description: Tells you weather its a shoulder program or non-shoulder program 
+          - name: ATT_CUP
+            description: Gives the information on Cup 
+          - name: ATT_SEASON
+            description: Gives the information on weather ites a post season or regular season   
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to  
+    - name: intm_weekly_domestic_tagging_nhl
+      description: gives data related to NHL with other attributes(calendardayofweekname,season etc)    
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day 
+          - name: ATT_SHOULDER
+            description: Tells you weather its a shoulder program or non-shoulder program 
+          - name: ATT_CUP
+            description: Gives the information on Cup 
+          - name: ATT_SEASON
+            description: Gives the information on weather ites a post season or regular season   
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to  
+        
+    - name: intm_weekly_domestic_tagging_nfl
+      description: gives data related to NFL with other attributes(calendardayofweekname,season etc)    
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day 
+          - name: ATT_SHOULDER
+            description: Tells you weather its a shoulder program or non-shoulder program 
+          - name: ATT_CUP
+            description: Gives the information on Cup 
+          - name: ATT_SEASON
+            description: Gives the information on weather ites a post season or regular season   
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to         
+    - name: intm_weekly_domestic_tagging_mlb
+      description: gives data related to MLB with other attributes(calendardayofweekname,season etc)    
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day 
+          - name: ATT_SHOULDER
+            description: Tells you weather its a shoulder program or non-shoulder program 
+          - name: ATT_CUP
+            description: Gives the information on Cup 
+          - name: ATT_SEASON
+            description: Gives the information on weather ites a post season or regular season   
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to  
+        
+    - name: intm_weekly_domestic_tagging_aew
+      description: gives data related to AEW with other attributes(calendardayofweekname,season etc)    
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day 
+          - name: ATT_SHOULDER
+            description: Tells you weather its a shoulder program or non-shoulder program 
+          - name: ATT_CUP
+            description: Gives the information on Cup 
+          - name: ATT_SEASON
+            description: Gives the information on weather ites a post season or regular season   
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to            
+    - name: rpt_nl_weekly_domestic_tagging
+      description: Its a union of all required domestic properties and their attributes     
+      columns:
+          - name: SRC_BROADCAST_ORIG_DATE
+            description: Date of original sports live broadcast date 
+            tests:               
+            - not_null
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+          - name: BROADCAST_NETWORK_NAME
+            description: Network name 
+            tests:
+            - not_null 
+          - name: SRC_SERIES_NAME
+            description:  Name for all episodes for a particular series 
+            tests:
+            - not_null
+          - name: SRC_EPISODE_TITLE
+            description: Name of individual episode 
+          - name: PROGRAM_TELECAST_RPT_STARTTIME
+            description: Gives the start time of telecast
+          - name: PROGRAM_TELECAST_RPT_ENDTIME
+            description: Gives the end time of telecast   
+          - name: SRC_TOTAL_DURATION
+            description: Gives the duration of telecast 
+          - name: SRC_DEMOGRAPHIC_GROUP
+            description: Gives the information on the demographics of the viewers 
+          - name: SRC_GENRE_CLASSIFICATION_DETAILEDTYPECD
+            description:  Gives the genre information abouth the program telecasted  
+          - name: SRC_BROADCAST_NETWORK_SERVICE_TYPE
+            description: Gives the information on service type  
+          - name: AVG_AUDIENCE_PROJ_000
+            description: Gives the average audience projected in thousands 
+          - name: CALENDARDAYOFWEEKNAME
+            description: Gives the name of the week day 
+          - name: ATT_SHOULDER
+            description: Tells you weather its a shoulder program or non-shoulder program 
+          - name: ATT_CUP
+            description: Gives the information on Cup 
+          - name: ATT_SEASON
+            description: Gives the information on weather ites a post season or regular season   
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+  
