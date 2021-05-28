@@ -1,0 +1,281 @@
+version: 2
+models:
+    - name: base_cpg_daily_prod_plcmnt_split_stage1
+      description: '{{ doc("base_cpg_daily_prod_plcmnt_split_stage1_documentation") }}'   
+      columns:
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Title
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV 
+          - name: Segmenttype
+            description: Segment of the show          
+          - name: Comments
+            description: This describes the event (screen description for each segment)
+          - name: Flag
+            description: It gives 1 for comments containing "Wearing Merch" 0 otherwise
+    - name: base_cpg_daily_prod_plcmnt_visits
+      description: '{{ doc("base_cpg_daily_prod_plcmnt_visits_documentation") }}' 
+      columns :
+          - name: Date
+            description: Airdate
+          - name: HITS_TIME_EST
+            description: Time in EST
+          - name: VISITS
+            description: Number of visits           
+          - name: PRODUCTSKU
+            description: Different product ID for different product
+          - name: PRODUCTNAME
+            description: Name of product
+          - name: Rev
+            description: Total revenue
+          - name: Trans
+            description: Total transactions
+    - name: base_cpg_daily_prod_plcmnt_items
+      description: '{{ doc("base_cpg_daily_prod_plcmnt_items_documentation") }}' 
+      columns :
+          - name: SRC_ITEM_ID
+            description: Item ID
+            
+          - name: SRC_TALENT_DESCRIPTION
+            description: Talent name           
+    - name: intm_cpg_daily_prod_plcmnt_split_stage2
+      description: '{{ doc("intm_cpg_daily_prod_plcmnt_split_stage2_documentation") }}'    
+      columns:
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Title
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV   
+          - name: Segmenttype
+            description: Segment of the show          
+          - name: Comments
+            description: This describes the event (screen description for each segment)
+          - name: Flag
+            description: It gives 1 for comments containing "Wearing Merch" 0 otherwise    
+    - name: intm_cpg_daily_prod_plcmnt_split_stage3
+      description: '{{ doc("intm_cpg_daily_prod_plcmnt_split_stage3_documentation") }}'    
+      columns:
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Title
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV  
+          - name: Segmenttype
+            description: Segment of the show           
+          - name: Comments
+            description: This describes the event (screen description for each segment)
+          - name: Flag
+            description: It gives 1 for comments containing "Wearing Merch" 0 otherwise
+    - name: intm_cpg_daily_prod_plcmnt_split_stage4
+      description: '{{ doc("intm_cpg_daily_prod_plcmnt_split_stage4_documentation") }}' 
+      columns :
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Title
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV   
+          - name: Segmenttype
+            description: Segment of the show          
+          - name: Comments
+            description: This describes the event (screen description for each segment)
+          - name: Flag
+            description: It gives 1 for comments containing "Wearing Merch" 0 otherwise
+    - name: intm_cpg_daily_prod_plcmnt_split_stage4_update
+      description: '{{ doc("intm_cpg_daily_prod_plcmnt_split_stage4_update_documentation") }}' 
+      columns :
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Title
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV  
+          - name: Segmenttype
+            description: Segment of the show           
+          - name: Comments
+            description: This describes the event (screen description for each segment)
+          - name: Flag
+            description: It gives 1 for comments containing "Wearing Merch" 0 otherwise
+
+    - name: summ_cpg_daily_prod_plcmnt_minute_program_stage1
+      description: '{{ doc("summ_cpg_daily_prod_plcmnt_minute_program_stage1_documentation") }}' 
+      columns :
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Show
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV    
+          - name: Segmenttype
+            description: Segment of the show         
+          - name: Pgm_st_time
+            description: This one provides the starting time of Show
+          - name: Inpoint
+            description: This is the logintime time of a particular logentryguid for a segment
+          - name: Hour
+            description: This is the hour part of EST_time calculated
+          - name: mins
+            description: This is the minute part of EST_time calculated
+    - name: summ_cpg_daily_prod_plcmnt_minute_program_stage2
+      description: '{{ doc("summ_cpg_daily_prod_plcmnt_minute_program_stage2_documentation") }}' 
+      columns :
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Show
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV  
+          - name: Segmenttype
+            description: Segment of the show           
+          - name: Pgm_st_time
+            description: This one provides the starting time of Show
+          - name: Inpoint
+            description: This is the logintime time of a particular logentryguid for a segment
+          - name: Hour
+            description: This is the hour part of EST_time calculated
+          - name: mins
+            description: This is the minute part of EST_time calculated
+    - name: summ_cpg_daily_prod_plcmnt_minute_program_final
+      description: '{{ doc("summ_cpg_daily_prod_plcmnt_minute_program_final_documentation") }}' 
+      columns :
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Show
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV    
+          - name: Segmenttype
+            description: Segment of the show         
+          - name: Pgm_st_time
+            description: This one provides the starting time of Show
+          - name: Inpoint
+            description: This is the logintime time of a particular logentryguid for a segment
+          - name: Hour
+            description: This is the hour part of EST_time calculated
+          - name: mins
+            description: This is the minute part of EST_time calculated
+          - name: min_pgm_val
+            description: Minute program value of 20 mins window
+    - name: final_cpg_daily_prod_plcmnt_output
+      description: '{{ doc("final_cpg_daily_prod_plcmnt_output_documentation") }}' 
+      columns :
+        
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: dt_time
+            description: concatenation of Airdate and EST_time
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Show
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV   
+          - name: Segmenttype
+            description: Segment of the show          
+          - name: Inpoint
+            description: This is the logintime time of a particular logentryguid for a segment
+          - name: Talent_Listed
+            description: All the Talents listed in the comment
+          - name: talent_Identified
+            description: The talents who were identified wearing merch
+          - name: min_pgm_val
+            description: Minute program value of 20 mins window 
+          - name: Adj_time
+            description: Est time in "hh:mm" format
+    - name: rpt_cpg_daily_prod_plcmnt_output_revenue
+      description: '{{ doc("final_cpg_daily_prod_plcmnt_output_documentation") }}' 
+      columns :
+
+          - name: airdate
+            description: AirDate
+            tests:
+              - not_null
+          - name: dt_time
+            description: concatenation of Airdate and EST_time
+            tests:
+              - not_null
+          - name: logentryguid
+            description: log Id of users
+          - name: Show
+            description: Title of the show
+            tests:
+              - not_null
+          - name: Typeofshow
+            description: Either weekly or PPV   
+          - name: Segmenttype
+            description: Segment of the show          
+          - name: Inpoint
+            description: This is the logintime time of a particular logentryguid for a segment
+          - name: Talent_Listed
+            description: All the Talents listed in the comment
+          - name: talent_Identified
+            description: The talents who were identified wearing merch
+          - name: min_pgm_val
+            description: Minute program value of 20 mins window
+          - name: Adj_time
+            description: Est time in "hh:mm" format
+          - name: VIS
+            description: Total visits
+          - name: TRANS
+            description: Total transactions
+          - name: REV
+            description: Total revenue
+
