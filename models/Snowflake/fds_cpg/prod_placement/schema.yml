@@ -1,0 +1,20 @@
+version : 2
+sources:
+
+  - name: pp_udl_nplus
+    database: prod_entdwdb
+    schema: udl_nplus
+    tables:
+      - name: raw_lite_log
+  - name: pp_udl_cpg
+    database: prod_entdwdb
+    schema: udl_cpg
+    tables:
+      - name: ga_cpg_daily_hits
+  - name: pp_fds_cpg
+    database: prod_entdwdb
+    schema: fds_cpg
+    tables:
+      - name: dim_cpg_item
+  
+
