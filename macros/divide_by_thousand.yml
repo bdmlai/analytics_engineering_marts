@@ -1,0 +1,12 @@
+version: 2
+
+macros:
+  - name: divide_by_thousand
+    description: divide a metrics by 1000
+    docs:
+      show: true
+    arguments:
+      - name: metircs
+        type: INT or Float
+        description: metrics that you want to divide by 1000 # declare properties of additional arguments
+
