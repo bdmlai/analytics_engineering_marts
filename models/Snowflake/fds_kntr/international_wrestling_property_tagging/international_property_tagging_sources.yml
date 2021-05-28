@@ -1,0 +1,9 @@
+
+version: 2
+sources:
+  - name: fds_kntr
+    database: prod_entdwdb
+    schema: fds_kntr
+    tables:
+      - name: fact_kntr_weekly_telecast_data
+     

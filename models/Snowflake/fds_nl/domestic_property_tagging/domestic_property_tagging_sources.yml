@@ -1,0 +1,12 @@
+
+version: 2
+sources:
+  - name: pt_fds_nl
+    database: prod_entdwdb
+    schema: fds_nl
+    tables:
+      - name: fact_nl_program_viewership_ratings
+      - name: dim_nl_series
+      - name: dim_nl_episode     
+      - name: dim_nl_broadcast_network
+      - name: dim_nl_genre

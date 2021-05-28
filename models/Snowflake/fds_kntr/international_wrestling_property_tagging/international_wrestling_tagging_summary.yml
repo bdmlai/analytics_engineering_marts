@@ -1,0 +1,161 @@
+version: 2
+
+models:
+    - name: intm_weekly_international_tagging_aaa
+      description: gives tagged data related to AAA    
+      columns:
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+            tests:               
+            - not_null
+          - name: src_channel
+            description: Channel name 
+            tests:               
+            - not_null
+          - name: src_country
+            description: Country name 
+            tests:               
+            - not_null
+          - name: SRC_SERIES
+            description:  Name for all episodes for a particular series 
+            tests:               
+            - not_null
+          - name: START_TIME_AVG_TM
+            description: Gives the start time of telecast
+          - name: END_TIME_AVG_TM
+            description: Gives the end time of telecast   
+          - name: LENGTH_AVG_TM
+            description: Gives the duration of telecast 
+          - name: DEMOGRAPHIC
+            description: Gives the information on the demographics of the viewers     
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to  
+        
+    - name: intm_weekly_international_tagging_aew
+      description: gives tagged data related to AEW  
+      columns:
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+            tests:               
+            - not_null
+          - name: src_channel
+            description: Channel name 
+            tests:               
+            - not_null
+          - name: src_country
+            description: Country name 
+            tests:               
+            - not_null
+          - name: SRC_SERIES
+            description:  Name for all episodes for a particular series 
+            tests:               
+            - not_null
+          - name: START_TIME_AVG_TM
+            description: Gives the start time of telecast
+          - name: END_TIME_AVG_TM
+            description: Gives the end time of telecast   
+          - name: LENGTH_AVG_TM
+            description: Gives the duration of telecast 
+          - name: DEMOGRAPHIC
+            description: Gives the information on the demographics of the viewers     
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to 
+    - name: intm_weekly_international_tagging_cmll
+      description: gives tagged data related to CMLL   
+      columns:
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+            tests:               
+            - not_null
+          - name: src_channel
+            description: Channel name 
+            tests:               
+            - not_null
+          - name: src_country
+            description: Country name 
+            tests:               
+            - not_null
+          - name: SRC_SERIES
+            description:  Name for all episodes for a particular series
+            tests:               
+            - not_null
+          - name: START_TIME_AVG_TM
+            description: Gives the start time of telecast
+          - name: END_TIME_AVG_TM
+            description: Gives the end time of telecast   
+          - name: LENGTH_AVG_TM
+            description: Gives the duration of telecast 
+          - name: DEMOGRAPHIC
+            description: Gives the information on the demographics of the viewers     
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to          
+    - name: intm_weekly_international_tagging_impactwrestling
+      description: gives tagged data related to IMPACT WRESTLING  
+      columns:
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+            tests:               
+            - not_null
+          - name: src_channel
+            description: Channel name 
+            tests:               
+            - not_null
+          - name: src_country
+            description: Country name 
+            tests:               
+            - not_null
+          - name: SRC_SERIES
+            description:  Name for all episodes for a particular series 
+            tests:               
+            - not_null
+          - name: START_TIME_AVG_TM
+            description: Gives the start time of telecast
+          - name: END_TIME_AVG_TM
+            description: Gives the end time of telecast   
+          - name: LENGTH_AVG_TM
+            description: Gives the duration of telecast 
+          - name: DEMOGRAPHIC
+            description: Gives the information on the demographics of the viewers     
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to  
+    - name: rpt_kntr_weekly_international_tagging
+      description: gives tagged data related to all wrestling properties 
+      tests:  
+      columns:
+          - name: BROADCAST_DATE
+            description: Broadcast aired date 
+            tests:               
+            - not_null
+          - name: src_channel
+            description: Channel name 
+            tests:               
+            - not_null
+          - name: src_country
+            description: Country name 
+            tests:               
+            - not_null
+          - name: SRC_SERIES
+            description:  Name for all episodes for a particular series 
+            tests:               
+            - not_null
+          - name: START_TIME_AVG_TM
+            description: Gives the start time of telecast
+          - name: END_TIME_AVG_TM
+            description: Gives the end time of telecast   
+          - name: LENGTH_AVG_TM
+            description: Gives the duration of telecast 
+          - name: DEMOGRAPHIC
+            description: Gives the information on the demographics of the viewers     
+          - name: PROPERTY
+            description: Tells you which sports property that particular program belongs to       
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+  
