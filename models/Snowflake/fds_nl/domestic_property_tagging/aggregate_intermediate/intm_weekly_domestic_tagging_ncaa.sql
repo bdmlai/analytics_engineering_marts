@@ -14,7 +14,7 @@
 {% set ncaa_series_not_flag = ["WMNS","WOMEN"] %}
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','ncaa'],schema= 'CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','ncaa'],
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_ncaa as (

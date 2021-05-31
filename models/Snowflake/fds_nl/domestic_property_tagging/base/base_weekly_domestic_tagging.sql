@@ -10,7 +10,7 @@
 */
 
 
-{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','base'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','base'],
           post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with base_weekly_domestic_tagging as (

@@ -17,7 +17,7 @@
 ('2021-01-13' ,'2021-04-30',"Regular"),('2021-05-01' ,'2021-07-31',"Post")]%}
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nhl'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nhl'],
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 with intm_weekly_domestic_tagging_nhl as (
 select *,
