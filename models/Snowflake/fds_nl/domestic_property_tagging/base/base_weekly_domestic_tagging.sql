@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : base_weekly_domestic_tagging
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy
    Description : Ephemeral base table formed by performing join on the 5 source tables
    Version      Date             Author               Request
@@ -10,7 +10,7 @@
 */
 
 
-{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','base'],
+{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','base'],schema='fds_nl',
           post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with base_weekly_domestic_tagging as (
@@ -19,7 +19,8 @@ program_telecast_rpt_starttime,program_telecast_rpt_endtime,
 src_total_duration,src_playback_period_cd,src_demographic_group,t5.src_genre_classification_cd,t5.src_genre_classification_detailedtypecd,
 src_program_attributes,src_daypart_cd,src_broadcast_network_service_type,avg_audience_proj_000,avg_audience_proj_units,round(avg_audience_pct,1) as avg_audience_pct ,
 avg_audience_pct_nw_cvg_area,round(share_pct) as share_pct,round(share_pct_nw_cvg_area) as share_pct_nw_cvg_area,telecast_trackage_name,
-DAYNAME(broadcast_date) as calendardayofweekname,t1.src_broadcast_network_id,t1.ETL_INSERT_REC_DTTM as inserted_time
+DAYNAME(broadcast_date) as calendardayofweekname,t1.src_broadcast_network_id,
+t1.ETL_INSERT_REC_DTTM as inserted_time
 from {{source('pt_fds_nl','fact_nl_program_viewership_ratings')}} t1
 left join {{source('pt_fds_nl','dim_nl_series')}}  t2 on t1.dim_nl_series_id = t2.dim_nl_series_id and t1.dim_source_sys_id = t2.dim_source_sys_id
 left join {{source('pt_fds_nl','dim_nl_episode')}} t3 on t1.dim_nl_episode_id = t3.dim_nl_episode_id and t1.dim_source_sys_id = t3.dim_source_sys_id

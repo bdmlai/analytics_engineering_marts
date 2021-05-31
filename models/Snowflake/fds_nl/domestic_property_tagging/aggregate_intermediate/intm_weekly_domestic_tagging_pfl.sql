@@ -1,46 +1,41 @@
 /*
 *************************************************************************************************************************************************
-   TableName   : intm_weekly_domestic_tagging_ncaa
-   Schema	     : fds_nl
+   TableName   : intm_weekly_domestic_tagging_pfl
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
-   Description : Intermediate Ephemeral table for capturing the tagged data corresponding to NCAA
+   Description : Intermediate Ephemeral table for capturing the tagged data corresponding to PFL
    Version      Date             Author               Request
    1.0          03/15/2021       pchakrav             ADVA-297
 *************************************************************************************************************************************************
 */
 
-{% set ncaa_series_flag = ["NCAA"] %}
-{% set ncaa_genre_detailed_cd_flag = ["CBKC"] %}
-{% set ncaa_series_not_flag = ["WMNS","WOMEN"] %}
+{% set pfl_series_flag=["PRO FIGHTERS LEAGUE","PFL"]%}
+{%set pfl_genre_detailed_cd_flag = ["KAMA","SPOA"] %}
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','ncaa'],schema= 'fds_nl',
+
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','top rank boxing'],schema='fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
-with intm_weekly_domestic_tagging_ncaa as (
+with intm_weekly_domestic_tagging_pfl as (
 select *,
 case 
-     when src_episode_title like 'N/A' then 'Shoulder'
-     when src_program_attributes like '%(R)%' then 'Shoulder'
-     when src_series_name like '%REPEAT%' or src_series_name like '%RPT%' or 
-     src_series_name like '%CLASSIC%' then 'Shoulder'
-     when src_total_duration <= 100 then 'Shoulder'
-     else 'Non_Shoulder'
+     when src_genre_classification_cd !='SE' then 'Shoulder'
+     when src_program_attributes like '%L%' and  src_genre_classification_detailedtypecd = 'KAMA' then 'Non_Shoulder'
+     when src_series_name like '%REPEAT%' or src_series_name like '%RPT%' then 'Shoulder'
+     when src_program_attributes not like '%(L)%' then 'Shoulder'
+     else 'Shoulder'
 end as att_Shoulder,
 'NA' as att_fights,
 'NA' as att_cup,
 'NA' as att_Season,
 'NA' as att_Channel_Qualifier,
-{{property_tagging("property",'src_series_name',ncaa_series_flag,
-'src_series_name',ncaa_series_not_flag,"","and","not")}},
-{{property_tagging("property",'src_series_name',ncaa_series_flag,
-'src_genre_classification_detailedtypecd',ncaa_genre_detailed_cd_flag,"","and","")}},
-'NCAA' as property
-from {{ref('base_weekly_domestic_tagging')}}
-where property__and_not_flag = 1 and property__and__flag =1
-
-
-)
+{{property_tagging("property",'src_series_name',pfl_series_flag,
+'src_genre_classification_detailedtypecd',pfl_genre_detailed_cd_flag,"","and","")}}
+,'PFL' as property 
+from
+{{ref('base_weekly_domestic_tagging')}} where property__and__flag=1
+ )
 
 select src_broadcast_orig_date,broadcast_date,broadcast_network_name,src_series_name,src_episode_title,
 program_telecast_rpt_starttime,program_telecast_rpt_endtime,
@@ -52,5 +47,4 @@ avg_audience_pct_nw_cvg_area,round(share_pct) as share_pct,
 round(share_pct_nw_cvg_area) as share_pct_nw_cvg_area,telecast_trackage_name,DAYNAME(broadcast_date) 
 as calendardayofweekname,att_Shoulder,att_fights,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
 inserted_time,property 
-from intm_weekly_domestic_tagging_ncaa
-
+from intm_weekly_domestic_tagging_pfl

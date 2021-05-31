@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_nfl
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to NFL
    Version      Date             Author               Request
@@ -20,7 +20,7 @@
 ('2019-09-05','2019-12-29',"Regular"),('2020-01-04','2020-02-02',"Post"),
 ('2020-09-10','2021-01-03',"Regular"),('2021-01-09','2021-02-07',"Post")]%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nfl'],
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nfl'],schema= 'fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_nfl as (
@@ -38,11 +38,12 @@ case
      when broadcast_network_name in ('UNIVERSO') and  src_series_name like '%NFL EN%' then 'Shoulder'
      else 'Non_Shoulder'
 end as att_Shoulder,
+'NA' as att_fights,
 'NA' as att_cup,
 {{season_tagging("season",'broadcast_date',nfl_season_date)}},'NA' as att_Channel_Qualifier,
 {{property_tagging("property",'src_series_name',nfl_series_flag,
 'broadcast_network_name',nfl_broadcast_network_flag,"","and","")}},
-'nfl' as property from
+'NFL' as property from
 {{ref('base_weekly_domestic_tagging')}} where property__and__flag=1)
 
 select src_broadcast_orig_date,broadcast_date,broadcast_network_name,src_series_name,src_episode_title,
@@ -53,6 +54,6 @@ src_program_attributes,src_daypart_cd,src_broadcast_network_service_type,
 avg_audience_proj_000,avg_audience_proj_units,round(avg_audience_pct,1) as avg_audience_pct ,
 avg_audience_pct_nw_cvg_area,round(share_pct) as share_pct,
 round(share_pct_nw_cvg_area) as share_pct_nw_cvg_area,telecast_trackage_name,DAYNAME(broadcast_date) 
-as calendardayofweekname,att_Shoulder,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
+as calendardayofweekname,att_Shoulder,att_fights,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
 inserted_time,property 
 from intm_weekly_domestic_tagging_nfl
