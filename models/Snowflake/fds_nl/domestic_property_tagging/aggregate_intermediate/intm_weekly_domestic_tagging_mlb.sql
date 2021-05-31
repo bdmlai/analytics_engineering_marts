@@ -17,7 +17,7 @@
 {% set mlb_not_series_flag=["COLLEGIATE","KOREAN BASEBALL"]%}
 {% set mlb_genre_detailed_cd_flag = ["BBOC","BBRS","BBXP","BBOT","BBPS","BBPO","BBWS"]%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','mlb'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','mlb'],
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_mlb as (

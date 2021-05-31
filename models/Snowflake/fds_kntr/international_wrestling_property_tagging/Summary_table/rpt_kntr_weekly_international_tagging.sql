@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   :rpt_kntr_weekly_international_tagging
-   Schema	   : CONTENT
+   Schema	   : fds_kntr
    Contributor : B.V.Sai Praveen Chakravarthy
    Description : summary table for capturing the tagged attributes of properties 
                  by performing union of all the intermediate ephemeral tables
@@ -14,7 +14,7 @@
 {{ config(materialized='incremental',enabled = true,tags=['international','wrestling'],
 incremental_strategy='delete+insert',
 unique_key= "broadcast_date||'-'||src_channel||'-'||src_country||'-'||demographic||'-'||start_time_avg_tm",
-schema ='CONTENT',post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
+schema ='fds_kntr',post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with rpt_kntr_weekly_international_tagging AS 
     (SELECT broadcast_date,
@@ -117,7 +117,7 @@ FROM
         shr_avg_wg_pct,
         "VH",
         ETL_INSERT_REC_DTTM,
-        property broadcast_date||'-'||src_channel||'-'||src_country||'-'||demographic||'-'||start_time_avg_tm AS id, ROW_NUMBER()
+        property, broadcast_date||'-'||src_channel||'-'||src_country||'-'||demographic||'-'||start_time_avg_tm AS id, ROW_NUMBER()
         OVER (partition by broadcast_date,src_channel, src_country,demographic,start_time_avg_tm
     ORDER BY  ETL_INSERT_REC_DTTM desc) ROWNUMBER
     FROM rpt_kntr_weekly_international_tagging )
