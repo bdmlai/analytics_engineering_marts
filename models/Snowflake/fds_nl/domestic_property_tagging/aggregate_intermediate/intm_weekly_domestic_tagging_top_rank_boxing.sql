@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_top_rank_boxing
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to NHL
    Version      Date             Author               Request
@@ -14,7 +14,7 @@
 
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','top rank boxing'],
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','top rank boxing'],schema='fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_top_rank_boxing as (
@@ -26,6 +26,7 @@ case
      when src_episode_title like 'N/A' then 'Shoulder'
      else 'Shoulder'
 end as att_Shoulder,
+'NA' as att_fights,
 'NA' as att_cup,
 'NA' as att_Season,
 'NA' as att_Channel_Qualifier,
@@ -44,6 +45,6 @@ src_program_attributes,src_daypart_cd,src_broadcast_network_service_type,
 avg_audience_proj_000,avg_audience_proj_units,round(avg_audience_pct,1) as avg_audience_pct ,
 avg_audience_pct_nw_cvg_area,round(share_pct) as share_pct,
 round(share_pct_nw_cvg_area) as share_pct_nw_cvg_area,telecast_trackage_name,DAYNAME(broadcast_date) 
-as calendardayofweekname,att_Shoulder,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
+as calendardayofweekname,att_Shoulder,att_fights,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
 inserted_time,property 
 from intm_weekly_domestic_tagging_top_rank_boxing
