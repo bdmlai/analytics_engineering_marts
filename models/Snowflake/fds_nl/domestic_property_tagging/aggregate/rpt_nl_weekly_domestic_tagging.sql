@@ -60,8 +60,7 @@ select * from {{ref('intm_weekly_domestic_tagging_usopengolf')}}
 union all
 select * from {{ref('intm_weekly_domestic_tagging_wimbledon')}}
 ) 
-
-select * from
+select *,'DBT_'||TO_CHAR(SYSDATE(),'YYYY_MM_DD_HH_MI_SS')||'_Inter' AS etl_batch_id , 'bi_dbt_user_prd' AS etl_insert_user_id , SYSDATE() AS etl_insert_rec_dttm , NULL AS etl_update_user_id , cast(null AS timestamp) AS etl_update_rec_dttm from
 (
 select *,
 src_broadcast_orig_date||'-'||src_broadcast_network_id||'-'||program_telecast_rpt_starttime
