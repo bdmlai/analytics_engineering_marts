@@ -436,7 +436,7 @@ models:
           description: identifier for Live data and Live+VOD data
           
   - name: rpt_network_ppv_live
-    description: '{{ doc("rpt_network_ppv_live") }}'
+    description: '{{ doc("rpt_nplus_monthly_ppv_live") }}'
     columns:
         - name: asset_id
           description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
@@ -504,7 +504,7 @@ models:
           description: identifier for Live data and Live+VOD data
 
   - name: rpt_network_ppv_live_vod
-    description: '{{ doc("rpt_network_ppv_live_vod") }}'
+    description: '{{ doc("rpt_nplus_monthly_ppv_live_vod") }}'
     columns:
         - name: asset_id
           description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
@@ -572,7 +572,7 @@ models:
           description: identifier for Live data and Live+VOD data
 
   - name: rpt_network_nxt_live
-    description: '{{ doc("rpt_network_nxt_live") }}'
+    description: '{{ doc("rpt_nplus_monthly_nxt_live") }}'
     columns:
         - name: asset_id
           description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
@@ -640,7 +640,7 @@ models:
           description: identifier for Live data and Live+VOD data
 
   - name: rpt_network_nxt_live_vod
-    description: '{{ doc("rpt_network_nxt_live_vod") }}'
+    description: '{{ doc("rpt_nplus_monthly_nxt_live_vod") }}'
     columns:
         - name: asset_id
           description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
@@ -708,7 +708,7 @@ models:
           description: identifier for Live data and Live+VOD data
 
   - name: rpt_network_hof_live
-    description: '{{ doc("rpt_network_hof_live") }}'
+    description: '{{ doc("rpt_nplus_yearly_hof_live") }}'
     columns:
         - name: asset_id
           description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
@@ -776,7 +776,7 @@ models:
           description: identifier for Live data and Live+VOD data
 
   - name: rpt_network_hof_live_vod
-    description: '{{ doc("rpt_network_hof_live_vod") }}'
+    description: '{{ doc("rpt_nplus_yearly_hof_live_vod") }}'
     columns:
         - name: asset_id
           description: The ID for a YouTube channel. In the YouTube Data API, this is the value of a channelresources id property.
@@ -845,7 +845,7 @@ models:
 
 
           
-  - name: vw_rpt_network_ppv_kickoffshow
+  - name: vw_rpt_nplus_monthly_ppv_kickoffshow
     description: '{{ doc("vw_rpt_network_ppv_kickoffshow") }}'
     columns:
         - name: asset_id

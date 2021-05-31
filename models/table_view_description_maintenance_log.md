@@ -573,11 +573,24 @@
 * Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
 {% enddocs %}
 
-{% docs rpt_network_ppv_live %}
+{% docs vw_rpt_nplus_monthly_ppv_kickoffshow %}
+## Implementation Detail
+*   Date        : 05/31/2021
+*   Version     : 1.0
+*   ViewName    : vw_rpt_nplus_monthly_ppv_kickoffshow
+*   Schema		: fds_nplus
+*   Contributor : Lakshmanan Murugesan
+*   Description : View contains the information related to PPV, NXT and HOF kickoff show viewership
+
+## Maintenance Log
+* Date : 05/31/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
+{% enddocs %}
+
+{% docs rpt_nplus_monthly_ppv_live %}
 ## Implementation Detail
 *   Date        : 05/19/2021
 *   Version     : 1.0
-*   ViewName    : rpt_network_ppv_live
+*   ViewName    : rpt_nplus_monthly_ppv_live
 *   Schema		: fds_nplus
 *   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to PPV Live kickoff show viewership
@@ -586,11 +599,11 @@
 * Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
 {% enddocs %}
 
-{% docs rpt_network_ppv_live_vod %}
+{% docs rpt_nplus_monthly_ppv_live_vod %}
 ## Implementation Detail
 *   Date        : 05/19/2021
 *   Version     : 1.0
-*   ViewName    : rpt_network_ppv_live_vod
+*   ViewName    : rpt_nplus_monthly_ppv_live_vod
 *   Schema		: fds_nplus
 *   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to PPV Live+VOD kickoff show viewership
@@ -599,11 +612,11 @@
 * Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
 {% enddocs %}
 
-{% docs rpt_network_nxt_live %}
+{% docs rpt_nplus_monthly_nxt_live %}
 ## Implementation Detail
 *   Date        : 05/19/2021
 *   Version     : 1.0
-*   ViewName    : rpt_network_nxt_live
+*   ViewName    : rpt_nplus_monthly_nxt_live
 *   Schema		: fds_nplus
 *   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to NXT Live kickoff show viewership
@@ -612,11 +625,11 @@
 * Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
 {% enddocs %}
 
-{% docs rpt_network_nxt_live_vod %}
+{% docs rpt_nplus_monthly_nxt_live_vod %}
 ## Implementation Detail
 *   Date        : 05/19/2021
 *   Version     : 1.0
-*   ViewName    : rpt_network_nxt_live_vod
+*   ViewName    : rpt_nplus_monthly_nxt_live_vod
 *   Schema		: fds_nplus
 *   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to NXT Live+VOD kickoff show viewership
@@ -625,11 +638,11 @@
 * Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
 {% enddocs %}
 
-{% docs rpt_network_hof_live %}
+{% docs rpt_nplus_yearly_hof_live %}
 ## Implementation Detail
 *   Date        : 05/19/2021
 *   Version     : 1.0
-*   ViewName    : rpt_network_hof_live
+*   ViewName    : rpt_nplus_yearly_hof_live
 *   Schema		: fds_nplus
 *   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to Hall of Fame Live kickoff show viewership
@@ -638,11 +651,11 @@
 * Date : 05/19/2021 ; Developer: Lakshmanan Murugesan ; Change: Initial Version
 {% enddocs %}
 
-{% docs rpt_network_hof_live_vod %}
+{% docs rpt_nplus_yearly_hof_live_vod %}
 ## Implementation Detail
 *   Date        : 05/19/2021
 *   Version     : 1.0
-*   ViewName    : rpt_network_hof_live_vod
+*   ViewName    : rpt_nplus_yearly_hof_live_vod
 *   Schema		: fds_nplus
 *   Contributor : Lakshmanan Murugesan
 *   Description : View contains the information related to Hall of Fame Live+VOD kickoff show viewership
@@ -2882,6 +2895,19 @@ and another language for Pay per view (PPV) Events.
 * Schema   	: fds_da
 * Contributor : Smitha Acharya
 * Description : This table has wwe.com website traffic and engagement metrics
+## Maintenance Log
+* Date : 5/20/2021 ; Developer: Smitha Acharya; Change: Initial Version 
+{% enddocs %} 
+
+
+{% docs vw_rpt_digital_monthly_wwe_com_website_kpis %}
+## Implementation Detail
+* Date        : 05/26/2021
+* Version     : 1.0
+* TableName   : vw_rpt_digital_monthly_wwe_com_website_kpis
+* Schema   	: fds_da
+* Contributor : Smitha Acharya
+* Description : This view has wwe.com website traffic and engagement metrics
 ## Maintenance Log
 * Date : 5/20/2021 ; Developer: Smitha Acharya; Change: Initial Version 
 {% enddocs %} 

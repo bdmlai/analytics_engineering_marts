@@ -69,13 +69,13 @@ sources:
        - name: aggr_monthly_subs_cohort_viewership
        - name: fact_daily_content_viewership
        - name: rpt_network_ppv_liveplusvod
-       - name: vw_rpt_network_ppv_kickoffshow
-       - name: rpt_network_ppv_live
-       - name: rpt_network_ppv_live_vod
-       - name: rpt_network_nxt_live
-       - name: rpt_network_nxt_live_vod
-       - name: rpt_network_hof_live
-       - name: rpt_network_hof_live_vod
+       - name: vw_rpt_nplus_monthly_ppv_kickoffshow
+       - name: rpt_nplus_monthly_ppv_live
+       - name: rpt_nplus_monthly_ppv_live_vod
+       - name: rpt_nplus_monthly_nxt_live
+       - name: rpt_nplus_monthly_nxt_live_vod
+       - name: rpt_nplus_yearly_hof_live
+       - name: rpt_nplus_yearly_hof_live_vod
        - name: rpt_network_weekly_bump_history
        - name: rpt_network_weekly_bump_live
        - name: vw_rpt_network_weekly_bump_live
