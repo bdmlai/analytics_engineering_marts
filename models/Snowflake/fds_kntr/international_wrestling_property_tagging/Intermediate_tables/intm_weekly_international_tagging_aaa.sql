@@ -28,7 +28,7 @@ rat_avg_wg_pct,rat_num_avg_wg,shr_avg_wg_pct,(length_avg_tm/60)*rat_num_avg_wg a
 {{series_ilike('src_series',aaa_series_1,"1")}},
 {{series_ilike('src_series',aaa_series_2,"2")}},
 {{international_property('src_channel',aaa_channels,"in","1")}}
-from  {{source('fds_kntr','fact_kntr_weekly_telecast_data')}}
+from  {{source('sf_fds_kntr','fact_kntr_weekly_telecast_data')}}
 where src_country = 'mexico' and demographic = 'Universe' and 
 broadcast_date between '2017-01-01' and current_date 
 and (((src_series_ilike_1 = 1) and (src_channel_flag_1 =1)) or (src_series_ilike_2 = 1))

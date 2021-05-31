@@ -14,7 +14,7 @@
 
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','top rank boxing'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','top rank boxing'],
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_top_rank_boxing as (

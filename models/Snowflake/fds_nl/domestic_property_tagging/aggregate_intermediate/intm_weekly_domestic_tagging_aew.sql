@@ -11,7 +11,7 @@
 */
 {% set aew_series_flag = ["ALL ELITE WRESTLING"]%}
 
-{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','aew'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','aew'],
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_aew as (
