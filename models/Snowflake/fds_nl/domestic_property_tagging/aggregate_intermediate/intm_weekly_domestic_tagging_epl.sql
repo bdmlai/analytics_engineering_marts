@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_epl
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to EPL
    Version      Date             Author               Request
@@ -21,7 +21,7 @@
 {% set epl_not_series_flag=["PREMIER LEAGUE DARTS"]%}
 {% set epl_genre_detailed_cd_flag = ["SOCC","SPOT","SOOC"]%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','epl'],
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','epl'],schema='fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_epl as (
@@ -39,6 +39,7 @@ case
      when src_program_attributes like '%(R)%' then 'Shoulder'
      when src_genre_classification_detailedtypecd like 'SOOC' then 'Shoulder'
      else 'Non_Shoulder' end as att_Shoulder,
+'NA' as att_fights,
 'NA' as att_cup,
 {{season_tagging("season",'broadcast_date',epl_season_date)}},
 'NA' as att_Channel_Qualifier,
@@ -46,7 +47,7 @@ case
 epl_genre_detailed_cd_flag,"","and","")}},
 {{property_tagging("property",'src_series_name',epl_series_flag,
 'src_series_name',epl_not_series_flag,"","and","not")}},
-'epl' as property
+'EPL' as property
 from
 {{ref('base_weekly_domestic_tagging')}} where property__and__flag=1 and property__and_not_flag=1
 )
@@ -59,6 +60,6 @@ src_program_attributes,src_daypart_cd,src_broadcast_network_service_type,
 avg_audience_proj_000,avg_audience_proj_units,round(avg_audience_pct,1) as avg_audience_pct ,
 avg_audience_pct_nw_cvg_area,round(share_pct) as share_pct,
 round(share_pct_nw_cvg_area) as share_pct_nw_cvg_area,telecast_trackage_name,DAYNAME(broadcast_date) 
-as calendardayofweekname,att_Shoulder,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
+as calendardayofweekname,att_Shoulder,att_fights,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
 inserted_time,property 
 from intm_weekly_domestic_tagging_epl
