@@ -30,7 +30,7 @@ rat_avg_wg_pct,rat_num_avg_wg,shr_avg_wg_pct,(length_avg_tm/60)*rat_num_avg_wg a
 {{series_ilike('src_series',aew_series_1,"1")}},
 {{series_ilike('src_series',aew_series_2,"2")}},
 {{international_property('src_country',aew_countries,"not in","1")}}
-from  {{source('fds_kntr','fact_kntr_weekly_telecast_data')}} 
+from  {{source('sf_fds_kntr','fact_kntr_weekly_telecast_data')}} 
 where (src_series_ilike_1 =1 or src_series_ilike_2 =1) and 
 src_country_flag_1=1 and 
 broadcast_date between '2017-01-01' and current_date 

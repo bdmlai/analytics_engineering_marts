@@ -21,7 +21,7 @@
 {% set epl_not_series_flag=["PREMIER LEAGUE DARTS"]%}
 {% set epl_genre_detailed_cd_flag = ["SOCC","SPOT","SOOC"]%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','epl'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','epl'],
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_epl as (

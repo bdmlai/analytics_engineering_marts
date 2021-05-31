@@ -17,7 +17,7 @@
 {% set bundesliga_series_flag=['BUNDESLIGA']%}
 {% set bundesliga_genre_detailed_cd_flag = ['SOCC','SOIS']%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','bundesliga'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','bundesliga'],
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_bundesliga as (

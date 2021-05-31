@@ -1,7 +1,7 @@
 
 version: 2
 sources:
-  - name: fds_kntr
+  - name: sf_fds_kntr
     database: prod_entdwdb
     schema: fds_kntr
     tables:

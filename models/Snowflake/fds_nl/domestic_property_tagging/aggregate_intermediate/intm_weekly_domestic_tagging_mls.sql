@@ -39,7 +39,7 @@ case
      {% endfor %} 
      else 'Non_Shoulder' end as att_Shoulder,
 'NA' as att_cup,
-{{season_tagging("season",'broadcast_date',mls_season_date)}},schema='CONTENT',
+{{season_tagging("season",'broadcast_date',mls_season_date)}},
 'NA' as att_Channel_Qualifier,
 {{property_tagging("property",'src_series_name',mls_series_flag,'src_genre_classification_detailedtypecd',
 mls_genre_detailed_cd_flag,"","and","")}},'mls' as property

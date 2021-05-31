@@ -24,7 +24,7 @@ src_channel, src_country,src_series,start_time_avg_tm,end_time_avg_tm,length_avg
 rat_avg_wg_pct,rat_num_avg_wg,shr_avg_wg_pct,(length_avg_tm/60)*rat_num_avg_wg as "VH",ETL_INSERT_REC_DTTM,
 'IMPACTWRESTLING' as property,
 {{series_ilike('src_series',impactwrestling_series_1,"1")}}
-from {{source('fds_kntr','fact_kntr_weekly_telecast_data')}}  
+from {{source('sf_fds_kntr','fact_kntr_weekly_telecast_data')}}  
 where (src_series_ilike_1 =1) and 
 broadcast_date between '2017-01-01' and current_date 
 )
