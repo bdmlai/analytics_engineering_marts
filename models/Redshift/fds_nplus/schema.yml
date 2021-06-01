@@ -1665,8 +1665,8 @@ models:
           description: Count of order ID which has trial start date and first charged date
   - name: vw_rpt_nplus_daily_trial_converts
     description:  '{{ doc("vw_rpt_nplus_daily_trial_converts") }}'       
-  - name: rpt_network_weekly_bump_live
-    description:  '{{ doc("rpt_network_weekly_bump_live") }}'   
+  - name: rpt_nplus_weekly_bump_live
+    description:  '{{ doc("rpt_nplus_weekly_bump_live") }}'   
     columns:
         - name: event
           description: event
@@ -1715,8 +1715,8 @@ models:
         - name: weekly_flag
           description: Indicates if its a regular weekly bump show or a weekend special show
 
-  - name: vw_rpt_network_weekly_bump_live
-    description:  '{{ doc("vw_rpt_network_weekly_bump_live") }}'   
+  - name: vw_rpt_nplus_weekly_bump_live
+    description:  '{{ doc("vw_rpt_nplus_weekly_bump_live") }}'   
     columns:
         - name: event
           description: event

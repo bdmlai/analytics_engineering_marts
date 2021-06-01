@@ -46,7 +46,7 @@ FROM
                         data_level      ,
                         weekly_flag
                 FROM
-                        {{source('fds_nplus','rpt_network_weekly_bump_live')}}
+                        {{source('fds_nplus','rpt_nplus_weekly_bump_live')}}
                 WHERE
                         event_date <> TRUNC(convert_timezone('AMERICA/NEW_YORK', SYSDATE))
                 AND     data_level  = 'Live' )

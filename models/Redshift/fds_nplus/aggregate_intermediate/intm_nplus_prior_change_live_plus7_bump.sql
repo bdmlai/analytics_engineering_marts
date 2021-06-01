@@ -9,7 +9,7 @@ FROM
                         event_brand             ,
                         weekly_flag
                 FROM
-                        {{source('fds_nplus','rpt_network_weekly_bump_live')}}
+                        {{source('fds_nplus','rpt_nplus_weekly_bump_live')}}
                 WHERE
                         data_level = 'Live+7'
                 AND     event_brand IN
