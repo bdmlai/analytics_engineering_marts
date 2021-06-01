@@ -2863,11 +2863,11 @@ and another language for Pay per view (PPV) Events.
 * Date : 4/29/2021 ; Developer: Sandeep Battula; Change: Initial Version 
 {% enddocs %} 
 
-{% docs rpt_network_weekly_bump_live %}
+{% docs rpt_nplus_weekly_bump_live %}
 ## Implementation Detail
 * Date        : 06/01/2021
 * Version     : 1.0
-* TableName   : rpt_network_weekly_bump_live
+* TableName   : rpt_nplus_weekly_bump_live
 * Schema   	: fds_nplus
 * Contributor : Lakshmanan Murugesan
 * Description : This table has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
@@ -2875,11 +2875,11 @@ and another language for Pay per view (PPV) Events.
 * Date : 06/01/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
 {% enddocs %} 
 
-{% docs vw_rpt_network_weekly_bump_live %}
+{% docs vw_rpt_nplus_weekly_bump_live %}
 ## Implementation Detail
 * Date        : 06/01/2021
 * Version     : 1.0
-* TableName   : vw_rpt_network_weekly_bump_live
+* TableName   : vw_rpt_nplus_weekly_bump_live
 * Schema   	: fds_nplus
 * Contributor : Lakshmanan Murugesan
 * Description : This view has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
