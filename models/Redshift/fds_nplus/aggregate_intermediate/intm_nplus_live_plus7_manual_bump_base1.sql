@@ -26,14 +26,14 @@ SELECT
                                 SELECT
                                         peak_concurrents
                                 FROM
-                                        {{source('fds_nplus','rpt_network_weekly_bump_live')}}
+                                        {{source('fds_nplus','rpt_nplus_weekly_bump_live')}}
                                 WHERE
                                         data_level = 'Live' AND     event_date = TRUNC(convert_timezone('AMERICA/NEW_YORK', SYSDATE))-7 AND     platform = 'Facebook') WHEN platform = 'YouTube' THEN
                         (
                                 SELECT
                                         peak_concurrents
                                 FROM
-                                        {{source('fds_nplus','rpt_network_weekly_bump_live')}}
+                                        {{source('fds_nplus','rpt_nplus_weekly_bump_live')}}
                                 WHERE
                                         data_level = 'Live' AND     event_date = TRUNC(convert_timezone('AMERICA/NEW_YORK', SYSDATE))-7 AND     platform = 'YouTube') ELSE peak_concurrents END AS peak_concurrents,
         prev_week_views                                                                                                                                                                                            ,

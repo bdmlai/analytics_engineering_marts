@@ -37,4 +37,4 @@ select
         etl_update_user_id     ,
         etl_update_rec_dttm
 
-from {{source('fds_nplus','rpt_network_weekly_bump_live')}}
+from {{source('fds_nplus','rpt_nplus_weekly_bump_live')}}
