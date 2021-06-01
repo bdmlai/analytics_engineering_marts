@@ -2865,26 +2865,26 @@ and another language for Pay per view (PPV) Events.
 
 {% docs rpt_network_weekly_bump_live %}
 ## Implementation Detail
-* Date        : 05/11/2021
+* Date        : 06/01/2021
 * Version     : 1.0
 * TableName   : rpt_network_weekly_bump_live
 * Schema   	: fds_nplus
 * Contributor : Lakshmanan Murugesan
 * Description : This table has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
 ## Maintenance Log
-* Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+* Date : 06/01/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
 {% enddocs %} 
 
 {% docs vw_rpt_network_weekly_bump_live %}
 ## Implementation Detail
-* Date        : 05/11/2021
+* Date        : 06/01/2021
 * Version     : 1.0
 * TableName   : vw_rpt_network_weekly_bump_live
 * Schema   	: fds_nplus
 * Contributor : Lakshmanan Murugesan
 * Description : This view has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
 ## Maintenance Log
-* Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+* Date : 06/01/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
 {% enddocs %} 
 
 {% docs rpt_digital_monthly_wwe_com_website_kpis %}
