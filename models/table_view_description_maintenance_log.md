@@ -2300,6 +2300,7 @@
 
 ## Maintenance Log
 * Date : 02/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project
+* Date : 06/01/2021 ; Developer: Bharath Sainath ; Change: Enhancement to add broadcast_date column
 {% enddocs %}
 
 
@@ -2316,6 +2317,7 @@
 
 ## Maintenance Log
 * Date : 02/15/2021 ; Developer: Remya K Nair ; Change: Initial Version as a part of Phase 4b Project
+* Date : 06/01/2021 ; Developer: Bharath Sainath ; Change: Enhancement to add broadcast_date column
 {% enddocs %}
 
 
@@ -2865,33 +2867,33 @@ and another language for Pay per view (PPV) Events.
 
 {% docs rpt_nplus_weekly_bump_live %}
 ## Implementation Detail
-* Date        : 06/01/2021
+* Date        : 05/11/2021
 * Version     : 1.0
 * TableName   : rpt_nplus_weekly_bump_live
 * Schema   	: fds_nplus
 * Contributor : Lakshmanan Murugesan
 * Description : This table has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
 ## Maintenance Log
-* Date : 06/01/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+* Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
 {% enddocs %} 
 
 {% docs vw_rpt_nplus_weekly_bump_live %}
 ## Implementation Detail
-* Date        : 06/01/2021
+* Date        : 05/11/2021
 * Version     : 1.0
 * TableName   : vw_rpt_nplus_weekly_bump_live
 * Schema   	: fds_nplus
 * Contributor : Lakshmanan Murugesan
 * Description : This view has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
 ## Maintenance Log
-* Date : 06/01/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+* Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
 {% enddocs %} 
 
-{% docs rpt_digital_monthly_wwe_com_website_kpis %}
+{% docs rpt_da_monthly_wwe_com_website_kpis %}
 ## Implementation Detail
 * Date        : 05/20/2021
 * Version     : 1.0
-* TableName   : rpt_digital_monthly_wwe_com_website_kpis
+* TableName   : rpt_da_monthly_wwe_com_website_kpis
 * Schema   	: fds_da
 * Contributor : Smitha Acharya
 * Description : This table has wwe.com website traffic and engagement metrics
@@ -2900,11 +2902,11 @@ and another language for Pay per view (PPV) Events.
 {% enddocs %} 
 
 
-{% docs vw_rpt_digital_monthly_wwe_com_website_kpis %}
+{% docs vw_rpt_da_monthly_wwe_com_website_kpis %}
 ## Implementation Detail
 * Date        : 05/26/2021
 * Version     : 1.0
-* TableName   : vw_rpt_digital_monthly_wwe_com_website_kpis
+* TableName   : vw_rpt_da_monthly_wwe_com_website_kpis
 * Schema   	: fds_da
 * Contributor : Smitha Acharya
 * Description : This view has wwe.com website traffic and engagement metrics
@@ -2912,4 +2914,50 @@ and another language for Pay per view (PPV) Events.
 * Date : 5/20/2021 ; Developer: Smitha Acharya; Change: Initial Version 
 {% enddocs %} 
 
+{% docs aggr_scd_daily_consumption_by_story_todate %}
+## Implementation Detail
+* Date        : 05/31/2021
+* Version     : 1.0
+* TableName   : aggr_scd_daily_consumption_by_story_todate
+* Schema   	: fds_sc
+* Contributor : Bharath Sainath 
+* Description : This aggregate tables contains snapchat discover consumption metrics rolled up to story level.
+## Maintenance Log
+* Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %} 
 
+{% docs aggr_scd_daily_consumption_story %}
+## Implementation Detail
+* Date        : 05/31/2021
+* Version     : 1.0
+* TableName   : aggr_scd_daily_consumption_story
+* Schema   	: fds_sc
+* Contributor : Bharath Sainath 
+* Description : This aggregate tables contains snapchat discover consumption metrics rolled up to story level.
+## Maintenance Log
+* Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %} 
+
+{% docs aggr_scd_daily_engagement_story %}
+## Implementation Detail
+* Date        : 05/31/2021
+* Version     : 1.0
+* TableName   : aggr_scd_daily_engagement_story
+* Schema   	: fds_sc
+* Contributor : Bharath Sainath 
+* Description : This aggregate tables contains snapchat discover engagement metrics rolled up to story level.
+## Maintenance Log
+* Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_cpg_weekly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 6/2/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_cpg_weekly_consolidated_kpi
+* Schema	  : fds_cpg
+* Contributor : Smitha Acharya
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom, CPG. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 6/2/2021 ; Developer: Smitha Acharya ; Change: Initial Version 
+{% enddocs %}

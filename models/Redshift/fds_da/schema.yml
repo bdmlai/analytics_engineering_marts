@@ -1,0 +1,85 @@
+version: 2
+models:
+  - name: rpt_da_monthly_wwe_com_website_kpis
+    description: '{{ doc("rpt_da_monthly_wwe_com_website_kpis") }}'
+    columns:
+        - name: date
+          description: Monthly Date
+        - name: device_category
+          description: The category of the device (i.e. mobile, tablet, desktop) associated with a session.
+        - name: device_type
+          description: Device category used to group the device types Mobile and Tablet into Mobile and to distinguish from Desktop
+        - name: geonetwork_us_v_international
+          description: As a lookup, the geonetwork_country is used to return the geonework_us_v_international (eg.domestic, internationalt) associated with a session.
+        - name: page_type
+          description: A derived page type associated with a hit.
+        - name: landing_page_type
+          description: Landing Page represents the first page of visit by a visitor
+        - name: hit_social_share_type
+          description: The social share type associated with a social share hit.
+        - name: trafficsource_channel
+          description: The trafficsource Google Analytics marketing channel group (e.g. Google, Yahoo) associated with a session.
+        - name: hit_video_attempt
+          description: An indicator to determine if a hit was a result of a video attempt.
+        - name: metric_name
+          description: Name of the metric
+        - name: metric_value
+          description: Value of the metric
+        - name: etl_row_chksum_txt
+        - name: etl_insert_rec_dttm          
+        - name: etl_insert_user_id
+        - name: etl_source_name
+        - name: etl_job_id
+        - name: hit_next
+        - name: hit_isexit
+          description: Indicates whether the hit was an exit to the session.
+        - name: hit_scroll
+          description: An indicator to determine if the hit was a scroll.
+        - name: scroll_number
+        - name: pageview_count
+          description: Number of Page Views
+        - name: table_name
+        - name: metric_value_flag
+        
+  - name: vw_rpt_da_monthly_wwe_com_website_kpis
+    description: '{{ doc("vw_rpt_da_monthly_wwe_com_website_kpis") }}'
+    columns:
+        - name: date
+          description: Monthly Date
+        - name: device_category
+          description: The category of the device (i.e. mobile, tablet, desktop) associated with a session.
+        - name: device_type
+          description: Device category used to group the device types Mobile and Tablet into Mobile and to distinguish from Desktop
+        - name: geonetwork_us_v_international
+          description: As a lookup, the geonetwork_country is used to return the geonework_us_v_international (eg.domestic, internationalt) associated with a session.
+        - name: page_type
+          description: A derived page type associated with a hit.
+        - name: landing_page_type
+          description: Landing Page represents the first page of visit by a visitor
+        - name: hit_social_share_type
+          description: The social share type associated with a social share hit.
+        - name: trafficsource_channel
+          description: The trafficsource Google Analytics marketing channel group (e.g. Google, Yahoo) associated with a session.
+        - name: hit_video_attempt
+          description: An indicator to determine if a hit was a result of a video attempt.
+        - name: metric_name
+          description: Name of the metric
+        - name: metric_value
+          description: Value of the metric
+        - name: etl_row_chksum_txt
+        - name: etl_insert_rec_dttm          
+        - name: etl_insert_user_id
+        - name: etl_source_name
+        - name: etl_job_id
+        - name: hit_next
+        - name: hit_isexit
+          description: Indicates whether the hit was an exit to the session.
+        - name: hit_scroll
+          description: An indicator to determine if the hit was a scroll.
+        - name: scroll_number
+        - name: pageview_count
+          description: Number of Page Views
+        - name: table_name
+        - name: metric_value_flag
+           
+         
