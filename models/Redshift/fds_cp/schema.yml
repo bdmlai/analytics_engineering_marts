@@ -920,3 +920,19 @@ models:
           description: watch time duration 
         - name: views
           description: sum of views 
+  - name: rpt_cp_monthly_digital_and_social_minutes
+    columns:
+        - name: platform
+          description: stores the name of platform
+        - name: as_on_dates
+          description: describe the month and year the minutes were calculated
+        - name: minutes
+          description: describe the length of the content calculated minutes
+        - name: etl_insert_rec_dttm
+          description: ETL Column
+        - name: etl_insert_user_id
+          description: ETL Column
+        - name: etl_update_rec_dttm
+          description: ETL Column
+        - name: etl_update_user_id
+          description: ETL Column
