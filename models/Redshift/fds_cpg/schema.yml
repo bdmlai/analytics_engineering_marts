@@ -1707,10 +1707,6 @@ models:
   - name: rpt_cpg_monthly_royalty
     description: '{{ doc("rpt_cpg_monthly_royalty") }}'
     columns:
-        - name: source
-          description: Indicates the sources like radial,clientbase etc
-        - name: currency_type
-          description: Indicates currency type
         - name: report_month
           description: Reporting month
         - name: month
@@ -1725,6 +1721,10 @@ models:
           description: Description of the item from reference system (JDE)
         - name: royalty_code          
           description: Name of royalty for item from reference system (JDE). Eg. WWF011051, WWE999999
+        - name: source
+          description: Indicates the sources like radial,clientbase etc
+        - name: currency_type
+          description: Indicates currency type
         - name: shipped_quantity
           description: Indicates shipped quantity
         - name: shipped_sales          
@@ -1751,10 +1751,6 @@ models:
   - name: vw_rpt_cpg_monthly_royalty
     description: '{{ doc("vw_rpt_cpg_monthly_royalty") }}'
     columns:
-        - name: source
-          description: Indicates the sources like radial,clientbase etc
-        - name: currency_type
-          description: Indicates currency type
         - name: report_month
           description: Reporting month
         - name: month
@@ -1769,6 +1765,10 @@ models:
           description: Description of the item from reference system (JDE)
         - name: royalty_code          
           description: Name of royalty for item from reference system (JDE). Eg. WWF011051, WWE999999
+        - name: source
+          description: Indicates the sources like radial,clientbase etc
+        - name: currency_type
+          description: Indicates currency type
         - name: shipped_quantity
           description: Indicates shipped quantity
         - name: shipped_sales          
@@ -1992,4 +1992,38 @@ models:
           description: wwe id of the wrestler
         - name: screentime
           description: screentime
+    
+  - name: vw_rpt_cpg_weekly_consolidated_kpi
+    description: '{{ doc("vw_rpt_cpg_weekly_consolidated_kpi") }}'
+    columns:
+        - name: granularity
+          description: represents the cadence i.e. Weekly or MTD or YTD
+        - name: platform
+          description: represents the platform name like CPG
+        - name: type
+          description: represents content type like CPG
+        - name: metric
+          description: represents the metric name
+        - name: year
+          description: indicates the calendar year
+        - name: month
+          description: indicates the calendar month
+        - name: week
+          description: indicates the calendar week
+        - name: start_date
+          description: calendar date representing the start date of the week
+        - name: end_date
+          description: calendar date representing the end date of the week
+        - name: value
+          description: indicates the metric value for current year
+        - name: prev_year
+          description: indicates the previous calendar year
+        - name: prev_year_week
+          description: indicates the week of previous calendar year
+        - name: prev_year_start_date
+          description: calendar date representing the previous year start date of the week
+        - name: prev_year_end_date
+          description: calendar date representing the previous year end date of the week
+        - name: prev_year_value
+          description: indicates the metric value for previous year
                      

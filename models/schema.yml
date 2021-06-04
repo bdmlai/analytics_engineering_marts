@@ -34,6 +34,7 @@ sources:
       - name: dim_venue
       - name: lookup_table
       - name: dim_media
+      - name: dim_story
 
   - name: fds_yt
     tables:
@@ -76,8 +77,9 @@ sources:
        - name: rpt_nplus_monthly_nxt_live_vod
        - name: rpt_nplus_yearly_hof_live
        - name: rpt_nplus_yearly_hof_live_vod
-       - name: rpt_nplus_weekly_bump_live
-       - name: vw_rpt_nplus_weekly_bump_live
+       - name: rpt_network_weekly_bump_history
+       - name: rpt_network_weekly_bump_live
+       - name: vw_rpt_network_weekly_bump_live
        - name: fact_daily_viewership
        - name: AGGR_MONTHLY_DVC_PLATFORM_CNTRY_VIEWERSHIP
        - name: FACT_DAILY_SUBSCRIPTION_STATUS_PLUS
@@ -97,6 +99,7 @@ sources:
        - name: aggr_monthly_seriesgroup_debutyear_viewership
        - name: fact_daily_subscriber_status
        - name: drvd_intra_hour_quarter_hour_adds
+       - name: rpt_nplus_weekly_bump_live
         
   - name: dwh_read_write
     tables:
@@ -137,6 +140,9 @@ sources:
        - name: fact_scd_consumption_frame
        - name: fact_sc_published_frame
        - name: fact_sc_published_story
+       - name: vw_aggr_scd_daily_consumption_by_frame_todate
+       - name: fact_scd_engagement_frame
+       - name: fact_sc_consumption_frame
          
   - name: udl_nplus
     tables:
