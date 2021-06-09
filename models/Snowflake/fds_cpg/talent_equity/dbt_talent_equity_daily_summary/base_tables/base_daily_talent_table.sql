@@ -17,60 +17,27 @@ PSTA-3481  05/21/2021   Code fix to eliminate lineage_wweid duplicities in fds_m
                         'centralized table'],
                     post_hook = "grant select on {{ this }} to DA_YYANG_USER_ROLE"
  ) }}
+with source_data as
 
+(
+select * from (
+select full_date as date,character_lineage_name as lineage_name,character_lineages_wweid as lineage_wweid,source_string,
+case when entity_type='character_lineages' then 'Character' when entity_type='group_lineages' then 'Group' end as entity_type,
+listagg(gender,'|') within group (order by full_date,character_lineage_name) as gender from(
+select a.character_lineage_name,a.character_lineages_wweid,b.source_string,a.entity_type,gender from(
+select characters_name,character_lineage_name,character_lineages_wweid,'character_lineages' as entity_type,
+character_lineage_id as entity_id,gender from {{source('sf_fds_mdm','character')}} where enabled=true
+union all
+select group_name,character_lineage_name,character_lineage_wweid,'group_lineages' as entity_type,
+character_lineage_mdmid as entity_id,null as gender from {{source('sf_fds_mdm','groups')}} where enabled=true)a
+left join (select alternate_id_name,source_string,entity_type,entity_id from {{source('sf_fds_mdm','alternateid')}}
+where alternate_id_type_name='Merch Sales' group by 1,2,3,4)b
+on a.entity_type=b.entity_type and a.entity_id=b.entity_id group by 1,2,3,4,5)a
+cross join(
+select full_date from {{source('sf_cdm','dim_date')}} where full_date>= '2018-01-01' and full_date<=current_date group by 1 order by 1)b 
+group by 1,2,3,4,5 order by 2,1) where lineage_name is not null
 
-with source_data AS 
-    (SELECT *
-    FROM 
-        (SELECT full_date AS date,
-        character_lineage_name AS lineage_name,
-        character_lineages_wweid AS lineage_wweid,
-        source_string,
-        gender,
-        
-            CASE
-            WHEN entity_type='character_lineages' THEN
-            'Character'
-            WHEN entity_type='group_lineages' THEN
-            'Group'
-            END AS entity_type from
-            (SELECT a.character_lineage_name,
-        a.character_lineages_wweid,
-        b.source_string,
-        a.entity_type,
-        gender from
-                (SELECT characters_name,
-        character_lineage_name,
-        character_lineages_wweid,
-        'character_lineages' AS entity_type, character_lineage_id AS entity_id,gender
-                FROM {{source('sf_fds_mdm','character')}}
-                WHERE enabled=true --PSTA-3481 enabled
-                UNION all
-                SELECT group_name,
-        character_lineage_name,
-        character_lineage_wweid,
-        'group_lineages' AS entity_type, character_lineage_mdmid AS entity_id,null AS gender
-                FROM {{source('sf_fds_mdm','groups')}}
-                WHERE enabled=true)a --PSTA-3481 enabled
-                LEFT JOIN 
-                    (SELECT alternate_id_name,
-        source_string,
-        entity_type,
-        entity_id
-                    FROM {{source('sf_fds_mdm','alternateid')}}
-                    WHERE alternate_id_type_name='Merch Sales'
-                    GROUP BY  1,2,3,4)b
-                        ON a.entity_type=b.entity_type
-                            AND a.entity_id=b.entity_id
-                    GROUP BY  1,2,3,4,5)a cross join
-                        (SELECT full_date
-                        FROM {{source('sf_cdm','dim_date')}}
-                        WHERE full_date>= '2018-01-01'
-                                AND full_date<=current_date
-                        GROUP BY  1
-                        ORDER BY  1)b
-                        GROUP BY  1,2,3,4,5,6
-                        ORDER BY  2,1)
-                        WHERE lineage_name is NOT NULL )
-                    SELECT *
-                FROM source_data 
+)
+
+select * from 
+    source_data 
