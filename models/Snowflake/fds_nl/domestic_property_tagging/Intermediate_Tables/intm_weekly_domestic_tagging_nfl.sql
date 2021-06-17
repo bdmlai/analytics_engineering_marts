@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_nfl
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to NFL
    Version      Date             Author               Request
@@ -20,7 +20,7 @@
 ('2019-09-05','2019-12-29',"Regular"),('2020-01-04','2020-02-02',"Post"),
 ('2020-09-10','2021-01-03',"Regular"),('2021-01-09','2021-02-07',"Post")]%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nfl'],schema= 'CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nfl'],schema= 'fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_nfl as (

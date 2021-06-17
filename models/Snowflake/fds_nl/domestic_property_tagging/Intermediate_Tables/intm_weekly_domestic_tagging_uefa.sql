@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_uefa
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to UEFA
    Version      Date             Author               Request
@@ -21,7 +21,7 @@
 {% set uefa_series_flag=["UEFA","90IN30 UEFA EUROUNDER21"]%}
 {% set uefa_genre_detailed_cd_flag = ["SOCC","SOIS"]%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','uefa'],schema= 'CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','uefa'],schema= 'fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_uefa as (

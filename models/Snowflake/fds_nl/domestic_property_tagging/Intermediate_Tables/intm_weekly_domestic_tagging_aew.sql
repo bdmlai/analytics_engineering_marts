@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_aew
-   Schema	     : CONTENT
+   Schema	     : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to AEW
    
@@ -11,7 +11,7 @@
 */
 {% set aew_series_flag = ["ALL ELITE WRESTLING"]%}
 
-{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','aew'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true, tags=['domestic','tagging','aew'],schema='fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_aew as (
