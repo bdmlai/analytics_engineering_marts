@@ -1031,6 +1031,8 @@ models:
           description: Season details
         - name: source_ffed_name
           description: source_ffed_name
+        - name: commercial_overlap_ind
+          description: To indicate whether the minute is overlapping by commercial or not
         - name: etl_batch_id          
           description: Unique ID of DBT Job used to insert the record
         - name: etl_insert_user_id          
@@ -1139,6 +1141,10 @@ models:
           description: Season details
         - name: source_ffed_name
           description: source_ffed_name
+        - name: commercial_overlap_ind
+          description: To indicate whether the minute is overlapping by commercial or not
+          
+          
   - name: rpt_tv_weekly_consolidated_kpi
     description:  '{{ doc("rpt_tv_weekly_consolidated_kpi") }}'
     columns:
@@ -1175,6 +1181,8 @@ models:
   - name: rpt_nl_weekly_us_tv_program_ratings
     description:  '{{ doc("rpt_nl_weekly_us_tv_program_ratings") }}'
     columns:
+        - name: broadcast_date
+          description: Broadcast date of the program
         - name: week
           description: Financial year week begin date
         - name: year
@@ -1194,6 +1202,8 @@ models:
   - name: vw_rpt_nl_weekly_us_tv_program_ratings
     description:  '{{ doc("vw_rpt_nl_weekly_us_tv_program_ratings") }}'
     columns:
+        - name: broadcast_date
+          description: Broadcast date of the program
         - name: week
           description: Financial year week begin date
         - name: year
@@ -1210,3 +1220,100 @@ models:
           description: Total U.S. Average Audience Projection (000) (The projected number of households tuned or persons viewing a program/originator/daypart during the average minute, expressed in thousands.)
         - name: avg_audience_pct
           description: Total U.S. Average Audience Percentage (The percentage of the target demographic viewing the average minute of the selected program or time period within the total U.S.)
+  - name: rpt_nl_quarterly_ranker
+    description: "rpt_nl_ranker"
+    columns:
+        - name: Period
+          description: "It defines Quarterly or FY data"
+        - name: Period_Start_date
+          description: "It defines Period Start date"
+        - name: Period_End_date
+          description: "It defines Period End Date"
+        - name: Category
+          description: "It defines Category of Group"
+        - name: Playback_Period_Cd
+          description: "It defines Playback Period Code"
+        - name: demogroup
+          description: "It defines demogroup detail"
+        - name: Program_ID
+          description: "It defines Program ID"
+        - name: Program
+          description: "It defines the Program Name"
+        - name: Rank
+          description: "It defines the Rank"
+  - name: vw_rpt_nl_quarterly_ranker
+    description: "vw_rpt_nl_quarterly_ranker"  
+    columns:
+        - name: Period
+          description: "It defines Quarterly or FY data"
+        - name: Period_Start_date
+          description: "It defines Period Start date"
+        - name: Period_End_date
+          description: "It defines Period End Date"
+        - name: Category
+          description: "It defines Category of Group"
+        - name: Playback_Period_Cd
+          description: "It defines Playback Period Code"
+        - name: demogroup
+          description: "It defines demogroup detail"
+        - name: Program_ID
+          description: "It defines Program ID"
+        - name: Program
+          description: "It defines the Program Name"
+        - name: Rank
+          description: "It defines the Rank"
+  - name: rpt_nl_monthly_program_kpi
+    description: This table holds the kpis like average viewers, program rating etc for the specific domestic tv programs for all demographic groups for multiple period codes- Live, Live+same day, Live +3 day and Live+7 day 
+    columns:                  
+        - name: view_month
+          description: Start date of the as of month
+        - name: src_playback_period_cd
+          description: Period codes by day of viewership- Live, Live+SD, Live+3, Live+7
+        - name: src_demographic_group
+          description: Holds demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
+        - name: program_name
+          description: consolidated primary program name.
+        - name: start_date
+          description: start date of the period per cadence
+        - name: end_date
+          description: end date of the period per cadence
+        - name: cadence
+          description: stores the cadence- month, quarter, year to date and rolling 12 months
+        - name: avg_viewers
+          description: Average Audience/viewers for corresponding dimensions
+        - name: total_us_HH_rating
+          description: Total U.S. Household Rating for the corresponding dimensions
+        - name: episode_count
+          description: Count of episodes telecasted for the respective program name per the time period and cadence
+        - name: avg_viewers_yoy_change
+          description: Percent change in Average Audience/viewers for respective program name per the time period and cadence
+        - name: total_us_hh_rating_yoy_change
+          description: Percent change in Total U.S. Household Rating for respective program name per the time period and cadence
+  - name: vw_rpt_nl_monthly_program_kpi
+    description: This view holds the kpis like average viewers, program rating etc for the specific domestic tv programs for all demographic groups for multiple period codes- Live, Live+same day, Live +3 day and Live+7 day 
+    columns:                  
+        - name: view_month
+          description: Start date of the as of month
+        - name: src_playback_period_cd
+          description: Period codes by day of viewership- Live, Live+SD, Live+3, Live+7
+        - name: src_demographic_group
+          description: Holds demographic groups (e.g. Females 18 to 49 and Males 18 - 24 input as F18-49,M18-24).
+        - name: program_name
+          description: consolidated primary program name.
+        - name: start_date
+          description: start date of the period per cadence
+        - name: end_date
+          description: end date of the period per cadence
+        - name: cadence
+          description: stores the cadence- month, quarter, year to date and rolling 12 months
+        - name: avg_viewers
+          description: Average Audience/viewers for corresponding dimensions
+        - name: total_us_HH_rating
+          description: Total U.S. Household Rating for the corresponding dimensions
+        - name: episode_count
+          description: Count of episodes telecasted for the respective program name per the time period and cadence
+        - name: avg_viewers_yoy_change
+          description: Percent change in Average Audience/viewers for respective program name per the time period and cadence
+        - name: total_us_hh_rating_yoy_change
+          description: Percent change in Total U.S. Household Rating for respective program name per the time period and cadence
+          
