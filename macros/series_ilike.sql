@@ -11,12 +11,12 @@
 *************************************************************************************************************************************************
 */
 
-{% macro series_ilike(column_name,condition,flag_number)%}
+{% macro series_ilike(column_name,constraint_1,condition,flag_number)%}
 
 
 case 
-when {{column_name}} ilike '{{condition}}' then 1
+when {{column_name}} {{constraint_1}} ilike '{{condition}}' then 1
 else 0
-end as {{column_name}}_ilike_{{flag_number}}
+end as {{column_name}}_{{constraint_1}}_ilike_{{flag_number}}
 
 {% endmacro %}
