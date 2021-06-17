@@ -720,6 +720,10 @@
 
 ## Maintenance Log
 * Date : 08/17/2020 ; Developer: Rahul Chandran ; Change: Initial Version as a part of Phase 4b Project.
+
+* Date : 06/06/2021 ; Developer: Rahul Chandran ; Change: Modified to match NXT Programs with other NXT variants as apart of Jira: PSTA-3592
+
+* Date : 06/06/2921 ; Developer: Rahul Chandran ; Change: Modified to add commercial overlap indicator column as apart of Jira: PSTA-3485
 {% enddocs %}
 
 {% docs vw_rpt_nl_daily_minxmin_lite_log_ratings %}
@@ -887,11 +891,12 @@
 * Version     : 1.1
 * ViewName    : rpt_cp_weekly_consolidated_kpi
 * Schema	  : fds_cp
-* Contributor : Lakshman Murugesan
+* Contributor : Lakshman Murugesan,Vinay Kumar
 * Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
 ## Maintenance Log
 * Date : 10/13/2020 ; Developer: Lakshman Murugesan ; Change: Initial Version 
 * Date : 04/14/2021 ; Developer: Lakshman Murugesan ; Change: Removed pre-hook from the code and added intermediates
+* Date : 6/9/2021 ; Developer: Vinay Kumar ; Change: PSTA-3396-Addressed the issue of metrics summed up for repeat telecasts of TV
 {% enddocs %}
 
 
@@ -901,10 +906,11 @@
 * Version     : 1.0
 * ViewName    : vw_rpt_cp_weekly_consolidated_kpi
 * Schema	  : fds_cp
-* Contributor : Lakshmanan Murugesan
+* Contributor : Lakshmanan Murugesan,Vinay Kumar
 * Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
 ## Maintenance Log
 * Date : 10/13/2020 ; Developer: Lakshmanan Murugesan ; Change: Initial Version 
+* Date : 6/9/2021 ; Developer: Vinay Kumar ; Change: PSTA-3396-Addressed the issue of metrics summed up for repeat telecasts of TV
 {% enddocs %}
 
 
@@ -1697,8 +1703,20 @@
 * Description : vw_aggr_nplus_ppv_week_adds_tracking_hist view consists of historical PPV event details with count of paid/trail/promo subscription add and forecast suscription count for PPV summary historical tab of GHW report.
 ## Maintenance Log
 * Date : 12/04/2020 ; Developer: Hima Dasan ; Change: Initial Version as a part of Network 2.0 Project.
+* Date : 06/15/2021 ; Developer: Bharath Sainath L ; Change: Enhancement to add country column along with 3 new metrics.
 {% enddocs %}
 
+{% docs aggr_nplus_ppv_week_adds_tracking_hist %}
+## Implementation Detail
+* Date        : 06/15/2021
+* Version     : 1.0
+* ViewName    : aggr_nplus_ppv_week_adds_tracking_hist
+* Schema	  : fds_nplus
+* Contributor : Bharath Sainath L
+* Description : aggr_nplus_ppv_week_adds_tracking_hist view consists of historical PPV event details with count of paid/trail/promo subscription add and forecast suscription count for PPV summary historical tab of GHW report.
+## Maintenance Log
+* Date : 06/15/2021 ; Developer: Bharath Sainath L ; Change: Initial version
+{% enddocs %}
 
 {% docs rpt_cpg_monthly_royalty %}
 ## Implementation Detail
@@ -2961,3 +2979,104 @@ and another language for Pay per view (PPV) Events.
 ## Maintenance Log
 * Date : 6/2/2021 ; Developer: Smitha Acharya ; Change: Initial Version 
 {% enddocs %}
+
+{% docs rpt_cp_monthly_global_consumption_by_platform_social %}
+## Implementation Detail
+*   Date        : 07/14/2020
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_global_consumption_by_platform_social
+*   Schema	: fds_cp
+*   Contributor : Sandeep Battula
+*   Description : Monthly Cross Platform Global Content Consumption aggregate table consists of consumption metrics Views and Hours watched with country and 	region details for all cross platforms. This script inserts last month data for platforms- Youtube, Facebook, WWE.Com and WWE App, Instagram, Snapchat and Twitter from respective source tables on monthly basis (5th of every month). Inaddition to the latest month, metrics are also calculated and inserted for previous month, year-to-date and previous year-to-date. 
+
+## Maintenance Log
+*   Date        : 06/09/2021
+*   Change      : Enhancement is done to add duration_hours column. Also, new table is created only for social platforms splitting from rpt_cp_monthly_global_consumption_by_platform. Also, removed the prehook delete logic.
+{% enddocs %}
+
+{% docs rpt_cp_monthly_global_consumption_by_platform_tv %}
+## Implementation Detail
+*   Date        : 07/14/2020
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_global_consumption_by_platform_tv
+*   Schema	: fds_cp
+*   Contributor : Sandeep Battula
+*   Description : Monthly Cross Platform Global Content Consumption aggregate table consists of consumption metrics Views and Hours watched with country and 	region details for all cross platforms. This script inserts last month data for platforms- Domestic TV, International TV, PPTV, Hulu SVOD and WWE Network. Inaddition to the latest month, metrics are also calculated and inserted for previous month, year-to-date and previous year-to-date. 
+
+## Maintenance Log
+*   Date        : 10/23/2020
+*   Change      : Enhancement is done for Domestic TV platform to get viewing hours for Live+Same day for the dates Live+7 data is not available.  Also updated prehook to delete current month's data for platforms - Domestic TV, PPTV, Hulu SVOD and WWE Network inaddition to current International TV
+*   Date        : 06/09/2021
+*   Change      : Enhancement is done to add duration_hours column. Also, new table is created only for TV platforms splitting from rpt_cp_monthly_global_consumption_by_platform. Also, removed the prehook delete logic.
+{% enddocs %}
+
+{% docs rpt_cp_monthly_global_consumption_by_platform_tiktok %}
+## Implementation Detail
+*   Date        : 07/14/2020
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_global_consumption_by_platform_tiktok
+*   Schema	: fds_cp
+*   Contributor : Sandeep Battula
+*   Description : Monthly Cross Platform Global Content Consumption aggregate table consists of consumption metrics Views and Hours watched with country and 	region details for all cross platforms. This script inserts last month data for platform- Tiktok. Inaddition to the latest month, metrics are also calculated and inserted for previous month, year-to-date and previous year-to-date. 
+
+## Maintenance Log
+*   Date        : 06/09/2021
+*   Change      : Enhancement is done to add duration_hours column. Also, new table is created only for Tiktok platform splitting from rpt_cp_monthly_global_consumption_by_platform. Also, removed the prehook delete logic.
+{% enddocs %}
+
+{% docs rpt_nl_monthly_program_kpi %}
+## Implementation Detail
+*   Date        : 06/10/2021
+*   Version     : 1.0
+*   ViewName    : rpt_nl_monthly_program_kpi
+*   Schema	: fds_nl
+*   Contributor : Sandeep Battula
+*   Description : This table holds the kpis like average viewers, program rating etc for the specific domestic tv programs for all demographic groups for multiple period codes- Live, Live+same day, Live +3 day and Live+7 day. 
+
+{% enddocs %}
+
+{% docs rpt_cp_monthly_streaming_qoe_network %}
+## Implementation Detail
+*   Date        : 06/14/2021
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_streaming_qoe_network
+*   Schema	: fds_cp
+*   Contributor : Lakshmanan Murugesan
+*   Description : This table holds the kpis avg_bitrate_mbps, rebuffer_rate, video_start_fail_rate and video_start_time_sec for network Live and VOD streaming. 
+
+{% enddocs %}
+
+{% docs rpt_cp_monthly_streaming_qoe_dotcom %}
+## Implementation Detail
+*   Date        : 06/14/2021
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_streaming_qoe_dotcom
+*   Schema	: fds_cp
+*   Contributor : Lakshmanan Murugesan
+*   Description : This table holds the kpis avg_bitrate_mbps, rebuffer_rate, video_start_fail_rate and video_start_time_sec for dotcom in Android, iOS and Desktop platforms. 
+
+{% enddocs %}
+
+{% docs rpt_cp_monthly_streaming_qoe_le %}
+## Implementation Detail
+*   Date        : 06/14/2021
+*   Version     : 1.0
+*   ViewName    : rpt_cp_monthly_streaming_qoe_le
+*   Schema	: fds_cp
+*   Contributor : Lakshmanan Murugesan
+*   Description : This table holds the wwe network live event quality of experience kpis avg_bitrate_mbps, rebuffer_rate, video_start_fail_rate and video_start_time_sec in multiple devices and platforms. 
+
+{% enddocs %}
+
+{% docs rpt_nplus_daily_ppv_internet_survey %}
+## Implementation Detail
+*   Date        : 06/16/2021
+*   Version     : 1.0
+*   ViewName    : rpt_nplus_daily_ppv_internet_survey
+*   Schema	: fds_cp
+*   Contributor : Lakshmanan Murugesan
+*   Description : This table holds the internet survey questions and responses for the PPV go home week events.
+
+{% enddocs %}
+
+

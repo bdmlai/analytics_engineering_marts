@@ -4,7 +4,8 @@
   })
 }}
 
-select e.fin_year_week_begin_date as week,
+select a.broadcast_date as broadcast_date,
+e.fin_year_week_begin_date as week,
 e.financial_year_week_number as week_number,
 e.financial_year as year,
 'AEW'  as program_type,
@@ -24,5 +25,5 @@ join (select distinct cal_mth_num, mth_abbr_nm from {{source('cdm','dim_date')}}
 where dim_date_id >= 20140101) e on a.broadcast_date_id = e.dim_date_id
 where src_program_id in ('459734') 
 and src_program_attributes not like '%(R)%'
-group by 1,2,3,4,5,6
-order by 1,2,3,4,5,6
+group by 1,2,3,4,5,6,7
+order by 1,2,3,4,5,6,7
