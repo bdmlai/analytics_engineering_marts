@@ -1,11 +1,11 @@
 image: ubuntu
 
 stages:
-  - Prod
+  - Dev
   
 #Pre Deployment steps stage
-Prod:   
-   stage: Prod   
+Dev:   
+   stage: Dev   
    before_script: 
      - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
      - eval $(ssh-agent -s)
@@ -15,4 +15,4 @@ Prod:
      - chmod 700 ~/.ssh/*
 
    script: 
-      - ssh -i ~/.ssh/authorized_keys "$PRD_USER"@"$PRD_IP" "cd ~/workspace/ && source virtualenv/bin/activate && cd analytics_engineering_marts && git pull https://sandugul@git.wwe.com/data_engineering/bi-analytics-engineering/analytics-engineering/dbt/analytics_engineering_marts.git"
+      - ssh -i ~/.ssh/authorized_keys "$PRD_USER"@"$PRD_IP" "cd ~/workspace/ && source virtualenv/bin/activate && cd analytics_engineering && git pull https://sandugul@git.wwe.com/data_engineering/bi-analytics-engineering/analytics-engineering/dbt/analytics_engineering_marts.git"
