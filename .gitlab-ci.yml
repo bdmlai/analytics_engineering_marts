@@ -15,4 +15,4 @@ Prod:
      - chmod 700 ~/.ssh/*
 
    script: 
-      - ssh -i ~/.ssh/authorized_keys "$PRD_USER"@"$PRD_IP" "cd ~/workspace/ && source virtualenv/bin/activate && cd analytics_engineering_marts && git pull https://sandugul@git.wwe.com/data_engineering/bi-analytics-engineering/analytics-engineering/dbt/analytics_engineering_marts.git && dbt compile --target redshift"
+      - ssh -i ~/.ssh/authorized_keys "$PRD_USER"@"$PRD_IP" "cd ~/workspace/ && source virtualenv/bin/activate && cd analytics_engineering_marts && git pull https://sandugul@git.wwe.com/data_engineering/bi-analytics-engineering/analytics-engineering/dbt/analytics_engineering_marts.git"
