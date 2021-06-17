@@ -1,18 +1,13 @@
-image: ubuntu
-
-stages:
-  - Dev
-  
-#Pre Deployment steps stage
-Dev:   
-   stage: Dev   
-   before_script: 
-     - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
+deploy:
+  stage: deploy
+  only:
+    - master
+  before_script:
+	 - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
      - eval $(ssh-agent -s)
      - mkdir ~/.ssh
      - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/authorized_keys
      - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
      - chmod 700 ~/.ssh/*
-
-   script: 
-      - ssh -v -i ~/.ssh/authorized_keys "$PRD_USER"@"$PRD_IP" "cd ~/workspace/ && source virtualenv/bin/activate && cd analytics_engineering && touch test "
+  script:
+    - ssh -v -i ~/.ssh/authorized_keys "$PRD_USER"@"$PRD_IP" "cd ~/workspace/ && source virtualenv/bin/activate && cd analytics_engineering_marts && it pull https://sandugul@git.wwe.com/data_engineering/bi-analytics-engineering/analytics-engineering/dbt/analytics_engineering_marts.git && dbt compile --target redshift  "
