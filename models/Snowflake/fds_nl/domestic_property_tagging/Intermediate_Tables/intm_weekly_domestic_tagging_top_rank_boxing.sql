@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
-   TableName   : intm_weekly_domestic_tagging_premier_boxing
-   Schema	   : fds_nl
+   TableName   : intm_weekly_domestic_tagging_top_rank_boxing
+   Schema	   : CONTENT
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to NHL
    Version      Date             Author               Request
@@ -9,35 +9,39 @@
 *************************************************************************************************************************************************
 */
 
-{% set premier_boxing_series_flag=["PREMIER BOXING","PBC"]%}
-{%set premier_boxing_genre_detailed_cd_flag = ["BOXX"] %}
+{% set top_rank_boxing_series_flag=["TOP RANK BOXING"]%}
+{%set top_rank_boxing_genre_detailed_cd_flag = ["BOXX","SPOC"] %}
 
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','top rank boxing'],schema='fds_nl',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','top rank boxing'],schema='CONTENT',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
-with intm_weekly_domestic_tagging_premier_boxing as (
-select *,
+with intm_weekly_domestic_tagging_top_rank_boxing as (
+select src_broadcast_orig_date,broadcast_date,broadcast_network_name,src_series_name,src_episode_title,
+program_telecast_rpt_starttime,program_telecast_rpt_endtime,
+src_total_duration,src_playback_period_cd,src_demographic_group,
+src_genre_classification_cd,src_genre_classification_detailedtypecd,
+src_program_attributes,src_daypart_cd,src_broadcast_network_service_type,
+avg_audience_proj_000,avg_audience_proj_units,round(avg_audience_pct,1) as avg_audience_pct ,
+avg_audience_pct_nw_cvg_area,round(share_pct) as share_pct,
+round(share_pct_nw_cvg_area) as share_pct_nw_cvg_area,telecast_trackage_name,DAYNAME(broadcast_date) 
+as calendardayofweekname,src_broadcast_network_id,inserted_time,
+orig_broadcast_date_id,dim_nl_series_id,dim_nl_episode_id,src_telecast_id,
 case 
      when src_genre_classification_cd !='SE' then 'Shoulder'
      when src_program_attributes like '%L%' and  src_episode_title not like 'N/A' then 'Non_Shoulder'
      when src_series_name like '%REPEAT%' or src_series_name like '%RPT%' then 'Shoulder'
-     when src_series_name like '%PRESS CONFERENCE%' or src_series_name like '%WEIGH-IN%' 
-     or src_series_name like '%POST%' or src_series_name like '%COUNTDOWN%' 
-     or src_series_name like '%PBC COLLECTION%' then 'Shoulder'
-     when src_program_attributes like '%(R)%' or src_episode_title like 'N/A' then 'Shoulder'
-     when src_broadcast_network_service_type = 'Broadcast' and src_total_duration>=100 then 'Non_Shoulder'
-     when src_episode_title like '%PBC ESTA NOCHE%' or src_episode_title like '%WEIGH-IN%' then 'Shoulder'
-     else 'Non_Shoulder'
+     when src_episode_title like 'N/A' then 'Shoulder'
+     else 'Shoulder'
 end as att_Shoulder,
 'NA' as att_fights,
 'NA' as att_cup,
 'NA' as att_Season,
 'NA' as att_Channel_Qualifier,
-{{property_tagging("property",'src_series_name',premier_boxing_series_flag,
-'src_genre_classification_detailedtypecd',premier_boxing_genre_detailed_cd_flag,"","and","")}}
-,'PREMIER BOXING' as property 
+{{property_tagging("property",'src_series_name',top_rank_boxing_series_flag,
+'src_genre_classification_detailedtypecd',top_rank_boxing_genre_detailed_cd_flag,"","and","")}}
+,'TOP RANK BOXING' as property 
 from
 {{ref('base_weekly_domestic_tagging')}} where property__and__flag=1
  )
@@ -51,5 +55,6 @@ avg_audience_proj_000,avg_audience_proj_units,round(avg_audience_pct,1) as avg_a
 avg_audience_pct_nw_cvg_area,round(share_pct) as share_pct,
 round(share_pct_nw_cvg_area) as share_pct_nw_cvg_area,telecast_trackage_name,DAYNAME(broadcast_date) 
 as calendardayofweekname,att_Shoulder,att_fights,att_cup,att_season,att_Channel_Qualifier,src_broadcast_network_id,
+orig_broadcast_date_id,dim_nl_series_id,dim_nl_episode_id,src_telecast_id,
 inserted_time,property 
-from intm_weekly_domestic_tagging_premier_boxing
+from intm_weekly_domestic_tagging_top_rank_boxing
