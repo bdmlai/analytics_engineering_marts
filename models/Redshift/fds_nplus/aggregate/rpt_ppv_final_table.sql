@@ -55,7 +55,7 @@ SELECT  ordr_dt,
         count(distinct order_id) add_cnt
  from fds_nplus.fact_daily_subscription_order_status 
  where trunc(initial_order_dttm) in (select distinct adds_date from #full_list)-- where event_type!='current_ppv')
- and billing_country_cd not in ('usd','us') --and billing_sku_country_cd not in ('ca','us')
+ and billing_country_cd not in ('usd','us') and dim_country_id not in ('233','92','240','149','182','11','232') --and billing_sku_country_cd not in ('ca','us')
  --and payment_method in ('cybersource','stripe','incomm','paypal','roku_iap','google_iap') --,'roku_iap'
  group by 1,2,3
  )
@@ -130,7 +130,7 @@ create table #t1_hourly_comps_pct as
 select  (ag_hour*1.00)/ag_sum ag_sum_pct,a.adds_day_of_week,adds_time from
 (select ag_hour,adds_day_of_week,adds_time from
 (select avg(paid_adds)+avg(trial_adds) ag_hour,adds_time,adds_day_of_week from #final_table_up where adds_day_of_week in ('Friday','Saturday','Sunday') 
-and event_type not in ('current_ppv','comp4','comp4') --!='comp3' 
+and event_type not in ('current_ppv','comp4','comp5') --!='comp3' 
 group by adds_time,adds_day_of_week)) a 
 left join
 (select sum(ag_hour) ag_sum,adds_day_of_week from
