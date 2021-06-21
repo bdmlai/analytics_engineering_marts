@@ -178,8 +178,8 @@ from fds_nplus.rpt_network_ppv_liveplusvod where event_brand in (select event_br
 and event_date <> trunc(convert_timezone('AMERICA/NEW_YORK', sysdate)));",
 "drop table if exists #hof_live_final;
 select a.*, 
-          (a.views*1.00)/a.prev_month_views-1 as monthly_per_change_views,
-          (a.views*1.00)/a.prev_year_views-1 as yearly_per_change_views,
+          (a.views*1.00)/nullif(a.prev_month_views,0)-1 as monthly_per_change_views,
+          (a.views*1.00)/nullif(a.prev_year_views,0)-1 as yearly_per_change_views,
           (EXTRACT(EPOCH FROM ((end_time) - (start_time)))/60::numeric)+1 as duration,
           row_number() OVER (PARTITION BY a.platform ORDER BY a.views desc) as overall_rank,
           case when yearly_rank>0 then yearly_rank else null end as yearly_rank,
@@ -188,9 +188,9 @@ select a.*,
                when lower(a.event) like '%summerslam%' then 'Tier 1'
                when lower(a.event) like '%survivor series%' then 'Tier 1'
                else 'Tier 2' end as tier,
-          case when (a.views*1.00)/a.prev_month_views-1 >= 0 then '1'
+          case when (a.views*1.00)/nullif(a.prev_month_views,0)-1 >= 0 then '1'
           else '0' end as monthly_color,
-          case when (a.views*1.00)/a.prev_year_views-1 >= 0 then '1'
+          case when (a.views*1.00)/nullif(a.prev_year_views,0)-1 >= 0 then '1'
           else '0' end as yearly_color,
           case when a.event_date=(select max(event_date) from #hof_live_consolidation) then 'Most Recent PPV' else 'Prior PPVs' end as Choose_PPV
  into #hof_live_final

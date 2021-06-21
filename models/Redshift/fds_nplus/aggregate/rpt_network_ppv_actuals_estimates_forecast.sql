@@ -150,8 +150,8 @@ where trunc(bill_date) = date(dateadd('hour',-1,convert_timezone('AMERICA/NEW_YO
 create table #actuals_estimates_forecast_view as
 (select 
 a.*,
- 19649     as current_day_forecast,  --b.current_day_forecast
-66258 weekend_forecast            --b.weekend_forecast
+ b.current_day_forecast     as current_day_forecast,  --b.current_day_forecast
+b.weekend_forecast weekend_forecast            --b.weekend_forecast
 from #actuals_estimates as a 
 left join 
 #forecast_view as b
