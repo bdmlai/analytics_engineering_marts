@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_ufc
-   Schema	     : CONTENT
+   Schema	     : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to usopengolf
    Version      Date             Author               Request
@@ -12,7 +12,7 @@
 {% set ufc_series_flag = ["UFC"] %}
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','UFC'],schema= 'CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','UFC'],schema= 'fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_ufc as (

@@ -16,19 +16,38 @@
                     constrain_1,connector,constrain_2)%}
 case
 when
+{% if condition_1 !='' and constrain_1 !='not'  %}
 (
 {%for i in condition_1%}
 {{column_1}} {{constrain_1}} like '%{{i}}%' {% if not loop.last %}or{% endif %} {% endfor %}
 ) 
+{% endif %}
+
+{% if condition_1 !='' and constrain_1 =='not'  %}
+(
+{%for i in condition_1%}
+{{column_1}} {{constrain_1}} like '%{{i}}%' {% if not loop.last %}and{% endif %} {% endfor %}
+) 
+{% endif %}
+
 
 {{connector}} 
 
-{% if condition_2 !='' %}
+{% if condition_2 !='' and constrain_2 !='not'  %}
 (
 {%for j in condition_2%}
 {{column_2}} {{constrain_2}} like '%{{j}}%' {% if not loop.last %}or{% endif %}{% endfor %} 
 )
 {% endif %}
- then 1
+
+{% if condition_2 !='' and constrain_2 =='not'  %}
+(
+{%for j in condition_2%}
+{{column_2}} {{constrain_2}} like '%{{j}}%' {% if not loop.last %}and{% endif %}{% endfor %} 
+)
+{% endif %}
+then 1
 else 0 end as {{attribute}}_{{constrain_1}}_{{connector}}_{{constrain_2}}_flag
 {% endmacro %}
+ 
+

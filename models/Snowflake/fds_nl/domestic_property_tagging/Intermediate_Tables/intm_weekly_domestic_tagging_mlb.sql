@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_mlb
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to MLB
    Version      Date             Author               Request
@@ -19,7 +19,7 @@
 {% set mlb_shoulder_series_flag=['HOME RUN DERBY','PREVIEW','PRELUDE','MINOR','SPC','PRACTICE','SPECIAL',
      'PRE','REPEAT', 'REWIND', 'TOP 100 PROSPECTS', 'COLLEGIATE', 'FIRST YEAR PLAYER DRAFT']%}
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','mlb'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','mlb'],schema='fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_mlb as (

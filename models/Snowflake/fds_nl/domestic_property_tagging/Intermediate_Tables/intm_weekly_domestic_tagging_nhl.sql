@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_nhl
-   Schema	   : CONTENT
+   Schema	   : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to NHL
    Version      Date             Author               Request
@@ -17,7 +17,7 @@
 ('2021-01-13' ,'2021-04-30',"Regular"),('2021-05-01' ,'2021-07-31',"Post")]%}
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nhl'],schema='CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nhl'],schema='fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 with intm_weekly_domestic_tagging_nhl as (
 select src_broadcast_orig_date,broadcast_date,broadcast_network_name,src_series_name,src_episode_title,

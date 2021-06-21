@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_nascar
-   Schema	     : CONTENT
+   Schema	     : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to NASCAR
    Version      Date             Author               Request
@@ -25,7 +25,7 @@
 
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nascar'],schema= 'CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','nascar'],schema= 'fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_nascar as (

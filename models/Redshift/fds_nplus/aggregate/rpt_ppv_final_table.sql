@@ -55,7 +55,7 @@ SELECT  ordr_dt,
         count(distinct order_id) add_cnt
  from fds_nplus.fact_daily_subscription_order_status 
  where trunc(initial_order_dttm) in (select distinct adds_date from #full_list)-- where event_type!='current_ppv')
- and billing_country_cd not in ('usd','us') --and billing_sku_country_cd not in ('ca','us')
+ and billing_country_cd not in ('usd','us') and dim_country_id not in ('233','92','240','149','182','11','232') --and billing_sku_country_cd not in ('ca','us')
  --and payment_method in ('cybersource','stripe','incomm','paypal','roku_iap','google_iap') --,'roku_iap'
  group by 1,2,3
  )
@@ -130,12 +130,12 @@ create table #t1_hourly_comps_pct as
 select  (ag_hour*1.00)/ag_sum ag_sum_pct,a.adds_day_of_week,adds_time from
 (select ag_hour,adds_day_of_week,adds_time from
 (select avg(paid_adds)+avg(trial_adds) ag_hour,adds_time,adds_day_of_week from #final_table_up where adds_day_of_week in ('Friday','Saturday','Sunday') 
-and event_type not in ('current_ppv','comp3','comp2') --!='comp3' 
+and event_type not in ('current_ppv','comp4','comp5') --!='comp3' 
 group by adds_time,adds_day_of_week)) a 
 left join
 (select sum(ag_hour) ag_sum,adds_day_of_week from
 (select avg(paid_adds)+avg(trial_adds) ag_hour,adds_day_of_week from #final_table_up where adds_day_of_week in ('Friday','Saturday','Sunday') 
-and event_type not in ('current_ppv','comp3','comp2') --!='comp3'
+and event_type not in ('current_ppv','comp4','comp5') --!='comp3'
  group by adds_time,adds_day_of_week)
 group by 2) b
 on a.adds_day_of_week=b.adds_day_of_week;
@@ -145,7 +145,7 @@ on a.adds_day_of_week=b.adds_day_of_week;
 /*drop table if exists #t2_ghw_pct;
 create table #t2_ghw_pct as
 select avg(ghw_sum) ghw_avg,adds_day_of_week from
-(select sum(paid_adds)+sum(trial_adds) ghw_sum ,adds_day_of_week,event_name  from #final_table where event_type not in ('current_ppv','comp3','comp2')  
+(select sum(paid_adds)+sum(trial_adds) ghw_sum ,adds_day_of_week,event_name  from #final_table where event_type not in ('current_ppv','comp4','comp5')  
 group by adds_day_of_week,event_name) group by 2;*/
 
 -- calculating comps ghw sums and avg
@@ -153,7 +153,7 @@ drop table if exists #t2_ghw_total;
 create table #t2_ghw_total as
 (select sum(ghw_avg) tot_sum from
 (select avg(ghw_sum) ghw_avg,adds_day_of_week from
-(select sum(paid_adds)+sum(trial_adds) ghw_sum ,adds_day_of_week,event_name  from #final_table where event_type not in ('current_ppv','comp3','comp2')
+(select sum(paid_adds)+sum(trial_adds) ghw_sum ,adds_day_of_week,event_name  from #final_table where event_type not in ('current_ppv','comp4','comp5')
 group by adds_day_of_week,event_name) group by 2
 ));
 
@@ -162,7 +162,7 @@ drop table if exists #t2_ghw_pct;
 create table #t2_ghw_pct as
 select (ghw_avg*1.00)/tot_sum  tot_pct,adds_day_of_week from
 (select avg(ghw_sum) ghw_avg,adds_day_of_week from
-(select sum(paid_adds)+sum(trial_adds) ghw_sum ,adds_day_of_week,event_name  from #final_table where event_type not in ('current_ppv','comp3','comp2')  
+(select sum(paid_adds)+sum(trial_adds) ghw_sum ,adds_day_of_week,event_name  from #final_table where event_type not in ('current_ppv','comp4','comp5')  
 group by adds_day_of_week,event_name) group by 2) , #t2_ghw_total;
 
 

@@ -1,7 +1,7 @@
 /*
 *************************************************************************************************************************************************
    TableName   : intm_weekly_domestic_tagging_open_championship
-   Schema	     : CONTENT
+   Schema	     : fds_nl
    Contributor : B.V.Sai Praveen Chakravarthy & Raghava Bavisetty
    Description : Intermediate Ephemeral table for capturing the tagged data corresponding to open_championship
    Version      Date             Author               Request
@@ -16,7 +16,7 @@
 ('2019-07-18','2019-07-21',"Regular"),('2021-07-16','2021-07-19',"Regular")]%}
 
 
-{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','open_championship'],schema= 'CONTENT',
+{{ config(materialized='ephemeral',enabled = true,tags=['domestic','tagging','open_championship'],schema= 'fds_nl',
 post_hook = "grant select on {{ this }} to DA_RBAVISETTY_USER_ROLE") }}
 
 with intm_weekly_domestic_tagging_open_championship as (
