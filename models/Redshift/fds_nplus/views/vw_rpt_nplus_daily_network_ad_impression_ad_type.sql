@@ -1,8 +1,7 @@
 {{
   config({
 		 'schema': 'fds_nplus',	
-	     "materialized": 'view','tags': "rpt_nplus_daily_network_ad_impression_ad_type", "persist_docs": {'relation' : true, 'columns' : true},
-	"post-hook" : 'grant select on {{this}} to public'
+	     "materialized": 'view','tags': "rpt_nplus_daily_network_ad_impression_ad_type", "persist_docs": {'relation' : true, 'columns' : true}
 
         })
 }}
