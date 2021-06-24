@@ -2,6 +2,12 @@ image: ubuntu
 
 stages:
   - Deploy
+ 
+deploy_master_CD:
+  extends: .deploy_common
+  only:
+    refs:
+      - master
   
 #Pre Deployment steps stage
 Deploy:   
