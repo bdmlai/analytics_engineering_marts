@@ -46,8 +46,7 @@ AND sd.dim_order_method_id IN
             {{source('fds_cpg','dim_cpg_order_method')}}
         WHERE
             COALESCE(src_channel_name,'NULL') = 'RETURNS')
-AND sd.src_sys_cd IN ('cpgusshopify',
-                      'cpgeuroshopify')
+AND sd.src_sys_cd = 'cpgeuroshopify'
 AND ABS(COALESCE(sd.src_units_shipped,0))> 0
 GROUP BY
     1,2,3,4,5,6
