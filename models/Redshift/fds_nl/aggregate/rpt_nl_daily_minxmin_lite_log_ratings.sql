@@ -2,7 +2,8 @@
   config({
 		'schema': 'fds_nl',
 		"materialized": 'table','tags': "Phase 4B",
-		"persist_docs": {'relation' : true, 'columns' : true}
+		"persist_docs": {'relation' : true, 'columns' : true},
+		"post-hook": 'grant select on {{this}} to public'
   })
 }}
 SELECT
