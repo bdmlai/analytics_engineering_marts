@@ -22,3 +22,6 @@ test-paths: ["tests"]           # where to store test results
 
 models:
     analytics_engineering_marts:
+      Redshift:
+         +post-hook: 'grant select on {{ this }} to public'
+         +persist_docs: {'relation' : true, 'columns' : true}
