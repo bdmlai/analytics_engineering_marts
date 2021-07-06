@@ -21,9 +21,14 @@ sources:
       - name: rpt_nl_daily_minxmin_lite_log_ratings
       - name: rpt_nl_daily_wwe_program_ratings
       - name: rpt_tv_weekly_consolidated_kpi
-      - name: rpt_nl_monthly_program_kpi
+      - name: rpt_nl_monthly_us_tv_program_kpi
       - name: vw_rpt_nl_daily_wwe_program_ratings
       - name: vw_aggr_nl_monthly_hulu_wwe_vh_data
+      - name: rpt_nl_daily_brand_camp_owned_tv_geo
+      - name: rpt_nl_daily_brand_camp_owned_tv_demo
+      - name: vw_rpt_nl_monthly_us_tv_program_kpi
+      - name: vw_rpt_nl_daily_minxmin_lite_log_ratings
+
   - name: cdm
     tables:
       - name: dim_date
@@ -37,8 +42,15 @@ sources:
       - name: dim_venue
       - name: lookup_table
       - name: dim_media
+      - name: dim_video
+      - name: dim_smprovider_agegroup
+      - name: dim_gender
       - name: dim_story
 
+  - name: fds_fb
+    tables:
+       - name: dim_video
+       
   - name: fds_yt
     tables:
        - name: rpt_yt_wwe_engagement_daily
@@ -50,6 +62,7 @@ sources:
        - name: youtube_annotations
        - name: youtube_end_screens
        - name: youtube_cards
+       - name: dim_video
        - name: yt_amg_content_groups
        - name: rpt_yt_daily_wwe_talent
        - name: rpt_yt_daily_wwe_video
@@ -81,9 +94,8 @@ sources:
        - name: rpt_nplus_monthly_nxt_live_vod
        - name: rpt_nplus_yearly_hof_live
        - name: rpt_nplus_yearly_hof_live_vod
-       - name: rpt_network_weekly_bump_history
-       - name: rpt_network_weekly_bump_live
-       - name: vw_rpt_network_weekly_bump_live
+       - name: rpt_nplus_weekly_bump_live
+       - name: vw_rpt_nplus_weekly_bump_live
        - name: rpt_nplus_daily_ppv_internet_survey
        - name: fact_daily_viewership
        - name: AGGR_MONTHLY_DVC_PLATFORM_CNTRY_VIEWERSHIP
@@ -104,7 +116,6 @@ sources:
        - name: aggr_monthly_seriesgroup_debutyear_viewership
        - name: fact_daily_subscriber_status
        - name: drvd_intra_hour_quarter_hour_adds
-       - name: rpt_nplus_weekly_bump_live
        - name: rpt_nplus_daily_network_ad_impression_ad_type
        - name: aggr_monthly_content_location_viewership
        - name: vw_ads_conviva_daily_pulse
@@ -123,12 +134,19 @@ sources:
        - name: vw_rpt_daily_fb_published_video
        - name: vw_rpt_daily_fb_published_post
        - name: fact_fb_engagement_post
+       - name: vw_aggr_fb_daily_consumption_engagement_by_video_todate
+       - name: vw_aggr_fb_daily_consumption_engagement_by_post_todate
+       - name: fact_fb_video_viewership_audience_bycountry
+       - name: fact_fb_video_viewership_audience_byagegender
+       - name: rpt_fbk_daily_brand_camp_video_by_demo
+       
   - name: fds_tw
     tables:
        - name: fact_tw_consumption_post
        - name: fact_tw_published_post
        - name: fact_tw_engagement_post
        - name: vw_rpt_daily_tw_published_post
+       - name: vw_aggr_tw_daily_consumption_engagement_by_post_todate
   - name: fds_igm
     tables:
        - name: fact_ig_consumption_post
@@ -142,6 +160,7 @@ sources:
        - name: vw_rpt_daily_ig_published_post
        - name: fact_ig_consumption_frame
        - name: fact_ig_engagement_frame
+       - name: vw_aggr_ig_daily_consumption_engagement_by_post_todate
   - name: fds_sc
     tables:
        - name: fact_sc_consumption_story   
@@ -151,6 +170,7 @@ sources:
        - name: vw_aggr_scd_daily_consumption_by_frame_todate
        - name: fact_scd_engagement_frame
        - name: fact_sc_consumption_frame
+       - name: agg_scd_daily_consumption_by_frame_todate       
          
   - name: udl_nplus
     tables:
@@ -187,6 +207,10 @@ sources:
        - name: rpt_cp_monthly_streaming_qoe_network
        - name: rpt_cp_monthly_streaming_qoe_dotcom
        - name: rpt_cp_monthly_streaming_qoe_le
+       - name: rpt_cp_monthly_global_followership_by_platform
+       - name: rpt_cp_daily_brand_camp_rpa_input
+       - name: rpt_cp_daily_brand_camp_video_by_geo
+       - name: rpt_cp_daily_brand_camp_platform_by_geo
   - name: fds_kntr
     tables:
        - name: fact_kntr_wwe_telecast_data
@@ -240,6 +264,7 @@ sources:
       - name: jde_daily_sales_order_history_f42119
       - name: jde_daily_merch_settlement_header_f55m001
       - name: jde_daily_merch_settlement_detail_f55m002
+      - name: ga_cpg_daily_hits
   - name: hive_udl_pii
     tables:
       - name: restricted_jde_daily_address_by_date_f0116
@@ -317,7 +342,10 @@ sources:
       - name: conviva_pulse_le_qoe_daily_all_traffic
       - name: conviva_pulse_le_qoe_daily_all_traffic_apple_tv
       - name: conviva_pulse_le_qoe_daily_all_traffic_device_type
-      - name: conviva_pulse_le_qoe_daily_all_traffic_player_type     
+      - name: conviva_pulse_le_qoe_daily_all_traffic_player_type 
+      - name: wwe_daily_digital_brand_campaign
+      - name: tv_daily_broadcast_schedule
+      - name: aew_weekly_lite_log
       
   - name: hive_udl_voc
     tables:

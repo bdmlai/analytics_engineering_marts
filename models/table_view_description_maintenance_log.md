@@ -724,6 +724,8 @@
 * Date : 06/06/2021 ; Developer: Rahul Chandran ; Change: Modified to match NXT Programs with other NXT variants as apart of Jira: PSTA-3592
 
 * Date : 06/06/2921 ; Developer: Rahul Chandran ; Change: Modified to add commercial overlap indicator column as apart of Jira: PSTA-3485
+
+* Date : 06/28/2921 ; Developer: Rahul Chandran ; Change: Modified to integrate with AEW data as apart of Jira: PSTA-3454
 {% enddocs %}
 
 {% docs vw_rpt_nl_daily_minxmin_lite_log_ratings %}
@@ -2893,6 +2895,7 @@ and another language for Pay per view (PPV) Events.
 * Description : This table has the Bump TV show viewership data for platforms Network, Twitch, Facebook, Instagram, Twitter and Youtube
 ## Maintenance Log
 * Date : 5/11/2021 ; Developer: Lakshmanan Murugesan; Change: Initial Version 
+* Date : 6/29/2021 ; Developer: Lakshmanan Murugesan; Change: Modified code to enable the process to on any day for previously concluded sunday shows
 {% enddocs %} 
 
 {% docs vw_rpt_nplus_weekly_bump_live %}
@@ -2937,9 +2940,21 @@ and another language for Pay per view (PPV) Events.
 * Date        : 05/31/2021
 * Version     : 1.0
 * TableName   : aggr_scd_daily_consumption_by_story_todate
-* Schema   	: fds_sc
+* Schema   	  : fds_sc
 * Contributor : Bharath Sainath 
 * Description : This aggregate tables contains snapchat discover consumption metrics rolled up to story level.
+## Maintenance Log
+* Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %} 
+
+{% docs vw_aggr_scd_daily_consumption_by_story_todate %}
+## Implementation Detail
+* Date        : 05/31/2021
+* Version     : 1.0
+* TableName   : vw_aggr_scd_daily_consumption_by_story_todate
+* Schema   	  : fds_sc
+* Contributor : Bharath Sainath 
+* Description : This view contains snapchat discover consumption metrics rolled up to story level.
 ## Maintenance Log
 * Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
 {% enddocs %} 
@@ -2956,14 +2971,38 @@ and another language for Pay per view (PPV) Events.
 * Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
 {% enddocs %} 
 
+{% docs vw_aggr_scd_daily_consumption_story %}
+## Implementation Detail
+* Date        : 05/31/2021
+* Version     : 1.0
+* TableName   : vw_aggr_scd_daily_consumption_story
+* Schema   	  : fds_sc
+* Contributor : Bharath Sainath 
+* Description : This view contains snapchat discover consumption metrics rolled up to story level.
+## Maintenance Log
+* Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %} 
+
 {% docs aggr_scd_daily_engagement_story %}
 ## Implementation Detail
 * Date        : 05/31/2021
 * Version     : 1.0
 * TableName   : aggr_scd_daily_engagement_story
-* Schema   	: fds_sc
+* Schema   	  : fds_sc
 * Contributor : Bharath Sainath 
 * Description : This aggregate tables contains snapchat discover engagement metrics rolled up to story level.
+## Maintenance Log
+* Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_aggr_scd_daily_engagement_story %}
+## Implementation Detail
+* Date        : 05/31/2021
+* Version     : 1.0
+* TableName   : vw_aggr_scd_daily_engagement_story
+* Schema   	  : fds_sc
+* Contributor : Bharath Sainath 
+* Description : This view contains snapchat discover engagement metrics rolled up to story level.
 ## Maintenance Log
 * Date : 5/31/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
 {% enddocs %}
@@ -3024,11 +3063,11 @@ and another language for Pay per view (PPV) Events.
 *   Change      : Enhancement is done to add duration_hours column. Also, new table is created only for Tiktok platform splitting from rpt_cp_monthly_global_consumption_by_platform. Also, removed the prehook delete logic.
 {% enddocs %}
 
-{% docs rpt_nl_monthly_program_kpi %}
+{% docs rpt_nl_monthly_us_tv_program_kpi %}
 ## Implementation Detail
 *   Date        : 06/10/2021
 *   Version     : 1.0
-*   ViewName    : rpt_nl_monthly_program_kpi
+*   ViewName    : rpt_nl_monthly_us_tv_program_kpi
 *   Schema	: fds_nl
 *   Contributor : Sandeep Battula
 *   Description : This table holds the kpis like average viewers, program rating etc for the specific domestic tv programs for all demographic groups for multiple period codes- Live, Live+same day, Live +3 day and Live+7 day. 
@@ -3080,3 +3119,184 @@ and another language for Pay per view (PPV) Events.
 {% enddocs %}
 
 
+{% docs rpt_cp_daily_brand_camp_rpa_input %}
+## Implementation Detail
+*   Date        : 06/24/2021
+*   Version     : 1.0
+*   ViewName    : rpt_cp_daily_brand_camp_rpa_input
+*   Schema	: fds_cp
+*   Contributor : Lakshmanan Murugesan
+*   Description : This reporting table holds the ID's from hive_udl_cp.wwe_daily_digital_brand_campaign that could not be identified in fact tables.
+
+{% enddocs %}
+
+
+{% docs rpt_cp_daily_brand_camp_video_by_geo %}
+## Implementation Detail
+*   Date        : 06/24/2021
+*   Version     : 1.0
+*   ViewName    : rpt_cp_daily_brand_camp_video_by_geo
+*   Schema	: fds_cp
+*   Contributor : Lakshmanan Murugesan
+*   Description : This reporting table holds the brand campaign metrics for youtube, facebook, twitter and instagram channels by geography. 
+
+{% enddocs %}
+
+
+{% docs rpt_cp_daily_brand_camp_platform_by_geo %}
+## Implementation Detail
+*   Date        : 06/24/2021
+*   Version     : 1.0
+*   ViewName    : rpt_cp_daily_brand_camp_platform_by_geo
+*   Schema	: fds_cp
+*   Contributor : Lakshmanan Murugesan
+*   Description : This reporting table holds the brand campaign metrics by platform and geography. 
+
+{% enddocs %}
+
+{% docs rpt_fbk_daily_brand_camp_video_by_demo %}
+## Implementation Detail
+*   Date        : 06/24/2021
+*   Version     : 1.0
+*   ViewName    : rpt_fbk_daily_brand_camp_video_by_demo
+*   Schema	: fds_fbk
+*   Contributor : Lakshmanan Murugesan
+*   Description : This reporting tables holds the brand campaign metrics for facebook channel by demographic
+
+{% enddocs %}
+
+
+{% docs rpt_nl_daily_brand_camp_owned_tv_geo %}
+## Implementation Detail
+*   Date        : 06/24/2021
+*   Version     : 1.0
+*   ViewName    : rpt_nl_daily_brand_camp_owned_tv_geo
+*   Schema	: fds_nl
+*   Contributor : Lakshmanan Murugesan
+*   Description : This reporting tables holds the owned TV channel metrics by geography
+
+{% enddocs %}
+
+
+{% docs rpt_nl_daily_brand_camp_owned_tv_demo %}
+## Implementation Detail
+*   Date        : 06/24/2021
+*   Version     : 1.0
+*   ViewName    : rpt_nl_daily_brand_camp_owned_tv_demo
+*   Schema	: fds_nl
+*   Contributor : Lakshmanan Murugesan
+*   Description : This reporting tables holds the owned TV channel metrics by demographic
+
+{% enddocs %}
+
+
+{% docs rpt_cp_monthly_digital_and_social_minutes %}
+
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* TableName   : rpt_cp_monthly_digital_and_social_minutes
+* Schema      : fds_cp
+* Contributor : Jomy
+* Description : rpt_cp_monthly_digital_and_social_minutes consists of overall minutes played in digital and social media platforms for Snapchat & Instagram 
+
+## Schedule Details
+* Frequency : Daily ; 06:45 A.M EST (Sun-Mon)
+* Dependent Jobs (process_name ; process_id) : t_di_delmondo_fds_fact_ig_published_story_abac; 10191 (Sun-Mon)
+
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Jomy ; Change: Initial Version as a part of Phase 4a Project.
+
+{% enddocs %}
+
+
+{% docs vw_rpt_cp_monthly_digital_and_social_minutes %}
+
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* TableName   : vw_rpt_cp_monthly_digital_and_social_minutes
+* Schema      : fds_cp
+* Contributor : Jomy
+* Description : vw_rpt_cp_monthly_digital_and_social_minutes consists of overall minutes played in digital and social media platforms for Snapchat & Instagram 
+
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Jomy ; Change: Initial Version as a part of Phase 4a Project.
+
+{% enddocs %}
+
+
+{% docs vw_rpt_yt_monthly_amg_content_groups %}
+
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* TableName   : vw_rpt_yt_monthly_amg_content_groups 
+* Schema      : fds_cp
+* Contributor : Jomy
+* Description : vw_rpt_yt_monthly_amg_content_groups consists of amg content groups videos in minutes for youtube. 
+
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Jomy ; Change: Initial Version as a part of Phase 4a Project.
+
+{% enddocs %}
+
+{% docs rpt_cp_monthly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* ViewName    : rpt_cp_monthly_consolidated_kpi
+* Schema	  : fds_cp
+* Contributor : Bharath Sainath
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %}
+
+{% docs rpt_cpg_monthly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* ViewName    : rpt_cpg_monthly_consolidated_kpi
+* Schema	  : fds_cpg
+* Contributor : Bharath Sainath 
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom, CPG. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_cpg_monthly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_cpg_monthly_consolidated_kpi
+* Schema	  : fds_cpg
+* Contributor : Bharath Sainath 
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom, CPG. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %}
+
+{% docs rpt_le_monthly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* ViewName    : rpt_le_monthly_consolidated_kpi
+* Schema	  : fds_le
+* Contributor : Bharath Sainath 
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom, CPG. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %}
+
+{% docs vw_rpt_le_monthly_consolidated_kpi %}
+## Implementation Detail
+* Date        : 07/05/2021
+* Version     : 1.0
+* ViewName    : vw_rpt_le_monthly_consolidated_kpi
+* Schema	  : fds_le
+* Contributor : Bharath Sainath 
+* Description : Reporting table is for consolidated KPI dashboard containing metrics related to Network subscriber and Digital platforms i.e. Youtube, Facebook, Twitter, Snapchat, Instagram and Doctom, CPG. This table is refreshed weekly as the metrics are aggregated weekly from Monday to Sunday.
+## Maintenance Log
+* Date : 07/05/2021 ; Developer: Bharath Sainath ; Change: Initial Version 
+{% enddocs %}

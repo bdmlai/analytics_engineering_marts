@@ -1,12 +1,4 @@
 version: 2
-sources:
-  - name: fds_fbk
-    tables:
-      - name: vw_aggr_fb_daily_consumption_engagement_by_video_todate
-
-  - name: cdm
-    tables:
-      - name: dim_video
 models:
   - name: vw_rpt_daily_fb_published_video
     description: '{{ doc("vw_rpt_daily_fb_published_video") }}'
