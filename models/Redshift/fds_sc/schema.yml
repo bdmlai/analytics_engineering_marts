@@ -45,3 +45,191 @@ models:
           description: Story view time
         - name: as_on_date
           description: Record as-on date
+          
+  - name: aggr_scd_daily_consumption_story
+    description:  '{{ doc("aggr_scd_daily_consumption_story") }}'  
+    columns:   
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_story_id
+          description: Unique Identifier of the social media story id
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider 
+        - name: as_on_date
+          description: Record as-on date
+        - name: story_name
+          description: Name of the publisher story     
+        - name: snap_time_posted
+          description: The date and time the snap or story went live 
+        - name: duration_hours
+          description: The length of time the snap or story was live in hours
+        - name: topsnap_views
+          description: Total time spent in the topsnap(s)
+        - name: total_time_viewed_secs 
+          description: The length of time the snap or story was live in hours
+        - name: topsnap_time_viewed_secs
+          description: The length of time the snap or story was live in hours
+
+  - name: vw_aggr_scd_daily_consumption_story
+    description:  '{{ doc("vw_aggr_scd_daily_consumption_story") }}'  
+    columns:   
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_story_id
+          description: Unique Identifier of the social media story id
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider 
+        - name: as_on_date
+          description: Record as-on date
+        - name: story_name
+          description: Name of the publisher story     
+        - name: snap_time_posted
+          description: The date and time the snap or story went live 
+        - name: duration_hours
+          description: The length of time the snap or story was live in hours
+        - name: topsnap_views
+          description: Total time spent in the topsnap(s)
+        - name: total_time_viewed_secs 
+          description: The length of time the snap or story was live in hours
+        - name: topsnap_time_viewed_secs
+          description: The length of time the snap or story was live in hours
+          
+  - name: aggr_scd_daily_engagement_story
+    description:  '{{ doc("aggr_scd_daily_engagement_story") }}' 
+    columns:   
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_story_id
+          description: Unique Identifier of the social media story id
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider 
+        - name: as_on_date
+          description: Record as-on date
+        - name: story_name
+          description: Name of the publisher story     
+        - name: snap_time_posted
+          description: The date and time the snap or story went live 
+        - name: duration_hours
+          description: The length of time the snap or story was live in hours 
+        - name: screenshots
+          description: Number of screenshots
+        - name: shares
+          description: Number of distinct shares between users (e.g. 1 person sharing to 3 friends = 3 shares)   
+
+  - name: vw_aggr_scd_daily_engagement_story
+    description:  '{{ doc("vw_aggr_scd_daily_engagement_story") }}' 
+    columns:   
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_story_id
+          description: Unique Identifier of the social media story id
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider 
+        - name: as_on_date
+          description: Record as-on date
+        - name: story_name
+          description: Name of the publisher story     
+        - name: snap_time_posted
+          description: The date and time the snap or story went live 
+        - name: duration_hours
+          description: The length of time the snap or story was live in hours 
+        - name: screenshots
+          description: Number of screenshots
+        - name: shares
+          description: Number of distinct shares between users (e.g. 1 person sharing to 3 friends = 3 shares)   
+    
+  - name: aggr_scd_daily_consumption_by_story_todate
+    description:  '{{ doc("aggr_scd_daily_consumption_by_story_todate") }}'
+    columns:   
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_story_id
+          description: Unique Identifier of the social media story id
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider 
+        - name: as_on_date
+          description: Record as-on date
+        - name: story_name
+          description: Name of the publisher story     
+        - name: snap_time_posted
+          description: The date and time the snap or story went live 
+        - name: duration_hours
+          description: The length of time the snap or story was live in hours
+        - name: c_same_day_topsnap_views
+          description: Same day total time spent in the topsnap
+        - name: c_same_day_total_time_viewed_secs
+          description: Same day total time viewed (sec)/Unique viewers
+        - name: c_same_day_topsnap_time_viewed_secs
+          description: Same day total time spent in the topsnap(s)
+        - name: c_3day_topsnap_views
+          description: Three day total time spent in the topsnap
+        - name: c_3day_total_time_viewed_secs
+          description: Three day total time viewed (sec)/Unique viewers
+        - name: c_3day_topsnap_time_viewed_secs
+          description: Three day total time viewed (sec)/Unique viewers
+        - name: c_7day_topsnap_views
+          description: Seven day total time spent in the topsnap
+        - name: c_7day_total_time_viewed_secs
+          description: Seven day total time viewed (sec)/Unique viewers
+        - name: c_7day_topsnap_time_viewed_secs
+          description: Seven day total time viewed (sec)/Unique viewers  
+        - name: c_30day_topsnap_views
+          description: Thirty day total time spent in the topsnap
+        - name: c_30day_total_time_viewed_secs
+          description: Thirty day total time viewed (sec)/Unique viewers
+        - name: c_30day_topsnap_time_viewed_secs
+          description: Thirty day total time viewed (sec)/Unique viewers      
+
+  - name: vw_aggr_scd_daily_consumption_by_story_todate
+    description:  '{{ doc("vw_aggr_scd_daily_consumption_by_story_todate") }}'
+    columns:   
+        - name: dim_smprovider_account_id
+          description: Unique Identifier of the social media provider account id
+        - name: dim_platform_id
+          description: Unique Identifier of the social media platform id
+        - name: dim_story_id
+          description: Unique Identifier of the social media story id
+        - name: dim_date_id
+          description: Unique Identifier of the social media data received date from the provider 
+        - name: as_on_date
+          description: Record as-on date
+        - name: story_name
+          description: Name of the publisher story     
+        - name: snap_time_posted
+          description: The date and time the snap or story went live 
+        - name: duration_hours
+          description: The length of time the snap or story was live in hours
+        - name: c_same_day_topsnap_views
+          description: Same day total time spent in the topsnap
+        - name: c_same_day_total_time_viewed_secs
+          description: Same day total time viewed (sec)/Unique viewers
+        - name: c_same_day_topsnap_time_viewed_secs
+          description: Same day total time spent in the topsnap(s)
+        - name: c_3day_topsnap_views
+          description: Three day total time spent in the topsnap
+        - name: c_3day_total_time_viewed_secs
+          description: Three day total time viewed (sec)/Unique viewers
+        - name: c_3day_topsnap_time_viewed_secs
+          description: Three day total time viewed (sec)/Unique viewers
+        - name: c_7day_topsnap_views
+          description: Seven day total time spent in the topsnap
+        - name: c_7day_total_time_viewed_secs
+          description: Seven day total time viewed (sec)/Unique viewers
+        - name: c_7day_topsnap_time_viewed_secs
+          description: Seven day total time viewed (sec)/Unique viewers  
+        - name: c_30day_topsnap_views
+          description: Thirty day total time spent in the topsnap
+        - name: c_30day_total_time_viewed_secs
+          description: Thirty day total time viewed (sec)/Unique viewers
+        - name: c_30day_topsnap_time_viewed_secs
+          description: Thirty day total time viewed (sec)/Unique viewers                      
