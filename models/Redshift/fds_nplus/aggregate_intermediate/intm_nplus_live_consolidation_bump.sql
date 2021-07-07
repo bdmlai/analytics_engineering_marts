@@ -48,5 +48,5 @@ FROM
                 FROM
                         {{source('fds_nplus','rpt_nplus_weekly_bump_live')}}
                 WHERE
-                        event_date <> TRUNC(convert_timezone('AMERICA/NEW_YORK', SYSDATE))
+                        event_date not in  (select distinct event_date from {{ ref("intm_nplus_live_manual_bump") }}) --TRUNC(convert_timezone('AMERICA/NEW_YORK', SYSDATE))
                 AND     data_level  = 'Live' )
