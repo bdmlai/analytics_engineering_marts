@@ -9,7 +9,7 @@ FROM
                         content_title               ,
                         TRUNC(first_stream)        AS debut,
                         COUNT(DISTINCT src_fan_id) AS views,
-                        SUM(play_time)/60          AS minutes
+                        SUM(play_time)          AS minutes
                 FROM
                         {{source('fds_nplus','fact_daily_content_viewership')}}
                 WHERE
